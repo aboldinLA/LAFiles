@@ -1,0 +1,129 @@
+	.equal2 {
+		display:table;
+		border-collapse:separate;
+	}
+	.equal3 {
+		display:table;
+		border-collapse:separate;
+	}	
+	.row2 {
+		display:table-row;
+	}
+	.row3{
+		display:table-row;
+	}	
+	.row2 div {
+		display:table-cell;
+	}
+	.row3 div {
+		display:table-cell;
+	}	
+	
+	/* Styling rules to make the example look nicer
+	html,body {
+		margin:0;
+		padding:0;
+		color:#000;
+	}  */
+	/* body {
+		font:76%/140% "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, sans-serif;
+	} */
+	.equal2 {
+		position:relative;
+		left:-8px;
+		top:0px;		
+		margin:10px auto;
+		border-spacing:5px;
+		background:#fff;
+		width:725px;
+	}
+	.equal3 {
+		position:relative;
+		left:-8px;
+		top:0px;		
+		margin:10px auto;
+		border-spacing:5px;
+		background:#fff;
+		width:725px;
+	}	
+	
+	.row2 div {
+		background:#fff;
+	}
+	.row3 div {
+		background:#fff;
+	}	
+	.row2 div.one {
+		width:125px;
+	}
+	.row3 div.one {
+		width:125px;
+	}	
+	.row2 div.two {
+		width:300px;
+		vertical-align:top;
+	}
+	.row3  div.two {
+		width:300px;
+		vertical-align:top;
+	}	
+	.row2 div.three {
+		width:125px;
+		vertical-align:middle;
+	}
+	.row3 div.three {
+		width:125px;
+		vertical-align:middle;
+	}	
+	.row2 div.four {
+		width:125px;
+		vertical-align:middle;
+	}
+	.row3 div.four {
+		width:125px;
+		vertical-align:middle;
+	}	
+	.row2 div.six {
+		width:600px;
+		vertical-align:top;
+	}
+	.row3 div.six {
+		width:600px;
+		vertical-align:top;
+	}
+	
+	.row2 div h2 {
+		margin:0 0 0.5em 0;
+		padding:0.5em 10px;
+		font-size:1.2em;
+		color:#fff;
+		background:#595B30;
+	}
+	.row2 div p {
+		font: 14px/1.85em 'Trebuchet MS', Arial, Helvetica, sans-serif;
+		font-weight:bold;
+		margin:0.5em 0;
+		padding:0 10px;
+		text-shadow:none;
+	}
+	.row3 div p {
+		font: 14px/1.85em 'Trebuchet MS', Arial, Helvetica, sans-serif;
+		font-weight:bold;
+		margin:0.5em 0;
+		padding:0 10px;
+		text-shadow:none;
+	}	
+	.row2 div img {
+		margin:0.5em 0;
+		padding:0 0;
+		border: 1px black solid;
+	}
+	.row3 div img {
+		margin:0.5em 0;
+		padding:0 0;
+	}	
+	
+		
+	#labfooter {
+		text-align:center;
+	}

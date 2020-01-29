@@ -1,0 +1,47 @@
+.infobox {
+    display: block;
+    border: 1px solid #9FBDAB;
+    background: #eaf3ed;
+    /* border: 1px solid #10592D; */
+}
+
+.infotitle {
+    display: block;
+    word-spacing: normal;
+    background: #a67c39;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #9FBDAB;
+    color: black;
+    font-size: 12px;
+    font-family: "Arial Black", Verdana,  Arial, sans-serif;
+    padding: 2px 8px 2px 8px;
+}
+
+/* Boxes and Shadows */
+
+.wrap1, .wrap2, .wrap3 {
+    display:inline-table;
+    /* \*/display:block;/**/
+}
+
+.wrap1 {
+    /* float: left; */
+    background:url('/imgz/box/shadow2.gif') right bottom no-repeat;
+}
+
+.wrap2 {
+    background: url('/imgz/box/corner_bl.gif') -12px 100% no-repeat;
+}
+
+.wrap3 {
+    padding: 0 7px 7px 0;
+    background: url('/imgz/box/corner_tr.gif') 100% -12px no-repeat;
+}
+.wrap3 img {
+    display:block;
+    border:1px solid #ccc;
+    border-color:#efefef #ccc #ccc #efefef;
+}
+
+
+

@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Untitled Document</title>
+
+
+</head>
+
+<body>
+<script type='text/javascript'>
+	function notEmpty(elem, helperMsg){
+ 		if(elem.value.length == 0){
+  			alert(helperMsg);
+  			elem.focus();
+  			return false;
+ 		}
+ 			return true;
+		}
+</script>
+
+
+<form>
+Required Field: <input type='text' id='req1'/>
+<input type='button' 
+ onSubmit="notEmpty(document.getElementById('zip'), 'Please Enter Zip Code')"
+ value='Check Field' />
+</form>
+
+s
+</body>
+</html>

@@ -1,0 +1,49 @@
+@media only screen and (max-width: 767px){
+										.page-top-banner h1{
+    											font-size: 36px !important;
+										}
+										.content-section h2{
+											font-size: 28px !important;
+											margin-top: 0px;
+										}
+										.content-section h3{
+											font-size: 18px !important;
+											padding-top: 10px;
+    										margin-top: 0px;
+										}
+										.about-section{
+											padding:0px 0px !important;
+										}
+										.ab-col{
+											margin-top:20px;
+										}
+									}
+									
+									@media only screen and (max-width: 490px){
+										.page-top-banner .inner-banner{
+    											padding-top:40px !important;
+										}
+									}
+									@media only screen and (min-width: 768px) and (max-width: 768px){
+										.about-section{
+											padding:0px 0px !important;
+										}
+										.ab-col{
+											margin-top:20px;
+										}
+									}
+									@media only screen and (min-width: 769px) and (max-width: 1024px){
+									
+										.ab-col{
+											margin-top:20px;
+										}
+										.about-section{
+											padding:0px 0px !important;
+										}
+									}
+									
+									@media only screen and (min-width: 700px) and (min-width: 1024px){
+										.page-top-banner .inner-banner{
+											padding-top: 70px !important;
+										}
+									}

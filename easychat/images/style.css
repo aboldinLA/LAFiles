@@ -1,0 +1,151 @@
+body, #enduserchatwindow, #loginform
+{
+	margin:0px;
+	font-family: Arial, Helvetica, sans-serif;
+	background:url(bg.jpg);
+	background-repeat: no-repeat;
+	background-color: #2893E7;
+}
+
+#enduserchatwindow, #loginform
+{
+	border-radius: 15px;	
+}
+
+div 
+{
+	font-family: Arial, Helvetica, sans-serif;	
+}
+
+h1, h2, h3, h4
+{
+	color: #FFFFFF;
+		
+}
+
+.chatwindow
+{
+	/*margin: auto;	*/
+	margin:10px;
+	border: 1px solid #cccccc;
+	width: 484px;
+
+	background: #F1F3F5;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	font-size : 12px;
+	border-collapse:collapse;
+	border-radius: 15px;
+}
+
+.chatoutput
+{
+	margin-top:20px;
+	border: 1px solid #cccccc;
+	width: 400px;
+	background: #E9ECEF;
+	text-align:left;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	font-size : 12px;
+	padding:2px;
+	min-height:130px;
+	max-height:250px;
+	overflow-y: auto;
+	overflow-x: auto; /* old ie in case does not wrap giant words */
+	word-wrap: break-word;
+}
+
+
+.usertypingnotification
+{   
+	width: 400px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight:normal;
+	font-size : 10px;
+	margin-top:2px;
+	margin-bottom:0px;	
+	margin-left: 60px;
+}
+
+.msgresponsearea
+{
+	clear:both;   
+	border: 1px solid #cccccc;
+	width: 400px;
+	background: #E9ECEF;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	font-size : 12px;
+	padding:5px;
+	margin-top:5px;
+	margin-bottom:10px;	
+	margin-left: 60px;
+}
+
+.caption
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	margin:10px;
+	font-size : 14px;
+	color:#36F;
+}
+
+.icon
+{
+	width:60px;
+	height:100px;
+	padding:0px;
+	margin:0px;
+	border:0px;
+	float:left;
+	background-image:url(chaticon.png);
+	background-repeat: no-repeat;
+	background-position:center center;
+}
+
+p
+{
+	margin:0px;
+	padding:0px;
+}
+
+.adminusername
+{
+	font-weight:bold;
+	color:#03F;
+	padding-right:5px;
+}
+.username
+{
+	font-weight:bold;
+	color:#900;
+	padding-right:5px;
+}
+
+.msgtxt
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight:normal;
+	font-size:12px;
+	color:#333;
+	width:240px;
+	height:35px;
+	overflow-y: auto;
+	resize:none;
+	
+}
+
+#loginform
+{
+	border: 1px solid #063;
+	width:460px;
+	height:360px;
+	background-color:#F8FFFA;
+	color: #030;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:18pt;
+	margin:10px;
+	padding:10px;
+}

@@ -1,0 +1,578 @@
+<?php
+
+require_once("template_class.php");
+
+class xlist extends template_class {
+    // meta
+    var $parentName;
+    var $errList;
+
+    // columns
+    var $id;
+    var $idAccount;
+    var $idParent;
+    var $sub_number;
+    var $name;
+    
+
+    function xlist() {
+        // table name
+        $table   = "xlist";
+        // list of db columns
+        $columns = array(
+            'id',
+            'idAccount',
+            'idParent',
+            'sub_number',
+            'name'
+        );
+        $this->instantiate($table,$columns,$record);
+    }
+
+    function action($action = 'default', $vars = NULL) {
+    }
+
+    function fetchXlistArray($csList=NULL) {
+        if(is_null($csList)) {
+            $list = NULL;
+            // return them all
+        } else if(is_string($csList)) {
+            // comma seperated list
+            $list = $csList;
+        } else if(is_numeric($csList)) {
+            $list = $csList;
+            // single id
+        } else if(is_array($csList)) {
+            $list = implode(',',$csList);
+            // already in an array
+        }
+
+        $query= "select * from " . $this->dbTable;
+
+        if(!is_null($list)) {
+            $query .= " where find_in_set(id,'$list')";
+        }
+
+
+        if(DB::isError($result = $this->db->getAll($query))) {
+            $this->dbError("getXlistArray::query", $result);
+            return(FALSE);
+        }
+
+        if(!is_array($result)) {
+            return(array(array('name' => 'None')));
+        } else if(count($result) == 0) {
+            return(array(array('name' => 'None')));
+        } else {
+            return($result);
+        }
+    }
+
+    function fetchXlistWholesaleParentArray() {
+        $query  = "select * from " . $this->dbTable . " where idParent=0 AND ";
+        $query .= " find_in_set(id,'31,36,35,38,49') order by name";
+
+        if(DB::isError($result = $this->db->getAll($query))) {
+            $this->dbError("getXlistParentArray::query", $result);
+            return(FALSE);
+        }
+        return($result);
+    }
+	
+    function fetchXlistWholesaleParentArray2() {
+        $query  = "select * from " . $this->dbTable . " where idParent=0 AND ";
+        $query .= " find_in_set(id,'34,35,1211') order by name";
+
+        if(DB::isError($result = $this->db->getAll($query))) {
+            $this->dbError("getXlistParentArray::query", $result);
+            return(FALSE);
+        }
+        return($result);
+    }	
+
+    function fetchXlistParentArray() {
+        $query = "select * from " . $this->dbTable . " where idParent=0 order by name";
+        if(DB::isError($result = $this->db->getAll($query))) {
+            $this->dbError("getXlistParentArray::query", $result);
+            return(FALSE);
+        }
+        return($result);
+    }
+	
+    function fetchXlistParentArray10() {
+        $query = "select * from " . $this->dbTable . " where idParent=0 AND ";
+        $query .= " find_in_set(id,'27,28,1209,1210,1211,40,30,1300,1139,1301,32,1214,33,38,1212,1216,1002,34,29,1215,41,1213,35') order by name"; 
+		
+        if(DB::isError($result = $this->db->getAll($query))) {
+            $this->dbError("getXlistParentArray::query", $result);
+            return(FALSE);
+        }
+        return($result);
+    }	
+	
+	// excluded wholesale categories here
+
+    function fetchXlistParentArray2() {
+        $query = "select * from " . $this->dbTable . " where idParent=0 and idAccount=0 AND id!=1381 AND id!=1382 AND id!=1367 AND id!=35 AND id!=34 order by name";
+        if(DB::isError($result = $this->db->getAll($query))) {
+            $this->dbError("getXlistParentArray::query", $result);
+            return(FALSE);
+        }
+        return($result);
+    }
+
+    function fetchXlistParentArray3() {
+        $query = "select * from " . $this->dbTable . " where idParent=0 and idAccount=1 order by name";
+        if(DB::isError($result = $this->db->getAll($query))) {
+            $this->dbError("getXlistParentArray::query", $result);
+            return(FALSE);
+        }
+        return($result);
+    }
+
+    function fetchXlistChildrenByName($name) {
+        // used by wholesale and retail 
+        $query = "select * from {$this->dbTable} where name like '%{$name}%' and (idParent<>34 and idParent<>35) order by name"; 
+        if(DB::isError($result = $this->db->getAll($query))) {
+            $this->dbError("getXlistParentArray::query", $result);
+            return(FALSE);
+        }
+        return($result);
+    }
+
+
+    function fetchXlistChildrenArray($idParent) {
+        if(!is_numeric($idParent)) {
+            return(FALSE);
+        }
+        $query = "select * from " . $this->dbTable . " where idParent={$idParent} order by name";
+        if(DB::isError($result = $this->db->getAll($query))) {
+            $this->dbError("getXlistParentArray::query", $result);
+            return(FALSE);
+        }
+        return($result);
+    }
+
+
+    function displayXlistSelectionWidget($xlist, $vt=NULL) {
+        switch($vt) {
+            case 1:
+            case 2:
+            case 3:
+                $this->displayManufactureXlistSelection2($xlist);
+                // wholesale
+                break;
+            case 4:
+                $this->displayWholesaleXlistSelection($xlist);
+                // wholesale
+                break;
+            case 5:
+                $this->displayXlistSelectionByName($xlist, 'Retail');
+                //$this->displayRetailXlistSelection($xlist);
+                // retail
+                break;
+            case 6:
+                $this->displayGrowerXlistSelection($xlist);
+                // growers
+                break;
+            case 7:
+                $this->displayProviderXlistSelection($xlist);
+                // providers
+                break;				
+        }   
+    }
+
+    function displayXlistSelectionByName($xlist, $name) {
+        if(!is_array($xlist)) {
+            $xlist = array();
+        }
+        ?>
+        <table width='100%' cellpadding=2 cellspacing=0>
+            <tr>
+                <td colspan='2'> <a name='topList'>
+                  <?= ucwords($name) ?>
+                <h2> Categories</h2></a></td>
+            </tr>
+            <tr>                                                                        
+                <td><a href='cancel.php'><img src='/imgz/vendor/cancel_contact.gif' border='0' /></a></td>         
+                <td align='right'><input type='image' src='/imgz/vendor/continue.gif' border='0' /></td>
+            </tr>                                                                       
+        <?
+            $children  = $this->fetchXlistChildrenByName($name);
+            //$children  = $this->fetchXlistChildrenArray(34);                    
+            $pChildren = count($children);                                                  
+            $tChildren = array_slice($children, 0, floor($pChildren/2));                    
+            $bChildren = array_slice($children, floor($pChildren/2));                       
+            ?>
+
+            <tr>                                                                            
+                <td colspan='2'>                                                            
+                    <a name='id<?= $obj['id'] ?>'><h2><?= $obj['name'] ?></h2></a>          
+                </td>                                                                       
+            </tr>                                                                           
+            <?                                                                              
+                for($i = 0 ; $i < ceil($pChildren/2) ; $i++) { 
+                    $s1 = (in_array($tChildren[$i]['id'],$xlist)) ? 'checked' : '';         
+                    $s2 = (in_array($bChildren[$i]['id'],$xlist)) ? 'checked' : '';         
+                ?>                                                                          
+                                                                                            
+                <tr>                                                                        
+                    <td>                                                                    
+                    <? if(array_key_exists($i, $tChildren)) {                               
+                    ?>                                                                      
+                        <input type='checkbox' name='xlist[]' id='xlist_<?= $tChildren[$i]['id'] ?>' value='<?= $tChildren[$i]['id']?>' <?= $s1 ?> /> <?= $tChildren[$i]['name'] ?>
+                    <? } else { ?>                                                          
+                        &nbsp;                                                              
+                    <? }?>                                                                  
+                    </td>                                                                   
+                                                                                            
+                    <td>                                                                    
+                        <input type='checkbox' name='xlist[]' id='xlist_<?= $bChildren[$i]['id'] ?>' value='<?= $bChildren[$i]['id']?>' <?= $s2 ?> /> <?= $bChildren[$i]['name'] ?>
+                    </td>                                                                   
+                </tr>                                                                       
+                <? } ?>
+            <tr>                                                                        
+                <td><a href='cancel.php'><img src='/imgz/vendor/cancel_contact.gif' border='0' /></a></td>         
+                <td align='right'><input type='image' src='/imgz/vendor/continue.gif' border='0' /></td>
+            </tr>                                                                       
+        </table>
+        <?
+    }
+
+    function displayGrowerXlistSelection($xlist) {
+        if(!is_array($xlist)) {
+            $xlist = array();
+        }
+        ?>
+        <table width='100%' cellpadding=2 cellspacing=0>
+            <tr>
+                <td colspan='2'> <a name='topList'><h2>Grower Categories</h2></a> </td>
+            </tr>
+            <tr>                                                                        
+                <td><a href='cancel.php'><img src='/imgz/vendor/cancel_contact.gif' border='0' /></a></td>         
+                <td align='right'><input type='image' src='/imgz/vendor/continue.gif' border='0' /></td>
+            </tr>                                                                       
+        <?
+            $children  = $this->fetchXlistChildrenArray(34);                    
+            $pChildren = count($children);                                                  
+            $tChildren = array_slice($children, 0, floor($pChildren/2));                    
+            $bChildren = array_slice($children, floor($pChildren/2));                       
+            ?>                                                                              
+            <tr>                                                                            
+                <td colspan='2'>                                                            
+                    <a name='id<?= $obj['id'] ?>'><h2><?= $obj['name'] ?></h2></a>          
+                </td>                                                                       
+            </tr>                                                                           
+            <?                                                                              
+                for($i = 0 ; $i < ceil($pChildren/2) ; $i++) {                              
+                    $s1 = (in_array($tChildren[$i]['id'],$xlist)) ? 'checked' : '';         
+                    $s2 = (in_array($bChildren[$i]['id'],$xlist)) ? 'checked' : '';         
+                ?>                                                                          
+                                                                                            
+                <tr>                                                                        
+                    <td>                                                                    
+                    <? if(array_key_exists($i, $tChildren)) {                               
+                    ?>                                                                      
+                        <input type='checkbox' name='xlist[]' id='xlist_<?= $tChildren[$i]['id'] ?>' value='<?= $tChildren[$i]['id']?>' <?= $s1 ?> /> <?= $tChildren[$i]['name'] ?>
+                    <? } else { ?>                                                          
+                        &nbsp;                                                              
+                    <? }?>                                                                  
+                    </td>                                                                   
+                                                                                            
+                    <td>                                                                    
+                        <input type='checkbox' name='xlist[]' id='xlist_<?= $bChildren[$i]['id'] ?>' value='<?= $bChildren[$i]['id']?>' <?= $s2 ?> /> <?= $bChildren[$i]['name'] ?>
+                    </td>                                                                   
+                </tr>                                                                       
+                <? } ?>
+            <tr>                                                                        
+                <td><a href='cancel.php'><img src='/imgz/vendor/cancel_contact.gif' border='0' /></a></td>         
+                <td align='right'><input type='image' src='/imgz/vendor/continue.gif' border='0' /></td>
+            </tr>                                                                       
+        </table>
+        <?
+    }
+
+
+    function displayProviderXlistSelection($xlist) {
+        if(!isset($xlist)) {
+            $xlist = array();
+        }
+
+        $parents = $this->fetchXlistParentArray3();
+
+        $pCount = count($parents);
+        $tParents = array_slice($parents, 0, $pCount/2);
+        $bParents = array_slice($parents, $pCount/2);  ?>
+        <table width='100%' cellpadding=2 cellspacing=0 border=0 style="font-family: arial, helvetica, sans-serif;">
+            <tr><td colspan='2'> <a name='topList'><h2>Categories</h2></a> </td></tr>
+        <? 
+            for($i = 0 ; $i < ceil($pCount/2) ; $i++) {
+                print("<tr>");
+                print("<td width='50%'><a href='#id{$tParents[$i]['id']}'><strong>{$tParents[$i]['name']}</strong></a></td>");
+                print("<td><a href='#id{$bParents[$i]['id']}'><strong>{$bParents[$i]['name']}</strong></a></td>");
+                print("</tr>");
+            }
+        ?>
+            <tr><td colspan='2'>&nbsp;</td></tr>
+            <tr><td><a href='cancel.php'><img src='/imgz/vendor/cancel_contact.gif' border='0' /></a></td><td align='right'><input type='image' src='/imgz/vendor/continue.gif' border='0' /></td></tr>
+        <?
+        foreach($parents as $row => $obj) {
+            $children  = $this->fetchXlistChildrenArray($obj['id']);
+            $pChildren = count($children);                                                  
+            $tChildren = array_slice($children, 0, floor($pChildren/2));                    
+            $bChildren = array_slice($children, floor($pChildren/2));                       
+            ?>                                                                              
+            <tr><td class='cellhead' colspan='2'><a name='id<?= $obj['id'] ?>'><h3><?= $obj['name'] ?></h3></a></td></tr>
+            <tr><td colspan='2'><hr noshade size='-1' /></td></tr>
+            <?                                                                              
+                for($i = 0 ; $i < ceil($pChildren/2) ; $i++) {                              
+                    $s1 = (in_array($tChildren[$i]['id'],$xlist)) ? 'checked' : '';         
+                    $s2 = (in_array($bChildren[$i]['id'],$xlist)) ? 'checked' : '';         
+
+                    ?><tr><td><?
+
+                    if(array_key_exists($i, $tChildren)) { 
+                        ?><input type='checkbox' name='xlist[]' id='xlist_<?= $tChildren[$i]['id'] ?>' value='<?= $tChildren[$i]['id']?>' <?= $s1 ?> /> <?= $tChildren[$i]['name'] ?><?
+                    } else { 
+                        ?>&nbsp;<? 
+                    }?>
+                    </td><td><input type='checkbox' name='xlist[]' id='xlist_<?= $bChildren[$i]['id'] ?>' value='<?= $bChildren[$i]['id']?>' <?= $s2 ?> /> <?= $bChildren[$i]['name'] ?></td></tr>
+                <? }
+            ?><tr><td colspan='2'><a href='#topList'><h4>Back to Top</h4></a></td></tr><?
+        }
+        ?><tr><td colspan='2'><hr noshade size='-1' /></td></tr>
+        <tr><td><a href='cancel.php'><img src='/imgz/vendor/cancel_contact.gif' border='0' /></a></td><td align='right'><input type='image' src='/imgz/vendor/continue.gif' border='0' /></td></tr></table>
+        <?
+    }
+	
+    function displayWholesaleXlistSelection($xlist) {
+        if(!is_array($xlist)) {
+            $xlist = array();
+        }
+        ?>
+		<div style="position: relative; z-index: 30000">
+        <table width='100%' cellpadding=2 cellspacing=0>
+            <tr>
+                <td colspan='2'> <a name='topList'><h2>Wholesale Categories</h2></a> </td>
+            </tr>
+            <tr>                                                                        
+                <td><a href='cancel-js2.php'><img src='/imgz/vendor/cancel_contact.gif' border='0' /></a></td>         
+                <td align='right'><input type='image' src='/imgz/vendor/continue.gif' border='0' /></td>
+            </tr>                                                                       
+        <?
+            $children  = $this->fetchXlistChildrenArray(35);                    
+            $pChildren = count($children);                                                  
+            $tChildren = array_slice($children, 0, floor($pChildren/2));                    
+            $bChildren = array_slice($children, floor($pChildren/2));                       
+            ?>                                                                              
+            <tr>                                                                            
+                <td colspan='2'>                                                            
+                    <a name='id<?= $obj['id'] ?>'><h2><?= $obj['name'] ?></h2></a>          
+                </td>                                                                       
+            </tr>                                                                           
+            <?                                                                              
+                for($i = 0 ; $i < ceil($pChildren/2) ; $i++) {                              
+                    $s1 = (in_array($tChildren[$i]['id'],$xlist)) ? 'checked' : '';         
+                    $s2 = (in_array($bChildren[$i]['id'],$xlist)) ? 'checked' : '';         
+                ?>                                                                          
+                                                                                            
+                <tr>                                                                        
+                    <td>                                                                    
+                    <? if(array_key_exists($i, $tChildren)) {                               
+                    ?>                                                                      
+                        <input type='checkbox' name='xlist[]' id='xlist_<?= $tChildren[$i]['id'] ?>' value='<?= $tChildren[$i]['id']?>' <?= $s1 ?> /> <?= $tChildren[$i]['name'] ?>
+                    <? } else { ?>                                                          
+                        &nbsp;                                                              
+                    <? }?>                                                                  
+                    </td>                                                                   
+                                                                                            
+                    <td>                                                                    
+                        <input type='checkbox' name='xlist[]' id='xlist_<?= $bChildren[$i]['id'] ?>' value='<?= $bChildren[$i]['id']?>' <?= $s2 ?> /> <?= $bChildren[$i]['name'] ?>
+                    </td>                                                                   
+                </tr>                                                                       
+                <? } ?>
+            <tr>                                                                        
+                <td><a href='cancel-js2.php'><img src='/imgz/vendor/cancel_contact.gif' border='0' /></a></td>         
+                <td align='right'><input type='image' src='/imgz/vendor/continue.gif' border='0' /></td>
+            </tr>                                                                       
+        </table>
+		</div>
+
+		<div style="position: relative; z-index: 30000">
+        <table width='100%' cellpadding=2 cellspacing=0; style="z-index: 20000">
+			<tr><td style="line-height: 10px">&nbsp;</td></tr>
+            <tr>
+                <td colspan='2'> <a name='topList'><h2>Grower/Plant Categories</h2></a> </td>
+            </tr>
+            <tr>                                                                        
+                <td><a href='cancel-js2.php'><img src='/imgz/vendor/cancel_contact.gif' border='0' /></a></td>         
+                <td align='right'><input type='image' src='/imgz/vendor/continue.gif' border='0' /></td>
+            </tr>                                                                       
+        <?
+            $children  = $this->fetchXlistChildrenArray(34);                    
+            $pChildren = count($children);                                                  
+            $tChildren = array_slice($children, 0, floor($pChildren/2));                    
+            $bChildren = array_slice($children, floor($pChildren/2));                       
+            ?>                                                                              
+            <tr>                                                                            
+                <td colspan='2'>                                                            
+                    <a name='id<?= $obj['id'] ?>'><h2><?= $obj['name'] ?></h2></a>          
+                </td>                                                                       
+            </tr>                                                                           
+            <?                                                                              
+                for($i = 0 ; $i < ceil($pChildren/2) ; $i++) {                              
+                    $s1 = (in_array($tChildren[$i]['id'],$xlist)) ? 'checked' : '';         
+                    $s2 = (in_array($bChildren[$i]['id'],$xlist)) ? 'checked' : '';         
+                ?>                                                                          
+                                                                                            
+                <tr>                                                                        
+                    <td>                                                                    
+                    <? if(array_key_exists($i, $tChildren)) {                               
+                    ?>                                                                      
+                        <input type='checkbox' name='xlist[]' id='xlist_<?= $tChildren[$i]['id'] ?>' value='<?= $tChildren[$i]['id']?>' <?= $s1 ?> /> <?= $tChildren[$i]['name'] ?>
+                    <? } else { ?>                                                          
+                        &nbsp;                                                              
+                    <? }?>                                                                  
+                    </td>                                                                   
+                                                                                            
+                    <td>                                                                    
+                        <input type='checkbox' name='xlist[]' id='xlist_<?= $bChildren[$i]['id'] ?>' value='<?= $bChildren[$i]['id']?>' <?= $s2 ?> /> <?= $bChildren[$i]['name'] ?>
+                    </td>                                                                   
+                </tr>                                                                       
+                <? } ?>
+            <tr>                                                                        
+                <td><a href='cancel-js2.php'><img src='/imgz/vendor/cancel_contact.gif' border='0' /></a></td>         
+                <td align='right'><input type='image' src='/imgz/vendor/continue.gif' border='0' /></td>
+            </tr>                                                                       
+        </table>
+		</div>
+
+
+        <?
+    }
+
+  // Used for choosing categories in vendor profile
+    function displayManufactureXlistSelection2($xlist) {
+        if(!isset($xlist)) {
+            $xlist = array();
+        }
+
+        $parents = $this->fetchXlistParentArray2();
+
+        $pCount = count($parents);
+        $tParents = array_slice($parents, 0, $pCount/2);
+        $bParents = array_slice($parents, $pCount/2);  ?>
+        <!-- Effect items on Vendor category edit -->
+        <div style="position: relative;">
+        <table width='750' cellpadding=2 cellspacing=0 border=0 style="position: relative; font-family: arial, helvetica, sans-serif;">
+            <tr><td colspan="2"><p>These categories are used by the Keyword Search Engine to help our 65,000+ monthly users to find your company. When editing, it is important to select only those categories which represent products that you currently sell. LCI reserves the right to edit your categories.<br><br>
+
+            Don’t see your product category?  Click here to send us an email requesting a new category(s). We will contact you promptly to discuss the options.</p><br></td></tr>
+            
+            <tr><td style="line-height: 10px">&nbsp;</td></tr>
+            
+            <tr><td colspan='2'> <a name='topList' style="color: #000000; text-decoration: none;"><h2>Categories</h2></a> </td></tr>
+        <? 
+            for($i = 0 ; $i < ceil($pCount/2) ; $i++) {
+                print("<tr height='25px'>");
+                print("<td width='50%'><a href='#id{$tParents[$i]['id']}'><strong>{$tParents[$i]['name']}</strong></a></td>");
+                print("<td><a href='#id{$bParents[$i]['id']}'><strong>{$bParents[$i]['name']}</strong></a></td>");
+				
+                print("</tr>");
+            }
+        ?>
+            <tr><td colspan='2'>&nbsp;<br><br></td></tr>
+            <tr><td><a href='https://landscapearchitect.com/vendor/index-vendor.php?action=edit'><img src='/imgz/vendor/cancel_contact.gif' border='0' /></a></td><td align='right'><input type='image' src='/imgz/vendor/continue.gif' border='0' /></td></tr>
+        <?
+        foreach($parents as $row => $obj) {
+            $children  = $this->fetchXlistChildrenArray($obj['id']);
+            $pChildren = count($children);                                                  
+            $tChildren = array_slice($children, 0, floor($pChildren/2));                    
+            $bChildren = array_slice($children, floor($pChildren/2));                       
+            ?>
+            
+            <tr><td colspan='2'><a name='id<?= $obj['id'] ?>'> </a></td></tr>
+            <tr><td colspan='2'> </td></tr>
+            <tr><td style="line-height: 10px">&nbsp;</td></tr>
+            <tr><td class='cellhead' colspan='1' style="padding-top: 20px;"><h3><?= $obj['name'] ?></h3></td>
+            	<td align='right' class='cellhead' colspan='1' style="padding-top: 20px;"><h4><a href='#topList'>Back to Top</a></h4></td></tr>
+            <tr><td colspan='2'><hr noshade size='-1' /></td></tr>
+           
+            
+            
+            <?                                                                              
+                for($i = 0 ; $i < ceil($pChildren/2) ; $i++) {                              
+                    $s1 = (in_array($tChildren[$i]['id'],$xlist)) ? 'checked' : '';         
+                    $s2 = (in_array($bChildren[$i]['id'],$xlist)) ? 'checked' : '';         
+
+                    ?><tr><td><?
+
+                    if(array_key_exists($i, $tChildren)) { 
+                        ?><input type='checkbox' name='xlist[]' id='xlist_<?= $tChildren[$i]['id'] ?>' value='<?= $tChildren[$i]['id']?>' <?= $s1 ?> /> <?= $tChildren[$i]['name'] ?><?
+                    } else { 
+                        ?>&nbsp;<? 
+                    }?>
+                    </td><td><input type='checkbox' name='xlist[]' id='xlist_<?= $bChildren[$i]['id'] ?>' value='<?= $bChildren[$i]['id']?>' <?= $s2 ?> style="margin-top: 7px; margin-bottom: 7px;"/> <?= $bChildren[$i]['name'] ?></td></tr>
+                <? }
+            ?><?
+        }
+        ?><tr><td colspan='2'><br><hr noshade size='-1' style="margin-bottom: 10px;"/></td></tr>
+        <tr><td><a href='https://landscapearchitect.com/vendor/index-vendor.php?action=edit'><img src='/imgz/vendor/cancel_contact.gif' border='0' /></a></td><td align='right'><input type='image' src='/imgz/vendor/continue.gif' border='0' /></td></tr></table>
+        </div>
+        <?
+    }
+
+
+    function displayDefaultSelectionWidget(&$xlist) {
+        if(!isset($xlist)) {
+            $xlist = array();
+        }
+
+        $parents = $this->fetchXlistParentArray();
+
+        $pCount = count($parents);
+        $tParents = array_slice($parents, 0, $pCount/2);
+        $bParents = array_slice($parents, $pCount/2);  ?>
+        <table width='100%' cellpadding=2 cellspacing=0 border=0>
+            <tr><td colspan='2'> <a name='topList'><h2>Categories</h2></a> </td></tr>
+        <? 
+            for($i = 0 ; $i < ceil($pCount/2) ; $i++) {
+                print("<tr>");
+                print("<td width='50%'><a href='#id{$tParents[$i]['id']}'><strong>{$tParents[$i]['name']}</strong></a></td>");
+                print("<td><a href='#id{$bParents[$i]['id']}'><strong>{$bParents[$i]['name']}</strong></a></td>");
+                print("</tr>");
+            }
+        ?>
+            <tr><td colspan='2'>&nbsp;</td></tr>
+            <tr><td><a href='cancel.php'><img src='/imgz/vendor/cancel_contact.gif' border='0' /></a></td><td align='right'><input type='image' src='/imgz/vendor/continue.gif' border='0' /></td></tr>
+        <?
+        foreach($parents as $row => $obj) {
+            $children  = $this->fetchXlistChildrenArray($obj['id']);
+            $pChildren = count($children);                                                  
+            $tChildren = array_slice($children, 0, floor($pChildren/2));                    
+            $bChildren = array_slice($children, floor($pChildren/2));                       
+            ?>                                                                              
+            <tr><td class='cellhead' colspan='2'><a name='id<?= $obj['id'] ?>'><h3><?= $obj['name'] ?></h3></a></td></tr>
+            <tr><td colspan='2'><hr noshade size='-1' /></td></tr>
+            <?                                                                              
+                for($i = 0 ; $i < ceil($pChildren/2) ; $i++) {                              
+                    $s1 = (in_array($tChildren[$i]['id'],$xlist)) ? 'checked' : '';         
+                    $s2 = (in_array($bChildren[$i]['id'],$xlist)) ? 'checked' : '';         
+
+                    ?><tr><td><?
+
+                    if(array_key_exists($i, $tChildren)) { 
+                        ?><input type='checkbox' name='xlist[]' id='xlist_<?= $tChildren[$i]['id'] ?>' value='<?= $tChildren[$i]['id']?>' <?= $s1 ?> /> <?= $tChildren[$i]['name'] ?><?
+                    } else { 
+                        ?>&nbsp;<? 
+                    }?>
+                    </td><td><input type='checkbox' name='xlist[]' id='xlist_<?= $bChildren[$i]['id'] ?>' value='<?= $bChildren[$i]['id']?>' <?= $s2 ?> /> <?= $bChildren[$i]['name'] ?></td></tr>
+                <? }
+            ?><tr><td colspan='2'><a href='#topList'><h4>Back to Top</h4></a></td></tr><?
+        }
+        ?><tr><td colspan='2'><hr noshade size='-1' /></td></tr>
+        <tr><td><a href='cancel.php'><img src='/imgz/vendor/cancel_contact.gif' border='0' /></a></td><td align='right'><input type='image' src='/imgz/vendor/continue.gif' border='0' /></td></tr></table>
+        <?
+    }
+}
+?>

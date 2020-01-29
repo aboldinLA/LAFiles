@@ -1,0 +1,58 @@
+<h2>Manage Company Product</h2>
+<hr noshade size='-1' />
+<form enctype='multipart/form-data' action='<?= $_SERVER['PHP_SELF'] ?>' method='POST' name='fileForm' runat='vdaemon'>
+<input type='hidden' name='intent' value='<?= $intent ?>' />
+<input type="hidden" name="MAX_FILE_SIZE" value="8000000" />
+<input type='hidden' name='record' value='<?= $record ?>' />
+<input type='hidden' name='pid' value='<?= $this->id ?>' />
+<input type='hidden' name='action' value='products' />
+<vlsummary class="errSummary" displaymode='bulletlist' headertext="<h3>Error(s) found:</h3>" />
+<table width='100%' border='0'>
+    <tbody>
+        <tr>
+            <td class='formLabel' width='25%'>Product Name</td>
+            <td class='formObject'>
+                <input type='text' size='25' name='product_name' id='product_name' value='<?= stripslashes($this->product_name); ?>' />
+                <vlvalidator type='required' name='prodReq' control='product_name' errmsg='A product name is required' />
+            </td>
+        </tr>
+        <tr>
+            <td class='formLabel' width='25%'>Description</td>
+            <td class='formObject'>
+                <textarea name='description' rows=10 cols=50><?= stripslashes($this->description); ?></textarea>
+                <vlvalidator type='required' name='descReq' control='description' errmsg='A description is required' />
+            </td>
+        </tr>
+        <tr>
+            <td class='formLabel' width='25%'>Upload Photo</td>
+            <td class='formObject'>
+            <? if(isset($this->id)) { ?>
+                <? if(isset($this->photo) && strlen($this->photo) > 0) { ?>
+                    <input type='radio' name='useold' checked value='1' /> Use Previous Photo <br />
+                    <input type='radio' name='useold' value='0' /> Upload New Photo
+                    <input type='file' name='photo_upload' id='photo_upload' />
+                    <center><img src='/products/images/<?= $this->photo ?>' border=1 height=200 /></center>
+                <? } else { ?>
+                    <input type='radio' name='useold' value='1' /> Use Previous Photo <br />
+                    <input type='radio' name='useold' value='0' checked /> Upload New Photo
+                    <input type='file' name='photo_upload' id='photo_upload' />
+                <? } ?>
+                    <vlgroup name='photo' errmsg='A file is required when uploading a graphic.'>
+                        <vlvalidator type='required' control='photo_upload' errmsg='File is Required to Upload.' />
+                        <vlvalidator type='compare' control='useold' comparevalue='1' validtype='integer' operator='e' />
+                    </vlgroup>
+            <? } else { ?>
+                    <input type='file' name='photo_upload' id='photo_upload' />
+                    <vlvalidator type='required' name='fileReq' control='photo_upload' errmsg='File is Required to Upload.' />
+            <? } ?>
+            </td>
+        </tr>
+    </tbody> 
+    <tfoot>
+        <tr>
+            <td align='left'><a href='<?= $_SERVER['PHP_SELF'] ?>?record=<?= $record ?>&action=products'><img src='/imgz/vendor/exit.gif' border='0' /></a></td>
+            <td align='right'><input type='image' src='/imgz/vendor/save.gif' /></td>
+        </tr>
+    </tfoot>
+</table>
+</form>

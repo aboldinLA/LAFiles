@@ -1,0 +1,87 @@
+	
+/* Top-level menu items */
+
+.css_menu {
+	display: block;
+	width: 240px;
+	cursor: pointer;
+	white-space: nowrap;
+	padding: 0px;
+	font-family: Georgia Tahoma Verdana sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	border: 1px solid gray;
+	border-top: 1px solid gray;
+	z-index: 30000;
+}
+
+.css_menu li {
+	display: block;
+	position: relative;
+	vertical-align: bottom;	/* Use vertical-align and zoom to workaround a hasLayout bug in IE6  which causes extra whitespace */
+	zoom: 1;
+}
+
+.css_menu li a {
+	display: block;
+	width: 240px;
+	height: 20px;
+	line-height: 20px;
+	padding-left: 4px;
+	padding-right: 4px;
+	text-align: center;
+	text-decoration: none;
+	border: 1px solid gray;
+	border-top: none;
+	color: black;
+	background-color: #FFFFFF;
+}
+
+.css_menu li:hover a,
+.css_menu li.hover a {
+	background-color: white;
+}
+
+/* Drop-down menu boxes */
+
+.css_menu li ul {
+	display: none;
+	position: absolute;
+	left: 240px;
+	top: -1px;
+	padding: 0px;
+	margin: 0px;
+	font-weight: normal;
+	border-top: 1px solid gray;
+	z-index: 25000;
+}
+
+.css_menu li:hover ul,
+.css_menu li.hover ul
+{
+	display: block;
+}
+
+.css_menu li ul li {
+	display: block;
+}
+
+.css_menu li ul li a {
+	text-align: left;
+}
+
+.css_menu li:hover ul li a,
+.css_menu li.hover ul li a
+{
+	background-color: #FFFFFF;
+}
+
+.css_menu li ul li:hover a,
+.css_menu li ul li.hover a
+{
+	background-color: white;
+}
+	
+	
+	
+									

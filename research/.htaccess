@@ -1,0 +1,6 @@
+
+Options +FollowSymLinks
+RewriteEngine on
+RewriteRule articles/(.*)/(.*)/ articles.php?name=$1&number=$2
+RewriteRule articles/(.*)/(.*) articles.php?name=$1&number=$2					
+

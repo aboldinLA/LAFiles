@@ -1,0 +1,201 @@
+/* General Style Items */
+body {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-top: 5px solid #566;
+    background: #ccc;
+    color: #333;
+    padding-bottom: 25px;
+    font-family: "lucida grande", verdana, sans-serif;
+    font-size: 11px;
+    /* font-family: "Trebuchet MS", "Bitstream Vera Sans", verdana, lucida, arial, helvetica, sans-serif; */
+    background: #fff url(bar_gradient.gif) bottom left fixed repeat-x;
+    }
+
+#wrapper {
+    margin: 10px auto;
+    padding: 0;
+    background: #fff;
+    border: 1px solid #566;
+    border-top: 5px solid #566;
+    width: 694px;
+    voice-family: "\"}\""; 
+    voice-family:inherit;
+    width: 692px;    
+    }
+
+html>#wrapper {
+    width: 692px;    
+    }
+
+p, div {
+    text-align: left;
+    font-size: x-small;
+    }
+
+/* Form Layout Elements */
+
+fieldset legend {
+    font-size: small;
+    font-weight: bold;
+    }
+
+td.formLabel {
+    font-size: x-small;
+    font-weight: bold;
+    border: 1px solid #f0f0f0;
+    padding: 2px;
+    }
+
+td.formObject {
+    background-color: #f0f0f0;
+    border: 1px solid #e1e1e1;
+    font-size: normal;
+    }
+
+.formInfo {
+    margin: 5px;
+    font-size: xx-small;
+    }
+
+
+/* Contacts List Styles */
+
+#contacts thead tr td {
+    font-family: "lucida grande", verdana, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    padding: 3px 8px;
+    border-left: 1px solid #D9D9D9;
+    border-bottom: 2px solid #d9d9d9;
+    }
+
+#contacts tfoot tr td {
+    font-family: "lucida grande", verdana, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    padding: 3px 8px;
+    border-left: 1px solid #D9D9D9;
+    border-top: 2px solid #d9d9d9;
+    }
+
+#contacts {
+    border: 1px solid #666666;
+    }
+
+#contacts tbody tr td {
+    font-family: "lucida grande", verdana, sans-serif;
+    font-size: 8pt;
+    padding: 2px 8px;
+    border-left: 1px solid #D9D9D9;
+    }
+
+#contacts tbody tr.e1 td {
+    background-color: #edf3fe;
+    }
+
+#contacts tbody tr.selected td {
+    background-color: #3d80df;
+    color: #ffffff;
+    font-weight: bold;
+    border-left: 1px solid #346DBE;
+    border-bottom: 1px solid #7DAAEA;
+    }
+
+/* form error styles */
+
+.errSummary {
+    color: red;
+    border: 1px solid red;
+    padding: 5px;
+    }
+
+.errLabel {
+    color: red;
+    }
+
+/* page layout */
+div.labelButton {
+    font-family: "Times New Roman", "Trebuchet MS", "Bitstream Vera Sans", verdana, lucida, arial, helvetica, sans-serif;
+    vertical-align: center;
+    text-align: center;
+    color: white;
+    font-size: 60px;
+    font-style: italic;
+    font-weight: bold;
+    background: url('stage_bg.jpg');
+    margin-left: 5px;
+    width: 76px;
+    height: 76px;
+}
+
+td.stageLabel {
+    width: 85px;
+    text-align: right;
+    padding-top: 1em;
+    vertical-align: top;
+    border-right: 0px solid #D9D9D9;
+    border-top: 2px solid #D9D9D9;
+    border-bottom: 1px solid #D9D9D9;
+}
+
+td.pageContent {
+    border-top: 2px solid #D9D9D9;
+    border-bottom: 1px solid #D9D9D9;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+table#stageList {
+    border: 2px solid #788A56;
+    border-bottom: 3px solid #788A56;
+    background: url('/imgz/stageListbg.jpg') bottom left repeat-x;
+    background-image: url('/imgz/stageListbg.jpg') bottom left repeat-x;
+}
+
+
+table#stageList tbody tr { background: transparent; }
+
+table#stageList tbody tr td {
+    background: transparent;
+    text-align: center;
+}
+
+table#stageList tbody tr td.selected {
+    background: transparent;
+    font-size: 1.2em;
+    font-weight: bold;
+    font-style: italic;
+}
+
+table#stageList tbody tr td.inactive {
+    font-size: 0.9em;
+    color: #666;
+    font-weight: bold;
+}
+
+table#stageList tbody tr td.completed {
+    font-size: 1.0em;
+    font-weight: bold;
+}
+
+div.stageList {
+    padding: 0.25em;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    background: #D9D9D9;
+    color: black;
+    border: 1px solid #898989;
+}
+
+div.pageTitle {
+    vertical-align: bottom;
+    font-size: xx-large;
+    line-height: 175%;
+    font-weight: bold;
+    margin-left: 1em;
+}

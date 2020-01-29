@@ -1,0 +1,596 @@
+@charset "UTF-8";
+/* CSS Document */
+
+				#topBar {
+					width: 300px;
+					padding-left: 100px;
+				}
+
+				#topBar2 {
+					position: relative;
+					top: 15px;
+					width: 800px;
+					padding-left: 250px;
+				}	
+
+				#topBar3 {
+					position: relative;
+					top: 15px;
+					width: 300px;
+					padding-left: 250px;
+				}	
+
+
+				@media screen and (max-width: 1100px) {
+
+					#topBar {
+						width: 200px;
+						padding-left: 15px;
+					}
+
+					#topBar2 {
+						position: relative;
+						top: 15px;
+						width: 400px;
+						padding-left: 25px;
+					}
+
+				#topBar3 {
+					position: relative;
+					top: 15px;
+					width: 300px;
+					padding-left: 70px;
+				}					
+
+				}			
+			
+
+			
+				figure {
+				  width: 75%;
+				  text-align: center;
+				  font-style: italic;
+				  font-size: smaller;
+				  text-indent: 0;
+				  border: thin silver solid;
+				  margin: 0.5em;
+				  padding: 0.5em;
+				}			
+			
+				.banner_holder{
+					width: 100%;
+					height: 300px;
+					min-height: 200px;
+					overflow: hidden;
+					background-color: dimgrey;
+					display: block;
+				}
+
+				.banner_holder img{
+					width: 100%;
+				}
+
+				.limage {
+					width: 100%;
+					height: 250px;
+					overflow: hidden;
+					margin-top: 5px;
+					text-align: center;
+					line-height: 75px;
+					background-size: contain;
+					background-position: center;
+					background-repeat: no-repeat;
+				}
+
+				.limage-full {
+                    position: relative;
+                    left: 5%;
+					width: 30%;
+					overflow: hidden;
+					text-align: center;
+					line-height: 75px;
+					padding-top: 80%;
+					background-size: contain;
+					background-position: center;
+					background-repeat: no-repeat;
+				}
+
+				.limage2 {
+					max-width: 100%;
+					max-height: 100%;
+					vertical-align: middle;
+					position: relative;
+					top: 50%;
+					transform: translateY(-50%);
+				}	
+
+				.col > a {
+					text-decoration: none;
+					color: inherit;
+				}
+
+			
+			
+			@media only screen and (max-width: 480px) {
+
+					.limage {
+						width: 100%;
+						height: 75px;    
+						overflow: hidden;
+						margin-top: 5px;
+						text-align: center;
+						line-height: 75px;
+					}
+					.limage2 {
+						max-width: 100%;
+						max-height: 100%;
+						vertical-align: middle;
+						position: relative;
+						top: 50%;
+						transform: translateY(-50%);			
+					}
+                
+				.limage-full {
+                    position: relative;
+                    left: 5%;
+					width: 10%;
+					overflow: hidden;
+					text-align: center;
+					line-height: 10px;
+					padding-top: 10%;
+					background-size: contain;
+					background-position: center;
+					background-repeat: no-repeat;
+				}                
+                
+                
+				
+			}			
+			
+	
+
+					/* Grids Start */
+					 .flex-grid {
+					  display: flex;
+					}
+					.flex-grid .col {
+					  flex: 1;
+					  width: 100%;
+					}
+					
+									
+					
+					
+
+
+					
+
+
+					
+
+
+
+
+
+					* {
+					  box-sizing: border-box;
+					}
+					
+					.flex-grid { 
+					  margin: 0 0 5px 0;
+					}
+					.col {
+					  padding: 5px;
+					}
+					
+					.flexbox-container{
+						display: flex;
+						width: 100%;
+					}
+
+					.sidebar{
+						order: 1;
+						flex: 1;
+					  flex-basis: auto;
+					  padding: .5rem;
+					  min-height: 666px;
+					}
+
+					.main{
+						order: 1;
+						flex: 5;
+					  padding: .5rem;
+					}
+
+					.box1, .box2 {
+					  min-height: 100%;
+						padding: 1em;
+					}
+
+					/* mobile layout */
+					@media (max-width: 480px){
+						.container{
+							display: -webkit-box;
+							display: -moz-box;
+							display: -ms-flexbox;
+							display: -webkit-flex;
+							display: flex;
+
+							width: 100%;
+
+							-webkit-box-orient: vertical;
+							-moz-box-orient: vertical;
+						-ms-flex-orient: vertical;
+						-webkit-orient: vertical;
+						orient: vertical;
+						}
+						.box2{
+							-webkit-box-ordinal-group: 2;
+							-moz-box-ordinal-group: 2;
+							-ms-flex-order: 2;
+							-webkit-order: 2;
+							order: 2;	}
+						.box1{
+							-webkit-box-ordinal-group: 1;
+							-moz-box-ordinal-group: 1;
+							-ms-flex-order: 1;
+							-webkit-order: 1;
+							order: 1;
+						}
+					}					
+					/* Grids End */
+					
+      
+					figure {
+					  width: 100%;
+					  box-shadow: 5px 5px 5px #888888;
+					  text-align: center;
+					  font-style: italic;
+					  font-size: smaller;
+					  text-indent: 0;
+					  border: thin silver solid;
+					  margin: 0.5em;
+					  padding: 0.5em;
+					}			
+
+				.banner_holder{
+					width: 100%;
+					height: 300px;
+					min-height: 200px;
+					overflow: hidden;
+					background-color: dimgrey;
+					display: block;
+				}
+
+				.banner_holder img{
+					width: 100%;
+				}
+
+				.limagelad {
+					width: 250px;
+					height: 100px;
+					overflow: hidden;
+					margin: 10px;
+					text-align: center;
+					line-height: 75px;
+					display: block;
+					margin-left: auto;
+					margin-right: auto;
+				}
+				.limagelad2 {
+					max-width: 100%;
+					max-height: 100%;
+					align-content: center;
+					position: relative;
+					top: 50%;
+					transform: translateY(-50%);				
+				}
+				.limagelad3 {
+					max-width: 100%;
+					max-height: 100%;
+					align-content: center;				
+				}
+
+		
+				@media screen and (max-width: 1100px) {
+
+					.limagelad {
+						position: relative;
+						left: -15px;
+						width: 140px;
+						height: 75px;
+						overflow: hidden;
+						margin: 0px;
+						text-align: center;
+						line-height: 75px;
+
+						display: block;
+						margin-left: auto;
+						margin-right: auto;			
+					}			
+
+
+
+					.limagelad2 {
+						width: 75%;
+						max-height: 75%;
+						align-content: center;
+						position: relative;
+						top: 50%;
+						transform: translateY(-50%);
+						}
+                    
+				    .limagelad3 {
+                        max-width: 100%;
+                        max-height: 100%;
+                        align-content: center;				
+				    }
+
+
+				}
+		
+		
+		
+		
+				@media screen and (max-width: 480px) {
+
+					.limagelad {
+						position: relative;
+						left: 0px;
+						width: 150px;
+						height: 75px;
+						overflow: hidden;
+						margin: 0px;
+						text-align: center;
+						line-height: 75px;
+						display: block;
+						margin-left: auto;
+						margin-right: auto;			
+					}			
+
+
+
+					.limagelad2 {
+						width: 50%;
+						max-height: 50%;
+						align-content: center;
+						position: relative;
+						top: 50%;
+						transform: translateY(-50%);			
+
+					}
+                    .limagelad3 {
+                        max-width: 100%;
+                        max-height: 100%;
+                        align-content: center;				
+                    }
+
+				}
+								
+				.colShift {
+					position: relative;
+					left: 100px;
+					top: -55px;
+				}
+
+				.colShift2 {
+					position: absolute;
+					left: -200px;
+				}	
+
+				.colSize {
+					position: absolute;
+					left: 450px;
+				}
+
+				.boxWidth {
+					width: 450px;
+				}	
+
+				.wordWrap {
+
+					font-family: Helvetica, Arial;
+					font-weight: 200;
+					font-size: 14px;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					display: -webkit-box;
+			        line-height: 18px;     /* fallback */
+			        max-height: 125px;      /* fallback */					
+					-webkit-line-clamp: 7;
+					-webkit-box-orient: vertical;
+					overflow-wrap: break-word;
+					word-wrap: break-word;
+
+
+				}		
+
+				.wordWrap2 {
+					
+					font-family: Helvetica, Arial;
+					font-weight: 200;
+					font-size: 14px;
+					overflow: hidden;
+				   text-overflow: ellipsis;
+				   display: -webkit-box;
+				   line-height: 17px;     /* fallback */
+				   max-height: 118px;      /* fallback */
+					
+				}
+
+			
+				div.b {
+				   overflow: hidden;
+				   text-overflow: ellipsis;
+				   display: -webkit-box;
+				   line-height: 16px;     /* fallback */
+				   max-height: 95px;      /* fallback */
+				   -webkit-line-clamp: 4; /* number of lines to show */
+				   -webkit-box-orient: vertical;
+
+
+				}
+
+
+					
+						
+			
+				@media screen and (max-width: 1100px) {
+
+					.colShift {
+						position: relative;
+						left: 50px;
+						top: -55px;
+					}	
+
+					.boxWidth {
+						width: 25%;
+					}
+
+					.wordWrap {
+
+						font-family: Helvetica, Arial;
+						font-weight: 200;
+						font-size: 12px;
+						width: 8em;
+						overflow: hidden;
+						text-overflow: ellipsis;
+						display: -webkit-box;
+						-webkit-line-clamp: 5;
+						-webkit-box-orient: vertical;
+						overflow-wrap: break-word;
+						word-wrap: break-word;
+
+					}						
+
+
+				}
+			
+			
+				@media screen and (max-width: 400px) {
+
+					.colShift {
+						position: absolute;
+						left: 0px;
+						top: 200px;
+
+					}	
+
+					.boxWidth {
+						width: 15%;
+					}	
+
+					.wordWrap {
+
+						font-family: Helvetica, Arial;
+						font-weight: 200;
+						font-size: 10px;
+						width: 20em;
+						overflow: hidden;
+						text-overflow: ellipsis;
+						display: -webkit-box;
+						-webkit-line-clamp: 5;
+						-webkit-box-orient: vertical;
+						overflow-wrap: break-word;
+						word-wrap: break-word;
+
+					}						
+
+
+				}			
+			
+
+				.colSize {
+					position: absolute;
+					left: 100%;
+				}
+			
+				
+	
+				.adShift {
+					position: relative;
+					left: -15px;
+					top: -65px;
+				}	
+
+				.adShift2 {
+					position: relative;
+					left: 0px;
+					top: -110px;
+				}	
+
+				.adShift3 {
+					position: relative;
+					left: 0px;
+					top: 200px;
+				}					
+
+
+				.adSize {
+					width: 350px;
+				}	
+
+
+				@media screen and (max-width: 1100px) {
+
+					.adShift {
+						position: relative;
+						left: 100px;
+					}			
+
+					.adSize {
+						width: 365px;
+					}
+                    
+					.deLogo {
+						width: 60%;
+					}
+					
+					.keyWord {
+						position: relative;
+						left: -100px;
+						top: -135px;
+					}
+					
+					.coName {
+						font-size: 16px;
+					}					                    
+                    
+                    
+                    
+                    
+				}
+
+
+				@media screen and (max-width: 400px) {
+
+					.adShift {
+						position: absolute;
+						left: 0px;
+						top: 1000px;
+					}			
+
+					.adSize {
+						width: 100%;
+					}
+				}				
+					
+		
+				.deLogo {
+					width: 30%;
+				}	
+
+				.keyWord {
+					position: relative;
+					left: -127px;
+					top: -135px;
+				}	
+					
+	
+	
+
+
+
+					
+					
+					

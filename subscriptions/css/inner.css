@@ -1,0 +1,277 @@
+.navbar-default .navbar-nav > li.active > a {
+    border-bottom: 5px solid #000;
+	background:none !important;
+}
+
+/*About Us Styling */
+@media only screen and (max-width: 767px){
+										.about-page .page-top-banner h1{
+    											font-size: 36px !important;
+										}
+										.about-page .content-section h2{
+											font-size: 28px !important;
+											margin-top: 0px;
+										}
+										.about-page .content-section h3{
+											font-size: 18px !important;
+											padding-top: 10px;
+    										margin-top: 0px;
+										}
+										.about-page .about-section{
+											padding:0px 0px !important;
+										}
+										.about-page .ab-col{
+											margin-top:20px;
+										}
+									}
+									
+									@media only screen and (max-width: 490px){
+										.about-page .page-top-banner .inner-banner{
+    											padding-top:40px !important;
+										}
+									}
+									@media only screen and (min-width: 768px) and (max-width: 768px){
+										.about-page .about-section{
+											padding:0px 0px !important;
+										}
+										.about-page .ab-col{
+											margin-top:20px;
+										}
+									}
+									@media only screen and (min-width: 769px) and (max-width: 1024px){
+									
+										.about-page .ab-col{
+											margin-top:20px;
+										}
+										.about-page .about-section{
+											padding:0px 0px !important;
+										}
+									}
+									
+									@media only screen and (min-width: 700px) and (min-width: 1024px){
+										.about-page .page-top-banner .inner-banner{
+											padding-top: 70px !important;
+										}
+									}
+									
+
+/*Advertisement Styling */
+.ads-page #ads-form input[type="text"],.ads-page input[type="email"],.ads-page input[type="tel"]{
+										border-radius: 5px !important;
+									    border: solid 1px rgba(35, 35, 35, 0.15);
+									    height: 33px;
+									    width: 100%;
+										padding:0 10px;
+									}
+									.ads-page #ads-form input[type="checkbox"]{
+										width: 10px;
+									    height: 10px;
+									   border: solid 1px rgba(35, 35, 35, 0.15);
+									   -webkit-appearance: none;
+									   position: relative;
+									}
+									.ads-page #ads-form label{
+										font-family: 'Nunito', serif; font-size: 10px; font-weight: 600; font-style: normal; font-stretch: normal; line-height: normal; letter-spacing: 0.83px; text-transform:uppercase;
+									}
+									.ads-page #ads-form label strong{
+										font-weight: bold;
+									}
+									.ads-page #ads-form input[type=checkbox]:checked:after {
+									    content: '';
+									    position: absolute;
+									    height: 100%;
+									    width: 50%;
+									    margin: auto;
+									    top: 0;
+									    bottom: 0;
+									    left: 0;
+									    right: 0;
+									    -webkit-transform: translateY(-22%) rotate(45deg);
+									    transform: translateY(-22%) rotate(45deg);
+									    border-right: 1px solid black;
+									    border-bottom: 1px solid black;
+									}
+									@media only screen and (max-width: 490px){
+									
+										.ads-page .page-top-banner .inner-banner{
+    											padding-top:40px !important;
+										}
+									}
+									@media only screen and (max-width: 767px){
+										.ads-page .page-top-banner h1{
+    											font-size: 36px !important;
+										}
+										.ads-page .content-section h2{
+											font-size: 28px !important;
+											margin-top: 0px;
+										}
+										.ads-page .content-section h3{
+											font-size: 28px !important;
+											padding-top: 20px;
+										}
+									}
+									@media only screen and (min-width: 700px) and (min-width: 1024px){
+										.ads-page .page-top-banner .inner-banner{
+											padding-top: 70px !important;
+										}
+									}
+									
+									
+/* Product Details */
+								
+				.gray_shade_anchor {
+					min-height:78px;
+					background:#eae9e9;
+					background-size:100% 100%;
+					text-align:center;
+				}
+				.gray_shade_anchor a {
+					display:inline-block;
+					color:#1b8047;
+					font-family: 'Nunito Sans', sans-serif;
+				  font-size: 14px;
+				  font-weight: 400;
+				  font-style: normal;
+				  font-stretch: normal;
+				  line-height: normal;
+				  letter-spacing: 1px;
+				  padding:31px 30px;
+				  transition-duration:0.5s;
+				  margin:0 8px;
+				}
+				.gray_shade_anchor a:hover , .gray_shade_anchor a.active {
+					background:#25854f;
+					color:#fff;
+					transition-duration:0.5s;
+				}
+				.format-icons .single-icon{
+					padding-right: 10px;
+				    padding-left: 0px;
+				    padding-bottom: 10px;
+				}
+				.prod-format-icons{
+					width:100%;
+					
+				}
+				.prod-format-icons .single-icon{
+					float: left;
+				    padding: 5px;
+				    max-width: 10%;
+				        margin: 1.2%;
+				}
+				.gray_shade_anchor .full_width.overflow_{
+						float: left;
+					    width: 100%;
+					    white-space: nowrap;
+					    overflow: auto;
+					}
+				
+				.product-details-page .prod-slider .slick-next{
+					right: -10px !important;
+					width: 15px !important;
+					line-height:25px !important;
+				}
+				.product-details-page .prod-slider .slick-prev{
+					left: -35px !important;
+					width: 15px !important;
+					line-height:25px !important;
+				}
+				.product-details-page .prod-slider .slick-next, .product-details-page .prod-slider .slick-prev{
+					    margin-top: -30px !important;
+						
+				}
+				@media only screen and (max-width: 767px){
+								
+					
+					.product-details-page .row.feature-section{
+						padding:30px 0px !important;
+					}
+					.prod-pic{
+						height:300px !important;
+					}
+					.prod-title{
+						margin-top:30px;
+					}
+					.sub-header .container{
+						padding:0px 0px !important;
+					}
+					.sub-header{
+						display:none !important;
+					}
+					.img-cover{
+						min-height:100px !important;
+					}
+					.elem{
+						    margin-bottom: 20px !important;
+					}
+				}
+				
+				@media only screen and (min-width: 768px) and (max-width: 1024px){
+							
+					.product-details-page .sub-header .container{
+						padding:0px 5em !important;
+					}
+					
+					.product-details-page .sub-header ul li{
+						min-width: 170px;
+					}
+					.product-details-page .prod-pic{
+						height: 300px !Important;
+					}
+				}
+				@media only screen and (min-width: 768px){
+					.slick-track{
+						margin-left: -15px;
+					}
+				}
+				
+
+/*Submit Editorial*/
+.sub-editorial-page td{
+	padding-left:10px;
+	padding-right:10px;
+}
+@media only screen and (max-width: 767px){
+	.sub-editorial-page  .readmore-btn{
+		margin-right:0px !important;
+	}
+	.sub-editorial-page table p, .readmore-btn{
+		font-size:11px !important;
+		
+	}
+	.featured-prod-section{
+		text-align:center;
+	}
+	.featured-prod-section h2{
+		font-size: 34px !important;
+	}
+	.featured-prod-section h2, .featured-prod-section p{
+		text-align:left !Important;
+	}
+	.featured-prod-section .s-title{
+		    margin-top: 10px;
+	}
+	.featured-prod-section .col-md-3.col-md-offset-3{
+		padding-left:15px !important;
+	}
+	.sub-editorial-page .btn-div{
+		    text-align:left !important;
+	}
+}
+
+@media only screen and (width: 768px) {
+	.sub-editorial-page .prod-pic{
+		    width: 309px !important;
+    		margin-left: 15px;
+			    margin-bottom: 45px !important;
+	}
+	.sub-editorial-page .btn-div{
+		    text-align:left !important;
+	}
+	.featured-prod-section{
+		text-align:center;
+	}
+	.featured-prod-section p, .featured-prod-section h2{
+		text-align:left !important;
+	}
+}

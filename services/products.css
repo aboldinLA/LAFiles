@@ -1,0 +1,98 @@
+<style type="text/css">
+<!--
+
+div.heading-title{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+    padding-top: 8;
+    padding-left: 5;
+}
+                                                                                                  
+div.local-title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-align: left;
+    padding-top: 8;
+    padding-left: 5;
+}
+                                                                                                  
+div.description {
+    padding-top: 4;
+    padding-left: 12;
+    vertical-align: middle;
+}
+
+div.refine {
+    font-weight: bold;
+    text-align: center;
+}
+                                                                                                  
+div.refineinput {
+    text-align: center;
+}
+
+div.refbutton {
+    text-align: center;
+}
+
+table.local-list {
+    border-style: solid;
+}
+
+td.local_vendor_active {
+    background: #70a183;
+    color: #ffffff;
+    font-style: bold;
+}
+                                                                                                  
+td.local_vendor_inactive {
+    cursor: pointer;
+    cursor: hand;
+    background: #67645F;
+    color: #ffffff;
+}
+                                                                                                  
+.locallink {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.refinebuttonactive {
+    background: #70a183;
+}
+
+.refinebuttoninactive {
+    background: #67645F;
+}
+
+.refinebuttonactive, .refinebuttoninactive {
+  margin: 1em 0;
+  width: 9em;
+  border: 1px solid #ccc;
+  font-family: helvetica,arial,sans-serif;
+  font-size: 70%;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+.refinebuttonactive a, .refinebuttoninactive a {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  display: block;
+  width: 100%;
+}
+
+.refinebuttonactive a:link,
+.refinebuttonactive a:visited,
+.refinebuttonactive a:hover, 
+.refinebuttoninactive a:link,
+.refinebuttoninactive a:visited,
+.refinebuttoninactive a:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+// -->
+</style>

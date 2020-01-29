@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Example</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script type="text/javascript">
+function printTable(obj) {
+content = document.getElementById(obj).innerHTML;
+newwin = window.open('');
+newwin.document.write('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"\n',
+'"http://www.w3.org/TR/html4/strict.dtd">\n',
+'<html>\n',
+'<head>\n',
+'<title>Printing...</title>\n',
+'<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">\n',
+'<body>\n',
+''+content+'\n',
+'</body>\n',
+'</html>');
+newwin.print();
+newwin.close();
+}
+</script>
+</head>
+<body>
+<p>Print table: <a href="#" onclick="printTable('table0'); return false;">0</a> |
+<a href="#" onclick="printTable('table1'); return false;">1</a> |
+<a href="#" onclick="printTable('table2'); return false;">2</a></p>
+<div id="table0">
+<table>
+<tr>
+<td>Table Zero</td>
+</tr>
+</table>
+</div>
+<div id="table1">
+<table>
+<tr>
+<td>Table One</td>
+</tr>
+</table>
+</div>
+<div id="table2">
+<table>
+<tr>
+<td>Table Two</td>
+</tr>
+</table>
+</div>
+</body>
+</html> 

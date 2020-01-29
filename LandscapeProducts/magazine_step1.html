@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html>
+  <!--<![endif]-->
+  <head>
+    <!-- META DATA -->
+    <META DATA charset="utf-8" />
+
+    <title>Landscape Architect</title>
+
+    <!-- Mobile META DATAs -->
+    <META
+      DATA
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=DM+Serif+Text:400,400i|Nunito:400,400i,600,600i,800,800i&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="js/vendors/isotope/isotope.css" />
+    <link rel="stylesheet" href="js/vendors/slick/slick.css" />
+    <link rel="stylesheet" href="js/vendors/rs-plugin/css/settings.css" />
+    <link rel="stylesheet" href="js/vendors/select/jquery.selectBoxIt.css" />
+    <link rel="stylesheet" href="css/subscribe-better.css" />
+    <link
+      rel="stylesheet"
+      href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/ui-lightness/jquery-ui.css"
+    />
+    <link rel="stylesheet" href="plugin/owl-carousel/owl.carousel.css" />
+    <link rel="stylesheet" href="plugin/owl-carousel/owl.theme.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <link rel="stylesheet" href="css/inner.css" />
+    <!-- Additional Page CSS -->
+    <link rel="stylesheet" href="css/bootstrap-datepicker.min.css" />
+    <!-- Additional Page CSS -->
+    <style>
+      td.day {
+        background: none;
+      }
+
+      .datepicker table tr td.active,
+      .datepicker table tr td.active.disabled,
+      .datepicker table tr td.active.disabled:hover,
+      .datepicker table tr td.active:hover {
+        background-color: #006dcc;
+        background-image: -moz-linear-gradient(to bottom, #1b8047, #1b8047);
+        background-image: -ms-linear-gradient(to bottom, #1b8047, #1b8047);
+        background-image: -webkit-gradient(
+          linear,
+          0 0,
+          0 100%,
+          from(#1b8047),
+          to(#1b8047)
+        );
+        background-image: -webkit-linear-gradient(to bottom, #1b8047, #1b8047);
+        background-image: -o-linear-gradient(to bottom, #1b8047, #1b8047);
+        background-image: linear-gradient(to bottom, #1b8047, #1b8047);
+        background-repeat: repeat-x;
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1b8047', endColorstr='#0044cc', GradientType=0);
+        border-color: #1b8047 #1b8047 #002a80;
+        border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+        filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+        color: #fff;
+        text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+      }
+
+      .list_items .container {
+        max-width: 1188px;
+        margin: 0 auto;
+      }
+
+      .form_field .container {
+        max-width: 1188px;
+        margin: 0 auto;
+      }
+    </style>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <!-- PRELOADER -->
+    <div id="loader"></div>
+
+    <div class="body">
+      <!-- HEADER -->
+      <header>
+                <nav class="navbar navbar-default">
+                    <div class="container mob-nopad">
+                        <div class="row mob-nopad">
+							<div class="col-md-12 col-sm-12 col-xs-12 mob-nopad">
+								
+	                            <div class="navbar-header">
+	                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	                                    <span class="sr-only">Toggle navigation</span>
+	                                    <span class="icon-bar bar1"></span>
+	                                    <span class="icon-bar bar2"></span>
+	                                    <span class="icon-bar bar3"></span>
+	                                </button>
+	                                <!-- Logo -->
+	                                <a class="navbar-brand" href="#"><img src="images/basic/logo.jpg" class="img-responsive" alt=""/></a>
+									<!-- Search -->
+									<button type="button" id="mob-search-btn" class="mob-search">
+	                                    <span class="sr-only">Search</span>
+	                                    <i class="fa fa-search"  aria-hidden="true"></i>
+	                                </button>
+	                            </div>
+	                            <!-- Cart & Search -->
+	                            <div class="header-xtra pull-right">
+	                                
+	                               <input class="search__input" type="text" placeholder="What are you looking for?">
+								   
+	                            </div>
+	                            <!-- Navmenu -->
+	                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	                                <ul class="nav navbar-nav navbar-left">
+	                                    <li class="dropdown">
+	                                        <li class="dropdown mmenu ">
+	                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Products</a>
+	                                        <ul class="mega-menu dropdown-menu" role="menu">
+	                                            <li class="lidim">
+	                                                <div>
+														<img class="hidden-xs full_width" src="images/menu-logo.JPG" />
+	                                                    <p class="padding20 nav_adj" >Featured Products</p>
+	                                                    <a href="#"><strong>Top 10 Products</strong></a>
+	                                                    <a href="#"><strong>Most Valued</strong></a>
+	                                                    <a href="#"><strong>Sponsored by Brend</strong></a>
+	                                                    <a href="#"><strong>Category List</strong></a>
+	                                                    <a href="#"><strong>Organization</strong></a>
+	                                                </div>
+	                                            </li>
+	                                            <li>
+	                                                <div>
+	                                                    <p class="padding20 nav_adj" >All Categories</p>
+	                                                    <a href="#">Business Services & Software</a>
+	                                                    <a href="#">Erosion Control</a>
+	                                                    <a href="#">Fencing</a>
+	                                                    <a href="#">Irrigation</a>
+	                                                    <a href="#">Lighting/Electrical</a>
+	                                                    <a href="#">Outdoor Living</a>
+	                                                    <a href="#">Park & Recreation</a>
+	                                                    <a href="#">Paver, Masonry, Blocks, Rocks</a>
+	                                                </div>
+	                                            </li>
+	                                            <li>
+	                                                <div> 
+													<p class=" hidden-xs padding20 nav_adj" ></p>
+														<br class="hidden-xs" />
+	                                                    <a href="#">Pest/Wildlife</a>
+	                                                    <a href="#">Plant Accessories & Amenments</a>
+	                                                    <a href="#">Scupture/Art/Garden Ornaments</a>
+	                                                    <a href="#">Site Amenities</a>
+	                                                    <a href="#">Site Furnishings & Receptables</a>
+	                                                    <a href="#">Water Features</a>
+	                                                    <a href="#">Water Management</a>
+	
+	                                                </div>
+	                                            </li>
+	                                            <li>
+	                                                <div>
+	                                                    <p class="padding20 nav_adj">Tools & Equipment</p>
+	                                                    <a href="#">Installation Equipment</a>
+	                                                    <a href="#">Maintenance Equipment</a>
+	                                                    <a href="#">Tools & Parts</a>
+	                                                </div>
+	                                                <div class="padding20">
+	                                                    <p class="padding20 nav_adj" >Local Wholesale & Plant Materieals</p>
+	                                                    <a href="#">Search by State</a>
+	                                                </div>
+	                                            </li>
+												<div class="reqpro">
+													<h5>Know what you’re looking for? <a href="#"><strong>Request Product Details</strong></a></h5>
+												</div>
+												
+	                                        </ul>
+	                                    </li>
+	                                    <li class="dropdown mmenu ">
+	                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">News</a>
+											
+	                                    </li>
+	                                    <li class="active">
+	                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Resources</a>
+	                                    </li>
+	                                    <li class="">
+	                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Events</a>
+	                                    </li>
+	                                    <li class="">
+	                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Login</a>
+	                                    </li>
+	                                    
+	                                </ul>
+									<div class="mobile-signup hidden-sm hidden-md hidden-lg" style="">
+										<p class="txtintial">Sign up for LAWeekly newsletter</p>
+										<form class="newsletter">
+			                                <input type="text" class="bg_white" placeholder="Enter your email address">
+			                                <button type="submit" class="btn btn-lg" style="">SIGN UP</button>
+	                            		</form>	
+									</div>
+									
+	                            </div>
+								
+								<!-- Mobile Search Box -->
+								<div id="mob-search-block" class="sclose">
+									<button id="mob-search-btn-c"><i class="fa fa-close"></i></button>
+									<input class="search__input" type="text" placeholder="What are you looking for?">
+								</div>
+								
+							</div>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+
+      <div class="mag_ban full_width">
+      <div class="container">
+      		<span class="img_di">
+            	<img src="images/bitmap.png" alt="img" />
+            </span><!-- /.img_di -->
+            <div class="texx">
+            	<h3>2019 Buyer’s Guide</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                <button type="button">VIEW THE BUYER’S GUIDE</button>
+            </div><!-- /.texx -->
+      </div><!-- /.container -->
+      </div><!-- /.mab_ban -->
+      
+      <div class="green_dinkle full_width">
+      <div class="container">
+      	<a href="#" class="like_bttt">Landscape Architect Magazine</a>
+        <h3>Landscape Contractor Magazine</h3>
+        <div class="right_side_sel">
+        	<label>Browse Our Previous Magazine Issues</label>
+            <select>
+            	<option>2019</option>
+                <option>2018</option>
+            </select>
+        </div><!-- /.right_side_sel -->
+      </div><!-- /.container -->
+      </div><!-- /.green_dinkle -->
+      
+      <div class="group_of_pdf full_width">
+      <div class="container">
+      <div class="row">
+      	<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 for_small img_fit colme">
+        	<img src="images/pdfimg.png" alt="img" />
+            <h3>Title of Issue</h3>
+            <h4><span>Month 2019</span> | <a href="#">View PDF</a></h4>
+        </div><!-- /.col-lg-3 -->
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 for_small img_fit colme">
+        	<img src="images/pdfimg.png" alt="img" />
+            <h3>Title of Issue</h3>
+            <h4><span>Month 2019</span> | <a href="#">View PDF</a></h4>
+        </div><!-- /.col-lg-3 -->
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 for_small img_fit colme">
+        	<img src="images/pdfimg.png" alt="img" />
+            <h3>Title of Issue</h3>
+            <h4><span>Month 2019</span> | <a href="#">View PDF</a></h4>
+        </div><!-- /.col-lg-3 -->
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 for_small img_fit colme">
+        	<img src="images/pdfimg.png" alt="img" />
+            <h3>Title of Issue</h3>
+            <h4><span>Month 2019</span> | <a href="#">View PDF</a></h4>
+        </div><!-- /.col-lg-3 -->
+        
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 for_small img_fit colme">
+        	<img src="images/pdfimg.png" alt="img" />
+            <h3>Title of Issue</h3>
+            <h4><span>Month 2019</span> | <a href="#">View PDF</a></h4>
+        </div><!-- /.col-lg-3 -->
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 for_small img_fit colme">
+        	<img src="images/pdfimg.png" alt="img" />
+            <h3>Title of Issue</h3>
+            <h4><span>Month 2019</span> | <a href="#">View PDF</a></h4>
+        </div><!-- /.col-lg-3 -->
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 for_small img_fit colme">
+        	<img src="images/pdfimg.png" alt="img" />
+            <h3>Title of Issue</h3>
+            <h4><span>Month 2019</span> | <a href="#">View PDF</a></h4>
+        </div><!-- /.col-lg-3 -->
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 for_small img_fit colme">
+        	<img src="images/pdfimg.png" alt="img" />
+            <h3>Title of Issue</h3>
+            <h4><span>Month 2019</span> | <a href="#">View PDF</a></h4>
+        </div><!-- /.col-lg-3 -->
+        
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 for_small img_fit colme">
+        	<img src="images/pdfimg.png" alt="img" />
+            <h3>Title of Issue</h3>
+            <h4><span>Month 2019</span> | <a href="#">View PDF</a></h4>
+        </div><!-- /.col-lg-3 -->
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 for_small img_fit colme">
+        	<img src="images/pdfimg.png" alt="img" />
+            <h3>Title of Issue</h3>
+            <h4><span>Month 2019</span> | <a href="#">View PDF</a></h4>
+        </div><!-- /.col-lg-3 -->
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 for_small img_fit colme">
+        	<img src="images/pdfimg.png" alt="img" />
+            <h3>Title of Issue</h3>
+            <h4><span>Month 2019</span> | <a href="#">View PDF</a></h4>
+        </div><!-- /.col-lg-3 -->
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 for_small img_fit colme">
+        	<img src="images/pdfimg.png" alt="img" />
+            <h3>Title of Issue</h3>
+            <h4><span>Month 2019</span> | <a href="#">View PDF</a></h4>
+        </div><!-- /.col-lg-3 -->
+      </div><!-- /.row -->
+      </div><!-- /.container -->
+      </div><!-- /.group_of_pdf -->
+
+      <!-- FOOTER -->
+      <footer class="full_width" >
+                <div class="container">
+                    <div class="row text-center">
+                        <p class="mrb5"><a href="#">Products</a> | <a href="#">Advertising</a> | <a href="#">Become A Vendor</a> | <br class="mob-only hide1" /><a href="#">Contact Us</a> | <a href="#">About Us</a></p>
+						<p class="mbtm0"><a href="#">Careers</a> | <a href="#">Awards</a> | <a href="#">Subscribe</a> | Landscape Communications Inc. © 2019</p>
+                    </div>
+                </div>
+            </footer>
+
+        
+      <div class="all_modals_ full_width">
+      
+      <!-- Modal -->
+<div class="modal fade mdl1" id="onload_m" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Subscribe to the Magazine</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">CLOSE X</span>
+        </button>
+      </div>
+      <div class="step_sec full_width">
+          <a href="#" class="active">Step 1</a>
+          <a href="#">Step 2</a>
+          <a href="#">Step 3</a>
+      </div><!-- /.step_sec -->
+      <div class="modal-body">
+        <div class="modal_cot full_width">
+          <h2>Enjoy Landscape Architect?</h2>
+          <p class="blel">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget eros scelerisque, auctor nisi a, sagittis felis. Vivamus viverra quis lacus in accumsan. Praesent facilisis diam ut justo pulvinar </p>
+          
+          <div class="contact_wrp">
+            <h3 class="stl-ar">Contact Information <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </span></h3>
+            <div class="full_width input_fl">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                  <label>First Name*</label>
+                  <input type="text" />
+                </div><!-- .col-lg-6 -->
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                  <label>Last Name*</label>
+                  <input type="text" />
+                </div><!-- .col-lg-6 -->
+                <div class="col-sm-12">
+                  <label>PHONE NUMBER*</label>
+                  <input type="text" value="(555) 123 - 4567" />
+                </div><!-- .col-lg-6 -->
+
+                <div class="col-sm-12">
+                  <label>EMAIL*</label>
+                  <input type="text" value="yourname@email.com" />
+                </div><!-- .col-lg-6 -->
+
+                <div class="col-sm-12">
+                  <label>Title*</label>
+                  <input type="text" value="Job Position" />
+                </div><!-- .col-lg-6 -->
+
+                <div class="col-sm-12">
+                  <label>Company Name*</label>
+                  <input type="text" value="Job Position" />
+                </div><!-- .col-lg-6 -->
+
+                <div class="col-sm-12">
+                  <label>INDUSTRY*</label>
+                  <select>
+                    <option>Landscape Design</option>
+                    <option>Landscape Design</option>
+                    <option>Landscape Design</option>
+                  </select>
+                </div><!-- .col-lg-6 -->
+
+            </div><!-- /.row -->  
+            </div><!-- /.input_fl -->
+            <div class="check_wrp full_width">
+              <span class="iwouldlike">I would like to subscribe / opt-in to receive:</span>
+              <ul>
+                <li>
+                    <div class="check_box__ pull-left">
+                          <input type="checkbox" class="form-check-input" id="chkk">
+                          <label for="chkk"></label>
+                          <label class="form-check-label" for="chkk">LASN Magazine Subscription</label>
+                      </div>
+                  </li>
+                  <li>
+                    <div class="check_box__ pull-left">
+                          <input type="checkbox" class="form-check-input" id="chkk1">
+                          <label for="chkk1"></label>
+                          <label class="form-check-label" for="chkk1">LASN Calls for Editorial</label>
+                      </div>
+                  </li>
+                  <li>
+                    <div class="check_box__ pull-left">
+                          <input type="checkbox" class="form-check-input" id="chkk2">
+                          <label for="chkk2"></label>
+                          <label class="form-check-label" for="chkk2">LASN Digital Magazine</label>
+                      </div>
+                  </li>
+                  <li>
+                    <div class="check_box__ pull-left">
+                          <input type="checkbox" class="form-check-input" id="chkk3">
+                          <label for="chkk3"></label>
+                          <label class="form-check-label" for="chkk3">LASN Advertising Sales Promos</label>
+                      </div>
+                  </li>
+                  
+              </ul>
+            </div><!-- chk_wrp -->
+          </div><!-- /.contact_wrp -->
+
+          <button type="button" class="button_style">NEXT: REQUEST PRODUCT INFORMATION</button>
+          <span class="dummy_height"></span>
+        </div><!-- /.modal_cot -->
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div><!-- all_modals  -->   
+
+
+    </div>
+
+    <div id="backtotop"><i class="fa fa-chevron-up"></i></div>
+
+    <!-- Javascript -->
+    <script src="js/jquery.js"></script>
+
+    <!-- ADDTHIS -->
+    <script
+      type="text/javascript"
+      src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-557a95e76b3e51d9"
+      async
+    ></script>
+    <script type="text/javascript">
+      // Call this function once the rest of the document is loaded
+      function loadAddThis() {
+        addthis.init();
+      }
+    </script>
+
+    <!-- ADDTHIS -->
+    <script
+      type="text/javascript"
+      src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-557a95e76b3e51d9"
+      async
+    ></script>
+    <script type="text/javascript">
+      // Call this function once the rest of the document is loaded
+      function loadAddThis() {
+        addthis.init();
+      }
+    </script>
+
+    <script src="js/bootstrap.min.js"></script>
+    <script src="plugin/owl-carousel/owl.carousel.min.js"></script>
+    <script src="js/bs-navbar.js"></script>
+    <script src="js/vendors/isotope/isotope.pkgd.js"></script>
+    <script src="js/vendors/slick/slick.min.js"></script>
+    <script src="js/vendors/tweets/tweecool.min.js"></script>
+    <script src="js/vendors/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+    <script src="js/vendors/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+    <script src="js/jquery.sticky.js"></script>
+    <script src="js/jquery.subscribe-better.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <!--<script src="js/vendors/select/jquery.selectBoxIt.min.js"></script>-->
+    <script src="js/main.js"></script>
+    <script src="js/moment.js"></script>
+    <script src="js/bootstrap-datepicker.min.js"></script>
+    <script>
+      $(function() {
+        // $("#datetimepicker1").datepicker({
+        //   format: "dd/mm/yyyy"
+        // });
+        // $("#datetimepicker2").datepicker({
+        //   format: "dd/mm/yyyy"
+        // });
+
+        $(".datetimepicker_r").datepicker({
+          format: "dd/mm/yyyy",
+          orientation: "bottom left"
+        });
+      });
+    </script>
+
+    <script type="text/javascript">
+      $(window).on('load',function(){
+          $('#onload_m').modal('show');
+      });
+  </script>
+  </body>
+</html>

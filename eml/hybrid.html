@@ -1,0 +1,529 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- utf-8 works for most cases -->
+<meta name="viewport" content="width=device-width">
+<!-- Forcing initial-scale shouldn't be necessary -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- Use the latest (edge) version of IE rendering engine -->
+<title>EmailTemplate-Hybrid</title>
+<!-- The title tag shows in email notifications, like Android 4.4. -->
+
+<!-- Please use an inliner tool to convert all CSS to inline as inpage or external CSS is removed by email clients -->
+<!-- important in CSS is used to prevent the styles of currently inline CSS from overriding the ones mentioned in media queries when corresponding screen sizes are encountered -->
+
+<!-- CSS Reset -->
+<style type="text/css">
+/* What it does: Remove spaces around the email design added by some email clients. */
+      /* Beware: It can remove the padding / margin and add a background color to the compose a reply window. */
+html, body {
+	margin: 0 !important;
+	padding: 0 !important;
+	height: 100% !important;
+	width: 100% !important;
+}
+/* What it does: Stops email clients resizing small text. */
+* {
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+/* What it does: Forces Outlook.com to display emails full width. */
+.ExternalClass {
+	width: 100%;
+}
+/* What is does: Centers email on Android 4.4 */
+div[style*="margin: 16px 0"] {
+	margin: 0 !important;
+}
+/* What it does: Stops Outlook from adding extra spacing to tables. */
+table, td {
+	mso-table-lspace: 0pt !important;
+	mso-table-rspace: 0pt !important;
+}
+/* What it does: Fixes webkit padding issue. Fix for Yahoo mail table alignment bug. Applies table-layout to the first 2 tables then removes for anything nested deeper. */
+table {
+	border-spacing: 0 !important;
+	border-collapse: collapse !important;
+	table-layout: fixed !important;
+	margin: 0 auto !important;
+}
+table table table {
+	table-layout: auto;
+}
+/* What it does: Uses a better rendering method when resizing images in IE. */
+img {
+	-ms-interpolation-mode: bicubic;
+}
+/* What it does: Overrides styles added when Yahoo's auto-senses a link. */
+.yshortcuts a {
+	border-bottom: none !important;
+}
+/* What it does: Another work-around for iOS meddling in triggered links. */
+a[x-apple-data-detectors] {
+	color: inherit !important;
+}
+</style>
+
+<!-- Progressive Enhancements -->
+<style type="text/css">
+/* What it does: Hover styles for buttons */
+.button-td, .button-a {
+	transition: all 100ms ease-in;
+}
+.button-td:hover, .button-a:hover {
+	background: #555555 !important;
+	border-color: #555555 !important;
+}
+
+/* Media Queries */
+@media screen and (max-width: 480px) {
+/* What it does: Forces elements to resize to the full width of their container. Useful for resizing images beyond their max-width. */
+.fluid, .fluid-centered {
+	width: 100% !important;
+	max-width: 100% !important;
+	height: auto !important;
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+/* And center justify these ones. */
+.fluid-centered {
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+/* What it does: Forces table cells into full-width rows. */
+.stack-column, .stack-column-center {
+	display: block !important;
+	width: 100% !important;
+	max-width: 100% !important;
+	direction: ltr !important;
+}
+/* And center justify these ones. */
+.stack-column-center {
+	text-align: center !important;
+}
+/* What it does: Generic utility class for centering. Useful for images, buttons, and nested tables. */
+.center-on-narrow {
+	text-align: center !important;
+	display: block !important;
+	margin-left: auto !important;
+	margin-right: auto !important;
+	float: none !important;
+}
+table.center-on-narrow {
+	display: inline-block !important;
+}
+}
+</style>
+</head>
+<body width="100%" bgcolor="#e0e0e0" style="margin: 0;" yahoo="yahoo">
+<table cellpadding="0" cellspacing="0" border="0" height="100%" width="100%" bgcolor="#e0e0e0" style="border-collapse:collapse;">
+  <tr>
+    <td><center style="width: 100%;">
+        
+        <!-- Visually Hidden Preheader Text : BEGIN -->
+        <div style="display:none;font-size:1px;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;mso-hide:all;font-family: sans-serif;"> (Optional) This text will appear in the inbox preview, but not the email body. </div>
+        <!-- Visually Hidden Preheader Text : END -->
+        
+        <div style="max-width: 680px;"> 
+          <!--[if (gte mso 9)|(IE)]>
+            <table cellspacing="0" cellpadding="0" border="0" width="680" align="center">
+            <tr>
+            <td>
+            <![endif]--> 
+          
+   
+          
+          <!-- Email Body : BEGIN -->
+          <table cellspacing="0" cellpadding="0" border="0" align="center" bgcolor="#ffffff" width="100%" style="max-width: 680px;">
+            
+            <!-- Hero Image, Flush : BEGIN -->
+            
+            
+            <tr>
+				<td class="full-width-image" align="center"><img width="40%" src="https://landscapearchitect.com/eml/images/logo1.png" style="position: relative; left: -200px; top: 25px; z-index: 500"><p style="position: relative; left: 175px; top: -25px; z-index: 500"><span style="font-family: Helvetica, Arial, 'sans-serif'; font-weight: 200; color: #FFFFFF"> </span> <span style="font-family: Helvetica, Arial, 'sans-serif'; font-weight: 200; color: #FFFFFF">Design &bull; Build &bull; Design &bull; Supply</span></p><img src="https://landscapearchitect.com/research/images/29505.jpg" width="680" alt="alt_text" border="0"  style="width: 100%; max-width: 680px; height: auto; position: relative; left: 0px; top: -95px"></td>
+            </tr>
+            <!-- Hero Image, Flush : END --> 
+            
+            <!-- 1 Column Text : BEGIN -->
+            <tr>
+              <td><table cellspacing="0" cellpadding="0" border="0" width="100%">
+                  <tr>
+					  <td style="padding: 40px; text-align: center; font-family: sans-serif; font-size: 15px; mso-height-rule: exactly; line-height: 20px; color: #555555; position: relative; top: -125px"><h2>Elements of Hardscape</h2> In Long Beach, California, Solena Landscape, led by owner Mitch Kalamian, turned an outdated, overgrown landscape into the ultimate outdoor paradise. The spaces in the backyard are distinguished through the use of different hardscape elements, including concrete, pavers, and a wooden deck.  <a href="https://landscapearchitect.com/research/article-a.php?number=29505">Read More . . .</a><br>
+                      <br>
+                      
+                      <!-- Button : Begin -->
+                      
+                      <table cellspacing="0" cellpadding="0" border="0" align="center" style="margin: auto">
+                        <tr>
+                          <td style="border-radius: 3px; background: #f1b30c; text-align: center;" class="button-td"><a href="https://landscapearchitect.com/research/recent_news-a.php" style="background: #f1b30c; border: 15px solid #f1b30c; padding: 0 10px;color: #000000; font-family: sans-serif; font-size: 13px; line-height: 1.1; text-align: center; text-decoration: none; display: block; border-radius: 3px; font-weight: bold;" class="button-a"> 
+                            <!--[if mso]>&nbsp;&nbsp;&nbsp;&nbsp;<![endif]-->View More Articles<!--[if mso]>&nbsp;&nbsp;&nbsp;&nbsp;<![endif]--> 
+                            </a></td>
+                        </tr>
+                      </table>
+                      
+                      <!-- Button : END --></td>
+                  </tr>
+                </table></td>
+            </tr>
+            <!-- 1 Column Text : BEGIN --> 
+            
+            <!-- Background Image with Text : BEGIN -->
+            <tr>
+              <td background="https://landscapearchitect.com/eml/images/Image_600x230-2.jpg" bgcolor="#222222" valign="middle" style="text-align: center; background-position: center center !important; background-size: cover !important; position: relative; top: -125px"><!--[if gte mso 9]>
+                        <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:680px;height:175px; background-position: center center !important;">
+                        <v:fill type="tile" src="assets/Hybrid/Image_680x230.png" color="#222222" />
+                        <v:textbox inset="0,0,0,0">
+                        <![endif]-->
+                
+                <div> 
+                  <!--[if mso]>
+                            <table border="0" cellspacing="0" cellpadding="0" align="center" width="500">
+                            <tr>
+                            <td align="center" valign="top" width="500">
+                            <![endif]-->
+                  <table border="0" cellpadding="0" cellspacing="0" align="center" width="100%" style="max-width:500px; margin: auto">
+                    <tr>
+						<td valign="middle" style="text-align: center; padding: 40px 20px; font-family: sans-serif; font-size: 15px; mso-height-rule: exactly; line-height: 20px; color: #555555"></td>
+                    </tr>
+                    <tr>
+						<td style="padding: 40px; text-align: center; font-family: sans-serif; font-size: 15px; mso-height-rule: exactly; line-height: 20px; color: #555555; position: relative; top: 170px"><h2>Checking Monarch Population Counts</h2> Research from Iowa State University suggests that citizen scientists are not seeing a decline in monarch populations because monarchs are losing milkweed habitats in agricultural areas.  <a href="https://landscapearchitect.com/research/article-a.php?number=29509">Read More . . .</a><br></td>
+					  </tr>
+                  </table>
+                  <!--[if (gte mso 9)|(IE)]>
+                            </td>
+                            </tr>
+                            </table>
+                            <![endif]--> 
+                </div>
+                
+                <!--[if gte mso 9]>
+                        </v:textbox>
+                        </v:rect>
+                        <![endif]--></td>
+            </tr>
+            <!-- Background Image with Text : END --> 
+            
+            <!-- Two Even Columns : BEGIN -->
+            <tr>
+              <td bgcolor="#ffffff" align="center" height="100%" valign="top" width="100%"><!--[if mso]>
+                        <table border="0" cellspacing="0" cellpadding="0" align="center" width="660">
+                        <tr>
+                        <td align="center" valign="top" width="660">
+                        <![endif]-->
+                
+                <table border="0" cellpadding="0" cellspacing="0" align="center" width="100%" style="max-width:660px;">
+                  <tr>
+                    <td align="center" valign="top" style="font-size:0; padding: 10px 0;"><!--[if mso]>
+                                    <table border="0" cellspacing="0" cellpadding="0" align="center" width="660">
+                                    <tr>
+                                    <td align="left" valign="top" width="330">
+                                    <![endif]-->
+                      
+                      <div style="display:inline-block; max-width:50%; margin: 0 -2px; min-width:200px; vertical-align:top; width:100%;" class="stack-column">
+                        <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                          <tr>
+                            <td style="padding: 10px 10px;"><table cellspacing="0" cellpadding="0" border="0" width="100%" style="font-size: 14px;text-align: left;">
+                                <tr>
+                                  <td><img src="https://landscapearchitect.com/research/lol/2017/07/img/29642-plans.jpg" width="310" alt="" style="border: 0;width: 100%;max-width: 310px;height: auto;" class="center-on-narrow"></td>
+                                </tr>
+                                <tr>
+                                  <td style="font-family: sans-serif; font-size: 15px; mso-height-rule: exactly; line-height: 20px; color: #555555; padding-top: 10px;" class="stack-column-center"> Even though commercial planning was down over one percent month-over-month, it is still up close to 10 ... <a href="https://landscapearchitect.com/research/article-a.php?number=29509">Read More . . .</a> </td>
+                                </tr>
+                              </table></td>
+                          </tr>
+                        </table>
+                      </div>
+                      
+                      <!--[if mso]>
+                                    </td>
+                                    <td align="left" valign="top" width="330">
+                                    <![endif]-->
+                      
+                      <div style="display:inline-block; max-width:50%; margin: 0 -2px; min-width:200px; vertical-align:top; width:100%;" class="stack-column">
+                        <table width="100%">
+                          <tr>
+                            <td style="padding: 10px 10px;"><table cellspacing="0" cellpadding="0" border="0" width="100%" style="font-size: 14px;text-align: left;">
+                                <tr>
+                                  <td><img src="https://landscapearchitect.com/research/lol/2017/08/img/29678.jpg" width="310" alt="" style="border: 0;width: 100%;max-width: 310px;height: auto;" class="center-on-narrow"></td>
+                                </tr>
+                                <tr>
+                                  <td style="font-family: sans-serif; font-size: 15px; mso-height-rule: exactly; line-height: 20px; color: #555555; padding-top: 10px;" class="stack-column-center"> The National Association of Women In Construction's (NAWIC) mission is to enhance the success of women ... <a href="https://landscapearchitect.com/research/article-a.php?number=29509">Read More . . .</a> </td>
+                                </tr>
+                              </table></td>
+                          </tr>
+                        </table>
+                      </div>
+                      
+                      <!--[if mso]>
+                                    </td>
+                                    </tr>
+                                    </table>
+                                    <![endif]--></td>
+                  </tr>
+                </table>
+                
+                <!--[if mso]>
+                        </td>
+                        </tr>
+                        </table>
+                        <![endif]--></td>
+            </tr>
+            <!-- Two Even Columns : END --> 
+            
+            <!-- Three Even Columns : BEGIN -->
+            <tr>
+              <td bgcolor="#ffffff" align="center" height="100%" valign="top" width="100%" style="padding: 10px 0;"><!--[if mso]>
+                        <table border="0" cellspacing="0" cellpadding="0" align="center" width="660">
+                        <tr>
+                        <td align="center" valign="top" width="660">
+                        <![endif]-->
+                
+                <table border="0" cellpadding="0" cellspacing="0" align="center" width="100%" style="max-width:660px;">
+                  <tr>
+                    <td align="center" valign="top" style="font-size:0;"><!--[if mso]>
+                                    <table border="0" cellspacing="0" cellpadding="0" align="center" width="660">
+                                    <tr>
+                                    <td align="left" valign="top" width="220">
+                                    <![endif]-->
+                      
+                      <div style="display:inline-block; margin: 0 -2px; max-width:33.33%; min-width:220px; vertical-align:top; width:100%;" class="stack-column">
+                        <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                          <tr>
+                            <td style="padding: 10px 10px;"><table cellspacing="0" cellpadding="0" border="0" width="100%" style="font-size: 14px;text-align: left;">
+                                <tr>
+                                  <td><img src="https://landscapearchitect.com/research/images/29496.jpg" width="200" alt="" style="border: 0;width: 100%;max-width: 200px;height: auto;" class="center-on-narrow"></td>
+                                </tr>
+                                <tr>
+                                  <td style="font-family: sans-serif; font-size: 15px; mso-height-rule: exactly; line-height: 20px; color: #555555; padding-top: 10px;" class="stack-column-center"> <strong>Palm Springs Enacts Leaf Blower Ban - </strong> U.S. communities continue to outlaw leaf blowers due to noise and air pollution concerns. <a href="https://landscapearchitect.com/research/article-a.php?number=29509">Read More . . .</a></td>
+                                </tr>
+                              </table></td>
+                          </tr>
+                        </table>
+                      </div>
+                      
+                      <!--[if mso]>
+                                    </td>
+                                    <td align="left" valign="top" width="220">
+                                    <![endif]-->
+                      
+                      <div style="display:inline-block; margin: 0 -2px; max-width:33.33%; min-width:220px; vertical-align:top; width:100%;" class="stack-column">
+                        <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                          <tr>
+                            <td style="padding: 10px 10px;"><table cellspacing="0" cellpadding="0" border="0" width="100%" style="font-size: 14px;text-align: left;">
+                                <tr>
+                                  <td><img src="https://landscapearchitect.com/research/images/29487.jpg" width="200" alt="" style="border: 0;width: 100%;max-width: 200px;height: auto;" class="center-on-narrow"></td>
+                                </tr>
+                                <tr>
+                                  <td style="font-family: sans-serif; font-size: 15px; mso-height-rule: exactly; line-height: 20px; color: #555555; padding-top: 10px;" class="stack-column-center"> <strong>UConn Creates Sustainable Plant and Soil Systems Major - </strong> In the new major, students can choose to concentrate in turfgrass science <a href="https://landscapearchitect.com/research/article-a.php?number=29509">Read More . . .</a> </td>
+                                </tr>
+                              </table></td>
+                          </tr>
+                        </table>
+                      </div>
+                      
+                      <!--[if mso]>
+                                    </td>
+                                    <td align="left" valign="top" width="220">
+                                    <![endif]-->
+                      
+                      <div style="display:inline-block; margin: 0 -2px; max-width:33.33%; min-width:220px; vertical-align:top; width:100%;" class="stack-column">
+                        <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                          <tr>
+                            <td style="padding: 10px 10px;"><table cellspacing="0" cellpadding="0" border="0" width="100%" style="font-size: 14px;text-align: left;">
+                                <tr>
+                                  <td><img src="https://landscapearchitect.com/research/images/29432.jpg" width="200" alt="" style="border: 0;width: 100%;max-width: 200px;max-height: auto;" class="center-on-narrow"></td>
+                                </tr>
+                                <tr>
+                                  <td style="font-family: sans-serif; font-size: 15px; mso-height-rule: exactly; line-height: 20px; color: #555555; padding-top: 10px;" class="stack-column-center"> <strong>In Drought Conditions, Vinegar May Save Plants - </strong> Plants produce acetate, the main component of vinegar, in times of drought. Research has shown <a href="https://landscapearchitect.com/research/article-a.php?number=29509">Read More . . .</a></td>
+                                </tr>
+                              </table></td>
+                          </tr>
+                        </table>
+                      </div>
+                      
+                      <!--[if mso]>
+                                    </td>
+
+                                   </tr>
+                                    </table>
+                                    <![endif]--></td>
+                  </tr>
+                </table>
+                
+                <!--[if mso]>
+                        </td>
+                        </tr>
+                        </table>
+                        <![endif]--></td>
+            </tr>
+            <!-- Three Even Columns : END --> 
+            
+            <!-- Thumbnail Left, Text Right : BEGIN -->
+            <tr>
+              <td dir="ltr" bgcolor="#ffffff" align="center" height="100%" valign="top" width="100%" style="padding: 10px 0;"><!--[if mso]>
+                        <table border="0" cellspacing="0" cellpadding="0" align="center" width="660">
+                        <tr>
+                        <td align="center" valign="top" width="660">
+                        <![endif]-->
+                
+                <table border="0" cellpadding="0" cellspacing="0" align="center" width="100%" style="max-width:660px;">
+                  <tr>
+                    <td align="center" valign="top" style="font-size:0; padding: 10px 0;"><!--[if mso]>
+                                    <table border="0" cellspacing="0" cellpadding="0" align="center" width="660">
+                                    <tr>
+                                    <td align="left" valign="top" width="220">
+                                    <![endif]-->
+                      
+                      <div style="display:inline-block; margin: 0 -2px; max-width:33.33%; min-width:160px; vertical-align:top; width:100%;" class="stack-column">
+                        <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                          <tr>
+                            <td dir="ltr" style="padding: 0 10px 10px 10px;"><img src="https://landscapearchitect.com/products/images/LastecPF1610LC_1475533493.jpg" width="200" alt="" style="border: 0;width: 100%;max-width: 200px;height: auto;" class="center-on-narrow"></td>
+                          </tr>
+                        </table>
+                      </div>
+                      
+                      <!--[if mso]>
+                                    </td>
+                                    <td align="left" valign="top" width="440">
+                                    <![endif]-->
+                      
+                      <div style="display:inline-block; margin: 0 -2px; max-width:66.66%; min-width:320px; vertical-align:top;" class="stack-column">
+                        <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                          <tr>
+                            <td dir="ltr" style="font-family: sans-serif; font-size: 15px; mso-height-rule: exactly; line-height: 20px; color: #555555; padding: 10px 10px 0; text-align: left; position: relative; top: -15px" class="center-on-narrow"><strong style="color:#111111;">Lastec</strong> <br>
+                              <br>
+                              Eliminate Compromise between Width and Accuracy Lastec's 73" (185.42 cm) wide articulating rotary mowers offer the perfect balance between productivity and accuracy. <br>
+                              <br>
+                              
+                              <!-- Button : Begin -->
+                              
+                              <table cellspacing="0" cellpadding="0" border="0" class="center-on-narrow" style="float:left;">
+                                <tr>
+                                  <td style="border-radius: 3px; background: #f1b30c; text-align: center;" class="button-td"><a href="https://landscapearchitect.com/products/index-all-b.php?number=374&ad=1210" style="background: #f1b30c; border: 15px solid #f1b30c; padding: 0 10px;color: #000000; font-family: sans-serif; font-size: 13px; line-height: 1.1; text-align: center; text-decoration: none; display: block; border-radius: 3px; font-weight: bold;" class="button-a"> 
+                                    <!--[if mso]>&nbsp;&nbsp;&nbsp;&nbsp;<![endif]-->View More Product Like This<!--[if mso]>&nbsp;&nbsp;&nbsp;&nbsp;<![endif]--> 
+                                    </a></td>
+                                </tr>
+                              </table>
+                              
+                              <!-- Button : END --></td>
+                          </tr>
+                        </table>
+                      </div>
+                      
+                      <!--[if mso]>
+                                    </td>
+                                    </tr>
+                                    </table>
+                                    <![endif]--></td>
+                  </tr>
+                </table>
+                
+                <!--[if mso]>
+                        </td>
+                        </tr>
+                        </table>
+                        <![endif]--></td>
+            </tr>
+            <!-- Thumbnail Left, Text Right : END --> 
+            
+            <!-- Thumbnail Right, Text Left : BEGIN -->
+            <tr>
+              <td dir="rtl" bgcolor="#ffffff" align="center" height="100%" valign="top" width="100%" style="padding: 10px 0;"><!--[if mso]>
+                        <table border="0" cellspacing="0" cellpadding="0" align="center" width="660">
+                        <tr>
+                        <td align="center" valign="top" width="660">
+                        <![endif]-->
+                
+                <table border="0" cellpadding="0" cellspacing="0" align="center" width="100%" style="max-width:660px;">
+                  <tr>
+                    <td align="center" valign="top" style="font-size:0; padding: 10px 0;"><!--[if mso]>
+                                    <table border="0" cellspacing="0" cellpadding="0" align="center" width="660">
+                                    <tr>
+                                    <td align="left" valign="top" width="220">
+                                    <![endif]-->
+                      
+                      <div style="display:inline-block; margin: 0 -2px; max-width:33.33%; min-width:160px; vertical-align:top; width:100%;" class="stack-column">
+                        <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                          <tr>
+                            <td dir="ltr" style="padding: 0 10px 10px 10px;"><img src="https://landscapearchitect.com/products/images/prod_893d1a80da9b47e06c685a285c4b57e1.jpg" width="200" alt="" style="border: 0;width: 100%;max-width: 200px;height: auto;" class="center-on-narrow"></td>
+                          </tr>
+                        </table>
+                      </div>
+                      
+                      <!--[if mso]>
+                                    </td>
+                                    <td align="left" valign="top" width="440">
+                                    <![endif]-->
+                      
+                      <div style="display:inline-block; margin: 0 -2px; max-width:66.66%; min-width:320px; vertical-align:top;" class="stack-column">
+                        <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                          <tr>
+                            <td dir="ltr" style="font-family: sans-serif; font-size: 15px; mso-height-rule: exactly; line-height: 20px; color: #555555; padding: 10px 10px 0; text-align: left; position: relative; top: -15px" class="center-on-narrow"><strong style="color:#111111;">Pavesstone</strong> <br>
+                              <br>
+                              Grasstone II by Pavestone is a versatile surface stabilization product used for both sloped and horizontal applications... <br>
+                              <br>
+                              
+                              <!-- Button : Begin -->
+                              
+                              <table cellspacing="0" cellpadding="0" border="0" class="center-on-narrow" style="float:left;">
+                                <tr>
+                                  <td style="border-radius: 3px; background: #f1b30c; text-align: center;" class="button-td"><a href="https://landscapearchitect.com/products/index-all-b.php?number=158&ad=30" style="background: #f1b30c; border: 15px solid #f1b30c; padding: 0 10px;color: #000000; font-family: sans-serif; font-size: 13px; line-height: 1.1; text-align: center; text-decoration: none; display: block; border-radius: 3px; font-weight: bold;" class="button-a"> 
+                                    <!--[if mso]>&nbsp;&nbsp;&nbsp;&nbsp;<![endif]-->View More Product Like This<!--[if mso]>&nbsp;&nbsp;&nbsp;&nbsp;<![endif]--> 
+                                    </a></td>
+                                </tr>
+                              </table>
+                              
+                              <!-- Button : END --></td>
+                          </tr>
+                        </table>
+                      </div>
+                      
+                      <!--[if mso]>
+                                    </td>
+                                    </tr>
+                                    </table>
+                                    <![endif]--></td>
+                  </tr>
+                </table>
+                
+                <!--[if mso]>
+                        </td>
+                        </tr>
+                        </table>
+                        <![endif]--></td>
+            </tr>
+            <!-- Thumbnail Right, Text Left : END -->
+            
+          </table>
+          <!-- Email Body : END --> 
+          
+          <!-- Email Footer : BEGIN -->
+          <table cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="max-width: 680px;">
+            <tr>
+				<td style="padding: 40px 10px;width: 100%;font-size: 12px; font-family: sans-serif; mso-height-rule: exactly; line-height:18px; text-align: center; color: #888888;"><webversion style="color:#cccccc; text-decoration:underline; font-weight: bold;"><a href="https://landscapearchitect.com/eml/hybrid.html">View as a Web Page</a></webversion>
+                <br>
+                <br>
+                LandscapeOnline.com<br>
+                <span class="mobile-link--footer"><p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML = Date();
+</script></span> <br>
+                <br>
+                <unsubscribe style="color:#888888; text-decoration:underline;">unsubscribe</unsubscribe></td>
+            </tr>
+          </table>
+          <!-- Email Footer : END --> 
+          
+          <!--[if (gte mso 9)|(IE)]>
+            </td>
+            </tr>
+            </table>
+            <![endif]--> 
+        </div>
+      </center></td>
+  </tr>
+</table>
+</body>
+</html>

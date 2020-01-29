@@ -1,0 +1,206 @@
+body    {
+    /* background: #7daa97 url(btgrdk.gif) bottom left fixed repeat-x; */
+    background: #a4a4a4 url(/res/i/blkgrd.gif) bottom left fixed repeat-x;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-top: 5px solid #566;
+    text-align: center;
+    font-family: "Trebuchet MS", "Bitstream Vera Sans", verdana, lucida, arial, helvetica, sans-serif;
+    padding-bottom: 25px;
+    }
+
+#wrapper    {
+    /* background: #fff url(/i/pgbg4.gif) repeat; */
+    color: #333;
+    background: #fff;
+    margin: 10px auto;
+    padding: 0;
+    border: 1px solid #566;
+    border-top: 5px solid #566;
+    width: 699px;  /* bmh */    
+    voice-family: "\"}\""; 
+    voice-family:inherit;
+    width: 697px;    
+    }
+
+html>#wrapper   {
+    width: 697px;
+    } 
+
+#header {
+    color: #333;
+    border: 0;
+    margin: 0 0 5px 0;
+    padding: 0;
+    text-align: center;
+    }
+
+#header img {
+    margin: 0;
+    padding: 0 0 0 5px;
+    border: 0;
+    display: inline;
+    float: left;
+    }
+
+#title h1 {
+    font-weight: bold;
+    }
+
+#pagebody div.bar {
+    background: #7daa97 url(/res/i/navbarbg.gif) left repeat-x;
+    margin: 0 0 5px 0;
+    padding-left: 10px;
+    border-top: 1px solid #566;
+    border-bottom: 1px solid #566;
+    color: #fff;
+    clear: both;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: small;
+    voice-family: "\"}\"";   
+    voice-family: inherit;   
+    font-size:  medium;
+    }
+
+html>#pagebody div.bar {
+    font-size: medium;
+    }
+
+#pagebody {
+    background: transparent;
+    color: #444;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    text-align: left;
+    }
+
+/* #pagebody p {
+    margin-left: 10px;
+    } */
+
+#companyinfo {
+    float: left;
+    margin: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 320px;
+    voice-family: "\"}\""; 
+    voice-family:inherit;
+    width: 300px;
+    }
+
+html>#companyinfo {
+    width: 300px;
+    }
+
+#companyinfo h2, #categories h2, #adproof h2 {
+    padding: 0;
+    margin: 0;
+    }
+
+#companylogo {
+    clear: none;
+    text-align: center;
+    padding-left: 20px;
+    }
+
+#companyinfo dt {
+    font-weight: bold;
+    }
+
+#companyinfo p.fineprint {
+    font-size: 11px;
+    }
+
+#categories {
+    float: left;
+    margin: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 320px;
+    voice-family: "\"}\""; 
+    voice-family:inherit;
+    width: 300px;
+    }
+
+html>#categories {
+    width: 300px;
+    }
+
+div.clearer {
+    line-height: 0px;
+    clear: both;
+    font-size: 0px;
+    }
+
+#adproof {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid gray;
+    }
+
+#adproof h2 {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#adimage {
+    float: left;
+    text-align: center;
+    padding-right: 10px;
+    width: 310px;
+    voice-family: "\"}\""; 
+    voice-family:inherit;
+    width: 300px;
+    }
+
+html>#adimage {
+    width: 300px;
+    }
+
+#adtext {
+    margin: 0;
+    }
+
+#adphone {
+    margin-top: 5px;
+    text-align: center;
+    font-weight: bold;
+    }
+
+#adextra {
+    text-align: center;
+    }
+
+/* typography */
+p   {
+    line-height: 140%;
+    text-align: left;
+    margin-top: 0;
+    margin-bottom: 1em;
+    }
+    
+#pagebody, #pagebody div, #pagebody p, #pagebody th, #pagebody td, #pagebody li, #pagebody dd, #pagebody dt    {
+     font-size:    x-small;      
+             /* Tantek again */
+    voice-family: "\"}\"";   
+    voice-family: inherit;   
+    font-size:    small;         
+    }
+
+html>#pagebody, html>#pagebody div, html>#pagebody p, html>#pagebody th, 
+html>#pagebody td, html>#pagebody li, html>#pagebody dd, html>#pagebody dt    {
+    font-size:  small;
+    }
+
+
+h1, h2, h3, h4, h5, h6, div.bar {
+    font-family: Myriad, "Gill Sans", "Century Gothic", "Trebuchet MS", "Bitstream Vera Sans", verdana, lucida, arial, helvetica, sans-serif;
+    font-weight: normal;
+    margin-bottom: 2px;
+    }

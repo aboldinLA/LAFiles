@@ -1,0 +1,10 @@
+<?
+include "lol_common.inc";
+
+include $include_path . "lol_header2.inc";
+
+include $include_path . "leadgen.inc";
+
+include $include_path . "lol_footer.inc";
+?>
+	

@@ -1,0 +1,17 @@
+/* GLOBALS */
+
+/* MENUS */
+/* container for drop down tabs */
+
+
+
+/* top banner at right, next to logo */
+#lol_bannerTop {
+    position:absolute;
+	left:-215px;
+	top:-200px;
+    margin: 0;
+    width: 468px;
+    height: 60px;
+	z-index:100;
+}

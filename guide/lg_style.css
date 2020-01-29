@@ -1,0 +1,266 @@
+/*
+ * table colors: 
+    alt: #edf3fe;
+    active: #3d80df;
+ */
+body {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-top: 5px solid #566;
+    background: #ccc;
+    color: #333;
+    padding-bottom: 25px;
+    font-family: "lucida grande", verdana, sans-serif; 
+    font-size: 12px;
+    background: #fff url("/res/i/bar_gradient") bottom left fixed repeat-x;
+    }
+
+p, div, td {
+    text-align: left;
+    font-size: 12px;
+    line-height: 15px;
+    }
+
+a {
+    color: #2d4f9e;
+    }
+
+div#metaContainer {
+    margin: 10px auto;
+    padding: 0;
+    background: #fff;
+    border: 1px solid #566;
+    border-top: 5px solid #566;
+    left: auto;
+    right: auto;
+    width: 684px;
+    }
+
+div#header {
+    margin: 0 0 0 0;
+    padding: 0;
+    color: white;
+    background-color: #566;
+    }
+
+#header h1 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+    /* color: #10592d; */
+    color: white;
+    padding: 0 5px 5px 5px;
+    }
+
+div#notify {
+    border: 1px solid #f0f0f0;
+    margin: 5px;
+    padding-left: 5px;
+    background-color: #ffeeea;
+    }
+
+div#warn {
+    margin: 5px;
+    padding-left: 5px;
+    border: 1px solid #e0f0f0;
+    background-color: #eefff7;
+    }
+
+div#promo {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #e0f0f0;
+    font-size: 14px;
+    background-color: #ffffaa;
+    }
+
+div.navButtons {
+    padding: 1px;
+    margin: 0;
+    clear: both;
+    }
+
+div.borderBottom {
+    margin-top: 5px;
+    border-bottom: 1px dotted gray;
+    }
+
+div.borderTop {
+    margin-top: 5px;
+    border-top: 1px dotted gray;
+    }
+
+
+div.attn {
+    font-weight: bold;
+    font-size: 14px;
+    margin: 5px 10px 5px 10px;
+    color: red;
+    }
+
+#notify div.attn {
+    font-style: italic;
+    }
+
+div#content {
+    margin: 0 15px 10px 15px;
+    padding: 0;
+    }
+
+div#footer {
+    clear: both;
+    text-align: center;
+    padding: 1px 0 1px 0;
+    font-weight: bold;
+    color: white;
+    background-color: #566;
+    }
+
+div.floater {
+    clear: both;
+    float: right;
+    font-size: 14px;
+    background: transparent;
+    }
+
+div#content div.floater {
+    margin: 15px 0 0 0;
+    }
+
+div.floater a {
+    font-size: 14px;
+    }
+
+div#content div.floatBox  div.floater {
+    margin: 3px 2px 0 0;
+    margin-top: 3px;
+    padding: 0;
+    height: auto;
+    background: transparent;
+    color: white;
+    }
+
+div#content div.floatBox div.floater a {
+    font-weight: bold;
+    color: white;
+    }
+
+div#content h1 {
+    color: #2d4f9e;
+    font-size: 20px;
+    padding: 0;
+    margin: 10px 0 0 0;
+    border-bottom: 1px dotted gray;
+    }
+
+div#leadList, div#information, div#approvals {
+    padding-left: 10px;
+    padding-top: 5px;
+    }
+
+div#information {
+    text-align: center;
+    padding: 5px;
+    }
+
+div#information div.floatBox {
+    border: 1px solid #2d4f9e;
+    background: #2d4f9e;
+    width: 200px;
+    float: left;
+    margin: 0 5px 0 5px;
+    padding: 0;
+}
+
+div.floatBox h2 {
+    margin: 2px 0 3px 0;
+    padding-left: 5px;
+    color: white;
+    background: #2d4f9e;
+    font-size: 16px;
+    font-weight: bold;
+    }
+
+div.floatBox div h3 {
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
+    }
+
+div.floatBox div {
+    background: white;
+    white-space: nowrap;
+    color: black;
+    height: 80px;
+    padding: 5px 5px 5px 10px;
+    line-height: 133%;
+    }
+
+div.floatBox div strong a {
+    font-size: 140%;
+    }
+
+div.clearer {
+    clear: both;
+    line-height: 0;
+    height: 0;
+    }
+
+h2 {
+    color: #2d4f9e;
+    font-size: 14px;
+    padding: 0;
+    margin: 10px 0 0 0;
+    border-bottom: 1px dotted gray;
+}
+
+table.styled {
+    margin-top: 5px;
+    border: 1px solid #666666;
+    background-color: #ffffff;
+    }
+
+table.styled thead tr {
+    font-weight: bold;
+    font-size: 12px;
+    }
+
+table.styled thead tr td {
+    /*padding-left: 3px; */
+    text-align: center;
+    border-left: 1px solid #d9d9d9;
+    border-bottom: 1px solid #d9d9d9;
+    }
+
+table.styled tbody tr td {
+    text-align: center;
+    font-size: 8pt;
+    /* padding: 2px 8px; */
+    padding-left: 4px;
+    border-left: 1px solid #d9d9d9;
+    }
+
+.left {
+    text-align: left;
+    }
+
+.right {
+    text-align: right;
+    }
+
+.center {
+    text-align: center;
+    }
+
+.indent {
+    padding-left: 20px;
+    }
+
+
+iframe#media {
+    border: 1px solid black;
+    height: 400px;
+    width: 170px;
+    }

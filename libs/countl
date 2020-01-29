@@ -1,0 +1,6 @@
+#!/bin/sh
+lcount=`cat ~/lcf`
+lc=`wc -l $1 | tr -s ' ' | cut -d ' ' -f 2`
+LC1=`expr $lcount + $lc`;
+echo $LC1 > ~/lcf
+echo $LC1;

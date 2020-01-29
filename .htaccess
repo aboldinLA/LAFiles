@@ -1,0 +1,303 @@
+
+RewriteOptions inherit
+
+AddDefaultCharset UTF-8   
+AddType video/ogg .ogm
+AddType video/ogg .ogv
+AddType video/ogg .ogg
+AddType video/webm .webm
+AddType audio/webm .weba
+
+AddType video/mp4 .mp4
+AddType video/x-m4v .m4v
+
+Options +FollowSymLinks
+RewriteEngine on
+
+
+
+
+RewriteCond %{HTTPS} !=on
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/(?:\ Ballot169)?
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Sectigo\ DCV)?$
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301,NE] 
+
+RewriteCond %{HTTP_HOST} ^www\.landscapeonline\.com [NC]
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/(?:\ Ballot169)?
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Sectigo\ DCV)?$
+RewriteRule ^(.*)$ http://landscapeonline.com/$1 [L,R=301]
+
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/(?:\ Ballot169)?
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Sectigo\ DCV)?$
+
+RewriteRule articles/(.*)/(.*)/ research/articles.php?name=$1&number=$2
+
+
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/(?:\ Ballot169)?
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Sectigo\ DCV)?$
+
+RewriteRule articles/(.*)/(.*) research/articles.php?name=$1&number=$2
+RewriteRule feature/(.*)/(.*) research/articles.php?type=1&name=$1&number=$2
+RewriteRule news/(.*)/(.*) research/articles.php?type=2&name=$1&number=$2
+RewriteRule department/(.*)/(.*) research/articles.php?type=3&name=$1&number=$2
+RewriteRule economic-news/(.*)/(.*) research/articles.php?type=4&name=$1&number=$2
+RewriteRule association-news/(.*)/(.*) research/articles.php?type=5&name=$1&number=$2
+RewriteRule legislation/(.*)/(.*) research/articles.php?type=7&name=$1&number=$2
+RewriteRule education/(.*)/(.*) research/articles.php?type=8&name=$1&number=$2
+
+
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/(?:\ Ballot169)?
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Sectigo\ DCV)?$
+RewriteRule articles-mobile/(.*)/(.*)/ articles-mobile.php?name=$1&number=$2
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/(?:\ Ballot169)?
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Sectigo\ DCV)?$
+
+RewriteRule articles-mobile/(.*)/(.*) articles-mobile.php?name=$1&number=$2	
+
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/(?:\ Ballot169)?
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Sectigo\ DCV)?$
+
+RewriteRule landscape-design-products/(.*)/(.*)/ landscape-design.php?name=$1&number=$2
+
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/(?:\ Ballot169)?
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Sectigo\ DCV)?$
+
+RewriteRule landscape-design-products/(.*)/(.*) landscape-design.php?name=$1&number=$2
+
+RewriteRule business-services-and-software LandscapeProducts/la_category.php?ad=28
+RewriteRule landscape-erosion-control-products LandscapeProducts/la_category.php?ad=30
+RewriteRule commercial-wholesale-fencing LandscapeProducts/la_category.php?ad=1300
+RewriteRule landscape-irrigation LandscapeProducts/la_category.php?ad=1139
+RewriteRule commercial-exterior-lighting-electrical LandscapeProducts/la_category.php?ad=32
+RewriteRule outdoor-living-residential-landscape LandscapeProducts/la_category.php?ad=1214
+RewriteRule parks-playground-products LandscapeProducts/la_category.php?ad=33
+RewriteRule commercial-pavers-masonry-blocks-rocks LandscapeProducts/la_category.php?ad=38
+RewriteRule wildlife-commercial-landscape-pest-control LandscapeProducts/la_category.php?ad=1212
+RewriteRule wholesale-plant-accessories-and-soil-amendments LandscapeProducts/la_category.php?ad=1002
+RewriteRule pool-and-spa LandscapeProducts/la_category.php?ad=1394
+RewriteRule landscape-art-sculpture-metal-stone-garden-ornaments LandscapeProducts/la_category.php?ad=1301
+RewriteRule commercial-site-amenities LandscapeProducts/la_category.php?ad=29
+RewriteRule site-furnishings-receptacles LandscapeProducts/la_category.php?ad=1215
+RewriteRule water-features-fountains-ponds-equipment LandscapeProducts/la_category.php?ad=41
+RewriteRule landscape-water-management LandscapeProducts/la_category.php?ad=1213
+RewriteRule landscape-installation-equipment LandscapeProducts/la_category.php?ad=1209
+RewriteRule landscape-maintenance-equipment LandscapeProducts/la_category.php?ad=1210
+RewriteRule tools-tires-and-replacement-parts LandscapeProducts/la_category.php?ad=1211
+
+
+
+RewriteRule alpha-order-busines-services LandscapeProducts/la_category-alpha.php?ad=28
+RewriteRule alpha-order-erosion-control LandscapeProducts/la_category-alpha.php?ad=30
+RewriteRule alpha-order-fencing LandscapeProducts/la_category-alpha.php?ad=1300
+RewriteRule alpha-order-irrigation LandscapeProducts/la_category-alpha.php?ad=1139
+RewriteRule alpha-order-lighting-electrical LandscapeProducts/la_category-alpha.php?ad=32
+RewriteRule alpha-order-outdoor-living LandscapeProducts/la_category-alpha.php?ad=1214
+RewriteRule alpha-order-parks-playground LandscapeProducts/la_category-alpha.php?ad=33
+RewriteRule alpha-order-pavers-masonry-blocks-rocks LandscapeProducts/la_category-alpha.php?ad=38
+RewriteRule alpha-order-pest-control LandscapeProducts/la_category-alpha.php?ad=1212
+RewriteRule alpha-order-plant-accessories LandscapeProducts/la_category-alpha.php?ad=1002
+RewriteRule alpha-order-pool-and-spa LandscapeProducts/la_category.php?ad=1394
+RewriteRule alpha-order-art-sculpture-garden-ornaments LandscapeProducts/la_category-alpha.php?ad=1301
+RewriteRule alpha-order-site-amenities LandscapeProducts/la_category.php?ad=29
+RewriteRule alpha-order-site-furnishings-receptacles LandscapeProducts/la_category-alpha.php?ad=1215
+RewriteRule alpha-order-water-features LandscapeProducts/la_category-alpha.php?ad=41
+RewriteRule alpha-order-water-management LandscapeProducts/la_category-alpha.php?ad=1213
+RewriteRule alpha-order-installation-equipment LandscapeProducts/la_category-alpha.php?ad=1209
+RewriteRule alpha-order-maintenance-equipment LandscapeProducts/la_category-alpha.php?ad=1210
+RewriteRule alpha-order-tools-and-parts LandscapeProducts/la_category-alpha.php?ad=1211
+
+
+
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/(?:\ Ballot169)?
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Sectigo\ DCV)?$
+RewriteRule landscape-design-mobile/(.*)/(.*)/ template-prod-a.php?name=$1&number=$2
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/(?:\ Ballot169)?
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Sectigo\ DCV)?$
+RewriteRule landscape-design-mobile/(.*)/(.*) template-prod-a.php?name=$1&number=$2
+
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/(?:\ Ballot169)?
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Sectigo\ DCV)?$
+
+
+RewriteRule /(.*)/(.*)/(.*)/(.*)/(.*)/(.*)/ landscape-design-products.php?name=$1&name2=$2&name3=$3&name4=$4&number=$5&prodNum=$6
+
+
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/(?:\ Ballot169)?
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Sectigo\ DCV)?$
+
+RewriteRule /(.*)/(.*)/(.*)/(.*)(.*)/(.*) landscape-design-products.php?name=$1&name2=$2&name3=$3&name4=$4&number=$5&prodNum=$6	
+
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/(?:\ Ballot169)?
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Sectigo\ DCV)?$
+RewriteRule landscape-design-products-mobile/(.*)/(.*)/(.*)/(.*)/ template-prod-view.php?name=$1&name2=$2&number=$3&prodNum=$4
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/(?:\ Ballot169)?
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Sectigo\ DCV)?$
+RewriteRule landscape-design-products-mobile/(.*)/(.*)/(.*)/(.*) template-prod-view.php?name=$1&name2=$2&number=$3&prodNum=$4
+
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/(?:\ Ballot169)?
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Sectigo\ DCV)?$
+RewriteRule landscape-design-category/(.*)/(.*)/(.*)/(.*)/ landscape-design-category.php?name=$1&name2=$2&number=$3&xnum=$4
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/(?:\ Ballot169)?
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Sectigo\ DCV)?$
+RewriteRule landscape-design-category/(.*)/(.*)/(.*)/(.*) landscape-design-category.php?name=$1&name2=$2&number=$3&xnum=$4
+
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/(?:\ Ballot169)?
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Sectigo\ DCV)?$
+RewriteRule ^TLE-LB/index-tle-2018\.php$ /TLE-LB/the-landscape-expo.php? [L,R=301]
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/(?:\ Ballot169)?
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Sectigo\ DCV)?$
+RewriteRule ^TLE-LB/Educational-Info-2018\.php$ /TLE-LB/Educational-Info-Landscape-Expo-Seminars-2018.php? [L,R=301]
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/(?:\ Ballot169)?
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Sectigo\ DCV)?$
+RewriteRule ^TLE-LB/hotel-travel-2018\.php$ /TLE-LB/hotel-travel-landscape-expo-2018.php? [L,R=301]
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/(?:\ Ballot169)?
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Sectigo\ DCV)?$
+RewriteRule ^TLE-LB/recap-tle-2018\.php$ /TLE-LB/Landscape-Expo-recap-2017.php? [L,R=301]
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/(?:\ Ballot169)?
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Sectigo\ DCV)?$
+RewriteRule ^TLE-LB/AroundtheShow-2018\.php$ /TLE-LB/Attheconvention-2018.php? [L,R=301]
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/(?:\ Ballot169)?
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Sectigo\ DCV)?$
+RewriteRule ^TLE-LB/seminars-PestTract-2018\.php$ /TLE-LB/commercial-pest-control-seminars-PestTract-2018.php? [L,R=301]
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/(?:\ Ballot169)?
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Sectigo\ DCV)?$
+RewriteRule ^TLE-LB/seminars-SoilAmendmentsTract-2018\.php$ /TLE-LB/seminars-Soil-Amendments-Tract-2018.php? [L,R=301]
+
+ErrorDocument 404 /404.php
+
+<Files 403.shtml>
+order allow,deny
+allow from all
+</Files>
+deny from 78.24.216.237
+deny from 134.255.235.242
+deny from 62.109.18.238
+deny from 82.146.41.82
+deny from 188.120.247.80
+deny from 78.24.221.247
+deny from 91.215.152.118
+deny from 91.215.152.97
+deny from 82.146.61.221
+deny from 149.154.69.37
+deny from 5.9.89.170
+deny from 188.120.249.190
+deny from 98.164.246.154
+deny from 149.154.71.231
+deny from 207.244.108.244
+deny from 188.120.237.39
+deny from 217.79.178.92
+deny from 185.228.232.194
+deny from 213.251.182.113
+deny from 185.159.129.9
+deny from 193.201.224.209
+deny from 188.120.226.18
+deny from 217.79.178.209
+deny from 217.79.178.177
+deny from 188.120.234.46
+deny from 185.130.104.209
+deny from 108.16.207.128
+deny from 216.195.133.130
+deny from 174.211.23.17
+deny from 71.11.7.34
+deny from 216.86.38.85
+deny from 40.107.246.40
+deny from 12.217.238.74
+deny from 40.107.222.3
+deny from 40.107.222.73
+deny from 40.107.238.16
+deny from 40.107.246.70
+deny from 40.107.222.75
+deny from 50.233.30.138
+deny from 174.234.142.153
+deny from 108.225.49.211
+deny from 24.43.20.170
+deny from 23.25.202.157
+deny from 12.189.89.122
+deny from 207.161.50.184
+deny from 71.56.162.12
+deny from 108.49.85.206
+deny from 209.63.237.196
+deny from 188.120.225.184
+deny from 185.201.253.239
+deny from 213.202.255.47
+
+## EXPIRES CACHING ##
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType image/jpg "access 1 year"
+ExpiresByType image/jpeg "access plus 1 year"
+ExpiresByType image/gif "access 1 year"
+ExpiresByType image/png "access 1 year"
+ExpiresByType text/css "access 1 month"
+ExpiresByType text/html "access 1 month"
+ExpiresByType application/pdf "access 1 month"
+ExpiresByType text/x-javascript "access 1 month"
+ExpiresByType application/x-shockwave-flash "access 1 month"
+ExpiresByType image/x-icon "access 1 year"
+ExpiresDefault "access 1 month"
+</IfModule>
+## EXPIRES CACHING ##
+deny from 54.165.90.203
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/(?:\ Ballot169)?
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Sectigo\ DCV)?$
+
+
+
+<filesMatch ".(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf)$">
+    Header set Cache-Control "max-age=0, nochache"
+</filesMatch>
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php70” package as the default “PHP” programming language.
+<IfModule mime_module>
+  AddHandler application/x-httpd-php .php .php7 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit

@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <title></title>
+        <style type='text/css' media='screen'> @import "/res/css/vendor_signup.css"; </style>
+        <style type='text/css' media='print'> @import "/res/css/vendor_signup.css"; </style>
+        <script language='javascript' src='/res/js/jsOldLib.js'></script>
+
+    </head>
+    <body>
+<a href="#" onclick="self.close();">Close Me</a><br /><br /><br />
+    
+    
+<script type="text/JavaScript" src="/res/js/vdaemon.js"></script>
+<script type="text/JavaScript">
+<!--
+
+vdDelimiter="~";
+var f,v,i,l,s;
+
+f=new Object(); f.name="RCompany"; f.validators=new Array(); f.labels=new Array(); f.summaries=new Array();
+v=new Object(); v.type="required"; v.name="CompanyNameReq"; v.errmsg="A Company Name is required."; v.control="company_name"; v.minlength=3; v.maxlength=-1; f.validators[v.name]=v;
+v=new Object(); v.type="required"; v.name="VendorTypeReq"; v.errmsg="A Vendor Type is required."; v.control="vendor_type"; v.minlength=1; v.maxlength=-1; f.validators[v.name]=v;
+v=new Object(); v.type="email"; v.name="validEmail"; v.errmsg="Please enter a valid email address."; v.control="email"; f.validators[v.name]=v;
+v=new Object(); v.type="required"; v.name="AcReq"; v.errmsg="An area code is required."; v.control="ac"; v.minlength=1; v.maxlength=-1; f.validators[v.name]=v;
+v=new Object(); v.type="required"; v.name="PhoneReq"; v.errmsg="An phone number is required."; v.control="phone"; v.minlength=1; v.maxlength=-1; f.validators[v.name]=v;
+v=new Object(); v.type="required"; v.name="Address1Req"; v.errmsg="An address is required."; v.control="address1"; v.minlength=5; v.maxlength=-1; f.validators[v.name]=v;
+v=new Object(); v.type="required"; v.name="CityReq"; v.errmsg="A city is required."; v.control="city"; v.minlength=3; v.maxlength=-1; f.validators[v.name]=v;
+v=new Object(); v.type="required"; v.name="StateReq"; v.errmsg="A State or Province is required."; v.control="state"; v.minlength=1; v.maxlength=-1; f.validators[v.name]=v;
+v=new Object(); v.type="required"; v.name="PostalReq"; v.errmsg="A postal code is required."; v.control="postal"; v.minlength=3; v.maxlength=-1; f.validators[v.name]=v;
+v=new Object(); v.type="required"; v.name="ProfileReq"; v.errmsg="A brief company profile is required."; v.control="profile"; v.minlength=1; v.maxlength=-1; f.validators[v.name]=v;
+l=new Object(); l.id="VDaemonID_3"; l.oktext="Company Name"; l.errtext="Company Name"; l.okclass=""; l.errclass="errLabel"; l.validators=new Array("CompanyNameReq");f.labels[f.labels.length]=l;
+l=new Object(); l.id="VDaemonID_4"; l.oktext="Business Type"; l.errtext="Business Type"; l.okclass=""; l.errclass="errLabel"; l.validators=new Array("VendorTypeReq");f.labels[f.labels.length]=l;
+l=new Object(); l.id="VDaemonID_5"; l.oktext="Email"; l.errtext="Email"; l.okclass=""; l.errclass="errLabel"; l.validators=new Array("validEmail");f.labels[f.labels.length]=l;
+l=new Object(); l.id="VDaemonID_6"; l.oktext="Company Phone"; l.errtext="Company Phone"; l.okclass=""; l.errclass="errLabel"; l.validators=new Array("AcReq","PhoneReq");f.labels[f.labels.length]=l;
+l=new Object(); l.id="VDaemonID_7"; l.oktext="Company Address"; l.errtext="Company Address"; l.okclass=""; l.errclass="errLabel"; l.validators=new Array("Address1Req");f.labels[f.labels.length]=l;
+l=new Object(); l.id="VDaemonID_8"; l.oktext="City"; l.errtext="City"; l.okclass=""; l.errclass="errLabel"; l.validators=new Array("CityReq");f.labels[f.labels.length]=l;
+l=new Object(); l.id="VDaemonID_9"; l.oktext="State or Province / Postal Code"; l.errtext="State or Province / Postal Code"; l.okclass=""; l.errclass="errLabel"; l.validators=new Array("StateReq","PostalReq");f.labels[f.labels.length]=l;
+l=new Object(); l.id="VDaemonID_10"; l.oktext="Profile"; l.errtext="Profile"; l.okclass=""; l.errclass="errLabel"; l.validators=new Array("ProfileReq");f.labels[f.labels.length]=l;
+s=new Object(); s.id="VDaemonID_1"; s.headertext="<h3>Error(s) found:</h3>"; s.displaymode="bulletlist"; s.showsummary=true; s.messagebox=false; f.summaries[f.summaries.length]=s;
+s=new Object(); s.id="VDaemonID_2"; s.headertext="<h3>Error(s) Found:</h3>"; s.displaymode="bulletlist"; s.showsummary=true; s.messagebox=false; f.summaries[f.summaries.length]=s;
+s=new Object(); s.id="VDaemonID_11"; s.headertext="<h3>Error(s) Found:</h3>"; s.displaymode="bulletlist"; s.showsummary=true; s.messagebox=false; f.summaries[f.summaries.length]=s;
+vdAllForms[f.name]=f;
+
+//-->
+</script>
+
+    <div id='wrapper'>
+    <table cellpadding='0' cellspacing='0' border='0'>
+        <tbody>
+        <tr>
+
+            <td width='175'>
+                <img src='/imgz/main_lol_logo.gif' border='0' />
+            </td>
+            <td valign='bottom' width='605'>
+                <div class='pageTitle'></div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <table width='100%' cellpadding='0' cellspacing='0' border='0'>
+        <tr class='pageContainer'> 
+            <td valign='top' class='pageContent'>
+        <form method="POST" name="RCompany" action="/devdaksol/web/vendor/profile.php" onsubmit="return VDValidateForm('RCompany');">
+        <div class="errSummary" id="VDaemonID_1" style="display:none"></div>
+            <input type="hidden" name="id" value="4660" />
+            <input type="hidden" name="intent" value="edit" />
+            <input type="hidden" name="action" value="company" />
+            <fieldset>
+
+    <input type="hidden" name="form_id" value="" />
+    <legend>Primary Company Information</legend>
+    <div class="errSummary" id="VDaemonID_2" style="display:none"></div>
+    <table cellspacing='5' border='0'>
+        <thead>
+            <tr>
+                <td><a href='cancel.php'><img src='/imgz/vendor/cancel_contact.gif' border='0' /></a></td>
+                <td align='right'><input type="image" src="/imgz/vendor/continue.gif" border="0" /></td>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td width='125' class='formLabel' valign='top'>
+                    <label id="VDaemonID_3">Company Name</label>
+                </td>
+                <td valign='top' class='formObject'>
+
+                    <input tabindex="1" type="text" name="company_name" id="company_name" size="32" value="Basalite / Keystone" maxlength="255" /> * 
+                    <div class='formInfo'>Your company name will be displayed in all of your subscriber-facing promotional  material and listings.</div>
+                    
+                </td>
+            </tr>
+            <tr>
+                <td class='formLabel' valign='top'>
+                    <label id="VDaemonID_4">Business Type</label> 
+                </td>
+
+                <td valign='top' class='formObject'>
+                <table border='0' cellspacing='5'>  <tbody><tr>                    <td width='5%' valign='top' align='right'>
+                        <input type="radio" id="Exclusive Importer" name="vendor_type" value="2" />
+                    </td>
+                    <td width='45%' valign='top'>
+                        <label for='Exclusive Importer'>Exclusive Importer</label>
+                    </td>
+
+                                <td width='5%' valign='top' align='right'>
+                        <input type="radio" id="Grower" name="vendor_type" value="6" />
+                    </td>
+                    <td width='45%' valign='top'>
+                        <label for='Grower'>Grower</label>
+                    </td>
+            </tr><tr>                    <td width='5%' valign='top' align='right'>
+                        <input checked="true" type="radio" id="Manufacturer" name="vendor_type" value="1" />
+
+                    </td>
+                    <td width='45%' valign='top'>
+                        <label for='Manufacturer'>Manufacturer</label>
+                    </td>
+                                <td width='5%' valign='top' align='right'>
+                        <input type="radio" id="Manufacturers Representative" name="vendor_type" value="3" />
+                    </td>
+                    <td width='45%' valign='top'>
+
+                        <label for='Manufacturers Representative'>Manufacturers Representative</label>
+                    </td>
+            </tr><tr>                    <td width='5%' valign='top' align='right'>
+                        <input type="radio" id="Retail Facility" name="vendor_type" value="5" />
+                    </td>
+                    <td width='45%' valign='top'>
+                        <label for='Retail Facility'>Retail Facility</label>
+
+                    </td>
+                                <td width='5%' valign='top' align='right'>
+                        <input type="radio" id="Wholesale Facility" name="vendor_type" value="4" />
+                    </td>
+                    <td width='45%' valign='top'>
+                        <label for='Wholesale Facility'>Wholesale Facility</label>
+                    </td>
+            </tr>  </tbody></table>                    <div class='formInfo'>The type of company you register as will have an effect on customer search results for vendors. <strong>Note!  If you change your vendor type, you may need to reselect your product categories!</strong></div>
+
+                    
+                </td>
+            </tr>
+            <tr>
+                <td class='formLabel' valign='top'>
+                    <label for='website'>Web Site</label>
+                    <div class='formInfo'>www.yourcompany.com</div>
+                </td>
+                <td valign='top' class='formObject'>
+
+                    <input tabindex="2" type="text" name="website" id="website" size="32" maxlength="255" value="www.keystonewalls.com" /> 
+                    <div class='formInfo'>The website entered here will be used in hotlinks (if you sign up for one) and will appear in your company listing page.</div>
+                </td>
+            </tr>
+            <tr>
+                <td class='formLabel' valign='top'>
+                    <label id="VDaemonID_5">Email</label>
+                    <div class='formInfo'>info@yourcompany.com</div>
+
+                </td>
+                <td valign='top' class='formObject'>
+                    <input tabindex="3" type="text" name="email" id="email" size="32" maxlength="255" value="" /> 
+                    <div class='formInfo'>This email address will be used in your guide and search listings.</div>
+                    
+                </td>
+            </tr>
+            <tr>
+                <td class='formLabel' valign='top'>
+                    <label id="VDaemonID_6">Company Phone</label>
+
+                    <div class='formInfo'>eg: (800) 555-1212</div>
+                </td>
+                <td valign='top' class='formObject'>
+                    (<input tabindex="5" type="text" name="ac" id="ac" size="3" value="800" />)
+                    <input tabindex="6" type="text" name="phone" id="phone" size="16" value="350-5866" /> *
+                    
+                    
+                    <div class='formInfo'>This phone number will be used in search results and guide listings.  You will have a chance later to let us know your contact information.</div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class='formLabel' valign='top'>
+                    <label for='ac'>Company Fax</label>
+                </td>
+                <td valign='top' class='formObject'>
+                    (<input tabindex="7" type="text" name="fax_ac" id="fax_ac" size="3" value="" />)
+                    <input tabindex="8" type="text" name="fax_phone" id="fax_phone" size="16" value="" />
+                </td>
+
+            </tr>
+            <tr>
+                <td class='formLabel' valign='top'>
+                    <label id="VDaemonID_7">Company Address</label>
+                </td>
+                <td valign='top' class='formObject'>
+                    <input tabindex="9" name="address1" id="address1" type="text" size="32" value="4290 Roseville Road" /> * <br />
+
+                    <input tabindex="10" name="address2" id="address2" type="text" size="32" value="" />  
+                    
+                </td>
+            </tr>
+            <tr>
+                <td class='formLabel' valign='top'>
+                    <label id="VDaemonID_8">City</label>
+                </td>
+                <td valign='top' class='formObject'>
+                    <input tabindex="11" name="city" id="city" type="text" size="32" value="North Highlands" /> *
+                    
+                </td>
+
+            </tr>
+            <tr>
+                <td class='formLabel' valign='top'>
+                    <label id="VDaemonID_9">State or Province / Postal Code</label>
+                </td>
+                <td valign='top' class='formObject'>
+                    <select name="state"><option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AB">Alberta</option><option value="AS">American Samoa</option><option value="AZ">Arizona</option><option value="AR">Arkansas</option><option value="BC">British Columbia</option><option value="CA" selected="true">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="DC">District of Columbia</option><option value="FM">Federated States of Micronesia</option><option value="FL">Florida</option><option value="GA">Georgia</option><option value="GU">Guam</option><option value="HI">Hawaii</option><option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option><option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="ME">Maine</option><option value="MB">Manitoba</option><option value="MH">Marshall Islands</option><option value="MD">Maryland</option><option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MS">Mississippi</option><option value="MO">Missouri</option><option value="MT">Montana</option><option value="NE">Nebraska</option><option value="NV">Nevada</option><option value="NB">New Brunswick</option><option value="NF">Newfoundland</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NY">New York</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="MP">Northern Mariana Islands</option><option value="NT">Northwest Territories</option><option value="NS">Nova Scotia</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option><option value="ON">Ontario</option><option value="OR">Oregon</option><option value="PW">Palau</option><option value="PA">Pennsylvania</option><option value="PE">Prince Edward Island</option><option value="PR">Puerto Rico</option><option value="QC">Quebec</option><option value="RI">Rhode Island</option><option value="SK">Saskatchewan</option><option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option><option value="TX">Texas</option><option value="UT">Utah</option><option value="VT">Vermont</option><option value="VI">Virgin Islands</option><option value="VA">Virginia</option><option value="WA">Washington</option><option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option><option value="YT">Yukon</option></select> &nbsp;
+
+                    <input tabindex="12" name="postal" id="postal" type="text" size="16" value="95660" /> *
+                    
+                    
+                </td>
+            </tr>
+            <tr>
+                <td class='formLabel' valign='top'>
+                    <label id="VDaemonID_10">Profile</label>
+                    <div class='formInfo'>2500 character maximum</div>
+                </td>
+
+                <td valign='top' class='formObject'>
+                    <textarea tabindex="13" cols="48" rows="10" id="profile" name="profile">.</textarea> 
+                    *<div class='formInfo'>Your vendor profile should be a short blurb explaining what services and products your company provides.</div>
+                    
+                </td>
+            </tr>   
+            <tr>
+                <td class='formLabel' valign='top'>
+                    <label id="VDaemonID_8">Vendor Password</label>
+                </td>
+                <td valign='top' class='formObject'>
+                    <input tabindex="14" name="password" id="password" type="text" size="32" value="basal04194" /> 
+                    
+                </td>
+            </tr>
+            <tr>
+                <td class='formLabel' valign='top'>
+                    <label id="VDaemonID_8">Photo</label>
+                </td>
+                <td valign='top' class='formObject'>
+                	<img src="/products/images/basalogo.jpg"><br />
+                    <input tabindex="14" name="mark_for_deletion" id="mark_for_deletion" type="checkbox" size="32" /> Mark this Photo for Deletion 
+                    
+                </td>
+            </tr>       
+        </tbody>
+        <tfoot>
+            <tr>
+
+                <td><a href='cancel.php'><img src='/imgz/vendor/cancel_contact.gif' border='0' /></a></td>
+                <td align='right'><input type="image" src="/imgz/vendor/continue.gif" border="0" /></td>
+            </tr>
+        </tfoot>
+    </table>
+    <div class="errSummary" id="VDaemonID_11" style="display:none"></div>
+</fieldset>
+        
+<input type="hidden" name="VDaemonValidators" value="O:13:&quot;cvdvalruntime&quot;:6:{s:9:&quot;sProtocol&quot;;s:7:&quot;http://&quot;;s:5:&quot;sPage&quot;;s:33:&quot;/devdaksol/web/vendor/profile.php&quot;;s:5:&quot;sArgs&quot;;s:22:&quot;action=company&amp;id=4660&quot;;s:7:&quot;sAnchor&quot;;s:0:&quot;&quot;;s:5:&quot;sForm&quot;;s:8:&quot;RCompany&quot;;s:6:&quot;aNodes&quot;;a:10:{i:0;O:7:&quot;xmlnode&quot;:3:{s:5:&quot;sName&quot;;s:11:&quot;vlvalidator&quot;;s:6:&quot;aAttrs&quot;;a:5:{s:4:&quot;name&quot;;s:14:&quot;CompanyNameReq&quot;;s:4:&quot;type&quot;;s:8:&quot;required&quot;;s:9:&quot;minlength&quot;;s:1:&quot;3&quot;;s:7:&quot;control&quot;;s:12:&quot;company_name&quot;;s:6:&quot;errmsg&quot;;s:27:&quot;A+Company+Name+is+required.&quot;;}s:9:&quot;aSubNodes&quot;;a:0:{}}i:1;O:7:&quot;xmlnode&quot;:3:{s:5:&quot;sName&quot;;s:11:&quot;vlvalidator&quot;;s:6:&quot;aAttrs&quot;;a:4:{s:4:&quot;name&quot;;s:13:&quot;VendorTypeReq&quot;;s:4:&quot;type&quot;;s:8:&quot;required&quot;;s:7:&quot;control&quot;;s:11:&quot;vendor_type&quot;;s:6:&quot;errmsg&quot;;s:26:&quot;A+Vendor+Type+is+required.&quot;;}s:9:&quot;aSubNodes&quot;;a:0:{}}i:2;O:7:&quot;xmlnode&quot;:3:{s:5:&quot;sName&quot;;s:11:&quot;vlvalidator&quot;;s:6:&quot;aAttrs&quot;;a:4:{s:4:&quot;name&quot;;s:10:&quot;validEmail&quot;;s:7:&quot;control&quot;;s:5:&quot;email&quot;;s:4:&quot;type&quot;;s:5:&quot;email&quot;;s:6:&quot;errmsg&quot;;s:35:&quot;Please+enter+a+valid+email+address.&quot;;}s:9:&quot;aSubNodes&quot;;a:0:{}}i:3;O:7:&quot;xmlnode&quot;:3:{s:5:&quot;sName&quot;;s:11:&quot;vlvalidator&quot;;s:6:&quot;aAttrs&quot;;a:4:{s:4:&quot;name&quot;;s:5:&quot;AcReq&quot;;s:4:&quot;type&quot;;s:8:&quot;required&quot;;s:7:&quot;control&quot;;s:2:&quot;ac&quot;;s:6:&quot;errmsg&quot;;s:25:&quot;An+area+code+is+required.&quot;;}s:9:&quot;aSubNodes&quot;;a:0:{}}i:4;O:7:&quot;xmlnode&quot;:3:{s:5:&quot;sName&quot;;s:11:&quot;vlvalidator&quot;;s:6:&quot;aAttrs&quot;;a:4:{s:4:&quot;name&quot;;s:8:&quot;PhoneReq&quot;;s:4:&quot;type&quot;;s:8:&quot;required&quot;;s:7:&quot;control&quot;;s:5:&quot;phone&quot;;s:6:&quot;errmsg&quot;;s:28:&quot;An+phone+number+is+required.&quot;;}s:9:&quot;aSubNodes&quot;;a:0:{}}i:5;O:7:&quot;xmlnode&quot;:3:{s:5:&quot;sName&quot;;s:11:&quot;vlvalidator&quot;;s:6:&quot;aAttrs&quot;;a:5:{s:4:&quot;name&quot;;s:11:&quot;Address1Req&quot;;s:4:&quot;type&quot;;s:8:&quot;required&quot;;s:7:&quot;control&quot;;s:8:&quot;address1&quot;;s:9:&quot;minlength&quot;;s:1:&quot;5&quot;;s:6:&quot;errmsg&quot;;s:23:&quot;An+address+is+required.&quot;;}s:9:&quot;aSubNodes&quot;;a:0:{}}i:6;O:7:&quot;xmlnode&quot;:3:{s:5:&quot;sName&quot;;s:11:&quot;vlvalidator&quot;;s:6:&quot;aAttrs&quot;;a:5:{s:4:&quot;name&quot;;s:7:&quot;CityReq&quot;;s:4:&quot;type&quot;;s:8:&quot;required&quot;;s:7:&quot;control&quot;;s:4:&quot;city&quot;;s:9:&quot;minlength&quot;;s:1:&quot;3&quot;;s:6:&quot;errmsg&quot;;s:19:&quot;A+city+is+required.&quot;;}s:9:&quot;aSubNodes&quot;;a:0:{}}i:7;O:7:&quot;xmlnode&quot;:3:{s:5:&quot;sName&quot;;s:11:&quot;vlvalidator&quot;;s:6:&quot;aAttrs&quot;;a:4:{s:4:&quot;name&quot;;s:8:&quot;StateReq&quot;;s:4:&quot;type&quot;;s:8:&quot;required&quot;;s:7:&quot;control&quot;;s:5:&quot;state&quot;;s:6:&quot;errmsg&quot;;s:32:&quot;A+State+or+Province+is+required.&quot;;}s:9:&quot;aSubNodes&quot;;a:0:{}}i:8;O:7:&quot;xmlnode&quot;:3:{s:5:&quot;sName&quot;;s:11:&quot;vlvalidator&quot;;s:6:&quot;aAttrs&quot;;a:5:{s:4:&quot;name&quot;;s:9:&quot;PostalReq&quot;;s:4:&quot;type&quot;;s:8:&quot;required&quot;;s:7:&quot;control&quot;;s:6:&quot;postal&quot;;s:9:&quot;minlength&quot;;s:1:&quot;3&quot;;s:6:&quot;errmsg&quot;;s:26:&quot;A+postal+code+is+required.&quot;;}s:9:&quot;aSubNodes&quot;;a:0:{}}i:9;O:7:&quot;xmlnode&quot;:3:{s:5:&quot;sName&quot;;s:11:&quot;vlvalidator&quot;;s:6:&quot;aAttrs&quot;;a:4:{s:4:&quot;name&quot;;s:10:&quot;ProfileReq&quot;;s:4:&quot;type&quot;;s:8:&quot;required&quot;;s:7:&quot;control&quot;;s:7:&quot;profile&quot;;s:6:&quot;errmsg&quot;;s:36:&quot;A+brief+company+profile+is+required.&quot;;}s:9:&quot;aSubNodes&quot;;a:0:{}}}}" />
+</form>
+                        </td>
+
+            </tr>
+        </table>
+        </div>
+    </body>
+</html>

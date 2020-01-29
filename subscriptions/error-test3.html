@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Form Example</title>
+
+
+</head>
+
+<body>
+
+<h1>Form Example</h1>
+<p>Enter the following ingormation. When you press the Submit button, the cata you entere will be validate, then sent by email.</p>
+
+
+<SCRIPT language="javascript" type="text/javascript">
+function validate(){
+	if (document.form1.yourname.value.length < 1) {
+		alert("Please enter your full name.");
+		return false;
+	}
+	if (document.form1.address.value.length < 3) {
+		alert("Please enter your address.");
+		return false;
+	}
+	if (document.form1.phone.value.length < 3) {
+		alert("Please enter your phone number.");
+		return false;
+	}
+	return true;
+}
+</script>
+
+<form name="form1" action="mailto:jshort@landscapeonline.com" enctype="text/plain" method="POST" onSubmit="return validate();">
+<p><strong>Name: </strong><input type="text" size="20" name="yourname" /></p>
+<p><strong>Address: </strong><input type="text" size="30" name="address" /></p>
+<p><strong>phone: </strong><input type="text" size="15" name="phone" /></p>
+<p><input type="SUBMIT" value="Submit"></p>
+</form>
+
+
+
+</body>
+</html>

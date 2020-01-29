@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Untitled Document</title>
+<SCRIPT TYPE="text/javascript">
+<!--
+// check that they entered an amount tested, an amount passed,
+// and that they didn't pass units than they more than tested
+
+function TestDataCheck()
+{
+var qtytested = parseInt(document.testform.qtytested.value);
+var qtypassed = parseInt(document.testform.qtypassed.value);
+var returnval;
+
+if ( (qtytested >= 1) && (qtypassed >= 0) && (qtytested >= qtypassed)) 
+   returnval = true;
+else
+   {
+   alert("must enter the quantity tested and that amount or fewer for quantity passed");
+   returnval = false;
+   }
+
+return returnval;
+}
+// -->
+</SCRIPT>
+
+</head>
+
+<body>
+<FORM 
+   ACTION="http://www.htmlcodetutorial.com/cgi-bin/mycgi.pl"
+   NAME="testform" 
+   onSubmit="return TestDataCheck()" 
+   >
+units tested: <INPUT NAME="qtytested" SIZE=3><BR>
+units passed: <INPUT NAME="qtypassed" SIZE=3><P>
+<INPUT TYPE=SUBMIT VALUE="Submit">
+</FORM>
+
+</body>
+</html>
