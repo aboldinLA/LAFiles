@@ -1,7 +1,16 @@
-<?php session_start() ?>
-
+<?php session_start(); ?>
 <? 
-	include '../includes/la-common-top.php'; 
+	error_reporting(E_ALL & ~E_NOTICE);
+	ini_set('display_errors',true);
+
+	include 'modules/configuration.inc';
+	include 'modules/db.php';
+	include 'modules/baseUrl.php';
+	include 'modules/urlData.php';
+	include 'modules/articleModel.php';	
+?>
+<? 
+	include $rootInclude.'la-common-top.php'; 
 
   $pageId = "home";
 ?>
@@ -9,16 +18,16 @@
 <!-- leaderboard banner -->
 <section class="tool_page full_width">
 
-  <? include '../includes/la-common-leaderboard-banner.inc'; ?>
+  <? include $rootInclude.'la-common-leaderboard-banner.inc'; ?>
   
 </section>
 
 
 
 <?
-	include '../includes/la-common-header.inc';
+	include $rootInclude.'la-common-header.inc';
 
-	include '../includes/la_common2.inc'; 
+	include $rootInclude.'la_common2.inc'; 
 ?>
 
 
@@ -171,7 +180,7 @@
 									
 									 <?                       
 
-											mainArticleSlider();
+											mainArticleSlider($conn);
 																
 									?>
 									
@@ -184,14 +193,14 @@
 									<ul>
 										<li class="padding20 hidden-xs hidden-sm" style="margin-bottom: 0px; padding-bottom: 0px;">
 												<div class="fw-thumb">
-														<img src="https://landscapearchitect.com/optimized-images/timthumb.php?src=images/blocks/magazin.jpg" alt=""/>
+														<img src="<?php echo BASE_URL; ?>optimized-images/timthumb.php?src=images/blocks/magazin.jpg" alt=""/>
 												</div>
 												<div class="fw-info" style="margin-left: 110px;">
 														<h4 style="font-size: 18px; margin-bottom: 15px;"><a href="#">Sign up for the magazine</a></h4>
                             <div class="row">
                                <div class="col-md-8">
                                 <img src="lol-logos/LASN_BLUE_500.jpg" style="width: 100%; max-width: 200px;">
-                                 <a href="https://landscapearchitect.com/LandscapeProducts/magazine.php" class="view-online text-center" style="font-family: 'Nunito Sans', sans-serif; font-weight: 700; text-decoration:underline; color: black; font-size: 12px; text-transform:uppercase; display: block; margin-top: 5px;">
+                                 <a href="<?php echo BASE_URL; ?>LandscapeProducts/magazine.php" class="view-online text-center" style="font-family: 'Nunito Sans', sans-serif; font-weight: 700; text-decoration:underline; color: black; font-size: 12px; text-transform:uppercase; display: block; margin-top: 5px;">
                                   View Online
                                 </a>
                               </div>
@@ -210,7 +219,7 @@
 
 										<?
 
-																							sideArticles();
+																							sideArticles($conn);
 
 										?>	 								
 
@@ -232,7 +241,7 @@
 							 <div class="col-md-8 col-sm-12" >    
                   <?            
                       
-											include '../includes/connect4.inc';                               
+											//include '../includes/connect4.inc';                               
                 
 											$sql = "SELECT * FROM banner_ups WHERE ROS='rosh' ORDER BY RAND() LIMIT 3";
 											$result = $conn->query($sql);									
@@ -243,7 +252,7 @@
 												array_push($roshAds, $row);
 											}
 								 			
-											echo '<a href="' .  $roshAds[0]['web'] . '" target="_blank"><img src="https://landscapearchitect.com/optimized-images/timthumb.php?src=banner/'  . $roshAds[0]['picture'] . '" class=" hidden-xs hidden-sm" style="width:100%;  max-width: 832px;" /></a>'; 
+											echo '<a href="' .  $roshAds[0]['web'] . '" target="_blank"><img src="'.BASE_URL.'optimized-images/timthumb.php?src=banner/'  . $roshAds[0]['picture'] . '" class=" hidden-xs hidden-sm" style="width:100%;  max-width: 832px;" /></a>'; 
 											                        
                		?>
 							</div>
@@ -325,7 +334,7 @@
 																											
 																											
 																											
-																include '../includes/connect4.inc'; 
+																//include '../includes/connect4.inc'; 
 																
 																	date_default_timezone_set("America/Los_Angeles");
 																	$ddate = (strtotime("now"));
@@ -543,11 +552,11 @@
 																				<div class="elem">
 																					<a href="#">
 																						<div class="img-cover" style="">
-																							<a href="https://landscapearchitect.com/' . $catNameProd . '/' . $string555 . '/' . $string . '/' . $string2 . '/' . $row['vendor_id'] . '/' . $row['id'] . '"><img src="https://landscapearchitect.com/optimized-images/timthumb.php?src=https://landscapearchitect.com/products/images/' . $row['photo'] . '" class="img-responsive" alt=""/></a>
+																							<a href="' .BASE_URL. $catNameProd . '/' . $string555 . '/' . $string . '/' . $string2 . '/' . $row['vendor_id'] . '/' . $row['id'] . '"><img src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive" alt=""/></a>
 																						</div>
 																						<p class="padding12">' . $nameText . '</p>
 
-																						<img src="https://landscapearchitect.com/optimized-images/timthumb.php?src=https://landscapearchitect.com/products/images/' . $row['logo'] . '" class="productLogo " />
+																						<img src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['logo'] . '" class="productLogo " />
 																					</a>
 																					</div>		
 																				</div>
@@ -614,7 +623,7 @@
                                     
                             <? 
                         
-                                            include '../includes/connect4.inc';                               
+                                            //include '../includes/connect4.inc';                               
                                    
 											$sql2333 = "SELECT * FROM editorial WHERE title NOT LIKE '%Weekly%' AND subject != '10' AND title NOT LIKE '%Promo%' ORDER BY id DESC LIMIT 8,9";
 											$result2333 = $conn->query($sql2333);									
@@ -640,9 +649,9 @@
 
 													 $mainImage = $row["id"];
 
-													 $mainLink = "https://landscapearchitect.com/research/articles.php?number=" . $mainImage;
+													 $mainLink = BASE_URL."research/articles.php?number=" . $mainImage;
 
-													 $titleStory = "<a href='https://landscapearchitect.com/research/articles.php?number=" . $mainImage . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($titleWords))) . "</a><br>";   
+													 $titleStory = "<a href='".BASE_URL."research/articles.php?number=" . $mainImage . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($titleWords))) . "</a><br>";   
 
 
 													$sql5 = "select * from editorial where keywords RLIKE '" . $keywordart . "' ORDER BY id DESC LIMIT 0,3";
@@ -650,7 +659,7 @@
                                                 
 													while($row = mysqli_fetch_array($result5)) {
                                                 
-														$newStory = "<a href='https://landscapearchitect.com/research/articles.php?number=" . $row["id"] . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a><br>";   
+														$newStory = "<a href='".BASE_URL."research/articles.php?number=" . $row["id"] . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a><br>";   
 
 														// creates link with article name and article id in url
 														// $newStory = "<a href='http://www.landscapearchitect.com/articles/" . $string . "/" . $row["id"] . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a><br>";    
@@ -663,7 +672,7 @@
 													while($row = mysqli_fetch_array($result55)) {
                                                 
 
-															$newStory2 = "<a href='https://landscapearchitect.com/research/articles.php?number=" . $row["id"] . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a><br>";     
+															$newStory2 = "<a href='".BASE_URL."research/articles.php?number=" . $row["id"] . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a><br>";     
 
 															// creates link with article name and article id in url
 															//$newStory2 = "<a href='http://www.landscapearchitect.com/articles/" . $string . "/" . $row["id"] . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a><br>";          
@@ -676,7 +685,7 @@
 
 														while($row = mysqli_fetch_array($result555)) {
                                     
-																 $newStory3 = "<a href='https://landscapearchitect.com/research/articles.php?number=" . $row["id"] . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a><br>";                                               
+																 $newStory3 = "<a href='".BASE_URL."research/articles.php?number=" . $row["id"] . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a><br>";                                               
                                                 
 																									
 																	// creates link with article name and article id in url
@@ -701,7 +710,7 @@
                                                         <article class="home-post " style="background: white; margin-bottom:20px;">
                                                             <div class="post-thumb">
                                                                 <a href="' . $mainLink . '">
-                                                                    <img src="https://landscapearchitect.com/optimized-images/timthumb.php?src=https://landscapearchitect.com/research/images/' . $mainImage . '.jpg" class="img-responsive" alt="">
+                                                                    <img src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'research/images/' . $mainImage . '.jpg" class="img-responsive" alt="">
                                                                     <div class="overlay-rmore fa fa-link"></div>
                                                                 </a>
                                                             </div>
@@ -776,7 +785,7 @@
 																
                             <?
                             
-															include '../includes/connect4.inc';                               
+															//include '../includes/connect4.inc';                               
 
 
 															$sql = "SELECT * FROM banner_ups WHERE ROS='yes' ORDER BY RAND()";
@@ -790,7 +799,7 @@
 
 																if ($bCount < 5) {
 
-																		echo '<a href="' . $row['web'] . '" target="_blank"><img src="https://landscapearchitect.com/optimized-images/timthumb.php?src=/banner/'  . $row['picture'] . '" class=" hidden-xs hidden-sm" style="width:100%;" /></a><div class="space10 hidden-xs clearfix"></div>';
+																		echo '<a href="' . $row['web'] . '" target="_blank"><img src="'.BASE_URL.'optimized-images/timthumb.php?src=/banner/'  . $row['picture'] . '" class=" hidden-xs hidden-sm" style="width:100%;" /></a><div class="space10 hidden-xs clearfix"></div>';
 
 
 																		$bCount++;
@@ -822,7 +831,7 @@
 							<div class="col-md-10 col-md-offset-1 col-sm-12 text-center">
 								
 								<!-- ROS horizontal Ad 2 -->
-								<? if(!empty($roshAds[1])){ echo '<a href="' .  $roshAds[1]['web'] . '" target="_blank"><img src="https://landscapearchitect.com/optimized-images/timthumb.php?src=banner/'  . $roshAds[1]['picture'] . '" class=" hidden-xs hidden-sm" style="width:100%;  max-width: 867px;" /></a>'; } ?>
+								<? if(!empty($roshAds[1])){ echo '<a href="' .  $roshAds[1]['web'] . '" target="_blank"><img src="'.BASE_URL.'optimized-images/timthumb.php?src=banner/'  . $roshAds[1]['picture'] . '" class=" hidden-xs hidden-sm" style="width:100%;  max-width: 867px;" /></a>'; } ?>
 						
 								<!--	<img src="/banner/new-banner-size-2.png" style="width:100%; max-width: 998px;" />  -->
 							</div>
@@ -844,7 +853,7 @@
                                     
                             <? 
                         
-                                            include '../includes/connect4.inc';                               
+                                            //include '../includes/connect4.inc';                               
                                    
 											$sql2333 = "SELECT * FROM editorial WHERE title NOT LIKE '%Weekly%' AND subject != '10' AND title NOT LIKE '%Promo%' ORDER BY id DESC LIMIT 17,4";
 											$result2333 = $conn->query($sql2333);									
@@ -872,9 +881,9 @@
                                                 
 											                     $mainImage = $row["id"];																					
                   
-																					$mainLink = "https://landscapearchitect.com/research/articles.php?number=" . $mainImage;
+																					$mainLink = BASE_URL."research/articles.php?number=" . $mainImage;
 
-																					$titleStory = "<a href='https://landscapearchitect.com/research/articles.php?number=" . $mainImage . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($titleWords))) . "</a><br>"; 
+																					$titleStory = "<a href='".BASE_URL."research/articles.php?number=" . $mainImage . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($titleWords))) . "</a><br>"; 
 																					 
                                                 
                                                 
@@ -894,7 +903,7 @@
 																$string = preg_replace("/[\s_]/", "-", $string); //Convert whitespaces and underscore to dash
                                                   
 																																
-																														$newStory = "<a href='https://landscapearchitect.com/research/articles.php?number=" . $row["id"] . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a><br>";                                               
+																														$newStory = "<a href='".BASE_URL."research/articles.php?number=" . $row["id"] . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a><br>";                                               
                                                 
 																									
 																														// creates link with article name and article id in url
@@ -918,7 +927,7 @@
 
 																$string = preg_replace("/[\s_]/", "-", $string); //Convert whitespaces and underscore to dash
                                                 
-                                                               $newStory2 = "<a href='https://landscapearchitect.com/research/articles.php?number=" . $row["id"] . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a><br>";                                               
+                                                               $newStory2 = "<a href='".BASE_URL."research/articles.php?number=" . $row["id"] . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a><br>";                                               
                                                 
 																									
 																														// creates link with article name and article id in url
@@ -942,7 +951,7 @@
 
 																$string = preg_replace("/[\s_]/", "-", $string); //Convert whitespaces and underscore to dash
                                                 
-                                                            $newStory3 = "<a href='https://landscapearchitect.com/research/articles.php?number=" . $row["id"] . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a><br>";                                               
+                                                            $newStory3 = "<a href='".BASE_URL."research/articles.php?number=" . $row["id"] . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a><br>";                                               
                                                 
 																									
 																														// creates link with article name and article id in url
@@ -956,7 +965,7 @@
                                                         <article class="home-post " style="background: white; margin-bottom:20px;">
                                                             <div class="post-thumb">
                                                                 <a href="' . $mainLink . '">
-                                                                    <img data-src="https://landscapearchitect.com/optimized-images/timthumb.php?src=https://landscapearchitect.com/research/images/' . $mainImage . '.jpg" class="img-responsive lazy" alt="">
+                                                                    <img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'research/images/' . $mainImage . '.jpg" class="img-responsive lazy" alt="">
                                                                     <div class="overlay-rmore fa fa-link"></div>
                                                                 </a>
                                                             </div>
@@ -1002,7 +1011,7 @@
 							<div class="col-md-10 col-md-offset-1  col-sm-12 text-center">
 									
 									<!-- ROS horizontal Ad 3 -->
-									<? if(!empty($roshAds[2])){ echo '<a href="' .  $roshAds[2]['web'] . '"  target="_blank"><img src="https://landscapearchitect.com/optimized-images/timthumb.php?src=banner/'  . $roshAds[2]['picture'] . '" class=" hidden-xs hidden-sm" style="width:100%;" /></a>'; } ?>
+									<? if(!empty($roshAds[2])){ echo '<a href="' .  $roshAds[2]['web'] . '"  target="_blank"><img src="'.BASE_URL.'optimized-images/timthumb.php?src=banner/'  . $roshAds[2]['picture'] . '" class=" hidden-xs hidden-sm" style="width:100%;" /></a>'; } ?>
 									
 								
 							</div>
@@ -1013,7 +1022,7 @@
 									<h5 style="font-family: 'Nunito Sans', sans-serif; font-size: 10px; font-weight: 600; text-transform:uppercase; text-align:center; color: #9d9d9d;">Advertisement</h5>
 									
 									<!-- ROS horizontal Ad 3 -->
-									<? if(!empty($roshAds[2])){ echo '<a href="' .  $roshAds[2]['web'] . '"  target="_blank"><img src="https://landscapearchitect.com/optimized-images/timthumb.php?src=banner/'  . $roshAds[2]['picture'] . '" class=" hidden-xs hidden-sm" style="width:100%;" /></a>'; } ?>
+									<? if(!empty($roshAds[2])){ echo '<a href="' .  $roshAds[2]['web'] . '"  target="_blank"><img src="'.BASE_URL.'optimized-images/timthumb.php?src=banner/'  . $roshAds[2]['picture'] . '" class=" hidden-xs hidden-sm" style="width:100%;" /></a>'; } ?>
 									
 									
 						</div>
@@ -1120,7 +1129,7 @@
 									category = "Water Management";
 									categoryNum = "1213";
 								}
-								link = '<a href="https://landscapearchitect.com/LandscapeProducts/la_category.php?ad=' + categoryNum + '" style="color: #707070; ">View all products in <strong>' + category + '</strong></a>';
+								link = '<a href="<?php echo BASE_URL; ?>LandscapeProducts/la_category.php?ad=' + categoryNum + '" style="color: #707070; ">View all products in <strong>' + category + '</strong></a>';
 							}
 							document.getElementById("tprodsViewAllLink").innerHTML = link;
 							document.getElementById("tprodsViewAllLinkMobile").innerHTML = link;
@@ -1196,7 +1205,7 @@
                                           
                                //Trending Products Start
                         
-                             	include '../includes/connect4.inc';                               
+                             	//include '../includes/connect4.inc';                               
                                    
 																$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' ORDER BY Clicks DESC LIMIT 0,11";
 																$result2333 = $conn->query($sql2333);	
@@ -1339,12 +1348,12 @@
 																		echo '<div class="pc-wrap">
 																						<div class="product-item">
 																								<div class="elem" style="width:122px; float:left; padding-right:10px">
-																												<a href="https://landscapearchitect.com/' . $catNameProd . '/' . $string555 . '/' . $string . '/' . $string2 . '/' . $row['vendor_id'] . '/' . $row['id'] . '">
+																												<a href="'. BASE_URL . $catNameProd . '/' . $string555 . '/' . $string . '/' . $string2 . '/' . $row['vendor_id'] . '/' . $row['id'] . '">
 																														<div class="img-cover">
-																																<img src="https://landscapearchitect.com/optimized-images/timthumb.php?src=https://landscapearchitect.com/products/images/' . $row['photo'] . '" class="img-responsive" alt=""/>
+																																<img src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive" alt=""/>
 																														</div>
 																														<p class="padding12">' . $row['product_name'] . '</p>
-																														 <img src="https://landscapearchitect.com/optimized-images/timthumb.php?src=https://www.landscapearchitect.com/products/images/'. $row2334['logo'] . '" class="productLogo" />
+																														 <img src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo" />
 
 																																												</a>
 																																								</div>	
@@ -1373,7 +1382,7 @@
                                         <div class="overflowbar">
                           <?
                                         
-                                            include '../includes/connect4.inc';                               
+                                            //include '../includes/connect4.inc';                               
                                    
 											$sql2333 = "SELECT * FROM `xlist` WHERE `idParent` = 28 AND name NOT LIKE '%*%' ORDER BY `xlist`.`name` ASC";
 											$result2333 = $conn->query($sql2333);										
@@ -1384,7 +1393,7 @@
 												
 											while($row = mysqli_fetch_array($result2333)) {
                                                 
-                                              echo '<a href="https://landscapearchitect.com/LandscapeProducts/la_details.php?ad=' . $row['idParent'] . '&xlist=' . $row['id'] . '" class="trending-links">' . $row['name'] . '</a><br>';  
+                                              echo '<a href="'.BASE_URL.'LandscapeProducts/la_details.php?ad=' . $row['idParent'] . '&xlist=' . $row['id'] . '" class="trending-links">' . $row['name'] . '</a><br>';  
                                                 
                                             }
                                         
@@ -1403,7 +1412,7 @@
                                           
                                           //Business Products Start
                         
-                                            include '../includes/connect4.inc';                               
+                                            //include '../includes/connect4.inc';                               
                                    
 											$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '56' || xlist = '59' || xlist = '60' || xlist = '62' || xlist = '63' || xlist = '65' || xlist = '74' || xlist = '75' || xlist = '76' || xlist = '78' || xlist = '126' || xlist = '612' || xlist = '646' || xlist = '876' || xlist = '891' || xlist = '894' || xlist = '896' || xlist = '908' || xlist = '995' || xlist = '1041' || xlist = '1102' || xlist = '1150' || xlist = '1235' || xlist = '1244' || xlist = '1260' || xlist = '1338' || xlist = '1340' || xlist = '1357' || xlist = '1358' || xlist = '1383') ORDER BY Clicks DESC LIMIT 0,8";
 											$result2333 = $conn->query($sql2333);										
@@ -1545,12 +1554,12 @@
 																		echo '<div class="pc-wrap">
 																						<div class="product-item">
 																								 <div class="elem">
-																												<a href="https://landscapearchitect.com/' . $catNameProd . '/' . $string555 . '/' . $string . '/' . $string2 . '/' . $row['vendor_id'] . '/' . $row['id'] . '">
+																												<a href="' . BASE_URL . $catNameProd . '/' . $string555 . '/' . $string . '/' . $string2 . '/' . $row['vendor_id'] . '/' . $row['id'] . '">
 																														<div class="img-cover">
-																																<img data-src="https://landscapearchitect.com/optimized-images/timthumb.php?src=https://landscapearchitect.com/products/images/' . $row['photo'] . '" class="img-responsive lazy" alt=""/>
+																																<img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive lazy" alt=""/>
 																														</div>
 																														<p class="padding12">' . $row['product_name'] . '</p>
-																														 <img data-src="https://landscapearchitect.com/optimized-images/timthumb.php?src=https://www.landscapearchitect.com/products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
+																														 <img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
 
 																												</a>
 																								</div>	
@@ -1579,7 +1588,7 @@
                                             <div class="overflowbar">
                           <?
                                         
-                                            include '../includes/connect4.inc';                               
+                                            //include '../includes/connect4.inc';                               
                                    
 											$sql2333 = "SELECT * FROM `xlist` WHERE `idParent` = 30 AND name NOT LIKE '%*%' ORDER BY `xlist`.`name` ASC";
 											$result2333 = $conn->query($sql2333);										
@@ -1590,7 +1599,7 @@
 												
 											while($row = mysqli_fetch_array($result2333)) {
                                                 
-                                              echo '<a href="https://landscapearchitect.com/LandscapeProducts/la_details.php?ad=' . $row['idParent'] . '&xlist=' . $row['id'] . '" class="trending-links">' . $row['name'] . '</a><br>';  
+                                              echo '<a href="'.BASE_URL.'LandscapeProducts/la_details.php?ad=' . $row['idParent'] . '&xlist=' . $row['id'] . '" class="trending-links">' . $row['name'] . '</a><br>';  
                                                 
                                             }
                                         
@@ -1612,7 +1621,7 @@
                                           
                                           //Trending Erosion Start
                         
-                                            include '../includes/connect4.inc';                               
+                                            //include '../includes/connect4.inc';                               
                                    
 											$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '149' || xlist = '152' || xlist = '156' || xlist = '157' || xlist = '158' || xlist = '161' || xlist = '164' || xlist = '165' || xlist = '167' || xlist = '615' || xlist = '616' || xlist = '1087' || xlist = '1160' || xlist = '1164') ORDER BY Clicks DESC LIMIT 0,8";
 											$result2333 = $conn->query($sql2333);										
@@ -1754,12 +1763,12 @@
 																		echo '<div class="pc-wrap">
 																						<div class="product-item">
 																								 <div class="elem">
-																												<a href="https://landscapearchitect.com/' . $catNameProd . '/' . $string555 . '/' . $string . '/' . $string2 . '/' . $row['vendor_id'] . '/' . $row['id'] . '">
+																												<a href="' .BASE_URL . $catNameProd . '/' . $string555 . '/' . $string . '/' . $string2 . '/' . $row['vendor_id'] . '/' . $row['id'] . '">
 																														<div class="img-cover">
-																																<img data-src="https://landscapearchitect.com/optimized-images/timthumb.php?src=https://landscapearchitect.com/products/images/' . $row['photo'] . '" class="img-responsive lazy" alt=""/>
+																																<img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive lazy" alt=""/>
 																														</div>
 																														<p class="padding12">' . $row['product_name'] . '</p>
-																														 <img data-src="https://landscapearchitect.com/optimized-images/timthumb.php?src=https://www.landscapearchitect.com/products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
+																														 <img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
 
 																												</a>
 																								</div>	
@@ -1784,7 +1793,7 @@
                                             <div class="overflowbar">
                           <?
                                         
-                                            include '../includes/connect4.inc';                               
+                                            //include '../includes/connect4.inc';                               
                                    
 											$sql2333 = "SELECT * FROM `xlist` WHERE `idParent` = 1300 AND name NOT LIKE '%*%' ORDER BY `xlist`.`name` ASC";
 											$result2333 = $conn->query($sql2333);										
@@ -1795,7 +1804,7 @@
 												
 											while($row = mysqli_fetch_array($result2333)) {
                                                 
-                                              echo '<a href="https://landscapearchitect.com/LandscapeProducts/la_details.php?ad=' . $row['idParent'] . '&xlist=' . $row['id'] . '" class="trending-links">' . $row['name'] . '</a><br>';  
+                                              echo '<a href="'.BASE_URL.'LandscapeProducts/la_details.php?ad=' . $row['idParent'] . '&xlist=' . $row['id'] . '" class="trending-links">' . $row['name'] . '</a><br>';  
                                                 
                                             }
                                         
@@ -1816,7 +1825,7 @@
                                           
                                           //Trending Fencing Start
                         
-                                            include '../includes/connect4.inc';                               
+                                            //include '../includes/connect4.inc';                               
                                    
 											$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '101' || xlist = '106' || xlist = '556' || xlist = '797' || xlist = '871' || xlist = '874' || xlist = '875' || xlist = '890' || xlist = '1309' || xlist = '1310' || xlist = '1311' || xlist = '1312' || xlist = '1325' || xlist = '1350' || xlist = '1351') ORDER BY Clicks DESC LIMIT 0,8";
 											$result2333 = $conn->query($sql2333);										
@@ -1958,12 +1967,12 @@
 																		echo '<div class="pc-wrap">
 																						<div class="product-item">
 																								 <div class="elem">
-																												<a href="https://landscapearchitect.com/' . $catNameProd . '/' . $string555 . '/' . $string . '/' . $string2 . '/' . $row['vendor_id'] . '/' . $row['id'] . '">
+																												<a href="' . BASE_URL. $catNameProd . '/' . $string555 . '/' . $string . '/' . $string2 . '/' . $row['vendor_id'] . '/' . $row['id'] . '">
 																														<div class="img-cover">
-																																<img data-src="https://landscapearchitect.com/optimized-images/timthumb.php?src=https://landscapearchitect.com/products/images/' . $row['photo'] . '" class="img-responsive lazy" alt=""/>
+																																<img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive lazy" alt=""/>
 																														</div>
 																														<p class="padding12">' . $row['product_name'] . '</p>
-																														 <img data-src="https://landscapearchitect.com/optimized-images/timthumb.php?src=https://www.landscapearchitect.com/products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
+																														 <img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
 
 																												</a>
 																								</div>	
@@ -1986,7 +1995,7 @@
                                             <div class="overflowbar">
                           <?
                                         
-                                            include '../includes/connect4.inc';                               
+                                            //include '../includes/connect4.inc';                               
                                    
 											$sql2333 = "SELECT * FROM `xlist` WHERE `idParent` = 1139 AND name NOT LIKE '%*%' ORDER BY `xlist`.`name` ASC";
 											$result2333 = $conn->query($sql2333);										
@@ -1997,7 +2006,7 @@
 												
 											while($row = mysqli_fetch_array($result2333)) {
                                                 
-                                              echo '<a href="https://landscapearchitect.com/LandscapeProducts/la_details.php?ad=' . $row['idParent'] . '&xlist=' . $row['id'] . '" class="trending-links">' . $row['name'] . '</a><br>';  
+                                              echo '<a href="'.BASE_URL.'LandscapeProducts/la_details.php?ad=' . $row['idParent'] . '&xlist=' . $row['id'] . '" class="trending-links">' . $row['name'] . '</a><br>';  
                                                 
                                             }
                                         
@@ -2018,7 +2027,7 @@
                                           
                                           //Trending Irrigation Start
                         
-                                            include '../includes/connect4.inc';                               
+                                            //include '../includes/connect4.inc';                               
                                    
 											$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '170' || xlist = '171' || xlist = '172' || xlist = '177' || xlist = '178' || xlist = '180' || xlist = '183' || xlist = '186' || xlist = '187' || xlist = '188' || xlist = '191' || xlist = '194' || xlist = '195' || xlist = '197' || xlist = '198' || xlist = '199' || xlist = '598' || xlist = '606' || xlist = '725' || xlist = '734' || xlist = '779' || xlist = '1343' || xlist = '1345' || xlist = '1346') ORDER BY Clicks DESC LIMIT 0,8";
 											$result2333 = $conn->query($sql2333);										
@@ -2160,12 +2169,12 @@
 																		echo '<div class="pc-wrap">
 																						<div class="product-item">
 																								 <div class="elem">
-																												<a href="https://landscapearchitect.com/' . $catNameProd . '/' . $string555 . '/' . $string . '/' . $string2 . '/' . $row['vendor_id'] . '/' . $row['id'] . '">
+																												<a href="' . BASE_URL. $catNameProd . '/' . $string555 . '/' . $string . '/' . $string2 . '/' . $row['vendor_id'] . '/' . $row['id'] . '">
 																														<div class="img-cover">
-																																<img data-src="https://landscapearchitect.com/optimized-images/timthumb.php?src=https://landscapearchitect.com/products/images/' . $row['photo'] . '" class="img-responsive lazy" alt=""/>
+																																<img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive lazy" alt=""/>
 																														</div>
 																														<p class="padding12">' . $row['product_name'] . '</p>
-																														 <img data-src="https://landscapearchitect.com/optimized-images/timthumb.php?src=https://www.landscapearchitect.com/products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
+																														 <img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
 
 																												</a>
 																								</div>	
@@ -2191,7 +2200,7 @@
                                             <div class="overflowbar">
                           <?
                                         
-                                            include '../includes/connect4.inc';                               
+                                            //include '../includes/connect4.inc';                               
                                    
 											$sql2333 = "SELECT * FROM `xlist` WHERE `idParent` = 32 AND name NOT LIKE '%*%' ORDER BY `xlist`.`name` ASC";
 											$result2333 = $conn->query($sql2333);										
@@ -2202,7 +2211,7 @@
 												
 											while($row = mysqli_fetch_array($result2333)) {
                                                 
-                                              echo '<a href="https://landscapearchitect.com/LandscapeProducts/la_details.php?ad=' . $row['idParent'] . '&xlist=' . $row['id'] . '" class="trending-links">' . $row['name'] . '</a><br>';  
+                                              echo '<a href="'.BASE_URL.'LandscapeProducts/la_details.php?ad=' . $row['idParent'] . '&xlist=' . $row['id'] . '" class="trending-links">' . $row['name'] . '</a><br>';  
                                                 
                                             }
                                         
@@ -2223,7 +2232,7 @@
                                           
                                           //Trending Lighting Start
                         
-                                            include '../includes/connect4.inc';                               
+                                            //include '../includes/connect4.inc';                               
                                    
 											$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '203' || xlist = '204' || xlist = '205' || xlist = '208' || xlist = '209' || xlist = '212' || xlist = '212' || xlist = '216' || xlist = '218' || xlist = '219' || xlist = '221' || xlist = '222' || xlist = '223' || xlist = '224' || xlist = '225' || xlist = '226' || xlist = '227' || xlist = '617' || xlist = '650' || xlist = '667' || xlist = '680' || xlist = '720' || xlist = '763' || xlist = '766' || xlist = '821' || xlist = '823' || xlist = '935' || xlist = '948' || xlist = '953' || xlist = '989' || xlist = '1179' || xlist = '1194' || xlist = '1304' || xlist = '1337') ORDER BY Clicks DESC LIMIT 0,8";
 											$result2333 = $conn->query($sql2333);										
@@ -2365,12 +2374,12 @@
 																		echo '<div class="pc-wrap">
 																						<div class="product-item">
 																								 <div class="elem">
-																												<a href="https://landscapearchitect.com/' . $catNameProd . '/' . $string555 . '/' . $string . '/' . $string2 . '/' . $row['vendor_id'] . '/' . $row['id'] . '">
+																												<a href="' .BASE_URL . $catNameProd . '/' . $string555 . '/' . $string . '/' . $string2 . '/' . $row['vendor_id'] . '/' . $row['id'] . '">
 																														<div class="img-cover">
-																																<img data-src="https://landscapearchitect.com/optimized-images/timthumb.php?src=https://landscapearchitect.com/products/images/' . $row['photo'] . '" class="img-responsive lazy" alt=""/>
+																																<img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive lazy" alt=""/>
 																														</div>
 																														<p class="padding12">' . $row['product_name'] . '</p>
-																														 <img data-src="https://landscapearchitect.com/optimized-images/timthumb.php?src=https://www.landscapearchitect.com/products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
+																														 <img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
 
 																												</a>
 																								</div>	
@@ -2395,7 +2404,7 @@
                                             <div class="overflowbar">
                           <?
                                         
-                                            include '../includes/connect4.inc';                               
+                                            //include '../includes/connect4.inc';                               
                                    
 											$sql2333 = "SELECT * FROM `xlist` WHERE `idParent` = 1214 AND name NOT LIKE '%*%' ORDER BY `xlist`.`name` ASC";
 											$result2333 = $conn->query($sql2333);										
@@ -2406,7 +2415,7 @@
 												
 											while($row = mysqli_fetch_array($result2333)) {
                                                 
-                                              echo '<a href="https://landscapearchitect.com/LandscapeProducts/la_details.php?ad=' . $row['idParent'] . '&xlist=' . $row['id'] . '" class="trending-links">' . $row['name'] . '</a><br>';  
+                                              echo '<a href="'.BASE_URL.'LandscapeProducts/la_details.php?ad=' . $row['idParent'] . '&xlist=' . $row['id'] . '" class="trending-links">' . $row['name'] . '</a><br>';  
                                                 
                                             }
                                         
@@ -2427,7 +2436,7 @@
                                           
                                           //Trending Outdoor Start
                         
-                                            include '../includes/connect4.inc';                               
+                                            //include '../includes/connect4.inc';                               
                                    
 											$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '85' || xlist = '91' || xlist = '110' || xlist = '113' || xlist = '134' || xlist = '139' || xlist = '244' || xlist = '758' || xlist = '818' || xlist = '853' || xlist = '907' || xlist = '1025' || xlist = '1032' || xlist = '1186' || xlist = '1187' || xlist = '1188' || xlist = '1207' || xlist = '1224' || xlist = '1239' || xlist = '667' || xlist = '680' || xlist = '720' || xlist = '763' || xlist = '766' || xlist = '821' || xlist = '823' || xlist = '935' || xlist = '948' || xlist = '953' || xlist = '989' || xlist = '1179' || xlist = '1313' || xlist = '1388') ORDER BY Clicks DESC LIMIT 0,8";
 											$result2333 = $conn->query($sql2333);										
@@ -2569,12 +2578,12 @@
 																		echo '<div class="pc-wrap">
 																						<div class="product-item">
 																								 <div class="elem">
-																												<a href="https://landscapearchitect.com/' . $catNameProd . '/' . $string555 . '/' . $string . '/' . $string2 . '/' . $row['vendor_id'] . '/' . $row['id'] . '">
+																												<a href="' . BASE_URL . $catNameProd . '/' . $string555 . '/' . $string . '/' . $string2 . '/' . $row['vendor_id'] . '/' . $row['id'] . '">
 																														<div class="img-cover">
-																																<img data-src="https://landscapearchitect.com/products/images/' . $row['photo'] . '" class="img-responsive lazy" alt=""/>
+																																<img data-src="'.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive lazy" alt=""/>
 																														</div>
 																														<p class="padding12">' . $row['product_name'] . '</p>
-																														 <img data-src="https://landscapearchitect.com/optimized-images/timthumb.php?src=https://www.landscapearchitect.com/products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
+																														 <img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
 
 																												</a>
 																								</div>	
@@ -2601,7 +2610,7 @@
                                             <div class="overflowbar">
                           <?
                                         
-                                            include '../includes/connect4.inc';                               
+                                            //include '../includes/connect4.inc';                               
                                    
 											$sql2333 = "SELECT * FROM `xlist` WHERE `idParent` = 33 AND name NOT LIKE '%*%' ORDER BY `xlist`.`name` ASC";
 											$result2333 = $conn->query($sql2333);										
@@ -2612,7 +2621,7 @@
 												
 											while($row = mysqli_fetch_array($result2333)) {
                                                 
-                                              echo '<a href="https://landscapearchitect.com/LandscapeProducts/la_details.php?ad=' . $row['idParent'] . '&xlist=' . $row['id'] . '" class="trending-links">' . $row['name'] . '</a><br>';  
+                                              echo '<a href="'.BASE_URL.'LandscapeProducts/la_details.php?ad=' . $row['idParent'] . '&xlist=' . $row['id'] . '" class="trending-links">' . $row['name'] . '</a><br>';  
                                                 
                                             }
                                         
@@ -2633,7 +2642,7 @@
                                           
                                           //Trending Recreation Start
                         
-                                            include '../includes/connect4.inc';                               
+                                            //include '../includes/connect4.inc';                               
                                    
 											$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '229' || xlist = '230' || xlist = '231' || xlist = '235' || xlist = '237' || xlist = '240' || xlist = '242' || xlist = '246' || xlist = '248' || xlist = '250' || xlist = '253' || xlist = '256' || xlist = '257' || xlist = '258' || xlist = '259' || xlist = '260' || xlist = '261' || xlist = '262' || xlist = '264' || xlist = '265' || xlist = '611' || xlist = '619' || xlist = '620' || xlist = '621' || xlist = '622' || xlist = '659' || xlist = '702' || xlist = '745' || xlist = '810' || xlist = '820' || xlist = '879' || xlist = '902' || xlist = '1097' || xlist = '1184' || xlist = '1240' || xlist = '1261' || xlist = '1320' || xlist = '1332' || xlist = '1333' || xlist = '1354' || xlist = '1355' || xlist = '1362') ORDER BY Clicks DESC LIMIT 0,8";
 											$result2333 = $conn->query($sql2333);										
@@ -2775,12 +2784,12 @@
 																		echo '<div class="pc-wrap">
 																						<div class="product-item">
 																								 <div class="elem">
-																												<a href="https://landscapearchitect.com/' . $catNameProd . '/' . $string555 . '/' . $string . '/' . $string2 . '/' . $row['vendor_id'] . '/' . $row['id'] . '">
+																												<a href="' .BASE_URL. $catNameProd . '/' . $string555 . '/' . $string . '/' . $string2 . '/' . $row['vendor_id'] . '/' . $row['id'] . '">
 																														<div class="img-cover">
-																																<img data-src="https://landscapearchitect.com/optimized-images/timthumb.php?src=https://landscapearchitect.com/products/images/' . $row['photo'] . '" class="img-responsive lazy" alt=""/>
+																																<img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive lazy" alt=""/>
 																														</div>
 																														<p class="padding12">' . $row['product_name'] . '</p>
-																														 <img data-src="https://landscapearchitect.com/optimized-images/timthumb.php?src=https://www.landscapearchitect.com/products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
+																														 <img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
 
 																												</a>
 																								</div>	
@@ -2806,7 +2815,7 @@
                                             <div class="overflowbar">
                           <?
                                         
-                                            include '../includes/connect4.inc';                               
+                                            //include '../includes/connect4.inc';                               
                                    
 											$sql2333 = "SELECT * FROM `xlist` WHERE `idParent` = 38 AND name NOT LIKE '%*%' ORDER BY `xlist`.`name` ASC";
 											$result2333 = $conn->query($sql2333);										
@@ -2817,7 +2826,7 @@
 												
 											while($row = mysqli_fetch_array($result2333)) {
                                                 
-                                              echo '<a href="https://landscapearchitect.com/LandscapeProducts/la_details.php?ad=' . $row['idParent'] . '&xlist=' . $row['id'] . '" class="trending-links">' . $row['name'] . '</a><br>';  
+                                              echo '<a href="'.BASE_URL.'LandscapeProducts/la_details.php?ad=' . $row['idParent'] . '&xlist=' . $row['id'] . '" class="trending-links">' . $row['name'] . '</a><br>';  
                                                 
                                             }
                                         
@@ -2838,7 +2847,7 @@
                                           
                                           //Trending PMBR Start
                         
-                                            include '../includes/connect4.inc';                               
+                                            //include '../includes/connect4.inc';                               
                                    
 											$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '329' || xlist = '330' || xlist = '331' || xlist = '334' || xlist = '335' || xlist = '336' || xlist = '338' || xlist = '339' || xlist = '340' || xlist = '341' || xlist = '343' || xlist = '344' || xlist = '347' || xlist = '348' || xlist = '353' || xlist = '565' || xlist = '575' || xlist = '640' || xlist = '657' || xlist = '660' || xlist = '685' || xlist = '743' || xlist = '756' || xlist = '827' || xlist = '832' || xlist = '833' || xlist = '851' || xlist = '944' || xlist = '950' || xlist = '961' || xlist = '974' || xlist = '1040' || xlist = '1226' || xlist = '1305' || xlist = '1318' || xlist = '1353' || xlist = '1363' || xlist = '1368' || xlist = '1386') ORDER BY Clicks DESC LIMIT 0,8";
 											$result2333 = $conn->query($sql2333);										
@@ -2980,12 +2989,12 @@
 																		echo '<div class="pc-wrap">
 																						<div class="product-item">
 																								 <div class="elem">
-																												<a href="https://landscapearchitect.com/' . $catNameProd . '/' . $string555 . '/' . $string . '/' . $string2 . '/' . $row['vendor_id'] . '/' . $row['id'] . '">
+																												<a href="' .BASE_URL. $catNameProd . '/' . $string555 . '/' . $string . '/' . $string2 . '/' . $row['vendor_id'] . '/' . $row['id'] . '">
 																														<div class="img-cover">
-																																<img data-src="https://landscapearchitect.com/products/images/' . $row['photo'] . '" class="img-responsive lazy" alt=""/>
+																																<img data-src="'.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive lazy" alt=""/>
 																														</div>
 																														<p class="padding12">' . $row['product_name'] . '</p>
-																														 <img data-src="https://landscapearchitect.com/optimized-images/timthumb.php?src=https://www.landscapearchitect.com/products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
+																														 <img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
 
 																												</a>
 																								</div>	
@@ -3011,7 +3020,7 @@
                                             <div class="overflowbar">
                           <?
                                         
-                                            include '../includes/connect4.inc';                               
+                                            //include '../includes/connect4.inc';                               
                                    
 											$sql2333 = "SELECT * FROM `xlist` WHERE `idParent` = 1212 AND name NOT LIKE '%*%' ORDER BY `xlist`.`name` ASC";
 											$result2333 = $conn->query($sql2333);										
@@ -3022,7 +3031,7 @@
 												
 											while($row = mysqli_fetch_array($result2333)) {
                                                 
-                                              echo '<a href="https://landscapearchitect.com/LandscapeProducts/la_details.php?ad=' . $row['idParent'] . '&xlist=' . $row['id'] . '" class="trending-links">' . $row['name'] . '</a><br>';  
+                                              echo '<a href="'.BASE_URL.'LandscapeProducts/la_details.php?ad=' . $row['idParent'] . '&xlist=' . $row['id'] . '" class="trending-links">' . $row['name'] . '</a><br>';  
                                                 
                                             }
                                         
@@ -3043,7 +3052,7 @@
                                           
                                           //Trending Pest Start
                         
-                                            include '../includes/connect4.inc';                               
+                                            //include '../includes/connect4.inc';                               
                                    
 											$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '322' || xlist = '323' || xlist = '324' || xlist = '325' || xlist = '783' || xlist = '916' || xlist = '933' || xlist = '972') ORDER BY Clicks DESC LIMIT 0,8";
 											$result2333 = $conn->query($sql2333);										
@@ -3185,12 +3194,12 @@
 																		echo '<div class="pc-wrap">
 																						<div class="product-item">
 																								 <div class="elem">
-																												<a href="https://landscapearchitect.com/' . $catNameProd . '/' . $string555 . '/' . $string . '/' . $string2 . '/' . $row['vendor_id'] . '/' . $row['id'] . '">
+																												<a href="' .BASE_URL. $catNameProd . '/' . $string555 . '/' . $string . '/' . $string2 . '/' . $row['vendor_id'] . '/' . $row['id'] . '">
 																														<div class="img-cover">
-																																<img data-src="https://landscapearchitect.com/products/images/' . $row['photo'] . '" class="img-responsive lazy" alt=""/>
+																																<img data-src="'.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive lazy" alt=""/>
 																														</div>
 																														<p class="padding12">' . $row['product_name'] . '</p>
-																														 <img data-src="https://landscapearchitect.com/optimized-images/timthumb.php?src=https://www.landscapearchitect.com/products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
+																														 <img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
 
 																												</a>
 																								</div>	
@@ -3216,7 +3225,7 @@
                                             <div class="overflowbar">
                           <?
                                         
-                                            include '../includes/connect4.inc';                               
+                                            //include '../includes/connect4.inc';                               
                                    
 											$sql2333 = "SELECT * FROM `xlist` WHERE `idParent` = 1002 AND name NOT LIKE '%*%' ORDER BY `xlist`.`name` ASC";
 											$result2333 = $conn->query($sql2333);										
@@ -3227,7 +3236,7 @@
 												
 											while($row = mysqli_fetch_array($result2333)) {
                                                 
-                                              echo '<a href="https://landscapearchitect.com/LandscapeProducts/la_details.php?ad=' . $row['idParent'] . '&xlist=' . $row['id'] . '" class="trending-links">' . $row['name'] . '</a><br>';  
+                                              echo '<a href="'.BASE_URL.'LandscapeProducts/la_details.php?ad=' . $row['idParent'] . '&xlist=' . $row['id'] . '" class="trending-links">' . $row['name'] . '</a><br>';  
                                                 
                                             }
                                         
@@ -3248,7 +3257,7 @@
                                           
                                           //Trending Plant Start
                         
-                                            include '../includes/connect4.inc';                               
+                                            //include '../includes/connect4.inc';                               
                                    
 											$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '288' || xlist = '289' || xlist = '297' || xlist = '300' || xlist = '308' || xlist = '311' || xlist = '312' || xlist = '313' || xlist = '314' || xlist = '317' || xlist = '318' || xlist = '319' || xlist = '420' || xlist = '562' || xlist = '652' || xlist = '661' || xlist = '665' || xlist = '802' || xlist = '805' || xlist = '806' || xlist = '813' || xlist = '852' || xlist = '1015' || xlist = '1029' || xlist = '1171' || xlist = '1229' || xlist = '1308' || xlist = '1348' || xlist = '1369' || xlist = '1370' || xlist = '1393') ORDER BY Clicks DESC LIMIT 0,8";
 											$result2333 = $conn->query($sql2333);										
@@ -3390,12 +3399,12 @@
 																		echo '<div class="pc-wrap">
 																						<div class="product-item">
 																								 <div class="elem">
-																												<a href="https://landscapearchitect.com/' . $catNameProd . '/' . $string555 . '/' . $string . '/' . $string2 . '/' . $row['vendor_id'] . '/' . $row['id'] . '">
+																												<a href="' .BASE_URL. $catNameProd . '/' . $string555 . '/' . $string . '/' . $string2 . '/' . $row['vendor_id'] . '/' . $row['id'] . '">
 																														<div class="img-cover">
-																																<img data-src="https://landscapearchitect.com/optimized-images/timthumb.php?src=https://landscapearchitect.com/products/images/' . $row['photo'] . '" class="img-responsive lazy" alt=""/>
+																																<img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive lazy" alt=""/>
 																														</div>
 																														<p class="padding12">' . $row['product_name'] . '</p>
-																														 <img data-src="https://landscapearchitect.com/optimized-images/timthumb.php?src=https://www.landscapearchitect.com/products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
+																														 <img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
 
 																												</a>
 																								</div>	
@@ -3420,7 +3429,7 @@
                                             <div class="overflowbar">
                           <?
                                         
-                                            include '../includes/connect4.inc';                               
+                                            //include '../includes/connect4.inc';                               
                                    
 											$sql2333 = "SELECT * FROM `xlist` WHERE `idParent` = 1394 AND name NOT LIKE '%*%' ORDER BY `xlist`.`name` ASC";
 											$result2333 = $conn->query($sql2333);										
@@ -3431,7 +3440,7 @@
 												
 											while($row = mysqli_fetch_array($result2333)) {
                                                 
-                                              echo '<a href="https://landscapearchitect.com/LandscapeProducts/la_details.php?ad=' . $row['idParent'] . '&xlist=' . $row['id'] . '" class="trending-links">' . $row['name'] . '</a><br>';  
+                                              echo '<a href="'.BASE_URL.'LandscapeProducts/la_details.php?ad=' . $row['idParent'] . '&xlist=' . $row['id'] . '" class="trending-links">' . $row['name'] . '</a><br>';  
                                                 
                                             }
                                         
@@ -3452,7 +3461,7 @@
                                           
                                           //Trending Pool Start
                         
-                                            include '../includes/connect4.inc';                               
+                                            //include '../includes/connect4.inc';                               
                                    
 											$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '457' || xlist = '638' || xlist = '647' || xlist = '1253' || xlist = '1326' || xlist = '1328') ORDER BY Clicks DESC LIMIT 0,8";
 											$result2333 = $conn->query($sql2333);										
@@ -3594,12 +3603,12 @@
 																		echo '<div class="pc-wrap">
 																						<div class="product-item">
 																								 <div class="elem">
-																												<a href="https://landscapearchitect.com/' . $catNameProd . '/' . $string555 . '/' . $string . '/' . $string2 . '/' . $row['vendor_id'] . '/' . $row['id'] . '">
+																												<a href="' .BASE_URL. $catNameProd . '/' . $string555 . '/' . $string . '/' . $string2 . '/' . $row['vendor_id'] . '/' . $row['id'] . '">
 																														<div class="img-cover">
-																																<img src="https://landscapearchitect.com/optimized-images/timthumb.php?src=https://landscapearchitect.com/products/images/' . $row['photo'] . '" class="img-responsive data-lazy" alt=""/>
+																																<img src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive data-lazy" alt=""/>
 																														</div>
 																														<p class="padding12">' . $row['product_name'] . '</p>
-																														 <img src="https://landscapearchitect.com/optimized-images/timthumb.php?src=https://www.landscapearchitect.com/products/images/'. $row2334['logo'] . '" class="productLogo data-lazy" />
+																														 <img src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo data-lazy" />
 
 																												</a>
 																								</div>	
@@ -3625,7 +3634,7 @@
                                             <div class="overflowbar">
                           <?
                                         
-                                            include '../includes/connect4.inc';                               
+                                            //include '../includes/connect4.inc';                               
                                    
 											$sql2333 = "SELECT * FROM `xlist` WHERE `idParent` = 29 AND name NOT LIKE '%*%' ORDER BY `xlist`.`name` ASC";
 											$result2333 = $conn->query($sql2333);										
@@ -3638,7 +3647,7 @@
 												
 											
                                                 
-                                              echo '<a href="https://landscapearchitect.com/LandscapeProducts/la_details.php?ad=' . $row['idParent'] . '&xlist=' . $row['id'] . '" class="trending-links">' . $row['name'] . '</a><br>';  
+                                              echo '<a href="'.BASE_URL.'LandscapeProducts/la_details.php?ad=' . $row['idParent'] . '&xlist=' . $row['id'] . '" class="trending-links">' . $row['name'] . '</a><br>';  
                                                 
                                             }
                                         
@@ -3659,7 +3668,7 @@
                                           
                                           //Trending Site Start
                         
-                                            include '../includes/connect4.inc';                               
+                                            //include '../includes/connect4.inc';                               
                                    
 											$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '87' || xlist = '90' || xlist = '93' || xlist = '95' || xlist = '97' || xlist = '98' || xlist = '104' || xlist = '107' || xlist = '109' || xlist = '111' || xlist = '117' || xlist = '119' || xlist = '120' || xlist = '121' || xlist = '123' || xlist = '131' || xlist = '132' || xlist = '135' || xlist = '137' || xlist = '145' || xlist = '581' || xlist = '595' || xlist = '689' || xlist = '719' || xlist = '789' || xlist = '838' || xlist = '1034' || xlist = '1230' || xlist = '1231' || xlist = '1238' || xlist = '1356' || xlist = '1366') ORDER BY Clicks DESC LIMIT 0,8";
 											$result2333 = $conn->query($sql2333);										
@@ -3801,12 +3810,12 @@
 																		echo '<div class="pc-wrap">
 																						<div class="product-item">
 																								 <div class="elem">
-																												<a href="https://landscapearchitect.com/' . $catNameProd . '/' . $string555 . '/' . $string . '/' . $string2 . '/' . $row['vendor_id'] . '/' . $row['id'] . '">
+																												<a href="' .BASE_URL. $catNameProd . '/' . $string555 . '/' . $string . '/' . $string2 . '/' . $row['vendor_id'] . '/' . $row['id'] . '">
 																														<div class="img-cover">
-																																<img src="https://landscapearchitect.com/products/images/' . $row['photo'] . '" class="img-responsive data-lazy" alt=""/>
+																																<img src="'.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive data-lazy" alt=""/>
 																														</div>
 																														<p class="padding12">' . $row['product_name'] . '</p>
-																														 <img src="https://landscapearchitect.com/optimized-images/timthumb.php?src=https://www.landscapearchitect.com/products/images/'. $row2334['logo'] . '" class="productLogo data-lazy" />
+																														 <img src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo data-lazy" />
 
 																												</a>
 																								</div>	
@@ -3831,7 +3840,7 @@
                                             <div class="overflowbar">
                           <?
                                         
-                                            include '../includes/connect4.inc';                               
+                                            //include '../includes/connect4.inc';                               
                                    
 											$sql2333 = "SELECT * FROM `xlist` WHERE `idParent` = 1215 AND name NOT LIKE '%*%' ORDER BY `xlist`.`name` ASC";
 											$result2333 = $conn->query($sql2333);										
@@ -3842,7 +3851,7 @@
 												
 											while($row = mysqli_fetch_array($result2333)) {
                                                 
-                                              echo '<a href="https://landscapearchitect.com/LandscapeProducts/la_details.php?ad=' . $row['idParent'] . '&xlist=' . $row['id'] . '" class="trending-links">' . $row['name'] . '</a><br>';  
+                                              echo '<a href="'.BASE_URL.'LandscapeProducts/la_details.php?ad=' . $row['idParent'] . '&xlist=' . $row['id'] . '" class="trending-links">' . $row['name'] . '</a><br>';  
                                                 
                                             }
                                         
@@ -3863,7 +3872,7 @@
                                           
                                           //Trending Site Furn Start
                         
-                                            include '../includes/connect4.inc';                               
+                                            //include '../includes/connect4.inc';                               
                                    
 											$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '114' || xlist = '127' || xlist = '128' || xlist = '129' || xlist = '130' || xlist = '141' || xlist = '618' || xlist = '697' || xlist = '740' || xlist = '1243' || xlist = '1329') ORDER BY Clicks DESC LIMIT 0,8";
 											$result2333 = $conn->query($sql2333);										
@@ -4005,12 +4014,12 @@
 																		echo '<div class="pc-wrap">
 																						<div class="product-item">
 																								 <div class="elem">
-																												<a href="https://landscapearchitect.com/' . $catNameProd . '/' . $string555 . '/' . $string . '/' . $string2 . '/' . $row['vendor_id'] . '/' . $row['id'] . '">
+																												<a href="' .BASE_URL. $catNameProd . '/' . $string555 . '/' . $string . '/' . $string2 . '/' . $row['vendor_id'] . '/' . $row['id'] . '">
 																														<div class="img-cover">
-																																<img src="https://landscapearchitect.com/products/images/' . $row['photo'] . '" class="img-responsive data-lazy" alt=""/>
+																																<img src="'.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive data-lazy" alt=""/>
 																														</div>
 																														<p class="padding12">' . $row['product_name'] . '</p>
-																														 <img src="https://landscapearchitect.com/optimized-images/timthumb.php?src=https://www.landscapearchitect.com/products/images/'. $row2334['logo'] . '" class="productLogo data-lazy" />
+																														 <img src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo data-lazy" />
 
 																												</a>
 																								</div>	
@@ -4036,7 +4045,7 @@
                                             <div class="overflowbar">
                           <?
                                         
-                                            include '../includes/connect4.inc';                               
+                                            //include '../includes/connect4.inc';                               
                                    
 											$sql2333 = "SELECT * FROM `xlist` WHERE `idParent` = 1301 AND name NOT LIKE '%*%' ORDER BY `xlist`.`name` ASC";
 											$result2333 = $conn->query($sql2333);										
@@ -4047,7 +4056,7 @@
 												
 											while($row = mysqli_fetch_array($result2333)) {
                                                 
-                                              echo '<a href="https://landscapearchitect.com/LandscapeProducts/la_details.php?ad=' . $row['idParent'] . '&xlist=' . $row['id'] . '" class="trending-links">' . $row['name'] . '</a><br>';  
+                                              echo '<a href="'.BASE_URL.'LandscapeProducts/la_details.php?ad=' . $row['idParent'] . '&xlist=' . $row['id'] . '" class="trending-links">' . $row['name'] . '</a><br>';  
                                                 
                                             }
                                         
@@ -4068,7 +4077,7 @@
                                           
                                           //Trending Sculpture Start
                         
-                                            include '../includes/connect4.inc';                               
+                                            //include '../includes/connect4.inc';                               
                                    
 											$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '144' || xlist = '784' || xlist = '839' || xlist = '901' || xlist = '1330' || xlist = '1331') ORDER BY Clicks DESC LIMIT 0,8";
 											$result2333 = $conn->query($sql2333);										
@@ -4210,12 +4219,12 @@
 																		echo '<div class="pc-wrap">
 																						<div class="product-item">
 																								 <div class="elem">
-																												<a href="https://landscapearchitect.com/' . $catNameProd . '/' . $string555 . '/' . $string . '/' . $string2 . '/' . $row['vendor_id'] . '/' . $row['id'] . '">
+																												<a href="' .BASE_URL. $catNameProd . '/' . $string555 . '/' . $string . '/' . $string2 . '/' . $row['vendor_id'] . '/' . $row['id'] . '">
 																														<div class="img-cover">
-																																<img data-src="https://landscapearchitect.com/optimized-images/timthumb.php?src=https://landscapearchitect.com/products/images/' . $row['photo'] . '" class="img-responsive lazy" alt=""/>
+																																<img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive lazy" alt=""/>
 																														</div>
 																														<p class="padding12">' . $row['product_name'] . '</p>
-																														 <img data-src="https://landscapearchitect.com/optimized-images/timthumb.php?src=https://www.landscapearchitect.com/products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
+																														 <img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
 
 																												</a>
 																								</div>	
@@ -4241,7 +4250,7 @@
                                             <div class="overflowbar">
                           <?
                                         
-                                            include '../includes/connect4.inc';                               
+                                            //include '../includes/connect4.inc';                               
                                    
 											$sql2333 = "SELECT * FROM `xlist` WHERE `idParent` = 41 AND name NOT LIKE '%*%' ORDER BY `xlist`.`name` ASC";
 											$result2333 = $conn->query($sql2333);										
@@ -4252,7 +4261,7 @@
 												
 											while($row = mysqli_fetch_array($result2333)) {
                                                 
-                                              echo '<a href="https://landscapearchitect.com/LandscapeProducts/la_details.php?ad=' . $row['idParent'] . '&xlist=' . $row['id'] . '" class="trending-links">' . $row['name'] . '</a><br>';  
+                                              echo '<a href="'.BASE_URL.'LandscapeProducts/la_details.php?ad=' . $row['idParent'] . '&xlist=' . $row['id'] . '" class="trending-links">' . $row['name'] . '</a><br>';  
                                                 
                                             }
                                         
@@ -4273,7 +4282,7 @@
                                           
                                           //Trending Water Features Start
                         
-                                            include '../includes/connect4.inc';                               
+                                            //include '../includes/connect4.inc';                               
                                    
 											$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '427' || xlist = '428' || xlist = '453' || xlist = '459' || xlist = '687' || xlist = '848' || xlist = '1100' || xlist = '1196' || xlist = '1263' || xlist = '1315' || xlist = '1316' || xlist = '1317') ORDER BY Clicks DESC LIMIT 0,8";
 											$result2333 = $conn->query($sql2333);										
@@ -4415,12 +4424,12 @@
 																		echo '<div class="pc-wrap">
 																						<div class="product-item">
 																								 <div class="elem">
-																												<a href="https://landscapearchitect.com/' . $catNameProd . '/' . $string555 . '/' . $string . '/' . $string2 . '/' . $row['vendor_id'] . '/' . $row['id'] . '">
+																												<a href="' .BASE_URL. $catNameProd . '/' . $string555 . '/' . $string . '/' . $string2 . '/' . $row['vendor_id'] . '/' . $row['id'] . '">
 																														<div class="img-cover">
-																																<img data-src="https://landscapearchitect.com/optimized-images/timthumb.php?src=https://landscapearchitect.com/products/images/' . $row['photo'] . '" class="img-responsive lazy" alt=""/>
+																																<img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive lazy" alt=""/>
 																														</div>
 																														<p class="padding12">' . $row['product_name'] . '</p>
-																														 <img data-src="https://landscapearchitect.com/optimized-images/timthumb.php?src=https://www.landscapearchitect.com/products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
+																														 <img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
 
 																												</a>
 																								</div>	
@@ -4445,7 +4454,7 @@
                                             <div class="overflowbar">
                           <?
                                         
-                                            include '../includes/connect4.inc';                               
+                                            //include '../includes/connect4.inc';                               
                                    
 											$sql2333 = "SELECT * FROM `xlist` WHERE `idParent` = 1213 AND name NOT LIKE '%*%' ORDER BY `xlist`.`name` ASC";
 											$result2333 = $conn->query($sql2333);										
@@ -4456,7 +4465,7 @@
 												
 											while($row = mysqli_fetch_array($result2333)) {
                                                 
-                                              echo '<a href="https://landscapearchitect.com/LandscapeProducts/la_details.php?ad=' . $row['idParent'] . '&xlist=' . $row['id'] . '" class="trending-links">' . $row['name'] . '</a><br>';  
+                                              echo '<a href="'.BASE_URL.'LandscapeProducts/la_details.php?ad=' . $row['idParent'] . '&xlist=' . $row['id'] . '" class="trending-links">' . $row['name'] . '</a><br>';  
                                                 
                                             }
                                         
@@ -4477,7 +4486,7 @@
                                           
                                           //Trending Water Management Start
                         
-                                            include '../includes/connect4.inc';                               
+                                            //include '../includes/connect4.inc';                               
                                    
 											$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '175' || xlist = '179' || xlist = '181' || xlist = '424' || xlist = '425' || xlist = '435' || xlist = '440' || xlist = '442' || xlist = '443' || xlist = '449' || xlist = '971' || xlist = '978' || xlist = '979' || xlist = '994' || xlist = '1201' || xlist = '1372') ORDER BY Clicks DESC LIMIT 0,8";
 											$result2333 = $conn->query($sql2333);										
@@ -4619,12 +4628,12 @@
 																		echo '<div class="pc-wrap">
 																						<div class="product-item">
 																								 <div class="elem">
-																												<a href="https://landscapearchitect.com/' . $catNameProd . '/' . $string555 . '/' . $string . '/' . $string2 . '/' . $row['vendor_id'] . '/' . $row['id'] . '">
+																												<a href="' .BASE_URL. $catNameProd . '/' . $string555 . '/' . $string . '/' . $string2 . '/' . $row['vendor_id'] . '/' . $row['id'] . '">
 																														<div class="img-cover">
-																																<img data-src="https://landscapearchitect.com/optimized-images/timthumb.php?src=https://landscapearchitect.com/products/images/' . $row['photo'] . '" class="img-responsive lazy" alt=""/>
+																																<img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive lazy" alt=""/>
 																														</div>
 																														<p class="padding12">' . $row['product_name'] . '</p>
-																														 <img data-src="https://landscapearchitect.com/optimized-images/timthumb.php?src=https://www.landscapearchitect.com/products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
+																														 <img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
 
 																												</a>
 																								</div>	
@@ -4690,7 +4699,7 @@
                                 
                             <? 
                         
-                                            include '../includes/connect4.inc';   
+                                            //include '../includes/connect4.inc';   
 																						
                                    
 											$sql2333 = "SELECT * FROM editorial WHERE title NOT LIKE '%Weekly%' AND subject != '10' AND title NOT LIKE '%Promo%' AND (subject = '1' || subject = '2' || subject = '3' || subject = '4' || subject = '5' || subject = '8' || subject = '7') ORDER BY id DESC LIMIT 21,9";
@@ -4808,12 +4817,12 @@
 												
                                                 
                       
-                                            $mainLink = "https://landscapearchitect.com/" . $subName2 . "/" . $string3 . "/" . $mainImage;
+                                            $mainLink = BASE_URL. $subName2 . "/" . $string3 . "/" . $mainImage;
 																					                                                                
                                                 echo '<div class="col-md-4 col-sm-6 col-xs-12 padding10 morenews-wrap" style="padding-bottom:10px">
                                                     <a href="' . $mainLink . '">
                                                         <div class="fw-thumb">
-                                                             <img class="lazy" data-src="https://landscapearchitect.com/optimized-images/timthumb.php?src=https://landscapearchitect.com/research/images/'.$mainImage . '-a.jpg&w=200&h=150" alt="">
+                                                             <img class="lazy" data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'research/images/'.$mainImage . '-a.jpg&w=200&h=150" alt="">
                                                         </div>
                                                         <div class="fw-info">
                                                              <p style="font-weight:bold">' . $subName . '<br>
@@ -4852,16 +4861,16 @@
 		
 			
 		
-			<? include '../includes/la-common-footer.inc'; ?>
+			<? include $rootInclude.'la-common-footer.inc'; ?>
 
 	    
-      <? include '../includes/la-common-magazine-subscribe.php'; ?>
+      <? include $rootInclude.'la-common-magazine-subscribe.php'; ?>
 
 
-      <? include '../includes/la-common-log-in-modal.inc'; ?>
+      <? include $rootInclude.'la-common-log-in-modal.inc'; ?>
 
 
-      <? include '../includes/la-common-request-product-details.inc'; ?>
+      <? include $rootInclude.'la-common-request-product-details.inc'; ?>
 			
 			
 			<script src="js/owl.carousel.js"></script>

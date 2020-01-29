@@ -104,37 +104,37 @@ if($pageId == 'resources'){
 	                                            <li class="padding25">
 	                                                <div>
 	                                                    <p class="" style="font-size:14px; color:#2e2e2e; font-weight: 800; text-transform: capitalize;">All Categories</p>
-	                                                    <a href="https://landscapearchitect.com/business-services-and-software">Business Services &amp; Software</a>
-	                                                    <a href="https://landscapearchitect.com/landscape-erosion-control-products">Erosion Control</a>
-	                                                    <a href="https://landscapearchitect.com/commercial-wholesale-fencing">Fencing</a>
-	                                                    <a href="https://landscapearchitect.com/landscape-irrigation">Irrigation</a>
-	                                                    <a href="https://landscapearchitect.com/commercial-exterior-lighting-electrical">Lighting / Electrical</a>
-	                                                    <a href="https://landscapearchitect.com/outdoor-living-residential-landscape">Outdoor Living</a>
-	                                                    <a href="https://landscapearchitect.com/parks-playground-products">Park &amp; Recreation</a>
-	                                                    <a href="https://landscapearchitect.com/commercial-pavers-masonry-blocks-rocks">Paver, Masonry, Blocks, Rocks</a>
+	                                                    <a href="<?php echo BASE_URL; ?>business-services-and-software">Business Services &amp; Software</a>
+	                                                    <a href="<?php echo BASE_URL; ?>landscape-erosion-control-products">Erosion Control</a>
+	                                                    <a href="<?php echo BASE_URL; ?>commercial-wholesale-fencing">Fencing</a>
+	                                                    <a href="<?php echo BASE_URL; ?>landscape-irrigation">Irrigation</a>
+	                                                    <a href="<?php echo BASE_URL; ?>commercial-exterior-lighting-electrical">Lighting / Electrical</a>
+	                                                    <a href="<?php echo BASE_URL; ?>outdoor-living-residential-landscape">Outdoor Living</a>
+	                                                    <a href="<?php echo BASE_URL; ?>parks-playground-products">Park &amp; Recreation</a>
+	                                                    <a href="<?php echo BASE_URL; ?>commercial-pavers-masonry-blocks-rocks">Paver, Masonry, Blocks, Rocks</a>
 	                                                </div>
 	                                            </li>
 	                                            <li class="padding25">
 	                                                <div> 
 																										<p class=" hidden-xs" style="font-size:14px; color:#2e2e2e; font-weight: 800; text-transform: capitalize;"></p>
 																											<br class="hidden-xs" />
-	                                                    <a href="https://landscapearchitect.com/wildlife-commercial-landscape-pest-control">Pest / Wildlife</a>
-	                                                    <a href="https://landscapearchitect.com/wholesale-plant-accessories-and-soil-amendments">Plant Accessories &amp; Amenments</a>
-	                                                    <a href="https://landscapearchitect.com/pool-and-spa">Pool &amp; Spa</a>
-	                                                    <a href="https://landscapearchitect.com/landscape-art-sculpture-metal-stone-garden-ornaments">Scupture / Art / Garden Ornaments</a>
-	                                                    <a href="https://landscapearchitect.com/commercial-site-amenities">Site Amenities</a>
-	                                                    <a href="https://landscapearchitect.com/site-furnishings-receptacles">Site Furnishings &amp; Receptables</a>
-	                                                    <a href="https://landscapearchitect.com/water-features-fountains-ponds-equipment">Water Features</a>
-	                                                    <a href="https://landscapearchitect.com/landscape-water-management">Water Management</a>
+	                                                    <a href="<?php echo BASE_URL; ?>wildlife-commercial-landscape-pest-control">Pest / Wildlife</a>
+	                                                    <a href="<?php echo BASE_URL; ?>wholesale-plant-accessories-and-soil-amendments">Plant Accessories &amp; Amenments</a>
+	                                                    <a href="<?php echo BASE_URL; ?>pool-and-spa">Pool &amp; Spa</a>
+	                                                    <a href="<?php echo BASE_URL; ?>landscape-art-sculpture-metal-stone-garden-ornaments">Scupture / Art / Garden Ornaments</a>
+	                                                    <a href="<?php echo BASE_URL; ?>commercial-site-amenities">Site Amenities</a>
+	                                                    <a href="<?php echo BASE_URL; ?>site-furnishings-receptacles">Site Furnishings &amp; Receptables</a>
+	                                                    <a href="<?php echo BASE_URL; ?>water-features-fountains-ponds-equipment">Water Features</a>
+	                                                    <a href="<?php echo BASE_URL; ?>landscape-water-management">Water Management</a>
 	
 	                                                </div>
 	                                            </li>
 	                                            <li class="padding25">
 	                                                <div>
 	                                                    <p class="" style="font-size:14px; color:#2e2e2e; font-weight: 800; text-transform: capitalize;">Tools &amp; Equipment</p>
-	                                                    <a href="https://landscapearchitect.com/landscape-installation-equipment">Installation Equipment</a>
-	                                                    <a href="https://landscapearchitect.com/landscape-maintenance-equipment">Maintenance Equipment</a>
-	                                                    <a href="https://landscapearchitect.com/tools-tires-and-replacement-parts">Tools &amp; Parts</a>
+	                                                    <a href="<?php echo BASE_URL; ?>landscape-installation-equipment">Installation Equipment</a>
+	                                                    <a href="<?php echo BASE_URL; ?>landscape-maintenance-equipment">Maintenance Equipment</a>
+	                                                    <a href="<?php echo BASE_URL; ?>tools-tires-and-replacement-parts">Tools &amp; Parts</a>
 	                                                </div>
 	                                                <div class="padding20">
 	                                                    <p class="padding20" style="font-size:14px; color:#2e2e2e; font-weight: 800; text-transform: capitalize;">Local Wholesale &amp; Plant Materials</p>

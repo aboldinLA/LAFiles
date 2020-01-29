@@ -1,11 +1,8 @@
-<?
+<?		
+			       function mainArticleSlider($conn) {
 
-
-
-											
-			       function mainArticleSlider() {
-
-                include '../includes/connect4.inc';        
+                //include 'connect4.inc'; 
+                include './modules/configuration.inc';                                  
 
                 $sql2333 = "SELECT * FROM editorial WHERE title NOT LIKE '%Weekly%' AND subject != '10' AND title NOT LIKE '%Promo%' ORDER BY id DESC LIMIT 0,5";
                 $result2333 = $conn->query($sql2333);			
@@ -19,7 +16,7 @@
 
                     $mainImage = $row["id"];
 
-                    $Link = "https://landscapearchitect.com/research/articles.php?number=" . $mainImage;
+                    $Link = BASE_URL."research/articles.php?number=" . $mainImage;
 
                     $descriptionString = str_replace("<br>", " ", $row['ed_text']);
 
@@ -49,7 +46,7 @@
 
                   <div class="item">
                       <a href="<? echo $articlesArr[0][2] ?>">
-                        <img src="https://landscapearchitect.com/optimized-images/timthumb.php?src=https://landscapearchitect.com/research/images/<? echo $articlesArr[0][1] ?>.jpg" alt="img" />
+                        <img src=<?php echo BASE_URL; ?>"optimized-images/timthumb.php?src=<?php echo BASE_URL; ?>research/images/<? echo $articlesArr[0][1] ?>.jpg" alt="img" />
                       </a>
                         <div class="ns_txt">
                           <a href="<? echo $articlesArr[0][2] ?>"><h3><? echo $articlesArr[0][0] ?></h3></a>
@@ -59,7 +56,7 @@
 
                     <div class="item">
                       <a href="<? echo $articlesArr[1][2] ?>">
-                        <img src="https://landscapearchitect.com/optimized-images/timthumb.php?src=https://landscapearchitect.com/research/images/<? echo $articlesArr[1][1] ?>.jpg" alt="img" />
+                        <img src="<?php echo BASE_URL; ?>optimized-images/timthumb.php?src=<?php echo BASE_URL; ?>research/images/<? echo $articlesArr[1][1] ?>.jpg" alt="img" />
                       </a>
                         <div class="ns_txt">
                           <a href="<? echo $articlesArr[1][2] ?>"><h3><? echo $articlesArr[1][0] ?></h3></a>
@@ -69,7 +66,7 @@
 
                     <div class="item">
                       <a href="<? echo $articlesArr[2][2] ?>">
-                        <img src="https://landscapearchitect.com/optimized-images/timthumb.php?src=https://landscapearchitect.com/research/images/<? echo $articlesArr[2][1] ?>.jpg" class="lazy" alt="img" />
+                        <img src="<?php echo BASE_URL; ?>optimized-images/timthumb.php?src=<?php echo BASE_URL; ?>research/images/<? echo $articlesArr[2][1] ?>.jpg" class="lazy" alt="img" />
                       </a>
                         <div class="ns_txt">
                           <a href="<? echo $articlesArr[2][2] ?>"><h3><? echo $articlesArr[2][0] ?></h3></a>
@@ -79,7 +76,7 @@
 
                     <div class="item">
                       <a href="<? echo $articlesArr[3][2] ?>">
-                        <img src="https://landscapearchitect.com/optimized-images/timthumb.php?src=https://landscapearchitect.com/research/images/<? echo $articlesArr[3][1] ?>.jpg" class="lazy" alt="img" />
+                        <img src="<?php echo BASE_URL; ?>optimized-images/timthumb.php?src=<?php echo BASE_URL; ?>research/images/<? echo $articlesArr[3][1] ?>.jpg" class="lazy" alt="img" />
                       </a>
                         <div class="ns_txt">
                           <a href="<? echo $articlesArr[3][2] ?>"><h3><? echo $articlesArr[3][0] ?></h3></a>
@@ -89,7 +86,7 @@
 
                     <div class="item">
                       <a href="<? echo $articlesArr[4][2] ?>">
-                        <img src="https://landscapearchitect.com/optimized-images/timthumb.php?src=https://landscapearchitect.com/research/images/<? echo $articlesArr[4][1] ?>.jpg" class="lazy" alt="img" />
+                        <img src="<?php echo BASE_URL; ?>optimized-images/timthumb.php?src=<?php echo BASE_URL; ?>research/images/<? echo $articlesArr[4][1] ?>.jpg" class="lazy" alt="img" />
                       </a>
                         <div class="ns_txt">
                           <a href="<? echo $articlesArr[4][2] ?>"><h3><? echo $articlesArr[4][0] ?></h3></a>
@@ -125,7 +122,7 @@
 //
 //													$subWords = $row['subtitle'];
 //
-//													$newsLink = 'https://landscapearchitect.com/research/articles.php?number=' . $row['id'] . '#article1';          
+//													$newsLink = BASE_URL.'research/articles.php?number=' . $row['id'] . '#article1';          
 //
 //
 //													$descriptionString = str_replace("<br>", " ", $row['ed_text']);
@@ -155,9 +152,9 @@
 				} //ENd mainArticleSlider
 
 
-			function sideArticles() {
-                
-                                            include '../includes/connect4.inc';                               
+			function sideArticles($conn) {
+                                            //include '../includes/connect4.inc';     
+                                            include './modules/configuration.inc';                          
                                    
 											$sql2333 = "SELECT * FROM editorial WHERE title NOT LIKE '%Weekly%' AND subject != '10' AND title NOT LIKE '%Promo%' ORDER BY id DESC LIMIT 6,2";
 											$result2333 = $conn->query($sql2333);									
@@ -180,7 +177,7 @@
                                                 
                                                                 $subWords = $row['subtitle'];  
                                                 
-                                                                $newsLink = 'https://landscapearchitect.com/research/articles.php?number=' . $row['id'] . '#article1';    
+                                                                $newsLink = BASE_URL.'research/articles.php?number=' . $row['id'] . '#article1';    
 																																
 																																$descriptionString = str_replace("<br>", " ", $row['ed_text']);
 
@@ -193,9 +190,9 @@
                                                 
                                                                 echo '<div class="row">
                                                                         <div class="col-md-12 col-sm-6 rnews">
-                                                                            <a href="https://landscapearchitect.com/research/articles.php?number=' . $row['id'] . '#article1">
+                                                                            <a href="'.BASE_URL.'research/articles.php?number=' . $row['id'] . '#article1">
                                                                                 <div class="fw-thumb2">
-                                                                                    <img src="https://landscapearchitect.com/optimized-images/timthumb.php?src=https://landscapearchitect.com/research/images/' . $row['id'] . '-a.jpg" alt=""/>
+                                                                                    <img src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'research/images/' . $row['id'] . '-a.jpg" alt=""/>
                                                                                 </div>
                                                                                 <div class="fw-info ml-1">
 

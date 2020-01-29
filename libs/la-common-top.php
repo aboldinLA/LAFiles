@@ -1,10 +1,8 @@
 <?php session_start() ?>
-
-
 <?
   
   //root to root folder for includes
-  $rootInclude = str_replace('public_html', 'includes/', $_SERVER['DOCUMENT_ROOT']);
+  #$rootInclude = str_replace('public_html', 'includes/', $_SERVER['DOCUMENT_ROOT']);
   
   
   //used to pull styles from correct directory for home page until
@@ -62,7 +60,7 @@
         <link rel="stylesheet" href="<? echo $extraDir ?>css/custom.css">
 			
 			
-<script src="https://www.google.com/recaptcha/api.js?render=6LeWWMYUAAAAAJd2h7hNl8BGknakenroC05XhfPC"></script>
+<script src="https://www.google.com/recaptcha/api.js?render=<? echo GCAPTCHA_KEY; ?>">"></script>
 <script>
 //grecaptcha.ready(function() {
 //    grecaptcha.execute('6LeWWMYUAAAAAJd2h7hNl8BGknakenroC05XhfPC', {action: 'homepage'}).then(function(token) {
@@ -71,7 +69,7 @@
 //});
 
 grecaptcha.ready(function() {
-    grecaptcha.execute('6LeWWMYUAAAAAJd2h7hNl8BGknakenroC05XhfPC', {action: 'homepage'});
+    grecaptcha.execute('<? echo GCAPTCHA_KEY; ?>">', {action: 'homepage'});
 });
 
 </script>	 		
