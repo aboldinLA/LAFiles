@@ -1,6 +1,6 @@
 <?php
 // databse connection 
-
+require_once ('configuration.inc');
 $servername = DB_HOST;
 $username = DB_USER;
 $password = DB_PASS;

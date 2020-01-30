@@ -28,6 +28,7 @@
 	include $rootInclude.'la-common-header.inc';
 
 	include $rootInclude.'la_common2.inc'; 
+	$articles_link = BASE_URL.'articles/';
 ?>
 
 
@@ -658,8 +659,10 @@
 													$result5 = $conn->query($sql5);			                                                
                                                 
 													while($row = mysqli_fetch_array($result5)) {
+
+														$link = $articles_link.$row['slug'];
                                                 
-														$newStory = "<a href='".BASE_URL."research/articles.php?number=" . $row["id"] . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a><br>";   
+														$newStory = "<a href='".$link. "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a><br>";   
 
 														// creates link with article name and article id in url
 														// $newStory = "<a href='http://www.landscapearchitect.com/articles/" . $string . "/" . $row["id"] . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a><br>";    
@@ -670,9 +673,9 @@
 													$result55 = $conn->query($sql55);			                                                
 
 													while($row = mysqli_fetch_array($result55)) {
-                                                
+                                                			$link = $articles_link.$row['slug'];
 
-															$newStory2 = "<a href='".BASE_URL."research/articles.php?number=" . $row["id"] . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a><br>";     
+															$newStory2 = "<a href='".$link. "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a><br>";     
 
 															// creates link with article name and article id in url
 															//$newStory2 = "<a href='http://www.landscapearchitect.com/articles/" . $string . "/" . $row["id"] . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a><br>";          
@@ -684,8 +687,10 @@
 														$result555 = $conn->query($sql555);			                                                
 
 														while($row = mysqli_fetch_array($result555)) {
+
+																$link = $articles_link.$row['slug'];
                                     
-																 $newStory3 = "<a href='".BASE_URL."research/articles.php?number=" . $row["id"] . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a><br>";                                               
+																 $newStory3 = "<a href='".$link. "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a><br>";                                               
                                                 
 																									
 																	// creates link with article name and article id in url
@@ -879,11 +884,14 @@
                                                 
 											                     $keywordart = $row["keywords"];
                                                 
-											                     $mainImage = $row["id"];																					
+											                     $mainImage = $row["id"];	
+
+
+											                     $link = $articles_link.$row['slug'];																				
                   
 																					$mainLink = BASE_URL."research/articles.php?number=" . $mainImage;
 
-																					$titleStory = "<a href='".BASE_URL."research/articles.php?number=" . $mainImage . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($titleWords))) . "</a><br>"; 
+																					$titleStory = "<a href='".$link. "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($titleWords))) . "</a><br>"; 
 																					 
                                                 
                                                 
@@ -901,9 +909,11 @@
 																$string = preg_replace("/[\s-]+/", " ", $string); // Clean multiple dashes or whitespaces
 
 																$string = preg_replace("/[\s_]/", "-", $string); //Convert whitespaces and underscore to dash
+
+																$link = $articles_link.$row['slug'];	
                                                   
 																																
-																														$newStory = "<a href='".BASE_URL."research/articles.php?number=" . $row["id"] . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a><br>";                                               
+																														$newStory = "<a href='". $link. "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a><br>";                                               
                                                 
 																									
 																														// creates link with article name and article id in url
@@ -926,8 +936,10 @@
 																$string = preg_replace("/[\s-]+/", " ", $string); // Clean multiple dashes or whitespaces
 
 																$string = preg_replace("/[\s_]/", "-", $string); //Convert whitespaces and underscore to dash
+
+																$link = $articles_link.$row['slug'];	
                                                 
-                                                               $newStory2 = "<a href='".BASE_URL."research/articles.php?number=" . $row["id"] . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a><br>";                                               
+                                                               $newStory2 = "<a href='".$link . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a><br>";                                               
                                                 
 																									
 																														// creates link with article name and article id in url
@@ -950,8 +962,10 @@
 																$string = preg_replace("/[\s-]+/", " ", $string); // Clean multiple dashes or whitespaces
 
 																$string = preg_replace("/[\s_]/", "-", $string); //Convert whitespaces and underscore to dash
+
+																$link = $articles_link.$row['slug'];
                                                 
-                                                            $newStory3 = "<a href='".BASE_URL."research/articles.php?number=" . $row["id"] . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a><br>";                                               
+                                                            $newStory3 = "<a href='".$link . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a><br>";                                               
                                                 
 																									
 																														// creates link with article name and article id in url

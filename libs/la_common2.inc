@@ -16,7 +16,8 @@
 
                     $mainImage = $row["id"];
 
-                    $Link = BASE_URL."research/articles.php?number=" . $mainImage;
+                    //$Link = BASE_URL."research/articles.php?number=" . $mainImage;
+                    $Link = BASE_URL."articles/" . $row["slug"];
 
                     $descriptionString = str_replace("<br>", " ", $row['ed_text']);
 
@@ -177,7 +178,9 @@
                                                 
                                                                 $subWords = $row['subtitle'];  
                                                 
-                                                                $newsLink = BASE_URL.'research/articles.php?number=' . $row['id'] . '#article1';    
+                                                                //$newsLink = BASE_URL.'research/articles.php?number=' . $row['id'] . '#article1';    
+
+                                                                $newsLink = BASE_URL."articles/" . $row["slug"] . '#article1';  
 																																
 																																$descriptionString = str_replace("<br>", " ", $row['ed_text']);
 
@@ -190,7 +193,7 @@
                                                 
                                                                 echo '<div class="row">
                                                                         <div class="col-md-12 col-sm-6 rnews">
-                                                                            <a href="'.BASE_URL.'research/articles.php?number=' . $row['id'] . '#article1">
+                                                                            <a href="'.$newsLink.'">
                                                                                 <div class="fw-thumb2">
                                                                                     <img src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'research/images/' . $row['id'] . '-a.jpg" alt=""/>
                                                                                 </div>

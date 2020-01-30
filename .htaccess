@@ -14,8 +14,12 @@ AddType video/x-m4v .m4v
 Options +FollowSymLinks
 RewriteEngine on
 
-
+###############RULES DEFINED BY MAB
 RewriteCond %{REQUEST_URI} !\.(?:css|js|jpe?g|gif|png)$ [NC]
+RewriteRule articles/(.*) /research/seo-article-a.php?articleSlug=$1
+
+##############
+
 
 #RewriteCond %{HTTPS} !=on
 #RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$

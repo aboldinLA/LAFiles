@@ -20,8 +20,8 @@
 					'limit' => array( '0','20' ),
 				);*/
 
-function getArticale( $parmaArr ){
-	$conn = connection();
+function getArticale( $parmaArr, $conn ){
+	
 
 	if( !empty( $parmaArr ) && !empty( $parmaArr['tabel_name'] ) ){
 		

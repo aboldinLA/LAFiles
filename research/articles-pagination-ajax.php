@@ -2,13 +2,16 @@
 if( isset( $_POST['art_id'] ) && !empty( $_POST['art_id'] ) ):
     $send_responce_id = 0;
     // Article Start
-    $servername = "localhost";
+    /*$servername = "localhost";
     $username = "land_patchew";
     $password = "59q2GB6k$3";
     $dbname = "land_landscap_lollive";
 
 // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn = new mysqli($servername, $username, $password, $dbname);*/
+
+    include '../modules/confguation.inc';
+    include '../modules/db.php';
 // Check connection
     if ($conn->connect_error) {
          die("Connection failed: " . $conn->connect_error);
@@ -207,10 +210,12 @@ $finalString = substr_replace($ed_text, '', strpos($ed_text, '<!-- begin wwww.ht
 													
                                                     
                                                 }
+
+                                                $link = BASE_URL.'articles/'.$row['slug'];
                                                 
 												echo '<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 for_small">
-                                                    <a href="https://landscapearchitect.com/research/articles.php?number=' . $mainImage . '" class="reelbox img_fit">
-                                                        <img width="100%" height="175px" src="https://landscapearchitect.com/research/images/' . $mainImage . '.jpg" alt="img" />
+                                                    <a href="'.$link.'" class="reelbox img_fit">
+                                                        <img width="100%" height="175px" src="'.BASE_URL.'research/images/' . $mainImage . '.jpg" alt="img" />
                                                         <div class="text_fi full_width">
                                                             <!-- <h1>META DATA</h1> -->
                                                             <h2>' . $row['title'] . '</h2>
