@@ -254,7 +254,7 @@
                                                 
 												echo '<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 for_small">
                                                     <a href="'.BASE_URL.'articles/'.$row['slug'].'"  class="reelbox img_fit">
-                                                        <img width="100%" height="175px" src="https://landscapearchitect.com/research/images/' . $mainImage . '.jpg" alt="img" />
+                                                        <img width="100%" height="175px" src="'.BASE_URL.'research/images/' . $mainImage . '.jpg" alt="img" />
                                                         <div class="text_fi full_width">
                                                             <!-- <h1>META DATA</h1> -->
                                                             <h2>' . $row['title'] .'</h2>
