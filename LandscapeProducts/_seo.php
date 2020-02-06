@@ -1,25 +1,49 @@
-<?php session_start() ?>
-<?php include '../modules/configuration.inc'; ?>
-<?php include '../modules/db.php'; ?>
-<? include $rootInclude.'la-common-top.php'; ?>
+<?php 
+	include '../modules/configuration.inc'; 
+	include '../modules/db.php';
+	/*include '../modules/baseUrl.php';*/
+	include '../modules/urlData.php';
+?>
+<? include $rootInclude.'la-common-top-inner.php'; ?>
 
-<? include $rootInclude.'la-common-header.inc'; ?>
+<? include $rootInclude.'la-common-header-inner.inc'; ?>
 
 <? include $rootInclude.'la_common2.inc'; ?>
 
+<?
+	$adId = 0;
+	$metaTitle = '';
+	$name = '';
 
+	$parmaSlug = $_GET['catParma']; 
+	$data = '';
+// print_r($menuData); die;
+	if(isset($menuData[$parmaSlug])){
+	   $data = $menuData[$parmaSlug];
+	   $adId =  $data['ad'];
+	   $metaTitle = $data['metaTitle'];
+	   $heading = $data['heading'];
+	   $name = $data['name'];
+	   $cat_slug = $data['slug'];
+	}else{
+		die;
+	}
 
-<section class="tool_page full_width">
+?>
 
-  <? include $rootInclude.'la-common-leaderboard-banner.inc'; ?>
-  
-</section><!-- /.tool_page -->
-
+<!--
+<section class="gray_shade_anchor full_width">
+<div class="container">
+	<div class="full_width overflow_">
+	<a href="#" class="active">LA DETAILS</a>
+    <a href="#">TOOLS &amp; EQUIPMENT</a>
+    <a href="#">LOCAL WHOLESALE &amp; PLANT MATERIALS</a>
+    </div>
+</div> <! -- /.container -- >
+</section><! -- /.gray_shade_anchor -- >
+-->
 
 <section class="search_section_ban full_width">
-  
-  
-  
 <div class="container">
 <div class="row">
 	<div class="col-lg-9 col-lg-offset-3 col-md-8 col-md-offset-4 col-sm-12 col-xs-12">
@@ -40,130 +64,28 @@
 	
 		
 				    <?
-		
-		
-						// Program to display URL of current page. 
 
-						if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') 
-							$link = "https"; 
-						else
-							$link = "http"; 
+								// $servername = "localhost";
+								// $username = "land_patchew";
+								// $password = "59q2GB6k$3";
+								// $dbname = "land_landscap_lollive";
 
-						// Here append the common URL characters. 
-						$link .= "://"; 
-
-						// Append the host(domain name, ip) to the URL. 
-						$link .= $_SERVER['HTTP_HOST']; 
-
-						// Append the requested resource location to the URL 
-						$link .= $_SERVER['REQUEST_URI']; 
-		
-		
-						$resultLink = substr($link, 31, 55);
-		
-		
-						if ($resultLink == 'business-services-and-software') {
-							
-							$_GET['ad'] = 28;
-							
-						} elseif ($resultLink == 'landscape-erosion-control-products') {
-							
-							$_GET['ad'] = 30;
-							
-						} elseif ($resultLink == 'commercial-wholesale-fencing') {
-							
-							$_GET['ad'] = 1300;
-							
-						} elseif ($resultLink == 'landscape-irrigation') {
-							
-							$_GET['ad'] = 1139;
-							
-						} elseif ($resultLink == 'commercial-exterior-lighting-electrical') {
-							
-							$_GET['ad'] = 32;
-							
-						} elseif ($resultLink == 'outdoor-living-residential-landscape') {
-							
-							$_GET['ad'] = 1214;
-							
-						} elseif ($resultLink == 'parks-playground-products') {
-							
-							$_GET['ad'] = 33;
-							
-						} elseif ($resultLink == 'commercial-pavers-masonry-blocks-rocks') {
-							
-							$_GET['ad'] = 38;
-							
-						} elseif ($resultLink == 'wildlife-commercial-landscape-pest-control') {
-							
-							$_GET['ad'] = 1212;
-							
-						} elseif ($resultLink == 'wholesale-plant-accessories-and-soil-amendments') {
-							
-							$_GET['ad'] = 1002;
-							
-						} elseif ($resultLink == 'pool-and-spa') {
-							
-							$_GET['ad'] = 1394;
-							
-						} elseif ($resultLink == 'landscape-art-sculpture-metal-stone-garden-ornaments') {
-							
-							$_GET['ad'] = 1301;
-							
-						} elseif ($resultLink == 'commercial-site-amenities') {
-							
-							$_GET['ad'] = 29;
-							
-						} elseif ($resultLink == 'site-furnishings-receptacles') {
-							
-							$_GET['ad'] = 1215;
-							
-						} elseif ($resultLink == 'water-features-fountains-ponds-equipment') {
-							
-							$_GET['ad'] = 41;
-							
-						} elseif ($resultLink == 'landscape-water-management') {
-							
-							$_GET['ad'] = 1213;
-							
-						} elseif ($resultLink == 'landscape-installation-equipment') {
-							
-							$_GET['ad'] = 1209;
-							
-						} elseif ($resultLink == 'landscape-maintenance-equipment') {
-							
-							$_GET['ad'] = 1210;
-							
-						} elseif ($resultLink == 'landscape-maintenance-equipment') {
-							
-							$_GET['ad'] = 1211;
-							
-						}
-
-						
-		
-
-								/*$servername = "localhost";
-								$username = "land_patchew";
-								$password = "59q2GB6k$3";
-								$dbname = "land_landscap_lollive";
-
-								// Create connection
-										$conn = new mysqli($servername, $username, $password, $dbname);
-								// Check connection
-										if ($conn->connect_error) {
-												die("Connection failed: " . $conn->connect_error);
-										}                */
+								// // Create connection
+								// 		$conn = new mysqli($servername, $username, $password, $dbname);
+								// // Check connection
+								// 		if ($conn->connect_error) {
+								// 				die("Connection failed: " . $conn->connect_error);
+								// 		}                
 
 
-								$cat1 = $_GET['ad'];
+								$cat1 = $adId;
 								
 								
 							$companyNamesFeatured = array();
 							$companyNames = array();
 							
 							//amount of images loaded with page
-							$lazyImgMax = 300;
+							$lazyImgMax = 10;
 							//counter for lazy loader
 							$lazyCounter = 0;
 														
@@ -186,7 +108,7 @@
 				<!-- banner ads 4-end left side -->
 				<?
 				
-					$ad = $_GET['ad'];
+					$ad = $adId;
 					$ads = array();
 
 					$sql = "SELECT * FROM banner_ups WHERE product='" . $ad . "' AND ROS='no' ORDER BY RAND()";
@@ -240,12 +162,12 @@
 																			$rowcount533=mysqli_num_rows($result533);
                 
                 
-                                        $ad = $_GET['ad'];
+                                        $ad = $adId;
                                         
                                         
                                         if ($ad == '28') {
-                                           echo '<title>Business Services | Landscape Architect</title>';
-                                            echo '<h1 class="center-section-header">Business Services</h1>';
+                                           echo '<title>'.$metaTitle.'</title>';
+                                            echo '<h1 class="center-section-header">'.$name.'</h1>';
                                         } elseif ($ad == '30') {
                                             echo '<title>Landscape Erosion Control Products | Landscape Architect</title>';
                                             echo '<h1 class="center-section-header">Landscape Erosion Control Products</h1>';                                            
@@ -303,7 +225,7 @@
                                         }
             
                 
-																		$cat1 = $_GET['ad'];
+																		$cat1 = $adId;
 																		$cat2 = $_GET['number'];
 																		$cat3 = $_GET['catMain'];
 																		$cat4 = $_GET['catName'];
@@ -343,7 +265,7 @@
 											
                                             // Vendor Count Start
             
-											$key48 = $_GET['ad'];
+											$key48 = $adId;
             
 											if ($key48  == 32) {
                                                 
@@ -519,96 +441,15 @@
                                             }
             
                                             // Vendor Count End
-			
-			
-											if ($cat1  == 28) {
-												
-												$alphaLink = '/alpha-order-busines-services';
-												
-											} elseif ($cat1  == 30) {
-												
-												$alphaLink = '/alpha-order-erosion-control';
-												
-											} elseif ($cat1  == 1300) {
-												
-												$alphaLink = '/alpha-order-fencing';
-												
-											} elseif ($cat1  == 1139) {
-												
-												$alphaLink = '/alpha-order-irrigation';
-												
-											} elseif ($cat1  == 32) {
-												
-												$alphaLink = '/alpha-order-lighting-electrical';
-												
-											} elseif ($cat1  == 1214) {
-												
-												$alphaLink = '/alpha-order-outdoor-living';
-												
-											} elseif ($cat1  == 33) {
-												
-												$alphaLink = '/alpha-order-parks-playground';
-												
-											} elseif ($cat1  == 38) {
-												
-												$alphaLink = '/alpha-order-pavers-masonry-blocks-rocks';
-												
-											} elseif ($cat1  == 1212) {
-												
-												$alphaLink = '/alpha-order-pest-control';
-												
-											}elseif ($cat1  == 1002) {
-												
-												$alphaLink = '/alpha-order-plant-accessories';
-												
-											} elseif ($cat1  == 1394) {
-												
-												$alphaLink = '/alpha-order-pool-and-spa';
-												
-											} elseif ($cat1  == 1301) {
-												
-												$alphaLink = '/alpha-order-art-sculpture-garden-ornaments';
-												
-											} elseif ($cat1  == 29) {
-												
-												$alphaLink = '/alpha-order-site-amenities';
-												
-											} elseif ($cat1  == 1215) {
-												
-												$alphaLink = '/alpha-order-site-furnishings-receptacles';
-												
-											} elseif ($cat1  == 41) {
-												
-												$alphaLink = '/alpha-order-water-features';
-												
-											} elseif ($cat1  == 1213) {
-												
-												$alphaLink = '/alpha-order-water-management';
-												
-											} elseif ($cat1  == 1209) {
-												
-												$alphaLink = '/alpha-order-installation-equipment';
-												
-											} elseif ($cat1  == 1210) {
-												
-												$alphaLink = '/alpha-order-maintenance-equipment';
-												
-											} elseif ($cat1  == 1211) {
-												
-												$alphaLink = '/alpha-order-tools-and-parts';
-												
-											}
-			
-			
             
                 
                                         ?>
-														<? $onClickSortLink = "window.location.href = '" . $alphaLink . "';"		?>				
+														<? $onClickSortLink = "window.location.href = '".BASE_URL."LandscapeProducts/la_category-alpha.php?ad=" . $cat1 . "';"		?>				
 																				
             <p class="sort_area">Results: <span><? echo $rowcount777; ?></span> Vendors<button onclick="<? echo $onClickSortLink ?>" class="laCategorySortBtn">Sort from A-Z &nbsp;<i class="fas fa-sort-alpha-up"></i></button></p>
 						
 						
-
+<!--						 <p class="sort_area">Results for <? echo $xcatName; ?> : <span><? echo $rowcount777; ?></span> Vendors<button onclick="<? echo $onClickSortLink ?>" style="height: 30px; font-size: 12px; font-weight: bold;">Sort from A-Z </button></p>-->
             
             <h3 class="no_br">Featured Brands</h3>
             
@@ -620,7 +461,7 @@
                 
                                         <?
                 
-											$key48 = $_GET['ad'];
+											$key48 = $adId;
 						
 											if ($key48  == 32) {
 						
@@ -760,7 +601,7 @@
 															   while($row = mysqli_fetch_assoc($result55)) {
 																   
 														   
-											$key48 = $_GET['ad'];
+											$key48 = $adId;
 						
 						
 											if ($key48  == 32) {
@@ -865,7 +706,7 @@
 																   
 																	if ($rowcount299 != 0) {
 																		
-																		$diLogo = $_GET['ad'];
+																		$diLogo = $adId;
 																		
 																		if (($diLogo == 1209) || ($diLogo == 1210) || ($diLogo == 1211)) {
 
@@ -946,7 +787,7 @@
 															   while($row = mysqli_fetch_assoc($result55)) {
 																  
 																   
-											$key48 = $_GET['ad'];
+											$key48 = $adId;
 						
 						
 											if ($key48  == 32) {
@@ -1070,8 +911,10 @@
 											 $lazyCounter++;
 
 											// Featured Vendors 18's Start
+											 // print_r($row); die;
+											 $detailsUrl = SITE_URL.'commercial-landscape-companies/'.$row['slug'];
 
-											echo '<a href="'.BASE_URL.'landscape-design-products/' . $string . '/'. $row['id'] . '" class="col-md-6 col-sm-6 col-xs-6 for_small">
+											echo '<a href="'. $detailsUrl . '" class="col-md-6 col-sm-6 col-xs-6 for_small">
 														' . $image . '<br />
 														<p class="categoryVendor categoryVendorFeatured">'. $row['company_name'] . '</p></a>';
 
@@ -1107,7 +950,7 @@
                 
                                         <?
                 
-											$key48 = $_GET['ad'];
+											$key48 = $adId;
 						
 											if ($key48  == 32) {
 						
@@ -1245,7 +1088,7 @@
 															   while($row = mysqli_fetch_assoc($result55)) {
 																   
 														   
-											$key48 = $_GET['ad'];
+											$key48 = $adId;
 						
 						
 											if ($key48  == 32) {
@@ -1350,7 +1193,7 @@
 																   
 																	if ($rowcount299 != 0) {
 																		
-																		$diLogo = $_GET['ad'];
+																		$diLogo = $adId;
 																		
 																		if (($diLogo == 1209) || ($diLogo == 1210) || ($diLogo == 1211)) {
 
@@ -1431,7 +1274,7 @@
 															   while($row = mysqli_fetch_assoc($result55)) {
 																  
 																   
-											$key48 = $_GET['ad'];
+											$key48 = $adId;
 						
 						
 											if ($key48  == 32) {
@@ -1551,8 +1394,8 @@
 																 $lazyCounter++;
 
 																// Featured Vendors 16's Start
-
-																echo '<a href="'.BASE_URL.'landscape-design-products/' . $string . '/'. $row['id'] . '" class="col-md-6 col-sm-6 col-xs-6 for_small">
+																 $detailsUrl = SITE_URL.'commercial-landscape-companies/'.$row['slug'];
+																echo '<a href="'. $detailsUrl . '" class="col-md-6 col-sm-6 col-xs-6 for_small">
 																			' . $image . '<br />
 																			<p class="categoryVendor categoryVendorFeatured">'. $row['company_name'] . '</p></a>';
 
@@ -1570,7 +1413,7 @@
                 
                                         <?
                 
-											$key48 = $_GET['ad'];
+											$key48 = $adId;
 						
 											if ($key48  == 32) {
 						
@@ -1708,7 +1551,7 @@
 															   while($row = mysqli_fetch_assoc($result55)) {
 																   
 														   
-											$key48 = $_GET['ad'];
+											$key48 = $adId;
 						
 						
 											if ($key48  == 32) {
@@ -1813,15 +1656,15 @@
 																   
 																	if ($rowcount299 != 0) {
 																		
-																		$diLogo = $_GET['ad'];
+																		$diLogo = $adId;
 																		
 																		if (($diLogo == 1209) || ($diLogo == 1210) || ($diLogo == 1211)) {
 
-																		 $deLogo = "<img class='deLogo' src='https://landscapearchitect.com/lol-logos/te-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: red'>&nbsp;&nbsp;";
+																		 $deLogo = "<img class='deLogo' src='".BASE_URL."lol-logos/te-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: red'>&nbsp;&nbsp;";
 																		
 																		} else {
 																			
-																		 $deLogo = "<img class='deLogo' src='https://landscapearchitect.com/lol-logos/la-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: lightblue'>&nbsp;&nbsp;";																			
+																		 $deLogo = "<img class='deLogo' src='".BASE_URL."lol-logos/la-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: lightblue'>&nbsp;&nbsp;";																			
 																			
 																		}
 																		
@@ -1894,7 +1737,7 @@
 															   while($row = mysqli_fetch_assoc($result55)) {
 																  
 																   
-											$key48 = $_GET['ad'];
+											$key48 = $adId;
 						
 						
 											if ($key48  == 32) {
@@ -2015,8 +1858,8 @@
 															 $lazyCounter++;
 
 															// Featured Vendors 14's Start
-
-															echo '<a href="'.BASE_URL.'landscape-design-products/' . $string . '/'. $row['id'] . '" class="col-md-6 col-sm-6 col-xs-6 for_small">
+															 $detailsUrl = SITE_URL.'commercial-landscape-companies/'.$row['slug'];
+															echo '<a href="'. $detailsUrl . '" class="col-md-6 col-sm-6 col-xs-6 for_small">
 																		' . $image . '<br />
 																		<p class="categoryVendor categoryVendorFeatured">'. $row['company_name'] . '</p></a>';
 																						
@@ -2036,7 +1879,7 @@
                 
                                         <?
                 
-											$key48 = $_GET['ad'];
+											$key48 = $adId;
 						
 											if ($key48  == 32) {
 						
@@ -2173,7 +2016,7 @@
 															   while($row = mysqli_fetch_assoc($result55)) {
 																   
 														   
-											$key48 = $_GET['ad'];
+											$key48 = $adId;
 						
 						
 											if ($key48  == 32) {
@@ -2278,7 +2121,7 @@
 																   
 																	if ($rowcount299 != 0) {
 																		
-																		$diLogo = $_GET['ad'];
+																		$diLogo = $adId;
 																		
 																		if (($diLogo == 1209) || ($diLogo == 1210) || ($diLogo == 1211)) {
 
@@ -2359,7 +2202,7 @@
 															   while($row = mysqli_fetch_assoc($result55)) {
 																  
 																   
-											$key48 = $_GET['ad'];
+											$key48 = $adId;
 						
 						
 											if ($key48  == 32) {
@@ -2482,8 +2325,8 @@
 																 $lazyCounter++;
 
 																// Featured Vendors 12's Start
-
-																echo '<a href="'.BASE_URL.'landscape-design-products/' . $string . '/'. $row['id'] . '" class="col-md-6 col-sm-6 col-xs-6 for_small">
+																 $detailsUrl = SITE_URL.'commercial-landscape-companies/'.$row['slug'];
+																echo '<a href="'. $detailsUrl . '" class="col-md-6 col-sm-6 col-xs-6 for_small">
 																			' . $image . '<br />
 																			<p class="categoryVendor categoryVendorFeatured">'. $row['company_name'] . '</p></a>';												
 																																							
@@ -2501,7 +2344,7 @@
                 
                                         <?
                 
-											$key48 = $_GET['ad'];
+											$key48 = $adId;
 						
 											if ($key48  == 32) {
 						
@@ -2638,7 +2481,7 @@
 															   while($row = mysqli_fetch_assoc($result55)) {
 																   
 														   
-											$key48 = $_GET['ad'];
+											$key48 = $adId;
 						
 						
 											if ($key48  == 32) {
@@ -2743,7 +2586,7 @@
 																   
 																	if ($rowcount299 != 0) {
 																		
-																		$diLogo = $_GET['ad'];
+																		$diLogo = $adId;
 																		
 																		if (($diLogo == 1209) || ($diLogo == 1210) || ($diLogo == 1211)) {
 
@@ -2822,7 +2665,7 @@
 															   while($row = mysqli_fetch_assoc($result55)) {
 																  
 																   
-											$key48 = $_GET['ad'];
+											$key48 = $adId;
 						
 						
 											if ($key48  == 32) {
@@ -2944,8 +2787,8 @@
 																 $lazyCounter++;
 
 																// Featured Vendors 10's Start
-
-																echo '<a href="'.BASE_URL.'landscape-design-products/' . $string . '/'. $row['id'] . '" class="col-md-6 col-sm-6 col-xs-6 for_small">
+															 	$detailsUrl = SITE_URL.'commercial-landscape-companies/'.$row['slug'];
+																echo '<a href="'. $detailsUrl . '" class="col-md-6 col-sm-6 col-xs-6 for_small">
 																			' . $image . '<br />
 																			<p class="categoryVendor categoryVendorFeatured">'. $row['company_name'] . '</p></a>';
                          
@@ -3025,7 +2868,7 @@
 							
 							while($row = mysqli_fetch_array($result5)) {
 							
-								echo "<p class='rarticleSidebarText'><a href='".BASE_URL."articles/" . $row["slug"] . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a></p>";
+								echo "<p class='rarticleSidebarText'><a href='".BASE_URL."research/articles.php?number=" . $row["id"] . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a></p>";
 							}
 							
 							
@@ -3044,7 +2887,7 @@
 								$rowcount6 = mysqli_num_rows($result6);
 
 								while($row1 = mysqli_fetch_array($result6)) {
-									echo "<p class='rarticleSidebarText'><a href='".BASE_URL."articles/" . $row1["slug"] . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row1["title"]))) . "</a></p>";
+									echo "<p class='rarticleSidebarText'><a href='".BASE_URL."research/articles.php?number=" . $row1["id"] . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row1["title"]))) . "</a></p>";
 								}
 							
 							}
@@ -3078,10 +2921,10 @@
 </div><!-- /.contianer -->
 </section><!-- /.green_newsletter -->
 	
-            
- <? include $rootInclude.'la-common-footer-inner.inc'; ?>
+ <? include $rootInclude.'la-common-footer-inner.inc'; ?>            
+ <? include $rootInclude.'la-common-footer.inc'; ?>
  
-
+ <? include $rootInclude.'la-common-magazine-subscribe.php'; ?>
 
  
  

@@ -1,9 +1,3 @@
-
-<?
-
-
-?>
-
 <style>
   footer .fab {
     width: 25%;
@@ -24,14 +18,14 @@
                       </p>
                         <p style="margin-bottom: 5px;">
                           <a href="#" id="footerSubscribeBtn">Subscribe</a> | 
-                          <a href="https://landscapearchitect.com/contact-us/">Advertising</a> | 
-                          <a href="https://landscapearchitect.com/contact-us/">Become A Vendor</a> | <br class="mob-only" style="display:none;" />
-                          <a href="https://landscapearchitect.com/contact-us/">Contact Us</a> | 
-                          <a href="https://landscapearchitect.com/about-us/">About Us</a>
+                          <a href="<?php echo BASE_URL; ?>contact-us/">Advertising</a> | 
+                          <a href="<?php echo BASE_URL; ?>contact-us/">Become A Vendor</a> | <br class="mob-only" style="display:none;" />
+                          <a href="<?php echo BASE_URL; ?>contact-us/">Contact Us</a> | 
+                          <a href="<?php echo BASE_URL; ?>about-us/">About Us</a>
                       </p>
 						          <p style="margin-bottom: 0px;">
                         
-                        <a href="https://landscapearchitect.com/report-a-bug/">Website Problems, Report a Bug</a> |
+                        <a href="<?php echo BASE_URL; ?>report-a-bug/">Website Problems, Report a Bug</a> |
                         Landscape Communications Inc. © 2019
                       </p>
                     </div>

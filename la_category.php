@@ -870,15 +870,15 @@
 											 
 											 
 											 if($lazyImgMax < $lazyCounter){
-											 	$image = '<img data-src="https://www.landscapearchitect.com/products/images/'. $row['logo'] . '" alt="img" style="padding-bottom:10px; width: 100%; height: 100px; object-fit: contain;" class="lazy">';
+											 	$image = '<img data-src="'.BASE_URL.'products/images/'. $row['logo'] . '" alt="img" style="padding-bottom:10px; width: 100%; height: 100px; object-fit: contain;" class="lazy">';
 											 } else {
-											 	$image = '<img src="https://www.landscapearchitect.com/products/images/'. $row['logo'] . '" alt="img" style="padding-bottom:10px; width: 100%; height: 100px; object-fit: contain;">';
+											 	$image = '<img src="'.BASE_URL.'products/images/'. $row['logo'] . '" alt="img" style="padding-bottom:10px; width: 100%; height: 100px; object-fit: contain;">';
 											 }
 											 $lazyCounter++;
 
 											// Featured Vendors 18's Start
 
-											echo '<a href="https://landscapearchitect.com/landscape-design/' . $string . '/'. $row['id'] . '" class="col-md-6 col-sm-6 col-xs-6 for_small">
+											echo '<a href="'.BASE_URL.'landscape-design/' . $string . '/'. $row['id'] . '" class="col-md-6 col-sm-6 col-xs-6 for_small">
 														' . $image . '<br />
 														<p class="categoryVendor categoryVendorFeatured">'. $row['company_name'] . '</p></a>';
 
@@ -2744,15 +2744,15 @@
 																		 array_push($companyNames, $row['company_name']);
 																	 																	
 																if($lazyImgMax < $lazyCounter){
-																	$image = '<img data-src="https://www.landscapearchitect.com/products/images/'. $row['logo'] . '" alt="img" style="padding-bottom:10px; width: 100%; height: 100px; object-fit: contain;" class="lazy">';
+																	$image = '<img data-src="'.BASE_URL.'products/images/'. $row['logo'] . '" alt="img" style="padding-bottom:10px; width: 100%; height: 100px; object-fit: contain;" class="lazy">';
 																 } else {
-																	$image = '<img src="https://www.landscapearchitect.com/products/images/'. $row['logo'] . '" alt="img" style="padding-bottom:10px; width: 100%; height: 100px; object-fit: contain;">';
+																	$image = '<img src="'.BASE_URL.'products/images/'. $row['logo'] . '" alt="img" style="padding-bottom:10px; width: 100%; height: 100px; object-fit: contain;">';
 																 }
 																 $lazyCounter++;
 
 																// Featured Vendors 10's Start
 
-																echo '<a href="https://landscapearchitect.com/landscape-design/' . $string . '/'. $row['id'] . '" class="col-md-6 col-sm-6 col-xs-6 for_small">
+																echo '<a href="'.BASE_URL.'landscape-design/' . $string . '/'. $row['id'] . '" class="col-md-6 col-sm-6 col-xs-6 for_small">
 																			' . $image . '<br />
 																			<p class="categoryVendor categoryVendorFeatured">'. $row['company_name'] . '</p></a>';
                          
@@ -2785,7 +2785,7 @@
 									if(!empty($ads[$i]['picture'])){
 										echo '<div class="add__ full_width"><a href="' .  $ads[$i]['web'] . '"><img src="../banner/'  . $ads[$i]['picture'] . '" class=" hidden-xs hidden-sm" style="width:100%;" /></a></div><!-- /.add__ -->'; 
 										
-										list($width, $height) = getimagesize('https://landscapearchitect.com/banner/' . $ads[$i]['picture'] . '');
+										list($width, $height) = getimagesize(BASE_URL.'banner/' . $ads[$i]['picture'] . '');
 										
 										if($height > 200){
 											$i++;
@@ -2832,7 +2832,7 @@
 							
 							while($row = mysqli_fetch_array($result5)) {
 							
-								echo "<p class='rarticleSidebarText'><a href='https://landscapearchitect.com/research/articles.php?number=" . $row["id"] . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a></p>";
+								echo "<p class='rarticleSidebarText'><a href='".BASE_URL."research/articles.php?number=" . $row["id"] . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a></p>";
 							}
 							
 							
@@ -2851,7 +2851,7 @@
 								$rowcount6 = mysqli_num_rows($result6);
 
 								while($row1 = mysqli_fetch_array($result6)) {
-									echo "<p class='rarticleSidebarText'><a href='https://landscapearchitect.com/research/articles.php?number=" . $row1["id"] . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row1["title"]))) . "</a></p>";
+									echo "<p class='rarticleSidebarText'><a href='".BASE_URL."research/articles.php?number=" . $row1["id"] . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row1["title"]))) . "</a></p>";
 								}
 							
 							}

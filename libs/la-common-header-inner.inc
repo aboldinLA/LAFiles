@@ -1,5 +1,4 @@
-<? 	
-
+<?
 //	session_start(); 
 
 
@@ -50,7 +49,7 @@ if($pageId == 'resources'){
 	                                    <span class="icon-bar bar3"></span>
 	                                </button>
 	                                <!-- Logo -->
-	                                <a class="navbar-brand" href="https://landscapearchitect.com"><img src="http://landscapearchitect.com/images/basic/logo.jpg" class="img-responsive" alt=""/></a>
+	                                <a class="navbar-brand" href="<?php echo BASE_URL; ?>"><img src="<?php echo BASE_URL; ?>images/basic/logo.jpg" class="img-responsive" alt=""/></a>
                                 <!-- Search -->
                                 <button type="button" id="mob-search-btn" class="mob-search">
                                     <span class="sr-only">Search</span>
@@ -65,7 +64,7 @@ if($pageId == 'resources'){
 	                            <div class="header-xtra pull-right">
 
                                 
-                                <form action="https://landscapearchitect.com/search-results-site.php" method="post">
+                                <form action="<?php echo BASE_URL; ?>search-results-site.php" method="post">
                                   <input class="search__input" type="text" name="keywordSE4" placeholder="What are you looking for?">
                                 </form>	
 								   
@@ -80,7 +79,7 @@ if($pageId == 'resources'){
 	                                            <li style="border-right: 2px solid rgba(0, 0, 0, 0.22); width: 20%;  margin-right: 5%;">
 	                                                <div>
 																										<div class="menuLogoContainers">
-																											<img class="menuLogo-LA hidden-xs" src="https://landscapearchitect.com/images/menu-logo.JPG" style="width:100%;" />
+																											<img class="menuLogo-LA hidden-xs" src="<?php echo BASE_URL; ?>images/menu-logo.JPG" style="width:100%;" />
 <!--
 																											<div class="menuLogoHover menuLogoHover-LA">
 																												<p class="menuLogoHover-title">LADetails</p>
@@ -90,7 +89,7 @@ if($pageId == 'resources'){
 																											</div>
 																										
 																										<div class="menuLogoContainers">
-																											<img class="menuLogo-TE hidden-xs" src="https://landscapearchitect.com/images/menu-logo-tools.jpg" style="width:100%; margin-top:30px;" />
+																											<img class="menuLogo-TE hidden-xs" src="<?php echo BASE_URL; ?>images/menu-logo-tools.jpg" style="width:100%; margin-top:30px;" />
 <!--
 																											<div class="menuLogoHover menuLogoHover-TE">
 																												<p class="menuLogoHover-title">Tools &amp; Equipment</p>
@@ -100,7 +99,7 @@ if($pageId == 'resources'){
 																										</div>
 																												
 																										<div class="menuLogoContainers">
-																											<img class="menuLogo-LOPSE hidden-xs" src="https://landscapearchitect.com/images/menu-logo-lopse.jpg" style="width:100%; margin-top:30px;" />
+																											<img class="menuLogo-LOPSE hidden-xs" src="<?php echo BASE_URL; ?>images/menu-logo-lopse.jpg" style="width:100%; margin-top:30px;" />
 <!--
 																											<div class="menuLogoHover menuLogoHover-LOPSE">
 																												<p class="menuLogoHover-title">Local Wholesale &amp; Plant Materials</p>
@@ -113,37 +112,37 @@ if($pageId == 'resources'){
 	                                              <li class="padding25">
 	                                                <div>
 	                                                    <p class="" style="font-size:14px; color:#2e2e2e; font-weight: 800; text-transform: capitalize;">All Categories</p>
-	                                                    <a href="https://landscapearchitect.com/LandscapeProducts/la_category.php?ad=28">Business Services &amp; Software</a>
-	                                                    <a href="https://landscapearchitect.com/LandscapeProducts/la_category.php?ad=30">Erosion Control</a>
-	                                                    <a href="https://landscapearchitect.com/LandscapeProducts/la_category.php?ad=1300">Fencing</a>
-	                                                    <a href="https://landscapearchitect.com/LandscapeProducts/la_category.php?ad=1139">Irrigation</a>
-	                                                    <a href="https://landscapearchitect.com/LandscapeProducts/la_category.php?ad=32">Lighting / Electrical</a>
-	                                                    <a href="https://landscapearchitect.com/LandscapeProducts/la_category.php?ad=1214">Outdoor Living</a>
-	                                                    <a href="https://landscapearchitect.com/LandscapeProducts/la_category.php?ad=33">Park &amp; Recreation</a>
-	                                                    <a href="https://landscapearchitect.com/LandscapeProducts/la_category.php?ad=38">Paver, Masonry, Blocks, Rocks</a>
+	                                                    <a href="<?php echo BASE_URL; ?>business-services-and-software">Business Services &amp; Software</a>
+	                                                    <a href="<?php echo BASE_URL; ?>landscape-erosion-control-products">Erosion Control</a>
+	                                                    <a href="<?php echo BASE_URL; ?>commercial-wholesale-fencing">Fencing</a>
+	                                                    <a href="<?php echo BASE_URL; ?>landscape-irrigation">Irrigation</a>
+	                                                    <a href="<?php echo BASE_URL; ?>commercial-exterior-lighting-electrical">Lighting / Electrical</a>
+	                                                    <a href="<?php echo BASE_URL; ?>outdoor-living-residential-landscape">Outdoor Living</a>
+	                                                    <a href="<?php echo BASE_URL; ?>parks-playground-products">Park &amp; Recreation</a>
+	                                                    <a href="<?php echo BASE_URL; ?>commercial-pavers-masonry-blocks-rocks">Paver, Masonry, Blocks, Rocks</a>
 	                                                </div>
 	                                            </li>
 	                                            <li class="padding25">
 	                                                <div> 
 																										<p class=" hidden-xs" style="font-size:14px; color:#2e2e2e; font-weight: 800; text-transform: capitalize;"></p>
 																											<br class="hidden-xs" />
-	                                                    <a href="https://landscapearchitect.com/LandscapeProducts/la_category.php?ad=1212">Pest / Wildlife</a>
-	                                                    <a href="https://landscapearchitect.com/LandscapeProducts/la_category.php?ad=1002">Plant Accessories &amp; Amendments</a>
-	                                                    <a href="https://landscapearchitect.com/LandscapeProducts/la_category.php?ad=1394">Pool &amp; Spa</a>
-	                                                    <a href="https://landscapearchitect.com/LandscapeProducts/la_category.php?ad=1301">Scupture / Art / Garden Ornaments</a>
-	                                                    <a href="https://landscapearchitect.com/LandscapeProducts/la_category.php?ad=29">Site Amenities</a>
-	                                                    <a href="https://landscapearchitect.com/LandscapeProducts/la_category.php?ad=1215">Site Furnishings &amp; Receptacles</a>
-	                                                    <a href="https://landscapearchitect.com/LandscapeProducts/la_category.php?ad=41">Water Features</a>
-	                                                    <a href="https://landscapearchitect.com/LandscapeProducts/la_category.php?ad=1213">Water Management</a>
+	                                                    <a href="<?php echo BASE_URL; ?>wildlife-commercial-landscape-pest-control">Pest / Wildlife</a>
+	                                                    <a href="<?php echo BASE_URL; ?>wholesale-plant-accessories-and-soil-amendments">Plant Accessories &amp; Amendments</a>
+	                                                    <a href="<?php echo BASE_URL; ?>pool-and-spa">Pool &amp; Spa</a>
+	                                                    <a href="<?php echo BASE_URL; ?>landscape-art-sculpture-metal-stone-garden-ornaments">Scupture / Art / Garden Ornaments</a>
+	                                                    <a href="<?php echo BASE_URL; ?>commercial-site-amenities">Site Amenities</a>
+	                                                    <a href="<?php echo BASE_URL; ?>site-furnishings-receptacles">Site Furnishings &amp; Receptacles</a>
+	                                                    <a href="<?php echo BASE_URL; ?>water-features-fountains-ponds-equipment">Water Features</a>
+	                                                    <a href="<?php echo BASE_URL; ?>landscape-water-management">Water Management</a>
 	
 	                                                </div>
 	                                            </li>
 	                                            <li class="padding25">
 	                                                <div>
 	                                                    <p class="" style="font-size:14px; color:#2e2e2e; font-weight: 800; text-transform: capitalize;">Tools &amp; Equipment</p>
-	                                                    <a href="https://landscapearchitect.com/LandscapeProducts/la_category.php?ad=1209">Installation Equipment</a>
-	                                                    <a href="https://landscapearchitect.com/LandscapeProducts/la_category.php?ad=1210">Maintenance Equipment</a>
-	                                                    <a href="https://landscapearchitect.com/LandscapeProducts/la_category.php?ad=1211">Tools &amp; Parts</a>
+	                                                    <a href="<?php echo BASE_URL; ?>landscape-installation-equipment">Installation Equipment</a>
+	                                                    <a href="<?php echo BASE_URL; ?>landscape-maintenance-equipment">Maintenance Equipment</a>
+	                                                    <a href="<?php echo BASE_URL; ?>tools-tires-and-replacement-parts">Tools &amp; Parts</a>
 	                                                </div>
 	                                                <div class="padding20">
 	                                                    <p class="padding20" style="font-size:14px; color:#2e2e2e; font-weight: 800; text-transform: capitalize;">Local Wholesale &amp; Plant Materials</p>
@@ -198,7 +197,7 @@ if($pageId == 'resources'){
 																						<li><a href="https://landscapearchitect.com/member/login2.php?t=v">Vendor Login</a></li>
 																						<li><a href="https://landscapearchitect.com/member/login2.php?t=v">Create New Vendor Account</a></li>
                                              <li><hr></li>
-                                            <li><a href="https://landscapearchitect.com/logout.php">Log Out</a></li>
+                                            <li><a href="<?php echo BASE_URL; ?>logout.php">Log Out</a></li>
                                             
 <!--
 																						<li><a href="#" onClick="alert('Coming Soon')">Renew/Update Subscriber Info</a></li>
@@ -225,13 +224,13 @@ if($pageId == 'resources'){
 
                                           <li class="dropdown mmenu" style="position: relative; width: 33px; padding-left: 0px; padding-right: 0px; padding-top: 0px;">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="padding-left: 0px; padding-right: 0px; padding-top: 0px;">
-                                              <img src="https://landscapearchitect.com/images/la-user-icon.jpg" style="width: 33px; padding-bottom: 1px; position: relative; top: 9px;" >
+                                              <img src="<?php echo BASE_URL; ?>images/la-user-icon.jpg" style="width: 33px; padding-bottom: 1px; position: relative; top: 9px;" >
                                             </a>
                                             <ul class="dropdown-menu non-mega-menu" role="menu" style="width: max-content;">
                                                <li><p style="font-size: 16px;">Welcome <? echo $_SESSION['name']; ?></p></li>
                                                <li><hr></li>
-                                               <li><a href="https://landscapearchitect.com/subscriptions/subscribe-renew.php?action=edit&id=<? echo $_SESSION['user'] ?>">Edit Profile</a></li>
-                                              <li><a href="https://landscapearchitect.com/logout.php">Log Out</a></li>
+                                               <li><a href="<?php echo BASE_URL; ?>subscriptions/subscribe-renew.php?action=edit&id=<? echo $_SESSION['user'] ?>">Edit Profile</a></li>
+                                              <li><a href="<?php echo BASE_URL; ?>logout.php">Log Out</a></li>
                                             </ul>
                                           </li>
 
@@ -256,7 +255,7 @@ if($pageId == 'resources'){
 								
 								<!-- Mobile Search Box -->
 								<div id="mob-search-block" style="width: 100%; position: absolute; height: 100vh;left: 0px; top: 0px; background: white; padding: 20px 20px; text-align:center; display: none; z-index: 999999;" class="sclose">
-									<form action="https://landscapearchitect.com/search-results-site.php" method="post">
+									<form action="<?php echo BASE_URL; ?>search-results-site.php" method="post">
 										<button id="mob-search-btn-c" style="background:none; border:none; position:absolute; right:15px; top:5px"><i style="font-size:15px;"class="fa fa-close"></i></button>
 										<input class="search__input" name="keywordSE4" type="text" style="padding: 7px 25px 7px 25px; margin-top: 15px; color: #434343; background-position: 0% center;" placeholder="What are you looking for?" value="<?php echo $_POST['keywordSE4']; ?>">
 									</form>	

@@ -28,7 +28,7 @@
         <!-- META DATA -->
         <META DATA charset="utf-8">
 
-        <title>Landscape Architect</title>
+        <title><?php echo (isset($metaTitle)) ? $metaTitle : 'Landscape Architect'; ?></title>
 
         <!-- Mobile META DATAs -->
         <META DATA name="viewport" content="width=device-width, initial-scale=1.0">

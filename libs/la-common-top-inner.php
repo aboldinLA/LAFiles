@@ -48,7 +48,7 @@ LINKS to LandscapeProduct subfolder
         <link rel="stylesheet" href="/LandscapeProducts/css/custom.css">
 			
 			
-<script src="https://www.google.com/recaptcha/api.js?render=6LeWWMYUAAAAAJd2h7hNl8BGknakenroC05XhfPC"></script>
+<script src="https://www.google.com/recaptcha/api.js?render=<? echo GCAPTCHA_KEY; ?>"></script>
 <script>
 //grecaptcha.ready(function() {
 //    grecaptcha.execute('6LeWWMYUAAAAAJd2h7hNl8BGknakenroC05XhfPC', {action: 'homepage'}).then(function(token) {
@@ -57,7 +57,7 @@ LINKS to LandscapeProduct subfolder
 //});
 
 grecaptcha.ready(function() {
-    grecaptcha.execute('6LeWWMYUAAAAAJd2h7hNl8BGknakenroC05XhfPC', {action: 'homepage'});
+    grecaptcha.execute('<? echo GCAPTCHA_KEY; ?>', {action: 'homepage'});
 });
 
 </script>	            

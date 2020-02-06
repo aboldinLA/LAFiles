@@ -27,7 +27,7 @@ while($row = mysqli_fetch_array($result1)) {
 }   
 
 $menuName   = 'Business Services & Software'; 
-$menuSlug   = 'commercial-exterior-business-services-software'; 
+$menuSlug   = 'business-services-and-software'; 
 $menuData[$menuSlug] = array(
         'name' => $menuName,
         'slug' => $menuSlug,
@@ -61,7 +61,7 @@ while($row = mysqli_fetch_array($result1)) {
         }
 }
 $menuName   = 'Erosion Control'; 
-$menuSlug   = 'commercial-exterior-erosion-control'; 
+$menuSlug   = 'landscape-erosion-control-products'; 
 $menuData[$menuSlug] = array(
         'name' => $menuName,
         'slug' => $menuSlug,

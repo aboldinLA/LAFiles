@@ -1,6 +1,4 @@
-<? 	
-
-session_start(); 
+<? 	session_start(); 
 
 $productActive = '';
 $newsActive = '';
@@ -70,87 +68,87 @@ if($pageId == 'resources'){
 	                                        <ul class="mega-menu dropdown-menu" role="menu">
 	                                            <li style="border-right: 2px solid rgba(0, 0, 0, 0.22); width: 20%;  margin-right: 5%;">
 	                                                <div>
-																										<div class="menuLogoContainers">
-																											<img class="menuLogo-LA hidden-xs" src="/images/menu-logo.JPG" style="width:100%;" />
+														<div class="menuLogoContainers">
+															<img class="menuLogo-LA hidden-xs" src="/images/menu-logo.JPG" style="width:100%;" />
 <!--
-																											<div class="menuLogoHover menuLogoHover-LA">
-																												<p class="menuLogoHover-title">LADetails</p>
-																												<p class="menuLogoHover-text">This is text about LADetails and what it is. Enjoy reading about LADetails. You should really try it out sometime or now!</p>
-																											</div>
+															<div class="menuLogoHover menuLogoHover-LA">
+																<p class="menuLogoHover-title">LADetails</p>
+																<p class="menuLogoHover-text">This is text about LADetails and what it is. Enjoy reading about LADetails. You should really try it out sometime or now!</p>
+															</div>
 -->
-																											</div>
-																										
-																										<div class="menuLogoContainers">
-																											<img class="menuLogo-TE hidden-xs" src="/images/menu-logo-tools.jpg" style="width:100%; margin-top:30px;" />
+															</div>
+														
+														<div class="menuLogoContainers">
+															<img class="menuLogo-TE hidden-xs" src="/images/menu-logo-tools.jpg" style="width:100%; margin-top:30px;" />
 <!--
-																											<div class="menuLogoHover menuLogoHover-TE">
-																												<p class="menuLogoHover-title">Tools &amp; Equipment</p>
-																												<p class="menuLogoHover-text">This is text about LADetails and what it is. Enjoy reading about LADetails. You should really try it out sometime or now!</p>
-																											</div>
+															<div class="menuLogoHover menuLogoHover-TE">
+																<p class="menuLogoHover-title">Tools &amp; Equipment</p>
+																<p class="menuLogoHover-text">This is text about LADetails and what it is. Enjoy reading about LADetails. You should really try it out sometime or now!</p>
+															</div>
 -->
-																										</div>
-																												
-																										<div class="menuLogoContainers">
-																											<img class="menuLogo-LOPSE hidden-xs" src="/images/menu-logo-lopse.jpg" style="width:100%; margin-top:30px;" />
+														</div>
+																
+														<div class="menuLogoContainers">
+															<img class="menuLogo-LOPSE hidden-xs" src="/images/menu-logo-lopse.jpg" style="width:100%; margin-top:30px;" />
 <!--
-																											<div class="menuLogoHover menuLogoHover-LOPSE">
-																												<p class="menuLogoHover-title">Local Wholesale &amp; Plant Materials</p>
-																												<p class="menuLogoHover-text">This is text about LADetails and what it is. Enjoy reading about LADetails. You should really try it out sometime or now!</p>
-																											</div>
+															<div class="menuLogoHover menuLogoHover-LOPSE">
+																<p class="menuLogoHover-title">Local Wholesale &amp; Plant Materials</p>
+																<p class="menuLogoHover-text">This is text about LADetails and what it is. Enjoy reading about LADetails. You should really try it out sometime or now!</p>
+															</div>
 -->
-																										</div>
+														</div>
 	                                                </div>
 	                                            </li>
 	                                            <li class="padding25">
 	                                                <div>
 	                                                    <p class="" style="font-size:14px; color:#2e2e2e; font-weight: 800; text-transform: capitalize;">All Categories</p>
 	                                                    <a href="<?php echo BASE_URL; ?>business-services-and-software">Business Services &amp; Software</a>
-	                                                    <a href="<?php echo BASE_URL; ?>landscape-erosion-control-products">Erosion Control</a>
-	                                                    <a href="<?php echo BASE_URL; ?>commercial-wholesale-fencing">Fencing</a>
-	                                                    <a href="<?php echo BASE_URL; ?>landscape-irrigation">Irrigation</a>
-	                                                    <a href="<?php echo BASE_URL; ?>commercial-exterior-lighting-electrical">Lighting / Electrical</a>
-	                                                    <a href="<?php echo BASE_URL; ?>outdoor-living-residential-landscape">Outdoor Living</a>
-	                                                    <a href="<?php echo BASE_URL; ?>parks-playground-products">Park &amp; Recreation</a>
-	                                                    <a href="<?php echo BASE_URL; ?>commercial-pavers-masonry-blocks-rocks">Paver, Masonry, Blocks, Rocks</a>
+	                                                    <a href="<?php echo BASE_URL; ?>erosion-control">Erosion Control</a>
+	                                                    <a href="<?php echo BASE_URL; ?>fence-gates">Fencing</a>
+	                                                    <a href="<?php echo BASE_URL; ?>irrigation">Irrigation</a>
+	                                                    <a href="<?php echo BASE_URL; ?>lighting-electrical">Lighting / Electrical</a>
+	                                                    <a href="<?php echo BASE_URL; ?>outdoor-living">Outdoor Living</a>
+	                                                    <a href="<?php echo BASE_URL; ?>park-and-recreation">Park &amp; Recreation</a>
+	                                                    <a href="<?php echo BASE_URL; ?>pavers-masonry-blocks-and-rocks">Paver, Masonry, Blocks, Rocks</a>
 	                                                </div>
 	                                            </li>
 	                                            <li class="padding25">
 	                                                <div> 
-																										<p class=" hidden-xs" style="font-size:14px; color:#2e2e2e; font-weight: 800; text-transform: capitalize;"></p>
-																											<br class="hidden-xs" />
-	                                                    <a href="<?php echo BASE_URL; ?>wildlife-commercial-landscape-pest-control">Pest / Wildlife</a>
-	                                                    <a href="<?php echo BASE_URL; ?>wholesale-plant-accessories-and-soil-amendments">Plant Accessories &amp; Amenments</a>
+														<p class=" hidden-xs" style="font-size:14px; color:#2e2e2e; font-weight: 800; text-transform: capitalize;"></p>
+														<br class="hidden-xs" />
+	                                                    <a href="<?php echo BASE_URL; ?>pest-wildlife-control">Pest / Wildlife</a>
+	                                                    <a href="<?php echo BASE_URL; ?>plant-accessories-and-amendments">Plant Accessories &amp; Amenments</a>
 	                                                    <a href="<?php echo BASE_URL; ?>pool-and-spa">Pool &amp; Spa</a>
-	                                                    <a href="<?php echo BASE_URL; ?>landscape-art-sculpture-metal-stone-garden-ornaments">Scupture / Art / Garden Ornaments</a>
-	                                                    <a href="<?php echo BASE_URL; ?>commercial-site-amenities">Site Amenities</a>
-	                                                    <a href="<?php echo BASE_URL; ?>site-furnishings-receptacles">Site Furnishings &amp; Receptables</a>
-	                                                    <a href="<?php echo BASE_URL; ?>water-features-fountains-ponds-equipment">Water Features</a>
-	                                                    <a href="<?php echo BASE_URL; ?>landscape-water-management">Water Management</a>
+	                                                    <a href="<?php echo BASE_URL; ?>sculpture-garden-art">Scupture / Art / Garden Ornaments</a>
+	                                                    <a href="<?php echo BASE_URL; ?>site-amenities">Site Amenities</a>
+	                                                    <a href="<?php echo BASE_URL; ?>site-furnishings-and-receptacles">Site Furnishings &amp; Receptables</a>
+	                                                    <a href="<?php echo BASE_URL; ?>water-features">Water Features</a>
+	                                                    <a href="<?php echo BASE_URL; ?>water-management">Water Management</a>
 	
 	                                                </div>
 	                                            </li>
 	                                            <li class="padding25">
 	                                                <div>
 	                                                    <p class="" style="font-size:14px; color:#2e2e2e; font-weight: 800; text-transform: capitalize;">Tools &amp; Equipment</p>
-	                                                    <a href="<?php echo BASE_URL; ?>landscape-installation-equipment">Installation Equipment</a>
-	                                                    <a href="<?php echo BASE_URL; ?>landscape-maintenance-equipment">Maintenance Equipment</a>
-	                                                    <a href="<?php echo BASE_URL; ?>tools-tires-and-replacement-parts">Tools &amp; Parts</a>
+	                                                    <a href="<?php echo BASE_URL; ?>equipment-installation">Installation Equipment</a>
+	                                                    <a href="<?php echo BASE_URL; ?>equipment-maintenance">Maintenance Equipment</a>
+	                                                    <a href="<?php echo BASE_URL; ?>tools-and-equipment">Tools &amp; Parts</a>
 	                                                </div>
 	                                                <div class="padding20">
 	                                                    <p class="padding20" style="font-size:14px; color:#2e2e2e; font-weight: 800; text-transform: capitalize;">Local Wholesale &amp; Plant Materials</p>
 																											
-																											<form action="/LandscapeProducts/local_wholesale.php" method="post" name="zipformHeader" id="zipFormHeader">
-																												<label>Search By Zip: <input type="text" name="zipcode" size="6" maxlength="5" autocomplete="off" /></label>
-																												<input type="hidden" name="distance" value="100"></input>
-																												<button type="submit" name="submit"><i class="fas fa-search-location"></i></button>
-																											</form>		
+														<form action="/LandscapeProducts/local_wholesale.php" method="post" name="zipformHeader" id="zipFormHeader">
+															<label>Search By Zip: <input type="text" name="zipcode" size="6" maxlength="5" autocomplete="off" /></label>
+															<input type="hidden" name="distance" value="100"></input>
+															<button type="submit" name="submit"><i class="fas fa-search-location"></i></button>
+														</form>		
 																											
 <!--	                                                    <a href="/LandscapeProducts/local_wholsale.php">Search by Zip </a>-->
 	                                                </div>
 	                                            </li>
-																							<div style="background:#1b8047; text-align:center; width:100%; padding:5px; position:absolute; bottom:0px; left: 0px;">
-																								<h5 style="color:white; text-transform:initial; font-size:18px; font-family: 'Nunito Sans', sans-serif;">Know what you’re looking for? <a href="#" style="color:white;"><strong>Request Product Details</strong></a></h5>
-																							</div>
+														<div style="background:#1b8047; text-align:center; width:100%; padding:5px; position:absolute; bottom:0px; left: 0px;">
+															<h5 style="color:white; text-transform:initial; font-size:18px; font-family: 'Nunito Sans', sans-serif;">Know what you’re looking for? <a href="#" style="color:white;"><strong>Request Product Details</strong></a></h5>
+														</div>
 												
 	                                        </ul>
 	                                    </li>

@@ -1,7 +1,8 @@
-<? include '../../includes/la-common-top.php'; ?>
+<?php include '../modules/configuration.inc'; ?>
+<? include $rootInclude. 'la-common-top.php'; ?>
 
 
-<? include '../../includes/la-common-header-inner.inc'; ?>
+<? include $rootInclude.'la-common-header-inner.inc'; ?>
 
 
 	<link type="text/css" rel="stylesheet" href="../css/articleFormating.css">
@@ -16,7 +17,7 @@
 				 <!-- banner ad leaderboard -->
 				<?
 					
-						 $servername = "localhost";
+						/*$servername = "localhost";
 						$username = "land_patchew";
 						$password = "59q2GB6k$3";
 						$dbname = "land_landscap_lollive";
@@ -26,7 +27,7 @@
 					// Check connection
 						if ($conn->connect_error) {
 								 die("Connection failed: " . $conn->connect_error);
-						} 
+						} */
 
 				
 				
@@ -214,7 +215,7 @@
                                                 
 												echo '<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 for_small">
                                                     <a href="https://landscapearchitect.com/research/articles.php?number=' . $mainImage . '" class="reelbox img_fit">
-                                                        <img width="100%" height="175px" src="https://landscapearchitect.com/research/images/' . $mainImage . '.jpg" alt="img" />
+                                                        <img width="100%" height="175px" src="'.BASE_URL.'research/images/' . $mainImage . '.jpg" alt="img" />
                                                         <div class="text_fi full_width">
                                                             <!-- <h1>META DATA</h1> -->
                                                             <h2>' . $row['title'] . $nextStorY2 .'</h2>

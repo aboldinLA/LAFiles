@@ -14,9 +14,34 @@ AddType video/x-m4v .m4v
 Options +FollowSymLinks
 RewriteEngine on
 
-###############RULES DEFINED BY MAB
+############### RULES DEFINED BY MAB ###############
 RewriteCond %{REQUEST_URI} !\.(?:css|js|jpe?g|gif|png)$ [NC]
+
+#Vendor Page rules
+
+RewriteRule commercial-landscape-companies/(.*) seo-companies.php?companySlug=$1	[QSA]
+RewriteRule commercial-landscape-companies/(.*)/(.*) seo-companies.php?companySlug=$1
+
+#Article Pages
 RewriteRule articles/(.*) /research/seo-article-a.php?articleSlug=$1
+
+#Category Pages
+RewriteRule ^(([A-Za-z0-9]+[-]+[A-Za-z0-9]+)+)$  /LandscapeProducts/seo.php?catParma=$1    [NC,L]    # category Pages
+
+# Sub Category Pages rules
+RewriteRule ^(([A-Za-z0-9]+[-]+[A-Za-z0-9]+)+[/]+[A-Za-z0-9]+[-]+[A-Za-z0-9]+)$  /LandscapeProducts/seo-sub-cat.php?catParma=$1    [NC,L]    
+RewriteRule ^(([A-Za-z0-9]+[-]+[A-Za-z0-9]+)+[/]+[A-Za-z0-9]+[-]+[A-Za-z0-9]+[-]+[A-Za-z0-9]+)$  /LandscapeProducts/seo-sub-cat.php?catParma=$1    [NC,L]     
+RewriteRule ^(([A-Za-z0-9]+[-]+[A-Za-z0-9]+)+[/]+[A-Za-z0-9]+[-]+[A-Za-z0-9]+[-]+[A-Za-z0-9]+[-]+[A-Za-z0-9]+[-]+[A-Za-z0-9]+)$  /LandscapeProducts/seo-sub-cat.php?catParma=$1    [NC,L]    
+
+# Product Page Rules
+RewriteCond %{REQUEST_URI} !\.(?:css|js|jpe?g|gif|png)$ [NC]
+#RewriteRule /(.*)/(.*)/(.*)/(.*) landscape-design-category.php?name=$1&name2=$2&number=$3&xnum=$4
+RewriteRule (.*)/(.*)/(.*) seo-landscape-design-products.php?subCat=$1&companyName=$2&productName=$3 
+
+#RewriteRule ^(([A-Za-z0-9]+[-]+[A-Za-z0-9]+)+[/]+[A-Za-z0-9]+[-]+[A-Za-z0-9]+[/]+[A-Za-z0-9]+[-]+[A-Za-z0-9]+)$  /seo-landscape-design-products.php?subCat=$1&companyName=$2&productName=$3
+
+
+
 
 ##############
 
@@ -75,14 +100,14 @@ RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/(?:\ Ballot169)?
 RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
 RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Sectigo\ DCV)?$
 
-RewriteRule landscape-design-products/(.*)/(.*)/ landscape-design.php?name=$1&number=$2
+#RewriteRule landscape-design-products/(.*)/(.*)/ landscape-design.php?name=$1&number=$2
 
 RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
 RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/(?:\ Ballot169)?
 RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
 RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Sectigo\ DCV)?$
 
-RewriteRule landscape-design-products/(.*)/(.*) landscape-design.php?name=$1&number=$2
+#RewriteRule landscape-design-products/(.*)/(.*) landscape-design.php?name=$1&number=$2
 
 RewriteRule business-services-and-software LandscapeProducts/la_category.php?ad=28
 RewriteRule landscape-erosion-control-products LandscapeProducts/la_category.php?ad=30
@@ -145,7 +170,7 @@ RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ 
 RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Sectigo\ DCV)?$
 
 
-RewriteRule /(.*)/(.*)/(.*)/(.*)/(.*)/(.*)/ landscape-design-products.php?name=$1&name2=$2&name3=$3&name4=$4&number=$5&prodNum=$6
+#RewriteRule /(.*)/(.*)/(.*)/(.*)/(.*)/(.*)/ landscape-design-products.php?name=$1&name2=$2&name3=$3&name4=$4&number=$5&prodNum=$6
 
 
 RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
@@ -153,7 +178,7 @@ RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/(?:\ Ballot169)?
 RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
 RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Sectigo\ DCV)?$
 
-RewriteRule /(.*)/(.*)/(.*)/(.*)(.*)/(.*) landscape-design-products.php?name=$1&name2=$2&name3=$3&name4=$4&number=$5&prodNum=$6	
+#RewriteRule /(.*)/(.*)/(.*)/(.*)(.*)/(.*) landscape-design-products.php?name=$1&name2=$2&name3=$3&name4=$4&number=$5&prodNum=$6	
 
 RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
 RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/(?:\ Ballot169)?

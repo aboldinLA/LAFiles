@@ -1,18 +1,73 @@
+<?php session_start(); ?>
+<?php include 'modules/configuration.inc'; ?>
 <? 
+
 	include 'modules/db.php';
-	include 'modules/baseUrl.php';
-	include 'modules/urlData.php';
+	/*include 'modules/baseUrl.php';
+	include 'modules/urlData.php';*/
 	include 'modules/articleModel.php';
-?>
-<?php session_start() ?>
 
-<? 
   
-  include '../includes/la-common-top-inner.php';
+  	include $rootInclude.'la-common-top-inner.php';
 
-  include '../includes/la-common-header-inner.inc'; 
-	
+  	include $rootInclude.'la-common-header-inner.inc'; 
+
+
 	$companySlug = $_GET['companySlug'];
+
+	
+	$limit = '';
+	$page = '';
+	$xnum = '';	
+
+	if(isset($_GET['limit'])):
+		$limit = $_GET['limit'];
+	endif;
+	
+	if(isset($_GET['page'])):
+		$page = $_GET['page'];
+	endif;
+	
+	if(isset($_GET['xnum'])):
+		$xnum = $_GET['xnum'];
+	endif;
+
+
+	
+	$sqlM = "SELECT * FROM new_vendor WHERE slug = '".$companySlug."'";
+	$resultM = $conn->query($sqlM);  
+	$rowM = mysqli_fetch_array($resultM);
+	$vendorNum_get = $rowM['id'];
+	
+	function getProductCategoryDetails($cate_id, $conn){
+		$sqlM = "SELECT c1.id, c1.slug, c2.slug as `parent_slug` FROM xlist c1 left outer join xlist c2 on c1.idParent = c2.id WHERE c1.id = $cate_id";
+		$resultM = $conn->query($sqlM);  
+		$rowM = mysqli_fetch_array($resultM);
+		$cate_array['sub_cate_slug'] = $rowM['slug'];
+		$cate_array['parent_cate_slug'] = $rowM['parent_slug'];
+		$resultM->free_result();
+		return $cate_array;
+	
+	}
+
+	function getProductVendorDetails($vendor_id,$conn){
+
+		$sqlM = "SELECT * FROM new_vendor WHERE id = '".$vendor_id."'";
+		$resultM = $conn->query($sqlM);  
+		$rowM = mysqli_fetch_array($resultM);
+		$resultM->free_result();
+		return $rowM['slug'];
+
+	}
+
+	function getCateFromVendor($vendor_id)
+	{
+		$sqlM = "SELECT * FROM new_vendor WHERE id = '".$vendor_id."'";
+		$resultM = $conn->query($sqlM);  
+		$rowM = mysqli_fetch_array($resultM);
+		$resultM->free_result();
+		return $rowM['xlist'];
+	}
 
 ?>
 
@@ -69,8 +124,8 @@
 
 
 											// start article from table
-											$vendorNum_get = $_GET['number'];
-											$prodNum_get = $_GET['prodNum'];                                        
+											//$vendorNum_get = $_GET['number'];
+											//$prodNum_get = $_GET['prodNum'];                                        
 
                                 
 											// $sql = "select * from new_vendor where slug='" . $companySlug . "'";
@@ -84,7 +139,7 @@
 												),
 											);
 											
-											$result = getArticale( $productParma );
+											$result = getArticale( $productParma,$conn );
 											
 
                                         
@@ -112,7 +167,7 @@
 												echo '<div class="col-md-7 col-sm-12 col-xs-12">
 												
 															<a href="#" class="vendr_l img_fit full_width">
-																<img src="https://landscapearchitect.com/products/images/' . $logoNum . '" style="width:80%;" />
+																<img src="'.BASE_URL.' products/images/' . $logoNum . '" style="width:80%;" />
 															</a>
 
 															<p class="vendor-profile">
@@ -167,13 +222,14 @@
 													<div class="sor">
 														<span>Sort By</span>&nbsp;
 															<select onchange="if (this.value) window.location.href=this.value">
-																<option value="https://landscapearchitect.com/LandscapeProducts/vendor-details.php?number=<? echo $vendorNum_get; ?>" style="font-size: 16px; font-weight: bold">All Products&nbsp;&nbsp;<strong>(<? echo $totalProds ?>)</strong></option>	
+																<option value="<?php echo BASE_URL; ?>commercial-landscape-companies/<? echo $companySlug; ?>" style="font-size: 16px; font-weight: bold">All Products&nbsp;&nbsp;<strong>(<? echo $totalProds ?>)</strong></option>	
 
 
 																	<?
 
-																			$vendorNum_get = $_GET['number'];
-																			$xnum = $_GET['xnum'];	
+																			//$vendorNum_get = $_GET['number'];
+																			//$xnum = $_GET['xnum'];
+																			$xnum = $xnum;
 																			$xCount = 0;
 
 
@@ -198,7 +254,7 @@
 																						$xnum == $row['id'] ? $selected = 'selected' : $selected = '';
 
 
-																						echo  '<option value="https://landscapearchitect.com/LandscapeProducts/vendor-details.php?number=' . $vendorNum_get . '&xnum=' . $row['id'] . '" ' . $selected . '>' . $row['name'] . '&nbsp;<strong>(' . $num_rows . ')</strong></option>';
+																						echo  '<option value="'.BASE_URL.'commercial-landscape-companies/'. $companySlug . '?xnum=' . $row['id'] . '" ' . $selected . '>' . $row['name'] . '&nbsp;<strong>(' . $num_rows . ')</strong></option>';
 
 
 																						$xCount = $row['xlist'];
@@ -216,9 +272,10 @@
 													</div><!-- /.sor -->
 																
 													<div class="showview">
-														Show <a href="https://landscapearchitect.com/LandscapeProducts/vendor-details.php?number=<? echo $vendorNum_get ?>">24</a> | 
-														<a href="https://landscapearchitect.com/LandscapeProducts/vendor-details.php?number=<? echo $vendorNum_get ?>&limit=48">48</a> | 
-														<a href="https://landscapearchitect.com/LandscapeProducts/vendor-details.php?number=<? echo $vendorNum_get ?>&limit=all">View All</a> 
+														<?php $limited_url = BASE_URL.'commercial-landscape-companies/'.$companySlug.'?limit='; ?>
+														Show <a href="<?php echo $limited_url; ?>24">24</a> | 
+														<a href="<?php echo $limited_url; ?>48">48</a> | 
+														<a href="<?php echo $limited_url; ?>all">View All</a> 
 													</div><!-- /.showview -->
 								</div><!-- /.section-titles-underlined -->
 							</div>
@@ -257,7 +314,21 @@
 																																	
 							
 											while($row = mysqli_fetch_array($result)) {
-																							
+												
+												$vendor_id = $row['vendor_id'];
+												$xlist = $row['xlist'];
+												$cateArray = array();
+												
+												/*if(empty($xlist)):
+													echo $xlist = getCateFromVendor($vendor_id);die;
+												endif;*/		
+												
+												$cateArray = getProductCategoryDetails($xlist,$conn);
+												$vendor_slug = getProductVendorDetails($vendor_id,$conn);
+
+												//echo "<pre>"; print_r($cateArray);die;
+
+
 												$productName = $row['product_name'];
 												
 												$small = substr($productName, 0, 31);
@@ -269,7 +340,7 @@
 
 															} else {
 
-																	$cadPdf = '<div class="col-md-2 col-sm-2 col-xs-2 single-icon"><img src="https://landscapearchitect.com/LandscapeProducts/images/products/details/formats/3.png" style="width:100%;" /></div>';
+																	$cadPdf = '<div class="col-md-2 col-sm-2 col-xs-2 single-icon"><img src="'.BASE_URL.'LandscapeProducts/images/products/details/formats/3.png" style="width:100%;" /></div>';
 
 															}                                                     
 
@@ -279,7 +350,7 @@
 
 															} else {
 
-																	$cadDwg = '<div class="col-md-2 col-sm-2 col-xs-2 single-icon"><img src="https://landscapearchitect.com/LandscapeProducts/images/products/details/formats/2.png" style="width:100%;" /></div>';
+																	$cadDwg = '<div class="col-md-2 col-sm-2 col-xs-2 single-icon"><img src="'.BASE_URL.'LandscapeProducts/images/products/details/formats/2.png" style="width:100%;" /></div>';
 
 															}     
 
@@ -289,7 +360,7 @@
 
 															} else {
 
-																	$cadDwf = '<div class="col-md-2 col-sm-2 col-xs-2 single-icon"><img src="https://landscapearchitect.com/LandscapeProducts/images/products/details/formats/dwf.jpg" style="width:100%;" /></div>';
+																	$cadDwf = '<div class="col-md-2 col-sm-2 col-xs-2 single-icon"><img src="'.BASE_URL.'LandscapeProducts/images/products/details/formats/dwf.jpg" style="width:100%;" /></div>';
 
 															}                                               
 
@@ -299,7 +370,7 @@
 
 															} else {
 
-																	$cadDxf = '<div class="col-md-2 col-sm-2 col-xs-2 single-icon"><img src="https://landscapearchitect.com/LandscapeProducts/images/products/details/formats/dxf.jpg" style="width:100%;" /></div>';
+																	$cadDxf = '<div class="col-md-2 col-sm-2 col-xs-2 single-icon"><img src="'.BASE_URL.'LandscapeProducts/images/products/details/formats/dxf.jpg" style="width:100%;" /></div>';
 
 															}         
 
@@ -309,7 +380,7 @@
 
 															} else {
 
-																	$cadSkp = '<div class="col-md-2 col-sm-2 col-xs-2 single-icon"><img src="https://landscapearchitect.com/LandscapeProducts/images/products/details/formats/skp.jpg" style="width:100%;" /></div>';
+																	$cadSkp = '<div class="col-md-2 col-sm-2 col-xs-2 single-icon"><img src="'.BASE_URL.'LandscapeProducts/images/products/details/formats/skp.jpg" style="width:100%;" /></div>';
 
 															}                                                        
 
@@ -319,7 +390,7 @@
 
 															} else {
 
-																	$cadVwx = '<div class="col-md-2 col-sm-2 col-xs-2 single-icon"><img src="https://landscapearchitect.com/LandscapeProducts/images/products/details/formats/vwx.jpg" style="width:100%;" /></div>';
+																	$cadVwx = '<div class="col-md-2 col-sm-2 col-xs-2 single-icon"><img src="'.BASE_URL.'LandscapeProducts/images/products/details/formats/vwx.jpg" style="width:100%;" /></div>';
 
 															}                                                        
 
@@ -329,7 +400,7 @@
 
 															} else {
 
-																	$cadMedia = '<div class="col-md-2 col-sm-2 col-xs-2 single-icon"><img src="https://landscapearchitect.com/LandscapeProducts/images/products/details/formats/1.png" style="width:100%;" /></div>';
+																	$cadMedia = '<div class="col-md-2 col-sm-2 col-xs-2 single-icon"><img src="'.BASE_URL.'LandscapeProducts/images/products/details/formats/1.png" style="width:100%;" /></div>';
 
 															}                                                        
 
@@ -339,7 +410,7 @@
 
 															} else {
 
-																	$cadZipp = '<div class="col-md-2 col-sm-2 col-xs-2 single-icon"><img src="https://landscapearchitect.com/LandscapeProducts/images/products/details/formats/4.png" style="width:100%;" /></div>';
+																	$cadZipp = '<div class="col-md-2 col-sm-2 col-xs-2 single-icon"><img src="'.BASE_URL.'LandscapeProducts/images/products/details/formats/4.png" style="width:100%;" /></div>';
 
 															}     
 															
@@ -354,13 +425,13 @@
 														
 														
 														if($prodCount < 8){
-															$image = '<img src="https://landscapearchitect.com/products/images/' . $photo . '" width="100%" />';
+															$image = '<img src="'.BASE_URL.'products/images/' . $photo . '" width="100%" />';
 														} else {
-															$image = '<img class="lazy" data-src="https://landscapearchitect.com/products/images/' . $photo . '" width="100%" />';
+															$image = '<img class="lazy" data-src="'.BASE_URL.'products/images/' . $photo . '" width="100%" />';
 														}
 														$prodCount++;
 												
-																$string =  $row['company_name']; // Trim String
+																/*$string =  $row['company_name']; // Trim String
 
 																$string = strtolower($string); //Unwanted:  {UPPERCASE} ; / ? : @ & = + $ , . ! ~ * ' ( )
 
@@ -379,10 +450,11 @@
 																$string2 = preg_replace("/[\s-]+/", " ", $string2); // Clean multiple dashes or whitespaces
 
 																$string2 = preg_replace("/[\s_]/", "-", $string2); //Convert whitespaces and underscore to dash			     				
-															$detailsUrl = SITE_URL.''.$row['slug'];
+																//$detailsUrl = BASE_URL.''.$row['slug'];*/
+																$detailsUrl = BASE_URL.$cateArray['sub_cate_slug'].'/'.$vendor_slug.'/'.$row['slug'];
 											
 														 echo '<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 padding30">
-																		<a href="'.SITE_URL.'landscape-design-products/' . $string . '/'  . $string2 . '/'  . $vendorNum_get . '/' . $productNumber . '">
+																		<a href="'.$detailsUrl.'">
 																			<div class="vendor-product-cell-image">
 																				' . $image . '
 																			</div>
@@ -403,7 +475,7 @@
 										$maxPages =  ceil( $totalProductCount / $limit );
 										
 												
-										function createPageLinks($maxPages, $page, $limit) {
+										function createPageLinks($maxPages, $page, $limit, $companySlug) {
 
 										if ( $limit == 'all' ) {
 											return '';
@@ -411,9 +483,9 @@
 										} else {
 										
 											if($_GET['xnum'] > 0){
-												$link = 'https://landscapearchitect.com/LandscapeProducts/vendor-details.php?number=' . $_GET['number'] . '&xnum=' . $_GET['xnum'];
+												$link = BASE_URL.'commercial-landscape-companies/'. $companySlug . '?xnum=' . $_GET['xnum'];
 											} else {
-												$link = 'https://landscapearchitect.com/LandscapeProducts/vendor-details.php?number=' . $_GET['number'];
+												$link = BASE_URL.'commercial-landscape-companies/' . $companySlug;
 											}
 
 											$last  =  $maxPages;
@@ -422,25 +494,31 @@
 											$end   = ( ( $page + $maxPages ) < $last ) ? $page + $maxPages : $last;
 
 											$class = ( $page == 1 ) ? "disable" : "active";
-											$html = '<a href="'. $link . '&limit=' . $limit . '&page=' . ( $page - 1 ) . '" class="' . $class . ' prev">Prev</a>';
+
+											if(isset($_GET['xnum'])):
+												$html = '<a href="'. $link . '?limit=' . $limit . '&page=' . ( $page - 1 ) . '" class="' . $class . ' prev">Prev</a>';
+											else:
+												$html = '<a href="'. $link . '?limit=' . $limit . '&page=' . ( $page - 1 ) . '" class="' . $class . ' prev">Prev</a>';
+											endif;	
+											
 
 											if ( $start > 1 ) {
-															$html   .= '<a href="'. $link . '&limit=' . $limit . '&page=1">1</a>';
-															$html   .= '<a href="#" class="disabled"><span>...</span></li>';
+												$html   .= '<a href="'. $link . '?limit=' . $limit . '&page=1">1</a>';
+												$html   .= '<a href="#" class="disabled"><span>...</span></li>';
 											}
 
 											for ( $i = $start ; $i <= $end; $i++ ) {
-															$class  = ( $page == $i ) ? "disable" : "";
-															$html   .= '<a href="'. $link . '&limit=' . $limit . '&page=' . $i . '" class="' . $class . '">' . $i . '</a>';
+												$class  = ( $page == $i ) ? "disable" : "";
+												$html   .= '<a href="'. $link . '?limit=' . $limit . '&page=' . $i . '" class="' . $class . '">' . $i . '</a>';
 											}
 
 											if ( $end < $last ) {
-															$html   .= '<a href="#" class="disable"><span>...</span></a>';
-															$html   .= '<a href="'. $link . '&limit=' . $limit . '&page=' . $last . '">' . $last . '</a>';
+												$html   .= '<a href="#" class="disable"><span>...</span></a>';
+												$html   .= '<a href="'. $link . '?limit=' . $limit . '&page=' . $last . '">' . $last . '</a>';
 											}
 
 											$class = ( $page == $last ) ? "disable" : "active";
-											$html .= '<a href="'. $link . '&limit=' . $limit . '&page=' . ( $page + 1 ) . '" class="' . $class . ' nxt">Next</a>';
+											$html .= '<a href="'. $link . '?limit=' . $limit . '&page=' . ( $page + 1 ) . '" class="' . $class . ' nxt">Next</a>';
 
 											return $html;
 									}
@@ -458,7 +536,7 @@
 						</div><!-- /.container -->
                         
               <div class="pagination_strip full_width">
-			    		<?php echo createPageLinks( $maxPages, $page, $limit); ?> 
+			    		<?php echo createPageLinks( $maxPages, $page, $limit, $companySlug); ?> 
             </div>
 						<!-- /.pagination_strip -->
             
@@ -472,9 +550,9 @@
 
            
 
-<? include '../includes/la-common-footer-inner.inc'; ?>
+<? include $rootInclude.'la-common-footer-inner.inc'; ?>
 
-<? include '../includes/la-common-vendor-contact-modal.inc'; ?>
+<? include $rootInclude.'la-common-vendor-contact-modal.inc'; ?>
 
 
 

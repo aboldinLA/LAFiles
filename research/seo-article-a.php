@@ -7,11 +7,11 @@
 
 
 	
-
 	//	$pageId = 'news';
 	include $rootInclude. 'la-common-top.php'; 
 
 	include $rootInclude.'la-common-header-inner.inc'; 
+
 
 ?>
 
@@ -89,7 +89,7 @@
 
 													$number_id = $row['id'];
 
-													$sql = "UPDATE editorial SET Clicks='" . $viewsNew . "', view_time='" . $today ."' WHERE id=" . $key2 . "";
+													$sql = "UPDATE editorial SET Clicks='" . $viewsNew . "', view_time='" . $today ."' WHERE slug='" . $key2 . "'";
 
 													if ($conn->query($sql) === TRUE) {
 															echo " ";

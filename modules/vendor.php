@@ -19,14 +19,24 @@ include './db.php';
 		$string = preg_replace("/[\s-]+/", " ", $string); // Clean multiple dashes or whitespaces
 
 		$string = preg_replace("/[\s_]/", "-", $string);
+		
+		$check = "SELECT id,slug FROM new_vendor WHERE slug = '".$string."'";
+		$resultCheck = $conn->query($check);
+		$checkCount = mysqli_num_rows($resultCheck);		
+		
+		if($checkCount > 0){
+			$string .= $string.'-'.$row['id'];
+			$duplicateCount++;
+			$resultCheck -> free_result();
+		}
 
-		    $sql = "UPDATE new_vendor SET slug='".preg_replace('/\s+/', ' ', $string)."' WHERE id=" . $row['id'] . "";
+	    $sql = "UPDATE new_vendor SET slug='".preg_replace('/\s+/', ' ', $string)."' WHERE id=" . $row['id'] . "";
 
-	        if ($conn->query($sql) === TRUE) {
-	            echo $string."</br>";
-	        } else {
-	            echo "Error updating record: " . $conn->error;
-	        } 
+        if ($conn->query($sql) === TRUE) {
+            echo $string."</br>";
+        } else {
+            echo "Error updating record: " . $conn->error;
+        }
     	 
     }                     	               
                                            

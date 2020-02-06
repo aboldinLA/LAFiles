@@ -1,7 +1,14 @@
+<? 
+$collapse = $adId; 
 
-
-
-<? $collapse = $_GET['ad'] ?>
+function get_parent_slug($conn, $idParent = 0){
+  $sql2 = "SELECT slug FROM xlist WHERE id = '".$idParent."'";
+  $result2 = $conn->query($sql2);  
+  $row2 = mysqli_fetch_array($result2);
+  $parent_slug = $row2['slug'];
+  return $parent_slug;
+}
+?>
             
             
 <div class="panel-group" id="accordion1" role="tablist" aria-multiselectable="true">
@@ -15,13 +22,12 @@
              <?
 
                                                        
-            
+                      $parent_slug = get_parent_slug($conn, 28);
             
 											
 
 											$sql1 = "SELECT * FROM xlist WHERE idParent = '28' AND name NOT LIKE '%*%' ORDER BY name ASC";
 											$result1 = $conn->query($sql1);  
-
 
 												while($row = mysqli_fetch_array($result1)) {
 															
@@ -31,7 +37,7 @@
 
 														if($rowcount34 != 0) {
 
-														echo '<a href="https://landscapearchitect.com/LandscapeProducts/la_details.php?ad=28&xlist=' . $row['id'] .'">' . $row['name'] .' <span style="font-weight: 200">('. $rowcount34 .')</span></a>';  
+														echo '<a href="' .BASE_URL. $parent_slug . '/' . $row['slug'] .'">' . $row['name'] .' <span style="font-weight: 200">('. $rowcount34 .')</span></a>';  
 
 														}
 
@@ -68,6 +74,8 @@
             
 														$sql1 = "SELECT * FROM xlist WHERE idParent = '30' AND name NOT LIKE '%*%' ORDER BY name ASC";
 														$result1 = $conn->query($sql1);  
+
+                            $parent_slug = get_parent_slug($conn, 30);
             
             
                                                        while($row = mysqli_fetch_array($result1)) {
@@ -78,7 +86,7 @@
 
 																														if($rowcount34 != 0) {
 
-                                                            echo '<a href="https://landscapearchitect.com/LandscapeProducts/la_details.php?ad=30&xlist=' . $row['id'] .'">' . $row['name'] .' <span style="font-weight: 200">('. $rowcount34 .')</span></a>';  
+                                                            echo '<a href="' .BASE_URL. $parent_slug . '/' . $row['slug'] .'">' . $row['name'] .' <span style="font-weight: 200">('. $rowcount34 .')</span></a>';  
 																														
 																														}
                                                             
@@ -105,6 +113,8 @@
             
 														$sql1 = "SELECT * FROM xlist WHERE idParent = '1300' AND name NOT LIKE '%*%' ORDER BY name ASC";
 														$result1 = $conn->query($sql1);  
+
+                            $parent_slug = get_parent_slug($conn, 1300);
             
             
                                                          while($row = mysqli_fetch_array($result1)) {
@@ -115,7 +125,7 @@
 
 																														if($rowcount34 != 0) {
 
-                                                            echo '<a href="https://landscapearchitect.com/LandscapeProducts/la_details.php?ad=1300&xlist=' . $row['id'] .'">' . $row['name'] .' <span style="font-weight: 200">('. $rowcount34 .')</span></a>';  
+                                                            echo '<a href="' .BASE_URL. $parent_slug . '/' . $row['slug'] .'">' . $row['name'] .' <span style="font-weight: 200">('. $rowcount34 .')</span></a>';  
 																														
 																														}
                                                             
@@ -142,6 +152,8 @@
             
 														$sql1 = "SELECT * FROM xlist WHERE idParent = '1139' AND name NOT LIKE '%*%' ORDER BY name ASC";
 														$result1 = $conn->query($sql1);  
+
+                            $parent_slug = get_parent_slug($conn, 1139);
             
             
                                                          while($row = mysqli_fetch_array($result1)) {
@@ -152,7 +164,7 @@
 
 																														if($rowcount34 != 0) {
 
-                                                            echo '<a href="https://landscapearchitect.com/LandscapeProducts/la_details.php?ad=1139&xlist=' . $row['id'] .'">' . $row['name'] .' <span style="font-weight: 200">('. $rowcount34 .')</span></a>';  
+                                                            echo '<a href="' .BASE_URL. $parent_slug . '/' . $row['slug'] .'">' . $row['name'] .' <span style="font-weight: 200">('. $rowcount34 .')</span></a>';  
 																														
 																														}
                                                             
@@ -179,6 +191,8 @@
             
 														$sql1 = "SELECT * FROM xlist WHERE idParent = '32' AND name NOT LIKE '%*%' ORDER BY name ASC";
 														$result1 = $conn->query($sql1);  
+
+                            $parent_slug = get_parent_slug($conn, 32);
             
             
                                                          while($row = mysqli_fetch_array($result1)) {
@@ -189,7 +203,7 @@
 
 																														if($rowcount34 != 0) {
 
-                                                            echo '<a href="https://landscapearchitect.com/LandscapeProducts/la_details.php?ad=32&xlist=' . $row['id'] .'">' . $row['name'] .' <span style="font-weight: 200">('. $rowcount34 .')</span></a>';  
+                                                            echo '<a href="' .BASE_URL. $parent_slug . '/' . $row['slug'] .'">' . $row['name'] .' <span style="font-weight: 200">('. $rowcount34 .')</span></a>';  
 																														
 																														}
                                                             
@@ -216,6 +230,8 @@
             
 														$sql1 = "SELECT * FROM xlist WHERE idParent = '1214' AND name NOT LIKE '%*%' ORDER BY name ASC";
 														$result1 = $conn->query($sql1);  
+
+                            $parent_slug = get_parent_slug($conn, 1214);
             
             
                                                           while($row = mysqli_fetch_array($result1)) {
@@ -226,7 +242,7 @@
 
 																														if($rowcount34 != 0) {
 
-                                                            echo '<a href="https://landscapearchitect.com/LandscapeProducts/la_details.php?ad=1214&xlist=' . $row['id'] .'">' . $row['name'] .' <span style="font-weight: 200">('. $rowcount34 .')</span></a>';  
+                                                            echo '<a href="' .BASE_URL. $parent_slug . '/' . $row['slug'] .'">' . $row['name'] .' <span style="font-weight: 200">('. $rowcount34 .')</span></a>';  
 																														
 																														}
                                                             
@@ -253,6 +269,8 @@
             
 														$sql1 = "SELECT * FROM xlist WHERE idParent = '33' AND name NOT LIKE '%*%' ORDER BY name ASC";
 														$result1 = $conn->query($sql1);  
+
+                            $parent_slug = get_parent_slug($conn, 33);
             
             
                                                         while($row = mysqli_fetch_array($result1)) {
@@ -263,7 +281,7 @@
 
 																														if($rowcount34 != 0) {
 
-                                                            echo '<a href="https://landscapearchitect.com/LandscapeProducts/la_details.php?ad=33&xlist=' . $row['id'] .'">' . $row['name'] .' <span style="font-weight: 200">('. $rowcount34 .')</span></a>';  
+                                                            echo '<a href="' .BASE_URL. $parent_slug . '/' . $row['slug'] .'">' . $row['name'] .' <span style="font-weight: 200">('. $rowcount34 .')</span></a>';  
 																														
 																														}
                                                             
@@ -290,6 +308,8 @@
             
 														$sql1 = "SELECT * FROM xlist WHERE idParent = '38' AND name NOT LIKE '%*%' ORDER BY name ASC";
 														$result1 = $conn->query($sql1);  
+
+                            $parent_slug = get_parent_slug($conn, 38);
             
             
                                                           while($row = mysqli_fetch_array($result1)) {
@@ -300,7 +320,7 @@
 
 																														if($rowcount34 != 0) {
 
-                                                            echo '<a href="https://landscapearchitect.com/LandscapeProducts/la_details.php?ad=38&xlist=' . $row['id'] .'">' . $row['name'] .' <span style="font-weight: 200">('. $rowcount34 .')</span></a>';  
+                                                            echo '<a href="' .BASE_URL. $parent_slug . '/' . $row['slug'] .'">' . $row['name'] .' <span style="font-weight: 200">('. $rowcount34 .')</span></a>';  
 																														
 																														}
                                                             
@@ -327,6 +347,8 @@
             
 														$sql1 = "SELECT * FROM xlist WHERE idParent = '1212' AND name NOT LIKE '%*%' ORDER BY name ASC";
 														$result1 = $conn->query($sql1);  
+
+                            $parent_slug = get_parent_slug($conn, 1212);
             
             
                                                        while($row = mysqli_fetch_array($result1)) {
@@ -337,7 +359,7 @@
 
 																														if($rowcount34 != 0) {
 
-                                                            echo '<a href="https://landscapearchitect.com/LandscapeProducts/la_details.php?ad=1212&xlist=' . $row['id'] .'">' . $row['name'] .' <span style="font-weight: 200">('. $rowcount34 .')</span></a>';  
+                                                            echo '<a href="' .BASE_URL. $parent_slug . '/' . $row['slug'] .'">' . $row['name'] .' <span style="font-weight: 200">('. $rowcount34 .')</span></a>';  
 																														
 																														}
                                                             
@@ -363,6 +385,8 @@
             
 														$sql1 = "SELECT * FROM xlist WHERE idParent = '1002' AND name NOT LIKE '%*%' ORDER BY name ASC";
 														$result1 = $conn->query($sql1);  
+
+                            $parent_slug = get_parent_slug($conn, 1002);
             
             
                                                         while($row = mysqli_fetch_array($result1)) {
@@ -373,7 +397,7 @@
 
 																														if($rowcount34 != 0) {
 
-                                                            echo '<a href="https://landscapearchitect.com/LandscapeProducts/la_details.php?ad=1002&xlist=' . $row['id'] .'">' . $row['name'] .' <span style="font-weight: 200">('. $rowcount34 .')</span></a>';  
+                                                            echo '<a href="' .BASE_URL. $parent_slug . '/' . $row['slug'] .'">' . $row['name'] .' <span style="font-weight: 200">('. $rowcount34 .')</span></a>';  
 																														
 																														}
                                                             
@@ -399,6 +423,8 @@
             
 														$sql1 = "SELECT * FROM xlist WHERE idParent = '1394' AND name NOT LIKE '%*%' ORDER BY name ASC";
 														$result1 = $conn->query($sql1);  
+
+                            $parent_slug = get_parent_slug($conn, 1394);
             
             
                                                        while($row = mysqli_fetch_array($result1)) {
@@ -409,7 +435,7 @@
 
 																														if($rowcount34 != 0) {
 
-                                                            echo '<a href="https://landscapearchitect.com/LandscapeProducts/la_details.php?ad=1394&xlist=' . $row['id'] .'">' . $row['name'] .' <span style="font-weight: 200">('. $rowcount34 .')</span></a>';  
+                                                            echo '<a href="' .BASE_URL. $parent_slug . '/' . $row['slug'] .'">' . $row['name'] .' <span style="font-weight: 200">('. $rowcount34 .')</span></a>';  
 																														
 																														}
                                                             
@@ -436,6 +462,8 @@
             
 														$sql1 = "SELECT * FROM xlist WHERE idParent = '29' AND name NOT LIKE '%*%' ORDER BY name ASC";
 														$result1 = $conn->query($sql1);  
+
+                            $parent_slug = get_parent_slug($conn, 29);
             
             
                                                        while($row = mysqli_fetch_array($result1)) {
@@ -446,7 +474,7 @@
 
 																														if($rowcount34 != 0) {
 
-                                                            echo '<a href="https://landscapearchitect.com/LandscapeProducts/la_details.php?ad=29&xlist=' . $row['id'] .'">' . $row['name'] .' <span style="font-weight: 200">('. $rowcount34 .')</span></a>';  
+                                                            echo '<a href="' .BASE_URL. $parent_slug . '/' . $row['slug'] .'">' . $row['name'] .' <span style="font-weight: 200">('. $rowcount34 .')</span></a>';  
 																														
 																														}
                                                             
@@ -473,6 +501,8 @@
             
 														$sql1 = "SELECT * FROM xlist WHERE idParent = '1215' AND name NOT LIKE '%*%' ORDER BY name ASC";
 														$result1 = $conn->query($sql1);  
+
+                            $parent_slug = get_parent_slug($conn, 1215);
             
             
                                                        while($row = mysqli_fetch_array($result1)) {
@@ -483,7 +513,7 @@
 
 																														if($rowcount34 != 0) {
 
-                                                            echo '<a href="https://landscapearchitect.com/LandscapeProducts/la_details.php?ad=1215&xlist=' . $row['id'] .'">' . $row['name'] .' <span style="font-weight: 200">('. $rowcount34 .')</span></a>';  
+                                                            echo '<a href="' .BASE_URL. $parent_slug . '/' . $row['slug'] .'">' . $row['name'] .' <span style="font-weight: 200">('. $rowcount34 .')</span></a>';  
 																														
 																														}
                                                             
@@ -510,6 +540,8 @@
             
 														$sql1 = "SELECT * FROM xlist WHERE idParent = '1301' AND name NOT LIKE '%*%' ORDER BY name ASC";
 														$result1 = $conn->query($sql1);  
+
+                            $parent_slug = get_parent_slug($conn, 1301);
             
             
                                                     while($row = mysqli_fetch_array($result1)) {
@@ -520,7 +552,7 @@
 
 																														if($rowcount34 != 0) {
 
-                                                            echo '<a href="https://landscapearchitect.com/LandscapeProducts/la_details.php?ad=1301&xlist=' . $row['id'] .'">' . $row['name'] .' <span style="font-weight: 200">('. $rowcount34 .')</span></a>';  
+                                                            echo '<a href="' .BASE_URL. $parent_slug . '/' . $row['slug'] .'">' . $row['name'] .' <span style="font-weight: 200">('. $rowcount34 .')</span></a>';  
 																														
 																														}
                                                             
@@ -547,6 +579,8 @@
             
 														$sql1 = "SELECT * FROM xlist WHERE idParent = '41' AND name NOT LIKE '%*%' ORDER BY name ASC";
 														$result1 = $conn->query($sql1);  
+
+                            $parent_slug = get_parent_slug($conn, 41);
             
             
                                                    while($row = mysqli_fetch_array($result1)) {
@@ -557,7 +591,7 @@
 
 																														if($rowcount34 != 0) {
 
-                                                            echo '<a href="https://landscapearchitect.com/LandscapeProducts/la_details.php?ad=41&xlist=' . $row['id'] .'">' . $row['name'] .' <span style="font-weight: 200">('. $rowcount34 .')</span></a>';  
+                                                            echo '<a href="' .BASE_URL. $parent_slug . '/' . $row['slug'] .'">' . $row['name'] .' <span style="font-weight: 200">('. $rowcount34 .')</span></a>';  
 																														
 																														}
                                                             
@@ -584,6 +618,8 @@
             
 														$sql1 = "SELECT * FROM xlist WHERE idParent = '1213' AND name NOT LIKE '%*%' ORDER BY name ASC";
 														$result1 = $conn->query($sql1);  
+
+                            $parent_slug = get_parent_slug($conn, 1213);
             
             
   while($row = mysqli_fetch_array($result1)) {
@@ -594,7 +630,7 @@
 
 																														if($rowcount34 != 0) {
 
-                                                            echo '<a href="https://landscapearchitect.com/LandscapeProducts/la_details.php?ad=1213&xlist=' . $row['id'] .'">' . $row['name'] .' <span style="font-weight: 200">('. $rowcount34 .')</span></a>';  
+                                                            echo '<a href="' .BASE_URL. $parent_slug . '/' . $row['slug'] .'">' . $row['name'] .' <span style="font-weight: 200">('. $rowcount34 .')</span></a>';  
 																														
 																														}
                                                             
