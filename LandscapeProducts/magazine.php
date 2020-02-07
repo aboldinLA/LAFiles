@@ -1,11 +1,13 @@
 <?php session_start() ?>
+<?php include '../../modules/configuration.inc'; ?>
 <? 
 	
 	$pageId = 'resources';
 	
-	include '../../includes/la-common-top.php';
+  
+	include $rootInclude.'la-common-top.php';
 
-	include '../../includes/la-common-header.inc'; 
+	include $rootInclude.'la-common-header.inc'; 
 		
 ?>
 
@@ -67,7 +69,7 @@
 
 <section class="tool_page full_width" >
 
-  <? include '../../includes/la-common-leaderboard-banner.inc'; ?>
+  <? include $rootInclude.'la-common-leaderboard-banner.inc'; ?>
   
 </section><!-- /.tool_page -->
 
@@ -75,7 +77,7 @@
       <div class="mag_ban full_width">
       <div class="container">
       		<span class="img_di">
-            	<img src="https://landscapearchitect.com/imgz2/05_LASN_May2019.jpg" alt="img" width="100%"/>
+            	<img src="<?php echo BASE_URL; ?>imgz2/05_LASN_May2019.jpg" alt="img" width="100%"/>
             </span><!-- /.img_di -->
             <div class="texx">
             	<h3>2019 Specifier's Guide</h3>
@@ -129,7 +131,7 @@
 				foreach($LASNmagazines as $mag){
 					
 					echo '<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 for_small img_fit colme">
-										<a href="https://lsc-pagepro.mydigitalpublication.com/publication/?i=' . $mag[2] . '" target="_blank"><img src="https://landscapearchitect.com/imgz2/' . $mag[3] . '" alt="img" width="100%" /></a>
+										<a href="https://lsc-pagepro.mydigitalpublication.com/publication/?i=' . $mag[2] . '" target="_blank"><img src="'.BASE_URL.'imgz2/' . $mag[3] . '" alt="img" width="100%" /></a>
 										<div class="magTitleContainer">
 											<h3>' . $mag[1] . '</h3>
 											<h4><span>' . $mag[0] . '</span> | <a href="https://lsc-pagepro.mydigitalpublication.com/publication/?i=' . $mag[2] . '" target="_blank">View PDF</a></h4>
@@ -157,7 +159,7 @@
 
 
 
-			<? include '../../includes/la-common-footer-inner.inc'; ?>
+			<? include $rootInclude.'la-common-footer-inner.inc'; ?>
 
 
 	

@@ -1,7 +1,9 @@
 <?php
 #error_reporting(-1);
-
-include("../../includes/class/user_class.inc");
+if($_POST):
+    echo "asdsad";die;
+endif;    
+include($rootInclude."class/user_class.inc");
 $U = new user_class($db);
 #if($REQUEST_METHOD=="POST") {
     If($_SERVER['REQUEST_METHOD']=="POST"){

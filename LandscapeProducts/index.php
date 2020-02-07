@@ -1,6 +1,10 @@
- <?
+<?
+include '../modules/configuration.inc';
+include '../modules/db.php';
+
 // Top Section - HTML
-include '../../includes/lad_top-main.inc'; 
+//include $rootInclude.'lad_top-main.inc'; 
+include $rootInclude.'la-lad-top.inc';
 
 	$uname2 = $_SESSION['name'];
 
@@ -17,17 +21,18 @@ include '../../includes/lad_top-main.inc';
 
 
 if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), 'mobile') || strstr(strtolower($_SERVER['HTTP_USER_AGENT']), 'android')) {
-    include '../../includes/lad_header-main3-js.inc'; 
+    include $rootInclude.'lad_header-main3-js.inc'; 
 } else {
-    include '../../includes/lad_header-common.inc'; 
+    //include '../../includes/lad_header-common.inc'; 
+    include($rootInclude."la-lad-header.inc");
 }
       
 
 // Leaderboard Banner Ads
 
 
-include '../../includes/search-engine-leaderboard-banners.inc'; 
-include("land-products-meta.inc");
+include $rootInclude.'search-engine-leaderboard-banners.inc'; 
+include($rootInclude."land-products-meta.inc");
 
 
 ?>
@@ -130,7 +135,7 @@ margin-bottom: -6px;
 
  
 	  
-<link href="https://landscapearchitect.com/LandscapeProducts/css/slider-new.css" rel="stylesheet" id="bootstrap-css">
+<link href="<?php echo BASE_URL; ?>LandscapeProducts/css/slider-new.css" rel="stylesheet" id="bootstrap-css">
 	  
 
 
@@ -150,7 +155,7 @@ margin-bottom: -6px;
 
                     <!-- Slide Background -->
 					<a href="<? echo $picBanLink1; ?>">
-                    <img src="https://landscapearchitect.com/banner/<? echo $picBan1; ?>" alt="Bootstrap Touch Slider"  class="slide-image"/>
+                    <img src="<?php echo BASE_URL; ?>banner/<? echo $picBan1; ?>" alt="Bootstrap Touch Slider"  class="slide-image"/>
 					</a>
                 </div>
                 <!-- End of Slide -->
@@ -160,7 +165,7 @@ margin-bottom: -6px;
 
                     <!-- Slide Background -->
 					<a href="<? echo $picBanLink2; ?>">
-                   	<img src="https://landscapearchitect.com/banner/<? echo $picBan2; ?>" alt="Bootstrap Touch Slider"  class="slide-image"/>
+                   	<img src="<?php echo BASE_URL; ?>banner/<? echo $picBan2; ?>" alt="Bootstrap Touch Slider"  class="slide-image"/>
 					</a>
                 </div>
                 <!-- End of Slide -->
@@ -170,7 +175,7 @@ margin-bottom: -6px;
 
                     <!-- Slide Background -->
 					<a href="<? echo $picBanLink3; ?>">
-                    <img src="https://landscapearchitect.com/banner/<? echo $picBan3; ?>" alt="Bootstrap Touch Slider"  class="slide-image"/>
+                    <img src="<?php echo BASE_URL; ?>banner/<? echo $picBan3; ?>" alt="Bootstrap Touch Slider"  class="slide-image"/>
 					</a>
                 </div>
                 <!-- End of Slide -->
@@ -193,7 +198,7 @@ margin-bottom: -6px;
         </div> <!-- End  bootstrap-touch-slider Slider -->
         
 
-			<script src="https://landscapearchitect.com/LandscapeProducts/js/slider-new.js"></script> 
+			<script src="<?php echo BASE_URL; ?>LandscapeProducts/js/slider-new.js"></script> 
 	  
 	  
 	  
@@ -201,7 +206,7 @@ margin-bottom: -6px;
 	  
 	<!-- Slider End --> 
 	  
-	<link href="https://landscapearchitect.com/LandscapeProducts/css/lad-format.css" rel="stylesheet" id="bootstrap-css">
+	<link href="<?php echo BASE_URL; ?>LandscapeProducts/css/lad-format.css" rel="stylesheet" id="bootstrap-css">
       
       
     
@@ -215,7 +220,7 @@ margin-bottom: -6px;
 //Safari
 if ($safari) { 
 	  
-								                                    $servername = "localhost";
+								                                    /*$servername = "localhost";
                                                                     $username = "land_patchew";
                                                                     $password = "59q2GB6k$3";
                                                                     $dbname = "land_landscap_lollive";
@@ -226,7 +231,7 @@ if ($safari) {
 																		if ($conn->connect_error) {
 																			 die("Connection failed: " . $conn->connect_error);
 																		} 																   
-																   	  
+																   	  */
 														   
 																// used to get a count for 2 items
 																   
@@ -279,7 +284,7 @@ if ($safari) {
 //Chrome
 if ($chrome) { 
 	  
-								                                    $servername = "localhost";
+								                                    /*$servername = "localhost";
                                                                     $username = "land_patchew";
                                                                     $password = "59q2GB6k$3";
                                                                     $dbname = "land_landscap_lollive";
@@ -289,7 +294,7 @@ if ($chrome) {
 																	// Check connection
 																		if ($conn->connect_error) {
 																			 die("Connection failed: " . $conn->connect_error);
-																		} 																   
+																		}*/ 																   
 																   	  
 														   
 																// used to get a count for 2 items
@@ -351,7 +356,7 @@ if ($chrome) {
 									<?
 									
 
-								                                    $servername = "localhost";
+								                                    /*$servername = "localhost";
                                                                     $username = "land_patchew";
                                                                     $password = "59q2GB6k$3";
                                                                     $dbname = "land_landscap_lollive";
@@ -361,7 +366,7 @@ if ($chrome) {
 																	// Check connection
 																		if ($conn->connect_error) {
 																			 die("Connection failed: " . $conn->connect_error);
-																		} 
+																		} */
 									
 									
 																		$cat2 = $_GET['number'];
@@ -800,11 +805,11 @@ if ($chrome) {
 																		
 																		if (($diLogo == 1209) || ($diLogo == 1210) || ($diLogo == 1211)) {
 
-																		 $deLogo = "<img class='deLogo' src='https://landscapearchitect.com/lol-logos/te-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: red'>&nbsp;&nbsp;";
+																		 $deLogo = "<img class='deLogo' src='".BASE_URL."lol-logos/te-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: red'>&nbsp;&nbsp;";
 																		
 																		} else {
 																			
-																		 $deLogo = "<img class='deLogo' src='https://landscapearchitect.com/lol-logos/la-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: lightblue'>&nbsp;&nbsp;";																			
+																		 $deLogo = "<img class='deLogo' src='".BASE_URL."lol-logos/la-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: lightblue'>&nbsp;&nbsp;";																			
 																			
 																		}
 																		
@@ -827,7 +832,7 @@ if ($chrome) {
 
 																$string = preg_replace("/[\s_]/", "-", $string); //Convert whitespaces and underscore to dash
                                                                    
-                                                                
+                                                                $string = $row['slug'];
                                                                 // Base Count
 
 																   
@@ -993,11 +998,11 @@ if ($chrome) {
 																		
 																		if (($diLogo == 1209) || ($diLogo == 1210) || ($diLogo == 1211)) {
 
-																		 $deLogo = "<img class='deLogo' src='https://landscapearchitect.com/lol-logos/te-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: red'>&nbsp;&nbsp;";
+																		 $deLogo = "<img class='deLogo' src='".BASE_URL."lol-logos/te-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: red'>&nbsp;&nbsp;";
 																		
 																		} else {
 																			
-																		 $deLogo = "<img class='deLogo' src='https://landscapearchitect.com/lol-logos/la-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: lightblue'>&nbsp;&nbsp;";																			
+																		 $deLogo = "<img class='deLogo' src='".BASE_URL."lol-logos/la-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: lightblue'>&nbsp;&nbsp;";																			
 																			
 																		}
 																		
@@ -1021,7 +1026,7 @@ if ($chrome) {
 																$string = preg_replace("/[\s_]/", "-", $string); //Convert whitespaces and underscore to dash
                                                                    
                                                                 
-                                                                   
+                                                                  $string = $row['slug']; 
 
 																   
                                                                     // Counts for sets start
@@ -1031,12 +1036,12 @@ if ($chrome) {
 
                                                                             if ($xCount == $baseCount) {
 
-                                                                                echo "<div class='flex-grid-thirds'><div class='col'><a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "'><figure><div class='limagelad'><img class='limagelad3' src='https://landscapearchitect.com/products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div></div>";
+                                                                                echo "<div class='flex-grid-thirds'><div class='col'><a href='".BASE_URL."commercial-landscape-companies/" . $string . "'><figure><div class='limagelad'><img class='limagelad3' src='".BASE_URL."products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='".BASE_URL."commercial-landscape-companies/" . $string . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div></div>";
                                                                                 $iCount = 1;
 
                                                                             } else {
 
-																                echo "<div class='flex-grid-thirds'><div class='col'><a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "'><figure><div class='limagelad'><img class='limagelad3' src='https://landscapearchitect.com/products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div>";
+																                echo "<div class='flex-grid-thirds'><div class='col'><a href='https://landscapearchitect.com/commercial-landscape-companies/" . $string . "/" . "'><figure><div class='limagelad'><img class='limagelad3' src='".BASE_URL."products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='".BASE_URL."commercial-landscape-companies/" . $string . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div>";
                                                                                 $iCount++; 
                                                                                 $xCount++;       
 
@@ -1047,12 +1052,12 @@ if ($chrome) {
 
                                                                             if ($xCount == $baseCount) {
 
-																                echo "<div class='col'><a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "'><figure><div class='limagelad'><img class='limagelad3' src='https://landscapearchitect.com/products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div></div>";
+																                echo "<div class='col'><a href='".BASE_URL."commercial-landscape-companies/" . $string . "/" . "'><figure><div class='limagelad'><img class='limagelad3' src='".BASE_URL."products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='".BASE_URL."commercial-landscape-companies/" . $string . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div></div>";
                                                                                 $iCount = 1;
 
                                                                             } else {
 
-																                echo "<div class='col'><a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "'><figure><div class='limagelad'><img class='limagelad3' src='https://landscapearchitect.com/products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div>";
+																                echo "<div class='col'><a href='".BASE_URL."commercial-landscape-companies/" . $string . "/" . "'><figure><div class='limagelad'><img class='limagelad3' src='".BASE_URL."products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='".BASE_URL."commercial-landscape-companies/" . $string . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div>";
                                                                                 $iCount++;                                                            
                                                                                 $xCount++;       
                                                                             }
@@ -1061,7 +1066,7 @@ if ($chrome) {
                                                                         } elseif ($iCount == 3) {
 
 
-																            echo "<div class='col'><a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "'><figure><div class='limagelad'><img class='limagelad3' src='https://landscapearchitect.com/products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div></div>";
+																            echo "<div class='col'><a href='".BASE_URL."commercial-landscape-companies/" . $string . "/" . "'><figure><div class='limagelad'><img class='limagelad3' src='".BASE_URL."products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='".BASE_URL."commercial-landscape-companies/" . $string . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div></div>";
 
                                                                             $iCount = 1;
                                                                             $xCount++;       
@@ -1353,11 +1358,11 @@ if ($chrome) {
 																		
 																		if (($diLogo == 1209) || ($diLogo == 1210) || ($diLogo == 1211)) {
 
-																		 $deLogo = "<img class='deLogo' src='https://landscapearchitect.com/lol-logos/te-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: red'>&nbsp;&nbsp;";
+																		 $deLogo = "<img class='deLogo' src='".BASE_URL."lol-logos/te-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: red'>&nbsp;&nbsp;";
 																		
 																		} else {
 																			
-																		 $deLogo = "<img class='deLogo' src='https://landscapearchitect.com/lol-logos/la-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: lightblue'>&nbsp;&nbsp;";																			
+																		 $deLogo = "<img class='deLogo' src='".BASE_URL."lol-logos/la-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: lightblue'>&nbsp;&nbsp;";																			
 																			
 																		}
 																		
@@ -1546,11 +1551,11 @@ if ($chrome) {
 																		
 																		if (($diLogo == 1209) || ($diLogo == 1210) || ($diLogo == 1211)) {
 
-																		 $deLogo = "<img class='deLogo' src='https://landscapearchitect.com/lol-logos/te-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: red'>&nbsp;&nbsp;";
+																		 $deLogo = "<img class='deLogo' src='".BASE_URL."lol-logos/te-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: red'>&nbsp;&nbsp;";
 																		
 																		} else {
 																			
-																		 $deLogo = "<img class='deLogo' src='https://landscapearchitect.com/lol-logos/la-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: lightblue'>&nbsp;&nbsp;";																			
+																		 $deLogo = "<img class='deLogo' src='".BASE_URL."lol-logos/la-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: lightblue'>&nbsp;&nbsp;";																			
 																			
 																		}
 																		
@@ -1573,7 +1578,7 @@ if ($chrome) {
 
 																$string = preg_replace("/[\s_]/", "-", $string); //Convert whitespaces and underscore to dash
                                                                    
-                                                                
+                                                                $string = $row['slug'];
                                                                    
 
 																   
@@ -1584,12 +1589,12 @@ if ($chrome) {
 
                                                                             if ($xCount == $baseCount) {
 
-                                                                                echo "<div class='flex-grid-thirds'><div class='col'><a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "'><figure><div class='limagelad'><img class='limagelad3' src='https://landscapearchitect.com/products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div></div>";
+                                                                                echo "<div class='flex-grid-thirds'><div class='col'><a href='".BASE_URL."commercial-landscape-companies/" . $string . "'><figure><div class='limagelad'><img class='limagelad3' src='".BASE_URL."products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='".BASE_URL."commercial-landscape-companies/" . $string . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div></div>";
                                                                                 $iCount = 1;
 
                                                                             } else {
 
-																                echo "<div class='flex-grid-thirds'><div class='col'><a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "'><figure><div class='limagelad'><img class='limagelad3' src='https://landscapearchitect.com/products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div>";
+																                echo "<div class='flex-grid-thirds'><div class='col'><a href='".BASE_URL."commercial-landscape-companies/" . $string . "/" . "'><figure><div class='limagelad'><img class='limagelad3' src='".BASE_URL."products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='".BASE_URL."commercial-landscape-companies/" . $string . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div>";
                                                                                 $iCount++; 
                                                                                 $xCount++;       
 
@@ -1600,12 +1605,12 @@ if ($chrome) {
 
                                                                             if ($xCount == $baseCount) {
 
-																                echo "<div class='col'><a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "'><figure><div class='limagelad'><img class='limagelad3' src='https://landscapearchitect.com/products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div></div>";
+																                echo "<div class='col'><a href='".BASE_URL."commercial-landscape-companies/" . $string . "'><figure><div class='limagelad'><img class='limagelad3' src='".BASE_URL."products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='".BASE_URL."commercial-landscape-companies/" . $string . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div></div>";
                                                                                 $iCount = 1;
 
                                                                             } else {
 
-																                echo "<div class='col'><a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "'><figure><div class='limagelad'><img class='limagelad3' src='https://landscapearchitect.com/products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div>";
+																                echo "<div class='col'><a href='".BASE_URL."commercial-landscape-companies/" . $string . "'><figure><div class='limagelad'><img class='limagelad3' src='".BASE_URL."products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='".BASE_URL."commercial-landscape-companies/" . $string . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div>";
                                                                                 $iCount++;                                                            
                                                                                 $xCount++;       
                                                                             }
@@ -1614,7 +1619,7 @@ if ($chrome) {
                                                                         } elseif ($iCount == 3) {
 
 
-																            echo "<div class='col'><a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "'><figure><div class='limagelad'><img class='limagelad3' src='https://landscapearchitect.com/products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div></div>";
+																            echo "<div class='col'><a href='".BASE_URL."commercial-landscape-companies/" . $string . "'><figure><div class='limagelad'><img class='limagelad3' src='".BASE_URL."products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='".BASE_URL."commercial-landscape-companies/" . $string . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div></div>";
 
                                                                             $iCount = 1;
                                                                             $xCount++;       
@@ -1906,11 +1911,11 @@ if ($chrome) {
 																		
 																		if (($diLogo == 1209) || ($diLogo == 1210) || ($diLogo == 1211)) {
 
-																		 $deLogo = "<img class='deLogo' src='https://landscapearchitect.com/lol-logos/te-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: red'>&nbsp;&nbsp;";
+																		 $deLogo = "<img class='deLogo' src='".BASE_URL."lol-logos/te-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: red'>&nbsp;&nbsp;";
 																		
 																		} else {
 																			
-																		 $deLogo = "<img class='deLogo' src='https://landscapearchitect.com/lol-logos/la-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: lightblue'>&nbsp;&nbsp;";																			
+																		 $deLogo = "<img class='deLogo' src='".BASE_URL."lol-logos/la-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: lightblue'>&nbsp;&nbsp;";																			
 																			
 																		}
 																		
@@ -1933,7 +1938,7 @@ if ($chrome) {
 
 																$string = preg_replace("/[\s_]/", "-", $string); //Convert whitespaces and underscore to dash
                                                                    
-                                                                
+                                                                $string = $row['slug'];
                                                                 // Base Count
 
 																   
@@ -2099,11 +2104,11 @@ if ($chrome) {
 																		
 																		if (($diLogo == 1209) || ($diLogo == 1210) || ($diLogo == 1211)) {
 
-																		 $deLogo = "<img class='deLogo' src='https://landscapearchitect.com/lol-logos/te-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: red'>&nbsp;&nbsp;";
+																		 $deLogo = "<img class='deLogo' src='".BASE_URL."lol-logos/te-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: red'>&nbsp;&nbsp;";
 																		
 																		} else {
 																			
-																		 $deLogo = "<img class='deLogo' src='https://landscapearchitect.com/lol-logos/la-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: lightblue'>&nbsp;&nbsp;";																			
+																		 $deLogo = "<img class='deLogo' src='".BASE_URL."lol-logos/la-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: lightblue'>&nbsp;&nbsp;";																			
 																			
 																		}
 																		
@@ -2126,7 +2131,7 @@ if ($chrome) {
 
 																$string = preg_replace("/[\s_]/", "-", $string); //Convert whitespaces and underscore to dash
                                                                    
-                                                                
+                                                                $string = $row['slug'];
                                                                    
 
 																   
@@ -2137,12 +2142,12 @@ if ($chrome) {
 
                                                                             if ($xCount == $baseCount) {
 
-                                                                                echo "<div class='flex-grid-thirds'><div class='col'><a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "'><figure><div class='limagelad'><img class='limagelad3' src='https://landscapearchitect.com/products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div></div>";
+                                                                                echo "<div class='flex-grid-thirds'><div class='col'><a href='".BASE_URL."commercial-landscape-companies/" . $string . "'><figure><div class='limagelad'><img class='limagelad3' src='".BASE_URL."products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='".BASE_URL."commercial-landscape-companies/" . $string . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div></div>";
                                                                                 $iCount = 1;
 
                                                                             } else {
 
-																                echo "<div class='flex-grid-thirds'><div class='col'><a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "'><figure><div class='limagelad'><img class='limagelad3' src='https://landscapearchitect.com/products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div>";
+																                echo "<div class='flex-grid-thirds'><div class='col'><a href='".BASE_URL."commercial-landscape-companies/" . $string . "'><figure><div class='limagelad'><img class='limagelad3' src='".BASE_URL."products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='".BASE_URL."commercial-landscape-companies/" . $string . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div>";
                                                                                 $iCount++; 
                                                                                 $xCount++;       
 
@@ -2153,12 +2158,12 @@ if ($chrome) {
 
                                                                             if ($xCount == $baseCount) {
 
-																                echo "<div class='col'><a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "'><figure><div class='limagelad'><img class='limagelad3' src='https://landscapearchitect.com/products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div></div>";
+																                echo "<div class='col'><a href='".BASE_URL."commercial-landscape-companies/" . $string . "/" . "'><figure><div class='limagelad'><img class='limagelad3' src='".BASE_URL."products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='".BASE_URL."commercial-landscape-companies/" . $string . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div></div>";
                                                                                 $iCount = 1;
 
                                                                             } else {
 
-																                echo "<div class='col'><a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "'><figure><div class='limagelad'><img class='limagelad3' src='https://landscapearchitect.com/products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div>";
+																                echo "<div class='col'><a href='".BASE_URL."commercial-landscape-companies/" . $string . "'><figure><div class='limagelad'><img class='limagelad3' src='".BASE_URL."products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='".BASE_URL."commercial-landscape-companies/" . $string . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div>";
                                                                                 $iCount++;                                                            
                                                                                 $xCount++;       
                                                                             }
@@ -2167,7 +2172,7 @@ if ($chrome) {
                                                                         } elseif ($iCount == 3) {
 
 
-																            echo "<div class='col'><a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "'><figure><div class='limagelad'><img class='limagelad3' src='https://landscapearchitect.com/products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div></div>";
+																            echo "<div class='col'><a href='".BASE_URL."commercial-landscape-companies/" . $string . "'><figure><div class='limagelad'><img class='limagelad3' src='".BASE_URL."products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='".BASE_URL."commercial-landscape-companies/" . $string . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div></div>";
 
                                                                             $iCount = 1;
                                                                             $xCount++;       
@@ -2460,11 +2465,11 @@ if ($chrome) {
 																		
 																		if (($diLogo == 1209) || ($diLogo == 1210) || ($diLogo == 1211)) {
 
-																		 $deLogo = "<img class='deLogo' src='https://landscapearchitect.com/lol-logos/te-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: red'>&nbsp;&nbsp;";
+																		 $deLogo = "<img class='deLogo' src='".BASE_URL."lol-logos/te-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: red'>&nbsp;&nbsp;";
 																		
 																		} else {
 																			
-																		 $deLogo = "<img class='deLogo' src='https://landscapearchitect.com/lol-logos/la-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: lightblue'>&nbsp;&nbsp;";																			
+																		 $deLogo = "<img class='deLogo' src='".BASE_URL."lol-logos/la-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: lightblue'>&nbsp;&nbsp;";																			
 																			
 																		}
 																		
@@ -2486,7 +2491,8 @@ if ($chrome) {
 																$string = preg_replace("/[\s-]+/", " ", $string); // Clean multiple dashes or whitespaces
 
 																$string = preg_replace("/[\s_]/", "-", $string); //Convert whitespaces and underscore to dash
-                                                                   
+                                                                
+                                                                $string = $row['slug'];
                                                                 
                                                                 // Base Count
 
@@ -2653,11 +2659,11 @@ if ($chrome) {
 																		
 																		if (($diLogo == 1209) || ($diLogo == 1210) || ($diLogo == 1211)) {
 
-																		 $deLogo = "<img class='deLogo' src='https://landscapearchitect.com/lol-logos/te-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: red'>&nbsp;&nbsp;";
+																		 $deLogo = "<img class='deLogo' src='".BASE_URL."lol-logos/te-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: red'>&nbsp;&nbsp;";
 																		
 																		} else {
 																			
-																		 $deLogo = "<img class='deLogo' src='https://landscapearchitect.com/lol-logos/la-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: lightblue'>&nbsp;&nbsp;";																			
+																		 $deLogo = "<img class='deLogo' src='".BASE_URL."lol-logos/la-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: lightblue'>&nbsp;&nbsp;";																			
 																			
 																		}
 																		
@@ -2679,10 +2685,10 @@ if ($chrome) {
 																$string = preg_replace("/[\s-]+/", " ", $string); // Clean multiple dashes or whitespaces
 
 																$string = preg_replace("/[\s_]/", "-", $string); //Convert whitespaces and underscore to dash
-                                                                   
                                                                 
-                                                                   
-
+                                                                $string = $row['slug'];   
+                                                                
+                                                                 
 																   
                                                                     // Counts for sets start
 
@@ -2691,12 +2697,12 @@ if ($chrome) {
 
                                                                             if ($xCount == $baseCount) {
 
-                                                                                echo "<div class='flex-grid-thirds'><div class='col'><a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "'><figure><div class='limagelad'><img class='limagelad3' src='https://landscapearchitect.com/products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div></div>";
+                                                                                echo "<div class='flex-grid-thirds'><div class='col'><a href='".BASE_URL."commercial-landscape-companies/" . $string . "'><figure><div class='limagelad'><img class='limagelad3' src='".BASE_URL."products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='".BASE_URL."commercial-landscape-companies/" . $string . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div></div>";
                                                                                 $iCount = 1;
 
                                                                             } else {
 
-																                echo "<div class='flex-grid-thirds'><div class='col'><a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "'><figure><div class='limagelad'><img class='limagelad3' src='https://landscapearchitect.com/products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div>";
+																                echo "<div class='flex-grid-thirds'><div class='col'><a href='".BASE_URL."commercial-landscape-companies/" . $string . "'><figure><div class='limagelad'><img class='limagelad3' src='".BASE_URL."products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='".BASE_URL."commercial-landscape-companies/" . $string . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div>";
                                                                                 $iCount++; 
                                                                                 $xCount++;       
 
@@ -2707,12 +2713,12 @@ if ($chrome) {
 
                                                                             if ($xCount == $baseCount) {
 
-																                echo "<div class='col'><a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "'><figure><div class='limagelad'><img class='limagelad3' src='https://landscapearchitect.com/products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div></div>";
+																                echo "<div class='col'><a href='".BASE_URL."commercial-landscape-companies/" . $string . "'><figure><div class='limagelad'><img class='limagelad3' src='".BASE_URL."products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='".BASE_URL."commercial-landscape-companies/" . $string . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div></div>";
                                                                                 $iCount = 1;
 
                                                                             } else {
 
-																                echo "<div class='col'><a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "'><figure><div class='limagelad'><img class='limagelad3' src='https://landscapearchitect.com/products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div>";
+																                echo "<div class='col'><a href='".BASE_URL."commercial-landscape-companies/" . $string . "'><figure><div class='limagelad'><img class='limagelad3' src='".BASE_URL."products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='".BASE_URL."commercial-landscape-companies/" . $string . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div>";
                                                                                 $iCount++;                                                            
                                                                                 $xCount++;       
                                                                             }
@@ -2721,7 +2727,7 @@ if ($chrome) {
                                                                         } elseif ($iCount == 3) {
 
 
-																            echo "<div class='col'><a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "'><figure><div class='limagelad'><img class='limagelad3' src='https://landscapearchitect.com/products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div></div>";
+																            echo "<div class='col'><a href='".BASE_URL."commercial-landscape-companies/" . $string . "'><figure><div class='limagelad'><img class='limagelad3' src='".BASE_URL."products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='".BASE_URL."commercial-landscape-companies/" . $string . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div></div>";
 
                                                                             $iCount = 1;
                                                                             $xCount++;       
@@ -3013,11 +3019,11 @@ if ($chrome) {
 																		
 																		if (($diLogo == 1209) || ($diLogo == 1210) || ($diLogo == 1211)) {
 
-																		 $deLogo = "<img class='deLogo' src='https://landscapearchitect.com/lol-logos/te-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: red'>&nbsp;&nbsp;";
+																		 $deLogo = "<img class='deLogo' src='".BASE_URL."lol-logos/te-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: red'>&nbsp;&nbsp;";
 																		
 																		} else {
 																			
-																		 $deLogo = "<img class='deLogo' src='https://landscapearchitect.com/lol-logos/la-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: lightblue'>&nbsp;&nbsp;";																			
+																		 $deLogo = "<img class='deLogo' src='".BASE_URL."lol-logos/la-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: lightblue'>&nbsp;&nbsp;";																			
 																			
 																		}
 																		
@@ -3039,7 +3045,8 @@ if ($chrome) {
 																$string = preg_replace("/[\s-]+/", " ", $string); // Clean multiple dashes or whitespaces
 
 																$string = preg_replace("/[\s_]/", "-", $string); //Convert whitespaces and underscore to dash
-                                                                   
+                                                                
+                                                                $string = $row['slug'];   
                                                                 
                                                                 // Base Count
 
@@ -3206,11 +3213,11 @@ if ($chrome) {
 																		
 																		if (($diLogo == 1209) || ($diLogo == 1210) || ($diLogo == 1211)) {
 
-																		 $deLogo = "<img class='deLogo' src='https://landscapearchitect.com/lol-logos/te-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: red'>&nbsp;&nbsp;";
+																		 $deLogo = "<img class='deLogo' src='".BASE_URL."lol-logos/te-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: red'>&nbsp;&nbsp;";
 																		
 																		} else {
 																			
-																		 $deLogo = "<img class='deLogo' src='https://landscapearchitect.com/lol-logos/la-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: lightblue'>&nbsp;&nbsp;";																			
+																		 $deLogo = "<img class='deLogo' src='".BASE_URL."lol-logos/la-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: lightblue'>&nbsp;&nbsp;";																			
 																			
 																		}
 																		
@@ -3233,7 +3240,7 @@ if ($chrome) {
 
 																$string = preg_replace("/[\s_]/", "-", $string); //Convert whitespaces and underscore to dash
                                                                    
-                                                                
+                                                                $string = $row['slug'];
                                                                    
 
 																   
@@ -3244,12 +3251,12 @@ if ($chrome) {
 
                                                                             if ($xCount == $baseCount) {
 
-                                                                                echo "<div class='flex-grid-thirds'><div class='col'><a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "'><figure><div class='limagelad'><img class='limagelad3' src='https://landscapearchitect.com/products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div></div>";
+                                                                                echo "<div class='flex-grid-thirds'><div class='col'><a href='".BASE_URL."commercial-landscape-companies/" . $string . "'><figure><div class='limagelad'><img class='limagelad3' src='".BASE_URL."products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='".BASE_URL."commercial-landscape-companies/" . $string . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div></div>";
                                                                                 $iCount = 1;
 
                                                                             } else {
 
-																                echo "<div class='flex-grid-thirds'><div class='col'><a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "'><figure><div class='limagelad'><img class='limagelad3' src='https://landscapearchitect.com/products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div>";
+																                echo "<div class='flex-grid-thirds'><div class='col'><a href='".BASE_URL."commercial-landscape-companies/" . $string . "'><figure><div class='limagelad'><img class='limagelad3' src='".BASE_URL."products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='".BASE_URL."commercial-landscape-companies/" . $string . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div>";
                                                                                 $iCount++; 
                                                                                 $xCount++;       
 
@@ -3260,12 +3267,12 @@ if ($chrome) {
 
                                                                             if ($xCount == $baseCount) {
 
-																                echo "<div class='col'><a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "'><figure><div class='limagelad'><img class='limagelad3' src='https://landscapearchitect.com/products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div></div>";
+																                echo "<div class='col'><a href='".BASE_URL."commercial-landscape-companies/" . $string . "/" . $row["id"] . "'><figure><div class='limagelad'><img class='limagelad3' src='".BASE_URL."products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='".BASE_URL."commercial-landscape-companies/" . $string . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div></div>";
                                                                                 $iCount = 1;
 
                                                                             } else {
 
-																                echo "<div class='col'><a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "'><figure><div class='limagelad'><img class='limagelad3' src='https://landscapearchitect.com/products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div>";
+																                echo "<div class='col'><a href='".BASE_URL."commercial-landscape-companies/" . $string . "'><figure><div class='limagelad'><img class='limagelad3' src='".BASE_URL."products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='".BASE_URL."commercial-landscape-companies/" . $string . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div>";
                                                                                 $iCount++;                                                            
                                                                                 $xCount++;       
                                                                             }
@@ -3274,7 +3281,7 @@ if ($chrome) {
                                                                         } elseif ($iCount == 3) {
 
 
-																            echo "<div class='col'><a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "'><figure><div class='limagelad'><img class='limagelad3' src='https://landscapearchitect.com/products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div></div>";
+																            echo "<div class='col'><a href='".BASE_URL."commercial-landscape-companies/" . $string . "/" . $row["id"] . "'><figure><div class='limagelad'><img class='limagelad3' src='".BASE_URL."products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='".BASE_URL."commercial-landscape-companies/" . $string . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div></div>";
 
                                                                             $iCount = 1;
                                                                             $xCount++;       
@@ -3567,11 +3574,11 @@ if ($chrome) {
 																		
 																		if (($diLogo == 1209) || ($diLogo == 1210) || ($diLogo == 1211)) {
 
-																		 $deLogo = "<img class='deLogo' src='https://landscapearchitect.com/lol-logos/te-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: red'>&nbsp;&nbsp;";
+																		 $deLogo = "<img class='deLogo' src='".BASE_URL."lol-logos/te-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: red'>&nbsp;&nbsp;";
 																		
 																		} else {
 																			
-																		 $deLogo = "<img class='deLogo' src='https://landscapearchitect.com/lol-logos/la-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: lightblue'>&nbsp;&nbsp;";																			
+																		 $deLogo = "<img class='deLogo' src='".BASE_URL."lol-logos/la-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: lightblue'>&nbsp;&nbsp;";																			
 																			
 																		}
 																		
@@ -3593,7 +3600,8 @@ if ($chrome) {
 																$string = preg_replace("/[\s-]+/", " ", $string); // Clean multiple dashes or whitespaces
 
 																$string = preg_replace("/[\s_]/", "-", $string); //Convert whitespaces and underscore to dash
-                                                                   
+                                                                
+                                                                $string = $row['slug'];   
                                                                 
                                                                 // Base Count
 
@@ -3760,11 +3768,11 @@ if ($chrome) {
 																		
 																		if (($diLogo == 1209) || ($diLogo == 1210) || ($diLogo == 1211)) {
 
-																		 $deLogo = "<img class='deLogo' src='https://landscapearchitect.com/lol-logos/te-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: red'>&nbsp;&nbsp;";
+																		 $deLogo = "<img class='deLogo' src='".BASE_URL."lol-logos/te-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: red'>&nbsp;&nbsp;";
 																		
 																		} else {
 																			
-																		 $deLogo = "<img class='deLogo' src='https://landscapearchitect.com/lol-logos/la-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: lightblue'>&nbsp;&nbsp;";																			
+																		 $deLogo = "<img class='deLogo' src='".BASE_URL."lol-logos/la-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: lightblue'>&nbsp;&nbsp;";																			
 																			
 																		}
 																		
@@ -3787,7 +3795,7 @@ if ($chrome) {
 
 																$string = preg_replace("/[\s_]/", "-", $string); //Convert whitespaces and underscore to dash
                                                                    
-                                                                
+                                                                $string = $row['slug'];
                                                                    
 
 																   
@@ -3798,12 +3806,12 @@ if ($chrome) {
 
                                                                             if ($xCount == $baseCount) {
 
-                                                                                echo "<div class='flex-grid-thirds'><div class='col'><a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "'><figure><div class='limagelad'><img class='limagelad3' src='https://landscapearchitect.com/products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div></div>";
+                                                                                echo "<div class='flex-grid-thirds'><div class='col'><a href='".BASE_URL."commercial-landscape-companies/" . $string . "'><figure><div class='limagelad'><img class='limagelad3' src='".BASE_URL."products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='".BASE_URL."commercial-landscape-companies/" . $string . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div></div>";
                                                                                 $iCount = 1;
 
                                                                             } else {
 
-																                echo "<div class='flex-grid-thirds'><div class='col'><a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "'><figure><div class='limagelad'><img class='limagelad3' src='https://landscapearchitect.com/products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div>";
+																                echo "<div class='flex-grid-thirds'><div class='col'><a href='".BASE_URL."commercial-landscape-companies/" . $string . "/" . $row["id"] . "'><figure><div class='limagelad'><img class='limagelad3' src='".BASE_URL."products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='".BASE_URL."commercial-landscape-companies/" . $string . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div>";
                                                                                 $iCount++; 
                                                                                 $xCount++;       
 
@@ -3814,12 +3822,12 @@ if ($chrome) {
 
                                                                             if ($xCount == $baseCount) {
 
-																                echo "<div class='col'><a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "'><figure><div class='limagelad'><img class='limagelad3' src='https://landscapearchitect.com/products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div></div>";
+																                echo "<div class='col'><a href='".BASE_URL."commercial-landscape-companies/" . $string . "/" . $row["id"] . "'><figure><div class='limagelad'><img class='limagelad3' src='".BASE_URL."products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='".BASE_URL."commercial-landscape-companies/" . $string . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div></div>";
                                                                                 $iCount = 1;
 
                                                                             } else {
 
-																                echo "<div class='col'><a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "'><figure><div class='limagelad'><img class='limagelad3' src='https://landscapearchitect.com/products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div>";
+																                echo "<div class='col'><a href='".BASE_URL."commercial-landscape-companies/" . $string . "/" . $row["id"] . "'><figure><div class='limagelad'><img class='limagelad3' src='".BASE_URL."products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='".BASE_URL."commercial-landscape-companies/" . $string . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div>";
                                                                                 $iCount++;                                                            
                                                                                 $xCount++;       
                                                                             }
@@ -3828,7 +3836,7 @@ if ($chrome) {
                                                                         } elseif ($iCount == 3) {
 
 
-																            echo "<div class='col'><a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "'><figure><div class='limagelad'><img class='limagelad3' src='https://landscapearchitect.com/products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='https://landscapearchitect.com/landscape-design/" . $string . "/" . $row["id"] . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div></div>";
+																            echo "<div class='col'><a href='".BASE_URL."commercial-landscape-companies/" . $string . "/" . $row["id"] . "'><figure><div class='limagelad'><img class='limagelad3' src='".BASE_URL."products/images/".$row['logo']."' alt='product image'></div></a><figcaption style='margin-top:0px;'><h2 style='font-size: 22px'>" . $row["company_name"] . "</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "<br></p><hr><p class='text-center'>" . $deLogo . "<a href='".BASE_URL."commercial-landscape-companies/" . $string . "' class='btn btn-success' role='button'>View Profile</a></p></figcaption></figure></div></div>";
 
                                                                             $iCount = 1;
                                                                             $xCount++;       
@@ -3895,7 +3903,7 @@ if ($chrome) {
 
 											
 
-												<input type="text" name="keywrd" value="<? echo $keywordSE ?>" id="keywordBox" placeholder="Keyword Search"><input type="image" value="Go" width="34px" src="https://landscapearchitect.com/images/mag-button.png"  class ="sch" id="sch" onmouseover="this.src='https://landscapearchitect.com/images/mag-button-over.png';"  onmouseout="this.src='https://landscapearchitect.com/images/mag-button.png';" style="position: relative; top: -7px" /><br><br>
+												<input type="text" name="keywrd" value="<? echo $keywordSE ?>" id="keywordBox" placeholder="Keyword Search"><input type="image" value="Go" width="34px" src="<?php echo BASE_URL; ?>images/mag-button.png"  class ="sch" id="sch" onmouseover="this.src='<?php echo BASE_URL; ?>images/mag-button-over.png';"  onmouseout="this.src='<?php echo BASE_URL; ?>images/mag-button.png';" style="position: relative; top: -7px" /><br><br>
 													<!-- <input type="submit" value="Submit" style="background-color: #4fb548; position: relative; left: -10px; top: 10px; font-family: Helvetica, Arial,' sans-serif'; font-size: 18px; padding: 3px"> -->
 
 												
@@ -3915,7 +3923,7 @@ if ($chrome) {
 							<?
 
 							// Category Banners
-                            include '../../includes/banner-LAD.inc'; 
+                            include $rootInclude.'banner-LAD.inc'; 
 
 							?>
 								
@@ -3969,12 +3977,12 @@ if ($chrome) {
 
 // Top Section - Footer Section
 // include("lad_footer-main.inc");
-include '../../includes/la_bottom-common.inc'; 
+include $rootInclude.'la_bottom-common.inc'; 
 
 ?>	
 
 <?
-include '../../includes/lo_footer-main2-new.inc'; 
+include $rootInclude.'lo_footer-main2-new.inc'; 
 ?>
 	
 	

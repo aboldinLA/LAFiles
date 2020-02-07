@@ -68,7 +68,37 @@
 						
 			
 
-
+      <script>
+        <? if (isset($_GET['t'])){ ?>
+          <? if($_GET['t'] == "ad"){ ?>
+                document.loginform.email.focus();
+          <? }else{ ?>
+                document.loginform.password.focus();
+          <? } ?>
+        
+            $('.vendorLoginBtn').click(function(event){
+              event.preventDefault();
+              document.getElementById("incorrectPasswordText").innerHTML = " ";
+              var password = $('#password_field').val();
+              $.post(
+                '/member/login_ven.php',
+                {'password': password},
+                 function(data){
+                   extracted_data = JSON.parse(data);  
+                   //console.log(data);
+                   if(extracted_data.login == true){
+                      window.location.href = "<?php echo BASE_URL; ?>vendor/index-vendor.php?action=edit&id=" + extracted_data.vendorId;
+                   } else {
+                     setTimeout(function(){
+                       document.getElementById("incorrectPasswordText").innerHTML = "Incorrect Password. Please try again."
+                    }, 200);
+                   }
+                 }
+              )
+            });
+        
+        <? } ?>
+      </script>
 
 
 

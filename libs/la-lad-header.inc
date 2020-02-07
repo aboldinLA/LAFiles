@@ -1,7 +1,5 @@
-
 <?
-
-include '../../includes/lad_common-new.inc'; 
+include $rootInclude.'lad_common-new.inc'; 
 
 ?>
 
@@ -39,7 +37,7 @@ include '../../includes/lad_common-new.inc';
 									});
 									
 									function displaySearchLogo(){
-										if(window.location.href.indexOf("https://landscapearchitect.com/LandscapeProducts/LandscapeProducts.php") < 0) {
+										if(window.location.href.indexOf("<?php echo BASE_URL; ?>LandscapeProducts/LandscapeProducts.php") < 0) {
 										   document.getElementById("searchLogo").style.display = 'block';
 										} else {
 											document.getElementById("searchLogo").style.display = 'none';
@@ -248,8 +246,8 @@ include '../../includes/lad_common-new.inc';
 				  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myInverseNavbar2" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
 
 				  <div style="width:60%">
-				    <a class="navbar-brand" href="https://landscapeonline.com"><img style="position: relative; top: -10px" src="https://landscapearchitect.com/lol-logos/lo-LAD2-1.png" width="460px"></a> 
-					<a class="navbar-brand searchLogoContain" href="https://landscapearchitect.com/LandscapeProducts/LandscapeProducts.php"><img <? $headNum = $_GET['ad']; if (($headNum == 1209) || ($headNum == 1210) || ($headNum == 1211)) { echo 'width="168px"'; }  ?> id="searchLogo" style="position: relative; top: -10px;" src="https://landscapearchitect.com/lol-logos/<? $headNum = $_GET['ad']; if (($headNum == 1209) || ($headNum == 1210) || ($headNum == 1211)) { ?>tool-and-equipment-logo-header.png<? } elseif (($headNum == 32) || ($headNum == 48) || ($headNum == 1300) || ($headNum == 29) || ($headNum == 1214) || ($headNum == 38) || ($headNum == 1301) || ($headNum == 1215) || ($headNum == 33) || ($headNum == 41)) { ?>la-details-2-WHITE.png<? } elseif (empty ($headNum)) { ?>blank.png<? } elseif (($headNum == 28) || ($headNum == 30) || ($headNum == 1212) || ($headNum == 1002) || ($headNum == 1213) || ($headNum == 1139)) { ?>blank.png<? } ?>   " width="168px"></a>
+				    <a class="navbar-brand" href="<?php echo BASE_URL; ?>"><img style="position: relative; top: -10px" src="<?php echo BASE_URL; ?>lol-logos/lo-LAD2-1.png" width="460px"></a> 
+					<a class="navbar-brand searchLogoContain" href="<?php echo BASE_URL; ?>LandscapeProducts/LandscapeProducts.php"><img <? $headNum = $_GET['ad']; if (($headNum == 1209) || ($headNum == 1210) || ($headNum == 1211)) { echo 'width="168px"'; }  ?> id="searchLogo" style="position: relative; top: -10px;" src="<?php echo BASE_URL; ?>lol-logos/<? $headNum = $_GET['ad']; if (($headNum == 1209) || ($headNum == 1210) || ($headNum == 1211)) { ?>tool-and-equipment-logo-header.png<? } elseif (($headNum == 32) || ($headNum == 48) || ($headNum == 1300) || ($headNum == 29) || ($headNum == 1214) || ($headNum == 38) || ($headNum == 1301) || ($headNum == 1215) || ($headNum == 33) || ($headNum == 41)) { ?>la-details-2-WHITE.png<? } elseif (empty ($headNum)) { ?>blank.png<? } elseif (($headNum == 28) || ($headNum == 30) || ($headNum == 1212) || ($headNum == 1002) || ($headNum == 1213) || ($headNum == 1139)) { ?>blank.png<? } ?>   " width="168px"></a>
 				  </div>
 	
 				  <!-- Collect the nav links, forms, and other content for toggling -->
@@ -261,37 +259,41 @@ include '../../includes/lad_common-new.inc';
 						<li class="menu-info-text">Click Below For Companies:</li>
 						  
 						  
-						<li class="subdropdown"><a href="https://landscapearchitect.com/LandscapeProducts/index.php?ad=28&catMain=Business Services & Software">Business Services &amp; Software</a>
+						<li class="subdropdown"><a href="<?php echo BASE_URL; ?>LandscapeProducts/index.php?ad=28&catMain=Business Services & Software">Business Services &amp; Software</a>
 							<ul class="subdropdown-menu subdropdown-menu-other">
 								<li class="menu-info-text">Click Below For Products:</li>
 
-                                            <?  menuDropdown28();   ?>
+                                            <?  //menuDropdown28($conn);   ?>
+                                            <?  populate_categories(BASE_URL,$conn,28);   ?>
                                 
 							</ul>
 						</li>
-						<li class="subdropdown"><a href="https://landscapearchitect.com/LandscapeProducts/index.php?ad=30&catMain=Erosion Control">Erosion Control</a>
+						<li class="subdropdown"><a href="<?php echo BASE_URL; ?>LandscapeProducts/index.php?ad=30&catMain=Erosion Control">Erosion Control</a>
 							<ul class="subdropdown-menu subdropdown-menu-other">
 								<li class="menu-info-text">Click Below For Products:</li>
 
-                                            <?  menuDropdown30();   ?>
+                                            <?  //menuDropdown30($conn);   ?>
+                                            <?  populate_categories(BASE_URL,$conn,30);   ?>
                                 
 							</ul>
 						</li>
 						  
-						 <li class="subdropdown"><a href="https://landscapearchitect.com/LandscapeProducts/index.php?ad=1300&catMain=Commerical%20%26%20Wholesale%20Fencing" class="dropdown-toggle" role="button" aria-expanded="false" aria-haspopup="true">Fencing</a>
+						 <li class="subdropdown"><a href="<?php echo BASE_URL; ?>LandscapeProducts/index.php?ad=1300&catMain=Commerical%20%26%20Wholesale%20Fencing" class="dropdown-toggle" role="button" aria-expanded="false" aria-haspopup="true">Fencing</a>
 							<ul class="subdropdown-menu subdropdown-menu-details">
 								<li class="menu-info-text">Click Below For Products:</li>
 
-                                            <?  menuDropdown1300();   ?>
+                                            <?  //menuDropdown1300($conn);   ?>
+                                            <?  populate_categories(BASE_URL,$conn,1300);   ?>
                                 
 							</ul>
 						</li> 
 						
-						<li class="subdropdown"><a href="https://landscapearchitect.com/LandscapeProducts/index.php?ad=1213&catMain=Landscape%20Irrigation%20%26%20Water%20Management">Irrigation</a>
+						<li class="subdropdown"><a href="<?php echo BASE_URL; ?>LandscapeProducts/index.php?ad=1213&catMain=Landscape%20Irrigation%20%26%20Water%20Management">Irrigation</a>
 							<ul class="subdropdown-menu subdropdown-menu-other">
 								<li class="menu-info-text">Click Below For Products:</li>
 
-                                            <?  menuDropdown1139();   ?>
+                                            <?  //menuDropdown1139($conn);   ?>
+                                            <?  populate_categories(BASE_URL,$conn,1139);   ?>
                                 
 							</ul>
 						</li>
@@ -299,101 +301,112 @@ include '../../includes/lad_common-new.inc';
 						  
 					  
 						
-					  <li class="subdropdown"><a href="https://landscapearchitect.com/LandscapeProducts/index.php?ad=32&catMain=Lighting/Electrical" class="dropdown-toggle" role="button" aria-expanded="false" aria-haspopup="true">Lighting/Electrical</a>
+					  <li class="subdropdown"><a href="<?php echo BASE_URL; ?>LandscapeProducts/index.php?ad=32&catMain=Lighting/Electrical" class="dropdown-toggle" role="button" aria-expanded="false" aria-haspopup="true">Lighting/Electrical</a>
 					  	<ul class="subdropdown-menu subdropdown-menu-details">
   						<li class="menu-info-text">Click Below For Products:</li>
 
-                                            <?  menuDropdown32();   ?>
+                                            <?  //menuDropdown32($conn);   ?>
+                                            <?  populate_categories(BASE_URL,$conn,32);   ?>
                             
 						  </ul>
 						</li>
-						<li class="subdropdown"><a href="https://landscapearchitect.com/LandscapeProducts/index.php?ad=1214&catMain=Outdoor%20Living%20%26%20Residential%20Landscape" class="dropdown-toggle" role="button" aria-expanded="false" aria-haspopup="true">Outdoor Living</a>
+						<li class="subdropdown"><a href="<?php echo BASE_URL; ?>LandscapeProducts/index.php?ad=1214&catMain=Outdoor%20Living%20%26%20Residential%20Landscape" class="dropdown-toggle" role="button" aria-expanded="false" aria-haspopup="true">Outdoor Living</a>
 					  		<ul class="subdropdown-menu subdropdown-menu-details">
   							<li class="menu-info-text">Click Below For Products:</li>
 
-                                            <?  menuDropdown1214();   ?>
+                                            <?  menuDropdown1214($conn);   ?>
+                                            <?  populate_categories(BASE_URL,$conn,1214);   ?>
                                 
 							</ul>
 						</li>
 					  
-					  	<li class="subdropdown"><a href="https://landscapearchitect.com/LandscapeProducts/index.php?ad=33&catMain=Parks%20%26%20Playground%20Products" target="_blank" class="dropdown-toggle" role="button" aria-expanded="false" aria-haspopup="true">Park &amp; Recreation</a>
+					  	<li class="subdropdown"><a href="<?php echo BASE_URL; ?>LandscapeProducts/index.php?ad=33&catMain=Parks%20%26%20Playground%20Products" target="_blank" class="dropdown-toggle" role="button" aria-expanded="false" aria-haspopup="true">Park &amp; Recreation</a>
 					  		<ul class="subdropdown-menu subdropdown-menu-details">
   							<li class="menu-info-text">Click Below For Products:</li>
                                 
-                                            <?  menuDropdown33();   ?>
+                                            <?  //menuDropdown33($conn);   ?>
+                                            <?  populate_categories(BASE_URL,$conn,33);   ?>
 
 				            </ul>
 						</li>
-					  	<li class="subdropdown"><a href="https://landscapearchitect.com/LandscapeProducts/index.php?ad=38&catMain=Paver, Masonry, Blocks, Rocks" class="dropdown-toggle" role="button" aria-expanded="false" aria-haspopup="true">Paver, Masonry, Blocks, Rocks</a>
+					  	<li class="subdropdown"><a href="<?php echo BASE_URL; ?>LandscapeProducts/index.php?ad=38&catMain=Paver, Masonry, Blocks, Rocks" class="dropdown-toggle" role="button" aria-expanded="false" aria-haspopup="true">Paver, Masonry, Blocks, Rocks</a>
 					  		<ul class="subdropdown-menu subdropdown-menu-details">
   							<li class="menu-info-text">Click Below For Products:</li>
 
-                                            <?  menuDropdown38();   ?>
+                                            <?  //menuDropdown38($conn);   ?>
+                                            <?  populate_categories(BASE_URL,$conn,38);   ?>
                                 
 					  		</ul>
 						</li>
-					  <li class="subdropdown"><a href="https://landscapearchitect.com/LandscapeProducts/index.php?ad=1212&catMain=Pest/Wildlife">Pest/Wildlife</a>
+					  <li class="subdropdown"><a href="<?php echo BASE_URL; ?>LandscapeProducts/index.php?ad=1212&catMain=Pest/Wildlife">Pest/Wildlife</a>
 							<ul class="subdropdown-menu subdropdown-menu-other">
 								<li class="menu-info-text">Click Below For Products:</li>
 
-                                            <?  menuDropdown1212();   ?>
+                                            <?  //menuDropdown1212($conn);   ?>
+                                            <?  populate_categories(BASE_URL,$conn,1212);   ?>
                                 
                                 <li style="line-height: 200px">&nbsp;</li>
                                 
 							</ul>
 						</li>
 					  
-					   <li class="subdropdown"><a href="https://landscapearchitect.com/LandscapeProducts/index.php?ad=1002&catMain=Plant Accessories & Amendments">Plant Accessories &amp; Amendments</a>
+					   <li class="subdropdown"><a href="<?php echo BASE_URL; ?>LandscapeProducts/index.php?ad=1002&catMain=Plant Accessories & Amendments">Plant Accessories &amp; Amendments</a>
 							<ul class="subdropdown-menu subdropdown-menu-other">
 								<li class="menu-info-text">Click Below For Products:</li>
 
-                                            <?  menuDropdown1002();   ?>
+                                            <?  //menuDropdown1002($conn);   ?>
+                                            <?  populate_categories(BASE_URL,$conn,1002);   ?>
                                 
 							</ul>
 						</li> 
-					   	<li class="subdropdown"><a href="https://landscapearchitect.com/LandscapeProducts/index.php?ad=1301&catMain=Landscape%20Art,%20Sculpture,%20Metal%20%26%20Stone%20Garden%20Ornaments" class="dropdown-toggle" role="button" aria-expanded="false" aria-haspopup="true">Sculpture/Art/Garden Ornaments</a>
+					   	<li class="subdropdown"><a href="<?php echo BASE_URL; ?>LandscapeProducts/index.php?ad=1301&catMain=Landscape%20Art,%20Sculpture,%20Metal%20%26%20Stone%20Garden%20Ornaments" class="dropdown-toggle" role="button" aria-expanded="false" aria-haspopup="true">Sculpture/Art/Garden Ornaments</a>
 					  		<ul class="subdropdown-menu subdropdown-menu-details">
 								<li class="menu-info-text">Click Below For Products:</li>
 
-                                            <?  menuDropdown1301();   ?>
+                                            <?  //menuDropdown1301($conn);   ?>
+                                            <?  populate_categories(BASE_URL,$conn,1301);   ?>
                                 <li style="line-height: 200px">&nbsp;</li>
                                 
 							</ul>
 						</li>
-					  	<li class="subdropdown"><a href="https://landscapearchitect.com/LandscapeProducts/index.php?ad=29&catMain=Site Amenities" class="dropdown-toggle" role="button" aria-expanded="false" aria-haspopup="true">Site Amenities</a>
+					  	<li class="subdropdown"><a href="<?php echo BASE_URL; ?>LandscapeProducts/index.php?ad=29&catMain=Site Amenities" class="dropdown-toggle" role="button" aria-expanded="false" aria-haspopup="true">Site Amenities</a>
 					  		<ul class="subdropdown-menu subdropdown-menu-details">
   							<li class="menu-info-text">Click Below For Products:</li>
 
-                                            <?  menuDropdown29();   ?>
+                                            <?  //menuDropdown29($conn);   ?>
+                                            <?  populate_categories(BASE_URL,$conn,29);   ?>
                                 
 					  		</ul>
 						</li>
 					  
 					 
 					 
-					  	<li class="subdropdown"><a href="https://landscapearchitect.com/LandscapeProducts/index.php?ad=1215&catMain=Site Furnishings %26 Receptacles" class="dropdown-toggle" role="button" aria-expanded="false" aria-haspopup="true">Site Furnishings &amp; Receptacles</a>
+					  	<li class="subdropdown"><a href="<?php echo BASE_URL; ?>LandscapeProducts/index.php?ad=1215&catMain=Site Furnishings %26 Receptacles" class="dropdown-toggle" role="button" aria-expanded="false" aria-haspopup="true">Site Furnishings &amp; Receptacles</a>
 					  		<ul class="subdropdown-menu subdropdown-menu-details">
   							<li class="menu-info-text">Click Below For Products:</li>
 
-                                            <?  menuDropdown1215();   ?>
+                                            <?  //menuDropdown1215($conn);   ?>
+                                            <?  populate_categories(BASE_URL,$conn,1215);   ?>
                                 
 							</ul>
 						</li>
 					  
-					  	<li class="subdropdown"><a href="https://landscapearchitect.com/LandscapeProducts/index.php?ad=41&catMain=Water%20Features,%20Fountains,%20Ponds%20%26%20Equipment" class="dropdown-toggle" role="button" aria-expanded="false" aria-haspopup="true">Water Features</a>
+					  	<li class="subdropdown"><a href="<?php echo BASE_URL; ?>LandscapeProducts/index.php?ad=41&catMain=Water%20Features,%20Fountains,%20Ponds%20%26%20Equipment" class="dropdown-toggle" role="button" aria-expanded="false" aria-haspopup="true">Water Features</a>
 					  		<ul class="subdropdown-menu subdropdown-menu-details">
   							<li class="menu-info-text">Click Below For Products:</li>
 
-                                            <?  menuDropdown41();   ?>
+                                            <?  //menuDropdown41($conn);   ?>
+                                            <?  populate_categories(BASE_URL,$conn,41);   ?>
                                 
 							</ul>
 						</li>
                           
-						<li class="subdropdown"><a href="https://landscapearchitect.com/LandscapeProducts/index.php?ad=1213&catMain=Landscape%20Irrigation%20%26%20Water%20Management">Water Mgmt.</a>
+						<li class="subdropdown"><a href="<?php echo BASE_URL; ?>LandscapeProducts/index.php?ad=1213&catMain=Landscape%20Irrigation%20%26%20Water%20Management">Water Mgmt.</a>
 							<ul class="subdropdown-menu subdropdown-menu-other">
 								<li class="menu-info-text">Click Below For Products:</li>
 
-                                            <?  menuDropdown1213();   ?>
+                                            <?  //menuDropdown1213($conn);   ?>
+                                            <?  populate_categories(BASE_URL,$conn,1213);   ?>
                                 
 							</ul>
 						</li>                          
@@ -404,27 +417,30 @@ include '../../includes/lad_common-new.inc';
 					<li class="dropdown"> <a href="#" class="dropdown-toggle menu-font-size" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true"><div class="inner-dropdown-div">Tools &amp; Equipment<br>Categories</div></a>
 					  <ul class="dropdown-menu">
 						<li class="menu-info-text">Click Below For Products:</li>
-						 <li class="subdropdown"><a href="https://landscapearchitect.com/LandscapeProducts/index.php?ad=1209&catMain=Installation%20Equipment" class="dropdown-toggle" role="button" aria-expanded="false" aria-haspopup="true">Installation Equipment</a>
+						 <li class="subdropdown"><a href="<?php echo BASE_URL; ?>LandscapeProducts/index.php?ad=1209&catMain=Installation%20Equipment" class="dropdown-toggle" role="button" aria-expanded="false" aria-haspopup="true">Installation Equipment</a>
 					  		<ul class="subdropdown-menu subdropdown-menu-tools"> 
 								<li class="menu-info-text">Click Below For Products:</li>
 
-                                            <?  menuDropdown1209();   ?>
+                                            <?  //menuDropdown1209($conn);   ?>
+                                            <?  populate_categories(BASE_URL,$conn,1209);   ?>
                                 
 						 </ul>
 						</li> 
-						<li class="subdropdown"><a href="https://landscapearchitect.com/LandscapeProducts/index.php?ad=1210&catMain=Maintenance%20Equipment" class="dropdown-toggle" role="button" aria-expanded="false" aria-haspopup="true">Maintenance Equipment</a>
+						<li class="subdropdown"><a href="<?php echo BASE_URL; ?>LandscapeProducts/index.php?ad=1210&catMain=Maintenance%20Equipment" class="dropdown-toggle" role="button" aria-expanded="false" aria-haspopup="true">Maintenance Equipment</a>
 					  		<ul class="subdropdown-menu subdropdown-menu-tools">
 								<li class="menu-info-text">Click Below For Products:</li>
 
-                                            <?  menuDropdown1210();   ?>
+                                            <?  //menuDropdown1210($conn);   ?>
+                                            <?  populate_categories(BASE_URL,$conn,1210);   ?>
                                 
 							</ul>
 						  </li>
-						 <li class="subdropdown"><a href="https://landscapearchitect.com/LandscapeProducts/index.php?ad=1211&catMain=Tools, Tires %26 Replacement Parts" class="dropdown-toggle" role="button" aria-expanded="false" aria-haspopup="true">Tools/Parts</a>
+						 <li class="subdropdown"><a href="<?php echo BASE_URL; ?>LandscapeProducts/index.php?ad=1211&catMain=Tools, Tires %26 Replacement Parts" class="dropdown-toggle" role="button" aria-expanded="false" aria-haspopup="true">Tools/Parts</a>
 					  		<ul class="subdropdown-menu subdropdown-menu-tools">
 								<li class="menu-info-text">Click Below For Products:</li>
 
-                                            <?  menuDropdown1211();   ?>
+                                            <?  //menuDropdown1211($conn);   ?>
+                                            <?  populate_categories(BASE_URL,$conn,1211);   ?>
                                 
 							</ul>
 						  </li> 
@@ -435,57 +451,57 @@ include '../../includes/lad_common-new.inc';
 					<li class="dropdown"> <a href="#" class="dropdown-toggle menu-font-size" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true"><div class="inner-dropdown-div">Local Wholesale<br> &amp; Plant Materials</div></a>
 					  <ul class="dropdown-menu" style="max-height: 400px; overflow: scroll;">
 							<li class="menu-info-text">Click Below For States:</li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=AL">Alabama</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=AK">Alaska</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=AZ">Arizona</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=AR">Arkansas</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=CA">California</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=CO">Colorado</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=CT">Connecticut</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=DE">Delaware</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=DC">District Of Columbia</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=FL">Florida</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=GA">Georgia</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=HI">Hawaii</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=ID">Idaho</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=IL">Illinois</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=IN">Indiana</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=IA">Iowa</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=KS">Kansas</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=KY">Kentucky</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=LA">Louisiana</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=ME">Maine</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=MD">Maryland</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=MA">Massachusetts</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=MI">Michigan</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=MN">Minnesota</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=MS">Mississippi</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=MO">Missouri</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=MT">Montana</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=NE">Nebraska</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=NV">Nevada</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=NH">New Hampshire</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=NJ">New Jersey</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=NM">New Mexico</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=NY">New York</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=NC">North Carolina</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=ND">North Dakota</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=OH">Ohio</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=OK">Oklahoma</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=OR">Oregon</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=PA">Pennsylvania</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=RI">Rhode Island</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=SC">South Carolina</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=SD">South Dakota</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=TN">Tennessee</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=TX">Texas</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=UT">Utah</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=VT">Vermont</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=VA">Virginia</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=WA">Washington</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=WV">West Virginia</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=WI">Wisconsin</a></li>
-							<li><a href="https://landscapearchitect.com/products/index-all-b-top-wholesale.php?ad=34&state=WY">Wyoming</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=AL">Alabama</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=AK">Alaska</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=AZ">Arizona</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=AR">Arkansas</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=CA">California</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=CO">Colorado</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=CT">Connecticut</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=DE">Delaware</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=DC">District Of Columbia</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=FL">Florida</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=GA">Georgia</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=HI">Hawaii</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=ID">Idaho</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=IL">Illinois</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=IN">Indiana</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=IA">Iowa</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=KS">Kansas</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=KY">Kentucky</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=LA">Louisiana</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=ME">Maine</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=MD">Maryland</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=MA">Massachusetts</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=MI">Michigan</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=MN">Minnesota</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=MS">Mississippi</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=MO">Missouri</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=MT">Montana</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=NE">Nebraska</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=NV">Nevada</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=NH">New Hampshire</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=NJ">New Jersey</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=NM">New Mexico</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=NY">New York</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=NC">North Carolina</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=ND">North Dakota</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=OH">Ohio</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=OK">Oklahoma</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=OR">Oregon</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=PA">Pennsylvania</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=RI">Rhode Island</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=SC">South Carolina</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=SD">South Dakota</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=TN">Tennessee</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=TX">Texas</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=UT">Utah</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=VT">Vermont</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=VA">Virginia</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=WA">Washington</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=WV">West Virginia</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=WI">Wisconsin</a></li>
+							<li><a href="<?php echo BASE_URL; ?>products/index-all-b-top-wholesale.php?ad=34&state=WY">Wyoming</a></li>
 					  </ul>
 					</li>		
 
@@ -627,7 +643,7 @@ span.psw {
 
 <div id="id01" class="modal">
   
-  <form class="modal-content animate" method="post"  action="https://landscapearchitect.com/passCheck.php">
+  <form class="modal-content animate" method="post"  action="<?php echo BASE_URL; ?>passCheck.php">
 								<input type="hidden" name="page" value="<? echo $xpage; ?>">  
       
     <div class="container">
@@ -645,8 +661,8 @@ span.psw {
 
     <div class="container" style="background-color:#f1f1f1">
       <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-      <span class="psw">Forgot <a href="https://landscapearchitect.com/LandscapeProducts/index-login.php?ad=1300&catMain=Fencing" target="_blank">password?</a></span><br>
-      <span class="psw">New User <a href="https://landscapearchitect.com/LandscapeProducts/index-registration.php?ad=1300&catMain=Fencing" target="_blank">Register</a></span>
+      <span class="psw">Forgot <a href="<?php echo BASE_URL; ?>LandscapeProducts/index-login.php?ad=1300&catMain=Fencing" target="_blank">password?</a></span><br>
+      <span class="psw">New User <a href="<?php echo BASE_URL; ?>LandscapeProducts/index-registration.php?ad=1300&catMain=Fencing" target="_blank">Register</a></span>
     </div>
   </form>
 </div>

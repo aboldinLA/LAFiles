@@ -1,4 +1,3 @@
-
 <!--
 <div id="onload_m" class="modal">
   
@@ -350,7 +349,7 @@
                if(data.login == true){
                   $('#id01.start').modal('hide');
                   
-                  $('#udpateSubBtn').attr({"onClick" : "window.location.href = 'https://landscapearchitect.com/subscriptions/subscribe-renew.php?action=edit&id=" + data.ucode + "';"});
+                  $('#udpateSubBtn').attr({"onClick" : "window.location.href = '<?php echo BASE_URL; ?>subscriptions/subscribe-renew.php?action=edit&id=" + data.ucode + "';"});
                   document.getElementById("userName").innerHTML = data.name;
                   $('#id01.true').modal('show');
                  

@@ -1,10 +1,9 @@
 <? 
-
-	include '../../includes/la-common-top.php'; 
-
-  $pageId = "products";
-  
-  include '../../includes/la-common-header.inc'; 
+	$pageId = "products";
+	include '../modules/configuration.inc';
+	include '../modules/db.php';
+	include $rootInclude.'la-common-top.php'; 
+  	include $rootInclude.'la-common-header.inc'; 
 	
 	
 	
@@ -79,23 +78,23 @@
 <div class="row">
 	<div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
     	<div class="white_side full_width min-h-0 localWholesaleMenu">
-        <a href="https://landscapearchitect.com/LandscapeProducts/local_wholesale.php?zip=<? echo $zipcode ?>&d=<? echo $distance ?>">
-					<img src="https://landscapearchitect.com/lol-logos/sidebar-search-engine/lopse-sidebar-logo.jpg" width="100%" alt="Local Wholesale and Plant Material Search Engine" id="sidebarLogo">
+        <a href="<?php echo BASE_URL; ?>LandscapeProducts/local_wholesale.php?zip=<? echo $zipcode ?>&d=<? echo $distance ?>">
+					<img src="<?php echo BASE_URL; ?>lol-logos/sidebar-search-engine/lopse-sidebar-logo.jpg" width="100%" alt="Local Wholesale and Plant Material Search Engine" id="sidebarLogo">
 				</a>
         <div class="full_width" id="mobile_slide">
 						<h2 class="sideMenuSubHead">Plant Materials</h2>
-            <a href="https://landscapearchitect.com/LandscapeProducts/local_wholesale.php?ad=1027&zip=<? echo $zipcode ?>&d=<? echo $distance ?>"><h4 class="panel-title">Ground Cover</h4></a>
-            <a href="https://landscapearchitect.com/LandscapeProducts/local_wholesale.php?ad=279&zip=<? echo $zipcode ?>&d=<? echo $distance ?>"><h4 class="panel-title">Tree Relocation Services</h4></a>
-            <a href="https://landscapearchitect.com/LandscapeProducts/local_wholesale.php?ad=271&zip=<? echo $zipcode ?>&d=<? echo $distance ?>"><h4 class="panel-title">Trees - Palms</h4></a>
-            <a href="https://landscapearchitect.com/LandscapeProducts/local_wholesale.php?ad=998&zip=<? echo $zipcode ?>&d=<? echo $distance ?>"><h4 class="panel-title">Trees - Wholesale</h4></a>
-            <a href="https://landscapearchitect.com/LandscapeProducts/local_wholesale.php?ad=1143&zip=<? echo $zipcode ?>&d=<? echo $distance ?>"><h4 class="panel-title">Turf Grass / Sod / Seed</h4></a>
+            <a href="<?php echo BASE_URL; ?>LandscapeProducts/local_wholesale.php?ad=1027&zip=<? echo $zipcode ?>&d=<? echo $distance ?>"><h4 class="panel-title">Ground Cover</h4></a>
+            <a href="<?php echo BASE_URL; ?>LandscapeProducts/local_wholesale.php?ad=279&zip=<? echo $zipcode ?>&d=<? echo $distance ?>"><h4 class="panel-title">Tree Relocation Services</h4></a>
+            <a href="<?php echo BASE_URL; ?>LandscapeProducts/local_wholesale.php?ad=271&zip=<? echo $zipcode ?>&d=<? echo $distance ?>"><h4 class="panel-title">Trees - Palms</h4></a>
+            <a href="<?php echo BASE_URL; ?>LandscapeProducts/local_wholesale.php?ad=998&zip=<? echo $zipcode ?>&d=<? echo $distance ?>"><h4 class="panel-title">Trees - Wholesale</h4></a>
+            <a href="<?php echo BASE_URL; ?>LandscapeProducts/local_wholesale.php?ad=1143&zip=<? echo $zipcode ?>&d=<? echo $distance ?>"><h4 class="panel-title">Turf Grass / Sod / Seed</h4></a>
 						
 						<h2 class="sideMenuSubHead" style="margin-top: 20px;">Local Wholesale</h2>
-            <a href="https://landscapearchitect.com/LandscapeProducts/local_wholesale.php?ad=572&zip=<? echo $zipcode ?>&d=<? echo $distance ?>"><h4 class="panel-title">Chemicals, Soil Nutrients &amp; Mulch</h4></a>
-            <a href="https://landscapearchitect.com/LandscapeProducts/local_wholesale.php?ad=560&zip=<? echo $zipcode ?>&d=<? echo $distance ?>"><h4 class="panel-title">Landscape / Irrigation Supply</h4></a>
-            <a href="https://landscapearchitect.com/LandscapeProducts/local_wholesale.php?ad=1248&zip=<? echo $zipcode ?>&d=<? echo $distance ?>"><h4 class="panel-title">Pavers, Masonry, Blocks &amp; Rocks</h4></a>
-            <a href="https://landscapearchitect.com/LandscapeProducts/local_wholesale.php?ad=590&zip=<? echo $zipcode ?>&d=<? echo $distance ?>"><h4 class="panel-title">Power Equipment</h4></a>
-            <a href="https://landscapearchitect.com/LandscapeProducts/local_wholesale.php?ad=1365&zip=<? echo $zipcode ?>&d=<? echo $distance ?>"><h4 class="panel-title">Small Engine Repair</h4></a>
+            <a href="<?php echo BASE_URL; ?>LandscapeProducts/local_wholesale.php?ad=572&zip=<? echo $zipcode ?>&d=<? echo $distance ?>"><h4 class="panel-title">Chemicals, Soil Nutrients &amp; Mulch</h4></a>
+            <a href="<?php echo BASE_URL; ?>LandscapeProducts/local_wholesale.php?ad=560&zip=<? echo $zipcode ?>&d=<? echo $distance ?>"><h4 class="panel-title">Landscape / Irrigation Supply</h4></a>
+            <a href="<?php echo BASE_URL; ?>LandscapeProducts/local_wholesale.php?ad=1248&zip=<? echo $zipcode ?>&d=<? echo $distance ?>"><h4 class="panel-title">Pavers, Masonry, Blocks &amp; Rocks</h4></a>
+            <a href="<?php echo BASE_URL; ?>LandscapeProducts/local_wholesale.php?ad=590&zip=<? echo $zipcode ?>&d=<? echo $distance ?>"><h4 class="panel-title">Power Equipment</h4></a>
+            <a href="<?php echo BASE_URL; ?>LandscapeProducts/local_wholesale.php?ad=1365&zip=<? echo $zipcode ?>&d=<? echo $distance ?>"><h4 class="panel-title">Small Engine Repair</h4></a>
 
        
            </div><!-- #mobslide --> 
@@ -304,8 +303,8 @@
 
 										echo '<div class="row align-items-center" style="margin-bottom: 10px;">
 											<div class="col-3">
-												<a href="https://landscapearchitect.com/landscape-design-products/' . $string . '/'. $row['id'] . '" class="img_fit localWholesaleVendor">
-													<img src="https://landscapearchitect.com/products/images/' . $row['logo'] . '" alt="img" />
+												<a href="'.BASE_URL.'landscape-design-products/' . $string . '/'. $row['id'] . '" class="img_fit localWholesaleVendor">
+													<img src="'.BASE_URL.'products/images/' . $row['logo'] . '" alt="img" />
 												</a>
 											</div><!-- .col-3 -->
 											<div class="col-4">
@@ -318,7 +317,7 @@
 											</div><!-- .col-4 -->
 											<div class="col-5">
 												<a href="#" class="grenAnch">Get Directions</a>
-												<a href="https://landscapearchitect.com/landscape-design-products/' . $string . '/'. $row['id'] . '" class="grenAnch">Company Info</a>
+												<a href="'.BASE_URL.'landscape-design-products/' . $string . '/'. $row['id'] . '" class="grenAnch">Company Info</a>
 											</div><!-- .col-4 -->
 										</div><!-- /.row -->	';
 
@@ -487,7 +486,7 @@
 
 
 	
-<? include '../../includes/la-common-footer-inner.inc'; ?>
+<? include $rootInclude.'la-common-footer-inner.inc'; ?>
 
 				<!-- added from local-wholesale page start -->
 				 <script src="js/jquery.validate.min.js"></script>

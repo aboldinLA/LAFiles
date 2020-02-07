@@ -5725,7 +5725,7 @@
 					}
 
 
-
+					/*
 
 			function menuDropdown1215() { 
 				
@@ -5883,8 +5883,8 @@
 													
 						}
 												
-					}
-
+					}*/
+					/*
 			function menuDropdown1215M() { 
 				
 				include('connect3.inc');
@@ -6042,7 +6042,7 @@
 						}
 												
 					}
-
+					*/
 
 
 	

@@ -1,13 +1,11 @@
 <?php session_start() ?>
-
-<? 
- 
-	include '../../includes/la-common-top.php';
-
-  $pageId = "other";
-
-	include $rootInclude . 'la-common-header.inc'; 
-  include $rootInclude . 'connect4.inc';
+<?php 	
+	$pageId = "other";
+	include '../modules/configuration.inc';  
+	include '../modules/db.php'; 
+	include $rootInclude.'la-common-top.php';
+  	include $rootInclude . 'la-common-header.inc'; 
+  	
 
   
     $sql = "SELECT * FROM editorial WHERE title NOT LIKE '%Weekly%' AND subject != '10' AND title NOT LIKE '%Promo%' ORDER BY id DESC LIMIT 5";
@@ -24,10 +22,10 @@
      }
 
 
-  $randomCat = function(){
-    $selectCategories = ['32', '1214', '38', '33', '29', '41'];
-    echo $selectCategories[rand(0, sizeof($selectCategories))];
-  }
+	  function randomCat(){
+	    $selectCategories = ['32', '1214', '38', '33', '29', '41'];
+	    return $selectCategories[rand(0, sizeof($selectCategories))];
+	  }
 
 
 ?>
@@ -81,8 +79,16 @@
 								<p class="padding10">
 								  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget eros scelerisque.
 								</p>
--->
-								<p class="padding10"><a href="https://landscapearchitect.com/LandscapeProducts/la_category.php?ad=<? echo $randomCat() ?>">VIEW LA DETAILS</a></p>
+-->								<?php 
+									$cate_id = randomCat();
+									$sql1 = "SELECT * FROM xlist WHERE id = ".$cate_id;
+									$result1 = $conn->query($sql1);  
+									$cat_slug = '';
+									while($row = mysqli_fetch_array($result1)) {   
+										$cat_slug = $row['slug'];   										   	
+									}
+								?>
+								<p class="padding10"><a href="<?php echo BASE_URL.$cat_slug; ?>">VIEW LA DETAILS</a></p>
 							</div>
 							
 							<div class="col-md-4 col-sm-12 col-xs-12 ab-col">
@@ -95,7 +101,7 @@
 								  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget eros scelerisque.
 								</p>
 -->
-								<p class="padding10"><a href="https://landscapearchitect.com/research/news_landing.php">READ LATEST ARTICLES</a></p>
+								<p class="padding10"><a href="<?php echo BASE_URL; ?>research/news_landing.php">READ LATEST ARTICLES</a></p>
 							</div>
 							
 							
@@ -125,5 +131,4 @@
 	</section>		
            
 			
- <? include '../../includes/la-common-footer-inner.inc'; ?>
-
+ <? include $rootInclude.'la-common-footer-inner.inc'; ?>

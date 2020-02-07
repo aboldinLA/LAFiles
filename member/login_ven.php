@@ -1,8 +1,6 @@
-
-
-<?php
-      
-     include '../../includes/connect4.inc';
+<?php 
+     //include '../../includes/connect4.inc';
+     include '../modules/db.php';
     
      $passwordSub = $_POST['password'];
         

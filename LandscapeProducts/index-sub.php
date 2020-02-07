@@ -1,7 +1,10 @@
 <?
-
 // Top Section - HTML
-include '../../includes/lad_top-main.inc'; 
+include '../modules/configuration.inc';
+include '../modules/db.php';
+
+//include $rootInclude.'lad_top-main.inc'; 
+include $rootInclude.'la-lad-top.inc';
 
 	$uname2 = $_SESSION['name'];
 
@@ -16,13 +19,14 @@ include '../../includes/lad_top-main.inc';
 
 // Top Section - Nav Section
 if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), 'mobile') || strstr(strtolower($_SERVER['HTTP_USER_AGENT']), 'android')) {
-    include '../../includes/lad_header-main3-js.inc'; 
+    include $rootInclude.'lad_header-main3-js.inc'; 
 } else {
-    include '../../includes/lad_header-common.inc'; 
+    //include $rootInclude.'lad_header-common.inc'; 
+    include($rootInclude."la-lad-header.inc");
 }
 
 
-include '../../includes/search-engine-leaderboard-banners.inc'; 
+include $rootInclude.'search-engine-leaderboard-banners.inc'; 
 
 
 		
@@ -164,7 +168,7 @@ margin-top: 46px;
 
                     <!-- Slide Background -->
 					<a href="<? echo $picBanLink1; ?>" >
-                    <img src="https://landscapearchitect.com/banner/<? echo $picBan1; ?>" alt="Bootstrap Touch Slider"  class="slide-image"/>
+                    <img src="<?php echo BASE_URL; ?>banner/<? echo $picBan1; ?>" alt="Bootstrap Touch Slider"  class="slide-image"/>
 					</a>
                 </div>
                 <!-- End of Slide -->
@@ -174,7 +178,7 @@ margin-top: 46px;
 
                     <!-- Slide Background -->
 					<a href="<? echo $picBanLink2; ?>" >
-                   	<img src="https://landscapearchitect.com/banner/<? echo $picBan2; ?>" alt="Bootstrap Touch Slider"  class="slide-image"/>
+                   	<img src="<?php echo BASE_URL; ?>banner/<? echo $picBan2; ?>" alt="Bootstrap Touch Slider"  class="slide-image"/>
 					</a>
                 </div>
                 <!-- End of Slide -->
@@ -184,7 +188,7 @@ margin-top: 46px;
 
                     <!-- Slide Background -->
 					<a href="<? echo $picBanLink3; ?>" >
-                    <img src="https://landscapearchitect.com/banner/<? echo $picBan3; ?>" alt="Bootstrap Touch Slider"  class="slide-image"/>
+                    <img src="<?php echo BASE_URL; ?>banner/<? echo $picBan3; ?>" alt="Bootstrap Touch Slider"  class="slide-image"/>
 					</a>
                 </div>
                 <!-- End of Slide -->
@@ -239,28 +243,28 @@ margin-top: 46px;
 									<?
 									
 
-								                                    $servername = "localhost";
-                                                                    $username = "land_patchew";
-                                                                    $password = "59q2GB6k$3";
-                                                                    $dbname = "land_landscap_lollive";
+		                        /*$servername = "localhost";
+		                        $username = "land_patchew";
+		                        $password = "59q2GB6k$3";
+		                        $dbname = "land_landscap_lollive";
 
-																	// Create connection
-																		$conn = new mysqli($servername, $username, $password, $dbname);
-																	// Check connection
-																		if ($conn->connect_error) {
-																			 die("Connection failed: " . $conn->connect_error);
-																		} 
-									
-									
-																		$cat2 = $_GET['number'];
-									
-									
-																			$sql533 = "SELECT * FROM new_vendor LEFT JOIN vendor_product ON new_vendor.id=vendor_product.vendor_id WHERE vendor_product.xlist='". $cat2 ."' AND (new_vendor.status='10' OR new_vendor.status='12' OR new_vendor.status='14' OR new_vendor.status='16' OR new_vendor.status='18')";
-																			$result533 = $conn->query($sql533);
+								// Create connection
+									$conn = new mysqli($servername, $username, $password, $dbname);
+								// Check connection
+									if ($conn->connect_error) {
+										 die("Connection failed: " . $conn->connect_error);
+									} */
 
-																			$rowcount533=mysqli_num_rows($result533);
-                                    
-                                    
+
+									$cat2 = $_GET['number'];
+
+
+										$sql533 = "SELECT * FROM new_vendor LEFT JOIN vendor_product ON new_vendor.id=vendor_product.vendor_id WHERE vendor_product.xlist='". $cat2 ."' AND (new_vendor.status='10' OR new_vendor.status='12' OR new_vendor.status='14' OR new_vendor.status='16' OR new_vendor.status='18')";
+										$result533 = $conn->query($sql533);
+
+										$rowcount533=mysqli_num_rows($result533);
+
+
                                         $ad = $_GET['ad'];
                                         
                                         
@@ -426,7 +430,7 @@ margin-top: 46px;
 																   
 																	if ($rowcount299 != 0) {
 
-																		 $deLogo = "<img class='deLogo' src='https://landscapearchitect.com/lol-logos/la-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: lightblue'>&nbsp;&nbsp;";
+																		 $deLogo = "<img class='deLogo' src='".BASE_URL."lol-logos/la-details-logo.jpg' style='box-shadow: 2px 2px 2px #888888; border: solid; border-color: lightblue'>&nbsp;&nbsp;";
 
 																	} else {
 																		
@@ -493,7 +497,9 @@ margin-top: 46px;
 
 																$string = preg_replace("/[\s-]+/", " ", $string); // Clean multiple dashes or whitespaces
 
-																$string = preg_replace("/[\s_]/", "-", $string); //Convert whitespaces and underscore to dash		
+																$string = preg_replace("/[\s_]/", "-", $string); //Convert whitespaces and underscore to dash	
+
+																$string = $row['slug'];	
 															
 																$string2 =  $row['product_name']; // Trim String
 
@@ -513,12 +519,12 @@ margin-top: 46px;
 
                                                                             if ($xCount == $baseCount) {
 
-                                                                                echo "<div class='container' style='width:130%'><div class='row'><div class='col-md-3'><a href='https://landscapearchitect.com/landscape-design-products/" . $string . "/" . $string2 . "/" . $row['vendor_id'] . "/" . $row['id'] . "'><figure><div><img height='200px' style='max-width: 90%' src='https://landscapearchitect.com/products/images/".$row['photo']."' \"></div><figcaption><h2 class='coName' style='font-size: 18px'>".$row['company_name']."</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "</p></figcaption></figure></a></div></div></div>";
+                                                                                echo "<div class='container' style='width:130%'><div class='row'><div class='col-md-3'><a href='".BASE_URL."landscape-design-products/" . $string . "/" . $string2 . "/" . $row['vendor_id'] . "/" . $row['id'] . "'><figure><div><img height='200px' style='max-width: 90%' src='".BASE_URL."products/images/".$row['photo']."' \"></div><figcaption><h2 class='coName' style='font-size: 18px'>".$row['company_name']."</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "</p></figcaption></figure></a></div></div></div>";
                                                                                 $iCount = 1;
 
                                                                             } else {
 
-																                echo "<div class='container' style='width:130%'><div class='row'><div class='col-md-3'><a href='https://landscapearchitect.com/landscape-design-products/" . $string . "/" . $string2 . "/" . $row['vendor_id'] . "/" . $row['id'] . "'><figure><div><img height='200px' style='max-width: 90%' src='https://landscapearchitect.com/products/images/".$row['photo']."' \"></div><figcaption><h2 class='coName' style='font-size: 18px'>".$row['company_name']."</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "</p></figcaption></figure></a></div>";
+																                echo "<div class='container' style='width:130%'><div class='row'><div class='col-md-3'><a href='".BASE_URL."landscape-design-products/" . $string . "/" . $string2 . "/" . $row['vendor_id'] . "/" . $row['id'] . "'><figure><div><img height='200px' style='max-width: 90%' src='".BASE_URL."products/images/".$row['photo']."' \"></div><figcaption><h2 class='coName' style='font-size: 18px'>".$row['company_name']."</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "</p></figcaption></figure></a></div>";
                                                                                 $iCount++; 
                                                                                 $xCount++;       
 
@@ -529,12 +535,12 @@ margin-top: 46px;
 
                                                                             if ($xCount == $baseCount) {
 
-																                echo "<div class='col-md-3'><a href='https://landscapearchitect.com/landscape-design-products/" . $string . "/" . $string2 . "/" . $row['vendor_id'] . "/" . $row['id'] . "'><figure><div><img height='200px' style='max-width: 90%' src='https://landscapearchitect.com/products/images/".$row['photo']."' \"></div><figcaption><h2 class='coName' style='font-size: 18px'>".$row['company_name']."</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "</p></figcaption></figure></a></div></div></div>";
+																                echo "<div class='col-md-3'><a href='".BASE_URL."landscape-design-products/" . $string . "/" . $string2 . "/" . $row['vendor_id'] . "/" . $row['id'] . "'><figure><div><img height='200px' style='max-width: 90%' src='https://landscapearchitect.com/products/images/".$row['photo']."' \"></div><figcaption><h2 class='coName' style='font-size: 18px'>".$row['company_name']."</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "</p></figcaption></figure></a></div></div></div>";
                                                                                 $iCount = 1;
 
                                                                             } else {
 
-																                echo "<div class='col-md-3'><a href='https://landscapearchitect.com/landscape-design-products/" . $string . "/" . $string2 . "/" . $row['vendor_id'] . "/" . $row['id'] . "'><figure><div><img height='200px' style='max-width: 90%' src='https://landscapearchitect.com/products/images/".$row['photo']."' \"></div><figcaption><h2 class='coName' style='font-size: 18px'>".$row['company_name']."</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "</p></figcaption></figure></a></div>";
+																                echo "<div class='col-md-3'><a href='".BASE_URL."landscape-design-products/" . $string . "/" . $string2 . "/" . $row['vendor_id'] . "/" . $row['id'] . "'><figure><div><img height='200px' style='max-width: 90%' src='".BASE_URL."products/images/".$row['photo']."' \"></div><figcaption><h2 class='coName' style='font-size: 18px'>".$row['company_name']."</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "</p></figcaption></figure></a></div>";
                                                                                 $iCount++;                                                            
                                                                                 $xCount++;       
                                                                             }
@@ -543,7 +549,7 @@ margin-top: 46px;
                                                                         } elseif ($iCount == 3) {
 
 
-																            echo "<div class='col-md-3'><a href='https://landscapearchitect.com/landscape-design-products/" . $string . "/" . $string2 . "/" . $row['vendor_id'] . "/" . $row['id'] . "'><figure><div><img height='200px' style='max-width: 90%' src='https://landscapearchitect.com/products/images/".$row['photo']."' \"></div><figcaption><h2 class='coName' style='font-size: 18px'>".$row['company_name']."</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "</p></figcaption></figure></a></div></div></div>";
+																            echo "<div class='col-md-3'><a href='".BASE_URL."landscape-design-products/" . $string . "/" . $string2 . "/" . $row['vendor_id'] . "/" . $row['id'] . "'><figure><div><img height='200px' style='max-width: 90%' src='".BASE_URL."products/images/".$row['photo']."' \"></div><figcaption><h2 class='coName' style='font-size: 18px'>".$row['company_name']."</h2><p>Matching Products: " . $rowcount99 . "<br>Total Products: " . $rowcount199 . "</p></figcaption></figure></a></div></div></div>";
 
                                                                             $iCount = 1;
                                                                             $xCount++;       
@@ -594,7 +600,7 @@ margin-top: 46px;
 											<form method="post" action="Search-Products.php" >
 
 
-												<input type="text" name="keywrd" value="<? echo $keywordSE ?>" id="keywordBox" placeholder="Please enter Keyword"><input type="image" value="Go" width="34px" src="https://landscapearchitect.com/images/mag-button.png"  class ="sch" id="sch" onmouseover="this.src='https://landscapearchitect.com/images/mag-button-over.png';"  onmouseout="this.src='https://landscapearchitect.com/images/mag-button.png';" style="position: relative; top: -7px" /><br><br>
+												<input type="text" name="keywrd" value="<? echo $keywordSE ?>" id="keywordBox" placeholder="Please enter Keyword"><input type="image" value="Go" width="34px" src="<?php echo BASE_URL; ?>images/mag-button.png"  class ="sch" id="sch" onmouseover="this.src='<?php echo BASE_URL; ?>images/mag-button-over.png';"  onmouseout="this.src='<?php echo BASE_URL; ?>images/mag-button.png';" style="position: relative; top: -7px" /><br><br>
 													<!-- <input type="submit" value="Submit" style="background-color: #4fb548; position: relative; left: -10px; top: 10px; font-family: Helvetica, Arial,' sans-serif'; font-size: 18px; padding: 3px"> -->
 
 												
@@ -617,7 +623,7 @@ margin-top: 46px;
 							<?
 
 							// Category Banners
-                            include '../../includes/banner-LAD.inc'; 
+                            include $rootInclude.'banner-LAD.inc'; 
 
 							?>
 								
@@ -672,12 +678,10 @@ margin-top: 46px;
 
 // Top Section - Footer Section
 // include("lad_footer-main.inc");
-include '../../includes/la_bottom-common.inc'; 
+include $rootInclude.'la_bottom-common.inc'; 
 
-?>	
 
-<?
-include '../../includes/lo_footer-main2-new.inc'; 
+include $rootInclude.'lo_footer-main2-new.inc'; 
 ?>
 	
 	

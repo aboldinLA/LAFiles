@@ -1,6 +1,8 @@
-<? 	include '../../includes/la-common-top.php'; 
+<? 	
+	include '../modules/configuration.inc';
+	include $rootInclude.'la-common-top.php'; 
 
-	include '../../includes/la-common-header-inner.inc';  ?>
+	include $rootInclude.'la-common-header-inner.inc';  ?>
 
 
 
@@ -31,10 +33,10 @@
                 
             <?
 
-            include '../../includes/connect4.inc'; 
+            //include '../../includes/connect4.inc'; 
 						
 						// sidebar accordian menu 
-						include '../../includes/la-common-sidebar-menu.inc';
+						include $rootInclude.'la-common-sidebar-menu.inc';
                    
 									
 				
@@ -54,7 +56,7 @@
 
 						$adNum = $_GET['ad'];
 
-						$baseLink = 'https://landscapearchitect.com/LandscapeProducts/la_details.php?ad=' . $_GET['ad'] . '&xlist=' . $_GET['xlist'];
+						$baseLink = BASE_URL.'LandscapeProducts/la_details.php?ad=' . $_GET['ad'] . '&xlist=' . $_GET['xlist'];
 
 						if($_GET['brand'] == 'y'){
 							$baseLink .= "&brand=y";
@@ -66,7 +68,7 @@
             <!-- Brand List Start -->
             <h2 class="mobtoggle" style="margin-top: 30px;">BRAND</h2>
             
-             <form method="post" action="<? echo 'https://landscapearchitect.com/LandscapeProducts/search-results-products.php?brand=y&limit=24&page=1' ?>" id="brandsListForm">   
+             <form method="post" action="<? echo BASE_URL.'LandscapeProducts/search-results-products.php?brand=y&limit=24&page=1' ?>" id="brandsListForm">   
             	<ul class="brandList">                
                 
 
@@ -169,9 +171,9 @@
             <p class="sort_area" id="totalProdCount"></p>
 <!--						 <p class="sort_area">Sort from A-Z</p>-->
             <div class="showview">
-							Show <a href="https://landscapearchitect.com/LandscapeProducts/search-results-products.php">24</a> | 
-							<a href="https://landscapearchitect.com/LandscapeProducts/search-results-products.php?limit=48">48</a> | 
-							<a href="https://landscapearchitect.com/LandscapeProducts/search-results-products.php?limit=all">View All</a> 
+							Show <a href="<?php echo BASE_URL; ?>LandscapeProducts/search-results-products.php">24</a> | 
+							<a href="<?php echo BASE_URL; ?>LandscapeProducts/search-results-products.php?limit=48">48</a> | 
+							<a href="<?php echo BASE_URL; ?>LandscapeProducts/search-results-products.php?limit=all">View All</a> 
 						</div><!-- /.showview -->
             
             
@@ -259,9 +261,9 @@
 												
 												
 												// Vendor	
-												echo '<a href="https://landscapearchitect.com/LandscapeProducts/vendor-details.php?number=' . $row['vendor_id'] . '" class="col-md-4 col-sm-6 col-xs-6 for_small">
+												echo '<a href="'.BASE_URL.'LandscapeProducts/vendor-details.php?number=' . $row['vendor_id'] . '" class="col-md-4 col-sm-6 col-xs-6 for_small">
 													<div class="full_width brdr" style="height: 300px; background-color:#FFFFFF">
-														<img class="contain" src="https://landscapearchitect.com/products/images/' . $row['logo'] . '" alt="img" />
+														<img class="contain" src="'.BASE_URL.'products/images/' . $row['logo'] . '" alt="img" />
 														<span class="full_width he_det">
 															<h4>' . $row['company_name'] . '<span>3 Matching Products</span></h4>
 														</span>
@@ -283,9 +285,9 @@
 												$photo = str_replace(')', '%29', $photo);
 												
 												// XList		
-												echo '<a href="https://landscapearchitect.com/LandscapeProducts/product-details.php?number=' . $row['vendor_id'] . '&prodNum=' . $row['id'] . '" class="col-md-4 col-sm-6 col-xs-6 for_small">
+												echo '<a href="'.BASE_URL.'LandscapeProducts/product-details.php?number=' . $row['vendor_id'] . '&prodNum=' . $row['id'] . '" class="col-md-4 col-sm-6 col-xs-6 for_small">
 														<div class="full_width brdr" style="height: 300px; background-color:#FFFFFF">
-															<img class="contain" src="https://landscapearchitect.com/products/images/' . $photo . '" alt="img" />
+															<img class="contain" src="'.BASE_URL.'products/images/' . $photo . '" alt="img" />
 															<span class="full_width he_det">
 																<h4>' . $prodName . '<span>2 Matching Products</span></h4>
 															</span>
@@ -312,7 +314,7 @@
 											$photo = str_replace(')', '%29', $photo);
 											
 											//Product
-											echo '<a href="https://landscapearchitect.com/LandscapeProducts/product-details.php?number=' . $row['vendor_id'] . '&prodNum=' . $row['id'] . '" class="col-md-4 col-sm-6 col-xs-6 for_small">
+											echo '<a href="'.BASE_URL.'LandscapeProducts/product-details.php?number=' . $row['vendor_id'] . '&prodNum=' . $row['id'] . '" class="col-md-4 col-sm-6 col-xs-6 for_small">
 													<div class="full_width brdr" style="height: 300px; background-color:#FFFFFF">
 														<img class="contain" src="https://landscapearchitect.com/products/images/' . $photo . '" alt="img" />
 														<span class="full_width he_det">
@@ -373,7 +375,7 @@
 											} else {
 
 											
-												$link = 'https://landscapearchitect.com/LandscapeProducts/search-results-products.php';
+												$link = BASE_URL.'LandscapeProducts/search-results-products.php';
 
 												$last  =  $maxPages;
 
@@ -479,10 +481,10 @@
 			
 
 		
-			<? include '../../includes/la-common-footer-inner.inc'; ?>
+			<? include $rootInclude.'la-common-footer-inner.inc'; ?>
 			
 			<!-- must go below footer to access jquery -->
-			<? include '../../includes/la-common-magazine-subscribe.php'; ?>
+			<? include $rootInclude.'la-common-magazine-subscribe.php'; ?>
 			
 			
 			<script>

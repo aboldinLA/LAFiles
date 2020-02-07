@@ -1,19 +1,20 @@
 <?php session_start() ?>
 
 <? 
- 
-	include '../../includes/la-common-top.php';
 
   $pageId = "other";
 
-	include '../../includes/la-common-header.inc'; 
+  include '../modules/configuration.inc';  
+	include $rootInclude.'la-common-top.php';
+	include $rootInclude.'la-common-header.inc'; 
 
  
 
 
 if($_SESSION['loggedIn']){
   
-  include '../../includes/connect4.inc'; 
+  //include '../../includes/connect4.inc'; 
+  include '../modules/db.php'; 
   
   $sql = "SELECT * FROM subscribe WHERE id ='" . $_SESSION['user'] . "'";
   $result = $conn->query($sql);
@@ -264,7 +265,7 @@ if($_SESSION['loggedIn']){
 	</section>		
            
 			
- <? include '../../includes/la-common-footer-inner.inc'; ?>
+ <? include $rootInclude.'la-common-footer-inner.inc'; ?>
 
 
 <script>

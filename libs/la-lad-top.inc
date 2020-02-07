@@ -1,8 +1,8 @@
 <?
    session_start();
 
-   include("land-design-meta.inc");
-    include("../../lad_common.inc");
+   include($rootInclude."land-design-meta.inc");
+    //include($rootInclude."lad_common.inc");
 
 ?>
 
@@ -33,7 +33,7 @@
 	
 <?php
 // Important! You have to include it before your html code
-include_once "/home/land/public_html/advpoll/poll_cookie.php";
+include_once "../advpoll/poll_cookie.php";
 ?>	
 	
 	

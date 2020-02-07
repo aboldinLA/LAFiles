@@ -136,12 +136,12 @@
 <div class="footer">
 	<div class="containerMain">
 		<div class="footerLogo">
-			<a href="https://landscapearchitect.com/research/shop-a.php"><img src="https://landscapearchitect.com/lol-logos/LAcom-WHITE.png"/></a>
+			<a href="<?php echo BASE_URL; ?>research/shop-a.php"><img src="<?php echo BASE_URL; ?>lol-logos/LAcom-WHITE.png"/></a>
 			<div class="footerSocial">
-				<div class="footerSocialItem"><a href="https://landscapearchitect.com/social/index.php#LO" target="_blank"><i class="fab fa-facebook-square"></i></a></div>
-				<div class="footerSocialItem"><a href="https://landscapearchitect.com/social/index.php#LO" target="_blank"><i class="fab fa-twitter-square"></i></a></div>
-				<div class="footerSocialItem"><a href="https://landscapearchitect.com/social/index.php#LO" target="_blank"><i class="fab fa-linkedin"></i></a></div>
-				<div class="footerSocialItem"><a href="https://landscapearchitect.com/social/index.php#LO" target="_blank"><i class="fab fa-instagram"></i></a></div>
+				<div class="footerSocialItem"><a href="<?php echo BASE_URL; ?>social/index.php#LO" target="_blank"><i class="fab fa-facebook-square"></i></a></div>
+				<div class="footerSocialItem"><a href="<?php echo BASE_URL; ?>social/index.php#LO" target="_blank"><i class="fab fa-twitter-square"></i></a></div>
+				<div class="footerSocialItem"><a href="<?php echo BASE_URL; ?>social/index.php#LO" target="_blank"><i class="fab fa-linkedin"></i></a></div>
+				<div class="footerSocialItem"><a href="<?php echo BASE_URL; ?>social/index.php#LO" target="_blank"><i class="fab fa-instagram"></i></a></div>
 			</div>
 			<div><p>14771 Plaza Drive, Suite. A, <br>Tustin, CA 92780</p></div>
 
@@ -150,12 +150,12 @@
 			<h3 class="footerHeader">Quick Links</h3>
 			<ul class="footerMenu">
 				<li class="footerMenuItem"><a href="https://www.landscapeonline.com">LandscapeOnline</a></li>
-				<li class="footerMenuItem"><a href="https://landscapearchitect.com/research/shop-a.php">LA Details</a></li>
-				<li class="footerMenuItem"><a href="https://landscapearchitect.com/research/shop-a.php">Tools &amp; Equipment</a></li>
-				<li class="footerMenuItem"><a href="https://landscapearchitect.com/research/index-js2.php">Article Search</a></li>
-				<li class="footerMenuItem"><a href="https://landscapearchitect.com/digital-mags/index.php">Digital Magazines</a></li>
-				<li class="footerMenuItem"><a href="https://landscapearchitect.com/member/login3.php?t=s">User Profile Management</a></li>
-				<li class="footerMenuItem"><a href="https://landscapearchitect.com/member/login2.php?t=v">Vendor Profile Management</a></li>
+				<li class="footerMenuItem"><a href="<?php echo BASE_URL; ?>research/shop-a.php">LA Details</a></li>
+				<li class="footerMenuItem"><a href="<?php echo BASE_URL; ?>research/shop-a.php">Tools &amp; Equipment</a></li>
+				<li class="footerMenuItem"><a href="<?php echo BASE_URL; ?>research/index-js2.php">Article Search</a></li>
+				<li class="footerMenuItem"><a href="<?php echo BASE_URL; ?>digital-mags/index.php">Digital Magazines</a></li>
+				<li class="footerMenuItem"><a href="<?php echo BASE_URL; ?>member/login3.php?t=s">User Profile Management</a></li>
+				<li class="footerMenuItem"><a href="<?php echo BASE_URL; ?>member/login2.php?t=v">Vendor Profile Management</a></li>
 			</ul>
 		</div>
 		<div class="footerAbout">
@@ -169,7 +169,7 @@ LO financially supports many associations through either the payment of dues, co
 			
 		</div>
 		<div class="footerBadTree">
-		<center><a href="/bad-tree/index.php" target="_blank"><img src="https://landscapearchitect.com/imgz/bad-tree-banner-sm.gif" width="200" border="0" /></a><br><br>
+		<center><a href="/bad-tree/index.php" target="_blank"><img src="<?php echo BASE_URL; ?>imgz/bad-tree-banner-sm.gif" width="200" border="0" /></a><br><br>
 					Last Updated 08-08-19<br>
 					New Comic Every Monday &amp; Thursday.</center>
 		</div>	
@@ -193,7 +193,7 @@ LO financially supports many associations through either the payment of dues, co
 			<? date_default_timezone_set("America/Los_Angeles"); ?>
 				<?= date("F j, Y, g:i a "); ?>PDT
 				
-				Website problems, <a href="https://landscapearchitect.com/bug/bug-report.php" target="_blank">report a bug</a>. At Landscape Communications, Inc. we are committed to protecting consumers from fraudulent or inappropriate offers - <a href="https://landscapearchitect.com/research/Ad-Transfer/transfer/Privacy-Policies/LCI-Privacy-Statement.pdf" target="_blank"><u>Privacy Policy</u></a><br /> 	
+				Website problems, <a href="<?php echo BASE_URL; ?>bug/bug-report.php" target="_blank">report a bug</a>. At Landscape Communications, Inc. we are committed to protecting consumers from fraudulent or inappropriate offers - <a href="<?php echo BASE_URL; ?>research/Ad-Transfer/transfer/Privacy-Policies/LCI-Privacy-Statement.pdf" target="_blank"><u>Privacy Policy</u></a><br /> 	
 				Copyright &copy; 2019 Landscape Communications Inc.<br />
 				</p>
 				<? if ($_SESSION['uid']){ ;?><!-- <FONT size="-2"><a href="/kill.php">Sign Out</a></font> -->

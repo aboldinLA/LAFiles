@@ -1,6 +1,7 @@
 <?
-
-include '../../includes/la-lad-top.inc';
+include '../modules/configuration.inc';
+include '../modules/db.php';
+include $rootInclude.'la-lad-top.inc';
 //include("../../includes/lo_common_new.inc");
 
 $action = $_GET['action'];
@@ -19,7 +20,7 @@ $id = $_GET['id'];
 <?
 
 // Top Section - Nav Section
-		include("../../includes/la-lad-header.inc");
+		include($rootInclude."la-lad-header.inc");
 
 ?>
 
@@ -108,7 +109,7 @@ $id = $_GET['id'];
 									
 
         
-                                        include '../../includes/connect4.inc';
+                                        //include '../../includes/connect4.inc';
         
         
         
@@ -215,7 +216,7 @@ $id = $_GET['id'];
 			<table>
 				<tr>
 					<td>
-						<div> <center><img width="60%" src="https://landscapearchitect.com/products/images/<? echo $row['logo']; ?>" alt="company logo" ></center>
+						<div> <center><img width="60%" src="<?php echo BASE_URL; ?>products/images/<? echo $row['logo']; ?>" alt="company logo" ></center>
 					</td>
 				</tr>
 	
@@ -341,7 +342,7 @@ $id = $_GET['id'];
                                         ?>
                                         
 										<p style="position: relative; top: 10px"><strong>This Product is Active<br>- Click the button to deactivate.</strong></p>
-											<a onclick="myFunction51()"><img width="6%" src="https://landscapearchitect.com/vendor/images/active-button-new.png" alt="product-active"></a><br>
+											<a onclick="myFunction51()"><img width="6%" src="<?php echo BASE_URL; ?>vendor/images/active-button-new.png" alt="product-active"></a><br>
                                         <?
                                                     
                                                 } else {
@@ -349,7 +350,7 @@ $id = $_GET['id'];
                                          ?>  
                                         
 										<p><strong>This Product is Not Active<br>- Click the button to activate.</strong></p>
-											<a onclick="myFunction52()"><img width="6%" src="https://landscapearchitect.com/vendor/images/inactive-button-new.jpg" alt="product-active"></a><br>                                                    
+											<a onclick="myFunction52()"><img width="6%" src="<?php echo BASE_URL; ?>vendor/images/inactive-button-new.jpg" alt="product-active"></a><br>                                                    
                                                     
                                           <?          
                                                 }
@@ -365,7 +366,7 @@ $id = $_GET['id'];
                                         ?>
                                         
 										<br><p><strong>Mark this Product for deletion.</strong></p>
-											<a onclick="myFunction53()"><img width="6%" src="https://landscapearchitect.com/LandscapeProducts/images/delete.jpg" alt="product-active"></a><br>
+											<a onclick="myFunction53()"><img width="6%" src="<?php echo BASE_URL; ?>LandscapeProducts/images/delete.jpg" alt="product-active"></a><br>
                                         <?
                                                     
                                                 } else {
@@ -373,7 +374,7 @@ $id = $_GET['id'];
                                          ?>  
                                         
 										<br><p><strong>Unmark this Product from deletion.</strong></p>
-											<a onclick="myFunction54()"><img width="6%" src="https://landscapearchitect.com/LandscapeProducts/images/undelete.jpg" alt="product-active"></a><br>                                                    
+											<a onclick="myFunction54()"><img width="6%" src="<?php echo BASE_URL; ?>LandscapeProducts/images/undelete.jpg" alt="product-active"></a><br>                                                    
                                                     
                                           <?          
                                                 }
@@ -398,7 +399,7 @@ $id = $_GET['id'];
                                     </style>										
 
 									<div class="col-lg-3 col-md-6 col-sm-6">
-										<center><div class="ex2"><img width="90%" src="https://landscapearchitect.com/products/images/<? echo $row['photo'] ?>"></div></center>
+										<center><div class="ex2"><img width="90%" src="<?php echo BASE_URL; ?>products/images/<? echo $row['photo'] ?>"></div></center>
 										
                                         
                                         
@@ -412,7 +413,7 @@ $id = $_GET['id'];
 										<p><strong>Product Name: </strong><br><? echo $row['product_name'] ?></p>
 										<p><strong>Product Description: </strong><br><? echo $row['description'] ?></p>
                                         
- 										<a onclick="myFunction56()"><img width="28%" style="position: relative; z-index: 500; cursor: pointer" src="https://landscapearchitect.com/vendor/images/edit-text-button.jpg" alt="edit-text"></a><br><br>	
+ 										<a onclick="myFunction56()"><img width="28%" style="position: relative; z-index: 500; cursor: pointer" src="<?php echo BASE_URL; ?>vendor/images/edit-text-button.jpg" alt="edit-text"></a><br><br>	
                                         
 									  </form>
             
@@ -423,7 +424,7 @@ $id = $_GET['id'];
                                         <p>To link this product link directly to a page on your web site. Provide the link below.</p>                                        
 										<p><strong>Direct Web Link: </strong><br><? echo $row['web_photo'] ?></p>  
                                         
- 										<a onclick="myFunction57()"><img width="28%" style="position: relative; z-index: 500; cursor: pointer" src="https://landscapearchitect.com/vendor/images/edit-link-button.jpg" alt="edit-link"></a><br><br>	
+ 										<a onclick="myFunction57()"><img width="28%" style="position: relative; z-index: 500; cursor: pointer" src="<?php echo BASE_URL; ?>vendor/images/edit-link-button.jpg" alt="edit-link"></a><br><br>	
                                         
 									  </form>
                                         
@@ -479,10 +480,10 @@ $id = $_GET['id'];
                                         </p></center>   
                                         
 										<div class="col-md-3" style="position: relative; left: 115px; top: 0px; z-index: 2000">
-											<figure><a onclick="myFunction55()"><img width="150%" src="https://landscapearchitect.com/LandscapeProducts/images/category-button.jpg" alt="Category"  cursor: pointer></a></figure>
+											<figure><a onclick="myFunction55()"><img width="150%" src="<?php echo BASE_URL; ?>LandscapeProducts/images/category-button.jpg" alt="Category"  cursor: pointer></a></figure>
 										</div> 
                                         
-                                        <p><a href="https://landscapearchitect.com/LandscapeProducts/index-vendor-detail-edit-add-model.php?number=<? echo $key2; ?>&prodNum=<? echo $_GET['prodNum']; ?>&xlistNum=<? echo $xlistNum; ?>" target="_blank"><img width="25%" src="https://landscapearchitect.com/vendor/images/add-model-button.png" style="position: relative; left: 45px; top: 50px"></a></p>                            
+                                        <p><a href="<?php echo BASE_URL; ?>LandscapeProducts/index-vendor-detail-edit-add-model.php?number=<? echo $key2; ?>&prodNum=<? echo $_GET['prodNum']; ?>&xlistNum=<? echo $xlistNum; ?>" target="_blank"><img width="25%" src="<?php echo BASE_URL; ?>vendor/images/add-model-button.png" style="position: relative; left: 45px; top: 50px"></a></p>                            
                     
                                     </div>                                                            
                                         
@@ -518,34 +519,34 @@ $id = $_GET['id'];
 											<div class="container">
 											  <div class="row">
 												<div class="col-md-3" style="font-size: 12px">
-													<figure><button onclick="myFunction44()"><img width="100%" src="https://landscapearchitect.com/LandscapeProducts/images/pdf.jpg" alt="CAD-PDF"></button><figcaption><center>CAD PDF:<br> <? if ($row['pdff'] === NULL || $row['pdff'] === 'none') { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction44()">Add</a>'; } else { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction44()">Edit</a>'; } ?></center></figcaption></figure>
+													<figure><button onclick="myFunction44()"><img width="100%" src="<?php echo BASE_URL; ?>LandscapeProducts/images/pdf.jpg" alt="CAD-PDF"></button><figcaption><center>CAD PDF:<br> <? if ($row['pdff'] === NULL || $row['pdff'] === 'none') { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction44()">Add</a>'; } else { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction44()">Edit</a>'; } ?></center></figcaption></figure>
 												</div>
 
 												<div class="col-md-3" style="position: relative; left: 10px; font-size: 12px">
-													<figure><button onclick="myFunction45()"><img width="100%" src="https://landscapearchitect.com/LandscapeProducts/images/dwg.jpg" alt="CAD-DWG"></button><figcaption><center>CAD DWG: <? if ($row['cadd'] === NULL || $row['cadd'] === 'none') { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction45()">Add</a>'; } else { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction45()">Edit</a>'; } ?></center></figcaption></figure>
+													<figure><button onclick="myFunction45()"><img width="100%" src="<?php echo BASE_URL; ?>LandscapeProducts/images/dwg.jpg" alt="CAD-DWG"></button><figcaption><center>CAD DWG: <? if ($row['cadd'] === NULL || $row['cadd'] === 'none') { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction45()">Add</a>'; } else { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction45()">Edit</a>'; } ?></center></figcaption></figure>
 												</div>
 
 												<div class="col-md-3" style="position: relative; left: 15px; font-size: 12px">
-													<figure><button onclick="myFunction46()"><img width="100%" src="https://landscapearchitect.com/LandscapeProducts/images/dwf.jpg" alt="CAD-DWF"></button><figcaption><center>CAD DWF: <? if ($row['cadd_2'] === NULL || $row['cadd_2'] === 'none') { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction46()">Add</a>'; } else { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction46()">Edit</a>'; } ?></center></figcaption></figure>
+													<figure><button onclick="myFunction46()"><img width="100%" src="<?php echo BASE_URL; ?>LandscapeProducts/images/dwf.jpg" alt="CAD-DWF"></button><figcaption><center>CAD DWF: <? if ($row['cadd_2'] === NULL || $row['cadd_2'] === 'none') { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction46()">Add</a>'; } else { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction46()">Edit</a>'; } ?></center></figcaption></figure>
 												</div>				  
 
 												<div class="col-md-3" style="position: relative; left: 20px; font-size: 12px">
-													<figure><button onclick="myFunction47()"><img width="100%" src="https://landscapearchitect.com/LandscapeProducts/images/dxf.jpg" alt="CAD-DXF"></button><figcaption><center>CAD<br>DXF: <? if ($row['cadd_3'] === NULL || $row['cadd_3'] === 'none') { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction47()">Add</a>'; } else { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction47()">Edit</a>'; } ?></center></figcaption></figure>
+													<figure><button onclick="myFunction47()"><img width="100%" src="<?php echo BASE_URL; ?>LandscapeProducts/images/dxf.jpg" alt="CAD-DXF"></button><figcaption><center>CAD<br>DXF: <? if ($row['cadd_3'] === NULL || $row['cadd_3'] === 'none') { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction47()">Add</a>'; } else { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction47()">Edit</a>'; } ?></center></figcaption></figure>
 												</div>
 								            </div>
 
 
 								            <div class="row">
 												<div class="col-md-3" style="position: relative; top: 10px;  z-index: 1000; font-size: 12px">
-													<figure><button onclick="myFunction48()"><img width="100%" src="https://landscapearchitect.com/LandscapeProducts/images/skp.jpg" alt="CAD-SKP"></button><figcaption><center>3D SKP: <? if ($row['skup'] === NULL || $row['skup'] === 'none') { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction48()">Add</a>'; } else { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction48()">Edit</a>'; } ?></center></figcaption></figure>
+													<figure><button onclick="myFunction48()"><img width="100%" src="<?php echo BASE_URL; ?>LandscapeProducts/images/skp.jpg" alt="CAD-SKP"></button><figcaption><center>3D SKP: <? if ($row['skup'] === NULL || $row['skup'] === 'none') { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction48()">Add</a>'; } else { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction48()">Edit</a>'; } ?></center></figcaption></figure>
 												</div>
 
 												<div class="col-md-3" style="position: relative; left: 10px; top: 10px;  z-index: 1000; font-size: 12px">
-													<figure><button onclick="myFunction49()"><img width="100%" src="https://landscapearchitect.com/LandscapeProducts/images/skp.jpg" alt="CAD-VWX"></button><figcaption><center>3D VWX: <? if ($row['vwxx'] === NULL || $row['vwxx'] === 'none') { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction49()">Add</a>'; } else { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction49()">Edit</a>'; } ?></center></figcaption></figure>
+													<figure><button onclick="myFunction49()"><img width="100%" src="<?php echo BASE_URL; ?>LandscapeProducts/images/skp.jpg" alt="CAD-VWX"></button><figcaption><center>3D VWX: <? if ($row['vwxx'] === NULL || $row['vwxx'] === 'none') { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction49()">Add</a>'; } else { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction49()">Edit</a>'; } ?></center></figcaption></figure>
 												</div>	
 
 												<div class="col-md-3" style="position: relative; left: 15px; top: 10px;  z-index: 1000; font-size: 12px">
-													<figure><button onclick="myFunction50()"><img width="100%" src="https://landscapearchitect.com/LandscapeProducts/images/pdf.jpg" alt="CAD-MPDF"></button><figcaption><center>Media:<br> <? if ($row['mediap'] === NULL || $row['mediap'] === 'none') { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction50()">Add</a>'; } else { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction50()">Edit</a>'; } ?></center></figcaption></figure>
+													<figure><button onclick="myFunction50()"><img width="100%" src="<?php echo BASE_URL; ?>LandscapeProducts/images/pdf.jpg" alt="CAD-MPDF"></button><figcaption><center>Media:<br> <? if ($row['mediap'] === NULL || $row['mediap'] === 'none') { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction50()">Add</a>'; } else { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction50()">Edit</a>'; } ?></center></figcaption></figure>
 												</div>
                                                   
 												<div class="col-md-3" style="position: relative; left: 20px; top: 10px; font-size: 12px">
@@ -601,7 +602,7 @@ $id = $_GET['id'];
 														 var val = "<? echo $key22 ?>" + "&venNum=" + "<? echo $key2 ?>";
 														
 														
-														window.open("https://landscapearchitect.com/LandscapeProducts/uploader-master/demo/index2.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
+														window.open("<?php echo BASE_URL; ?>LandscapeProducts/uploader-master/demo/index2.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
 													}
                                                         
 													function myFunction44() {
@@ -609,7 +610,7 @@ $id = $_GET['id'];
 														 var val = "<? echo $key22 ?>" + "&venNum=" + "<? echo $key2 ?>";
 														
 														
-														window.open("https://landscapearchitect.com/LandscapeProducts/uploader-master/demo/index-Cpdf.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
+														window.open("<?php echo BASE_URL; ?>LandscapeProducts/uploader-master/demo/index-Cpdf.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
 													}   
                                                         
 													function myFunction45() {
@@ -617,7 +618,7 @@ $id = $_GET['id'];
 														 var val = "<? echo $key22 ?>" + "&venNum=" + "<? echo $key2 ?>";
 														
 														
-														window.open("https://landscapearchitect.com/LandscapeProducts/uploader-master/demo/index-Cdwg.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
+														window.open("<?php echo BASE_URL; ?>LandscapeProducts/uploader-master/demo/index-Cdwg.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
 													}    
                                                         
 													function myFunction46() {
@@ -625,7 +626,7 @@ $id = $_GET['id'];
 														 var val = "<? echo $key22 ?>" + "&venNum=" + "<? echo $key2 ?>";
 														
 														
-														window.open("https://landscapearchitect.com/LandscapeProducts/uploader-master/demo/index-Cdwf.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
+														window.open("<?php echo BASE_URL; ?>LandscapeProducts/uploader-master/demo/index-Cdwf.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
 													}      
                                                         
 													function myFunction47() {
@@ -633,7 +634,7 @@ $id = $_GET['id'];
 														 var val = "<? echo $key22 ?>" + "&venNum=" + "<? echo $key2 ?>";
 														
 														
-														window.open("https://landscapearchitect.com/LandscapeProducts/uploader-master/demo/index-Cdxf.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
+														window.open("<?php echo BASE_URL; ?>LandscapeProducts/uploader-master/demo/index-Cdxf.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
 													}     
                                                         
 													function myFunction48() {
@@ -641,7 +642,7 @@ $id = $_GET['id'];
 														 var val = "<? echo $key22 ?>" + "&venNum=" + "<? echo $key2 ?>";
 														
 														
-														window.open("https://landscapearchitect.com/LandscapeProducts/uploader-master/demo/index-Cskp.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
+														window.open("<?php echo BASE_URL; ?>LandscapeProducts/uploader-master/demo/index-Cskp.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
 													}                                                                 
                                                         
 													function myFunction49() {
@@ -649,7 +650,7 @@ $id = $_GET['id'];
 														 var val = "<? echo $key22 ?>" + "&venNum=" + "<? echo $key2 ?>";
 														
 														
-														window.open("https://landscapearchitect.com/LandscapeProducts/uploader-master/demo/index-Cvwx.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
+														window.open("<?php echo BASE_URL; ?>LandscapeProducts/uploader-master/demo/index-Cvwx.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
 													}                                                             
                                                         
 													function myFunction50() {
@@ -657,7 +658,7 @@ $id = $_GET['id'];
 														 var val = "<? echo $key22 ?>" + "&venNum=" + "<? echo $key2 ?>";
 														
 														
-														window.open("https://landscapearchitect.com/LandscapeProducts/uploader-master/demo/index-Cmpdf.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
+														window.open("<?php echo BASE_URL; ?>LandscapeProducts/uploader-master/demo/index-Cmpdf.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
 													}  
                                                         
 													function myFunction51() {
@@ -665,7 +666,7 @@ $id = $_GET['id'];
 														 var val = "<? echo $key22 ?>" + "&venNum=" + "<? echo $key2 ?>";
 														
 														
-														window.open("https://landscapearchitect.com/LandscapeProducts/uploader-master/demo/index-deactive.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
+														window.open("<?php echo BASE_URL; ?>LandscapeProducts/uploader-master/demo/index-deactive.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
 													} 
                                                         
 													function myFunction52() {
@@ -673,7 +674,7 @@ $id = $_GET['id'];
 														 var val = "<? echo $key22 ?>" + "&venNum=" + "<? echo $key2 ?>";
 														
 														
-														window.open("https://landscapearchitect.com/LandscapeProducts/uploader-master/demo/index-active.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
+														window.open("<?php echo BASE_URL; ?>LandscapeProducts/uploader-master/demo/index-active.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
 													}  
                                                         
 													function myFunction53() {
@@ -681,7 +682,7 @@ $id = $_GET['id'];
 														 var val = "<? echo $key22 ?>" + "&venNum=" + "<? echo $key2 ?>";
 														
 														
-														window.open("https://landscapearchitect.com/LandscapeProducts/uploader-master/demo/index-delete.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
+														window.open("<?php echo BASE_URL; ?>LandscapeProducts/uploader-master/demo/index-delete.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
 													} 
                                                         
 													function myFunction54() {
@@ -689,7 +690,7 @@ $id = $_GET['id'];
 														 var val = "<? echo $key22 ?>" + "&venNum=" + "<? echo $key2 ?>";
 														
 														
-														window.open("https://landscapearchitect.com/LandscapeProducts/uploader-master/demo/index-keep.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
+														window.open("<?php echo BASE_URL; ?>LandscapeProducts/uploader-master/demo/index-keep.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
 													}  
                                                         
 													function myFunction55() {
@@ -697,7 +698,7 @@ $id = $_GET['id'];
 														 var val = "<? echo $key22 ?>" + "&venNum=" + "<? echo $key2 ?>";
 														
 														
-														window.open("https://landscapearchitect.com/LandscapeProducts/uploader-master/demo/index-categories.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
+														window.open("<?php echo BASE_URL; ?>LandscapeProducts/uploader-master/demo/index-categories.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
 													} 
                                                         
 													function myFunction56() {
@@ -705,7 +706,7 @@ $id = $_GET['id'];
 														 var val = "<? echo $key22 ?>" + "&venNum=" + "<? echo $key2 ?>";
 														
 														
-														window.open("https://landscapearchitect.com/LandscapeProducts/uploader-master/demo/index-product-text-js.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
+														window.open("<?php echo BASE_URL; ?>LandscapeProducts/uploader-master/demo/index-product-text-js.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
                                                         document.location.reload(true)
 													} 
                                                         
@@ -714,7 +715,7 @@ $id = $_GET['id'];
 														 var val = "<? echo $key22 ?>" + "&venNum=" + "<? echo $key2 ?>";
 														
 														
-														window.open("https://landscapearchitect.com/LandscapeProducts/uploader-master/demo/index-link-text-js.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
+														window.open("<?php echo BASE_URL; ?>LandscapeProducts/uploader-master/demo/index-link-text-js.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
                                                         document.location.reload(true)
 													}                                                         
                                                         
@@ -856,7 +857,7 @@ $id = $_GET['id'];
                                         ?>
                                         
 										<p><strong>This Product is Active - Click the button to deactivate.</strong></p>
-											<a onclick="myFunction<? echo $childX; ?>451()"><img width="6%" src="https://landscapearchitect.com/vendor/images/active-button-new.png" alt="product-active"></a><br>
+											<a onclick="myFunction<? echo $childX; ?>451()"><img width="6%" src="<?php echo BASE_URL; ?>vendor/images/active-button-new.png" alt="product-active"></a><br>
                                         <?
                                                     
                                                 } else {
@@ -864,7 +865,7 @@ $id = $_GET['id'];
                                          ?>  
                                         
 										<p><strong>This Product is Not Active - Click the button to activate.</strong></p>
-											<a onclick="myFunction<? echo $childX; ?>452()"><img width="6%" src="https://landscapearchitect.com/vendor/images/inactive-button-new.jpg" alt="product-active"></a><br>                                                    
+											<a onclick="myFunction<? echo $childX; ?>452()"><img width="6%" src="<?php echo BASE_URL; ?>vendor/images/inactive-button-new.jpg" alt="product-active"></a><br>                                                    
                                                     
                                           <?          
                                                 }
@@ -892,11 +893,11 @@ $id = $_GET['id'];
                                         
                                             if (!empty($row['photo'])) {
                                                 
-                                                echo '<center><div class="ex2"><img width="90%" src="https://landscapearchitect.com/products/images/' . $row['photo'] . '"></div></center>';
+                                                echo '<center><div class="ex2"><img width="90%" src="'.BASE_URL.'products/images/' . $row['photo'] . '"></div></center>';
                                                 
                                             } else {
                                                 
-                                                echo '<center><img width="100%" src="https://landscapearchitect.com/LandscapeProducts/images/blank-mod.jpg"></center>';
+                                                echo '<center><img width="100%" src="'.BASE_URL.'LandscapeProducts/images/blank-mod.jpg"></center>';
                                                 
                                             }
                                         
@@ -941,34 +942,34 @@ $id = $_GET['id'];
 											<div class="container">
 											  <div class="row">
 												<div class="col-md-3" style="font-size: 12px">
-													<figure><button onclick="myFunction<? echo $childX; ?>444()"><img width="100%" src="https://landscapearchitect.com/LandscapeProducts/images/pdf.jpg" alt="CAD-PDF"></button><figcaption><center>CAD PDF:<br> <? if ($row['pdff'] === NULL || $row['pdff'] === 'none') { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction' . $childX . '444()">Add</a>'; } else { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction' . $childX . '444()">Edit</a>'; } ?></center></figcaption></figure>
+													<figure><button onclick="myFunction<? echo $childX; ?>444()"><img width="100%" src="<?php echo BASE_URL; ?>LandscapeProducts/images/pdf.jpg" alt="CAD-PDF"></button><figcaption><center>CAD PDF:<br> <? if ($row['pdff'] === NULL || $row['pdff'] === 'none') { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction' . $childX . '444()">Add</a>'; } else { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction' . $childX . '444()">Edit</a>'; } ?></center></figcaption></figure>
 												</div>
 
 												<div class="col-md-3" style="position: relative; left: 10px; font-size: 12px">
-													<figure><button onclick="myFunction<? echo $childX; ?>445()"><img width="100%" src="https://landscapearchitect.com/LandscapeProducts/images/dwg.jpg" alt="CAD-DWG"></button><figcaption><center>CAD DWG: <? if ($row['cadd'] === NULL || $row['cadd'] === 'none') { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction' . $childX . '445()">Add</a>'; } else { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction' . $childX . '445()">Edit</a>'; } ?></center></figcaption></figure>
+													<figure><button onclick="myFunction<? echo $childX; ?>445()"><img width="100%" src="<?php echo BASE_URL; ?>LandscapeProducts/images/dwg.jpg" alt="CAD-DWG"></button><figcaption><center>CAD DWG: <? if ($row['cadd'] === NULL || $row['cadd'] === 'none') { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction' . $childX . '445()">Add</a>'; } else { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction' . $childX . '445()">Edit</a>'; } ?></center></figcaption></figure>
 												</div>
 
 												<div class="col-md-3" style="position: relative; left: 15px; font-size: 12px">
-													<figure><button onclick="myFunction<? echo $childX; ?>446()"><img width="100%" src="https://landscapearchitect.com/LandscapeProducts/images/dwf.jpg" alt="CAD-DWF"></button><figcaption><center>CAD DWF: <? if ($row['cadd_2'] === NULL || $row['cadd_2'] === 'none') { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction' . $childX . '446()">Add</a>'; } else { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction' . $childX . '446()">Edit</a>'; } ?></center></figcaption></figure>
+													<figure><button onclick="myFunction<? echo $childX; ?>446()"><img width="100%" src="<?php echo BASE_URL; ?>LandscapeProducts/images/dwf.jpg" alt="CAD-DWF"></button><figcaption><center>CAD DWF: <? if ($row['cadd_2'] === NULL || $row['cadd_2'] === 'none') { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction' . $childX . '446()">Add</a>'; } else { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction' . $childX . '446()">Edit</a>'; } ?></center></figcaption></figure>
 												</div>				  
 
 												<div class="col-md-3" style="position: relative; left: 20px; font-size: 12px">
-													<figure><button onclick="myFunction<? echo $childX; ?>447()"><img width="100%" src="https://landscapearchitect.com/LandscapeProducts/images/dxf.jpg" alt="CAD-DXF"></button><figcaption><center>CAD<br>DXF: <? if ($row['cadd_3'] === NULL || $row['cadd_3'] === 'none') { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction' . $childX . '447()">Add</a>'; } else { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction' . $childX . '447()">Edit</a>'; } ?></center></figcaption></figure>
+													<figure><button onclick="myFunction<? echo $childX; ?>447()"><img width="100%" src="<?php echo BASE_URL; ?>LandscapeProducts/images/dxf.jpg" alt="CAD-DXF"></button><figcaption><center>CAD<br>DXF: <? if ($row['cadd_3'] === NULL || $row['cadd_3'] === 'none') { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction' . $childX . '447()">Add</a>'; } else { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction' . $childX . '447()">Edit</a>'; } ?></center></figcaption></figure>
 												</div>
 								            </div>
 
 
 								            <div class="row">
 												<div class="col-md-3" style="position: relative; top: 10px; font-size: 12px">
-													<figure><button onclick="myFunction<? echo $childX; ?>448()"><img width="100%" src="https://landscapearchitect.com/LandscapeProducts/images/skp.jpg" alt="CAD-SKP"></button><figcaption><center>3D SKP: <? if ($row['skup'] === NULL || $row['pdff'] === 'none') { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction' . $childX . '448()">Add</a>'; } else { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction' . $childX . '448()">Edit</a>'; } ?></center></figcaption></figure>
+													<figure><button onclick="myFunction<? echo $childX; ?>448()"><img width="100%" src="<?php echo BASE_URL; ?>LandscapeProducts/images/skp.jpg" alt="CAD-SKP"></button><figcaption><center>3D SKP: <? if ($row['skup'] === NULL || $row['pdff'] === 'none') { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction' . $childX . '448()">Add</a>'; } else { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction' . $childX . '448()">Edit</a>'; } ?></center></figcaption></figure>
 												</div>
 
 												<div class="col-md-3" style="position: relative; left: 10px; top: 10px; font-size: 12px">
-													<figure><button onclick="myFunction<? echo $childX; ?>449()"><img width="100%" src="https://landscapearchitect.com/LandscapeProducts/images/skp.jpg" alt="CAD-VWX"></button><figcaption><center>3D VWX: <? if ($row['vwxx'] === NULL || $row['vwxx'] === 'none') { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction' . $childX . '449()">Add</a>'; } else { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction' . $childX . '449()">Edit</a>'; } ?></center></figcaption></figure>
+													<figure><button onclick="myFunction<? echo $childX; ?>449()"><img width="100%" src="<?php echo BASE_URL; ?>LandscapeProducts/images/skp.jpg" alt="CAD-VWX"></button><figcaption><center>3D VWX: <? if ($row['vwxx'] === NULL || $row['vwxx'] === 'none') { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction' . $childX . '449()">Add</a>'; } else { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction' . $childX . '449()">Edit</a>'; } ?></center></figcaption></figure>
 												</div>	
 
 												<div class="col-md-3" style="position: relative; left: 15px; top: 10px; font-size: 12px">
-													<figure><button onclick="myFunction<? echo $childX; ?>450()"><img width="100%" src="https://landscapearchitect.com/LandscapeProducts/images/pdf.jpg" alt="CAD-MPDF"></button><figcaption><center>Media:<br> <? if ($row['mediap'] === NULL || $row['mediap'] === 'none') { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction' . $childX . '450()">Add</a>'; } else { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction' . $childX . '450()">Edit</a>'; } ?></center></figcaption></figure>
+													<figure><button onclick="myFunction<? echo $childX; ?>450()"><img width="100%" src="<?php echo BASE_URL; ?>LandscapeProducts/images/pdf.jpg" alt="CAD-MPDF"></button><figcaption><center>Media:<br> <? if ($row['mediap'] === NULL || $row['mediap'] === 'none') { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction' . $childX . '450()">Add</a>'; } else { echo '<a style="cursor: pointer; font-weight: bold" onclick="myFunction' . $childX . '450()">Edit</a>'; } ?></center></figcaption></figure>
 												</div>
                                                   
 												<div class="col-md-3" style="position: relative; left: 20px; top: 10px; font-size: 12px">
@@ -998,7 +999,7 @@ $id = $_GET['id'];
 														 var val = "<? echo $keyC22 ?>" + "&venNum=" + "<? echo $key2 ?>";
 														
 														
-														window.open("https://landscapearchitect.com/LandscapeProducts/uploader-master/demo/index2.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
+														window.open("<?php echo BASE_URL; ?>LandscapeProducts/uploader-master/demo/index2.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
 													}
                                                         
 													function myFunction<? echo $childX . '444'; ?>() {
@@ -1006,7 +1007,7 @@ $id = $_GET['id'];
 														 var val = "<? echo $keyC22 ?>" + "&venNum=" + "<? echo $key2 ?>";
 														
 														
-														window.open("https://landscapearchitect.com/LandscapeProducts/uploader-master/demo/index-Cpdf.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
+														window.open("<?php echo BASE_URL; ?>LandscapeProducts/uploader-master/demo/index-Cpdf.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
 													}   
                                                         
 													function myFunction<? echo $childX . '445'; ?>() {
@@ -1014,7 +1015,7 @@ $id = $_GET['id'];
 														 var val = "<? echo $keyC22 ?>" + "&venNum=" + "<? echo $key2 ?>";
 														
 														
-														window.open("https://landscapearchitect.com/LandscapeProducts/uploader-master/demo/index-Cdwg.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
+														window.open("<?php echo BASE_URL; ?>LandscapeProducts/uploader-master/demo/index-Cdwg.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
 													}    
                                                         
 													function myFunction<? echo $childX . '446'; ?>() {
@@ -1022,7 +1023,7 @@ $id = $_GET['id'];
 														 var val = "<? echo $keyC22 ?>" + "&venNum=" + "<? echo $key2 ?>";
 														
 														
-														window.open("https://landscapearchitect.com/LandscapeProducts/uploader-master/demo/index-Cdwf.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
+														window.open("<?php echo BASE_URL; ?>LandscapeProducts/uploader-master/demo/index-Cdwf.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
 													}      
                                                         
 													function myFunction<? echo $childX . '447'; ?>() {
@@ -1030,7 +1031,7 @@ $id = $_GET['id'];
 														 var val = "<? echo $keyC22 ?>" + "&venNum=" + "<? echo $key2 ?>";
 														
 														
-														window.open("https://landscapearchitect.com/LandscapeProducts/uploader-master/demo/index-Cdxf.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
+														window.open("<?php echo BASE_URL; ?>LandscapeProducts/uploader-master/demo/index-Cdxf.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
 													}     
                                                         
 													function myFunction<? echo $childX . '448'; ?>() {
@@ -1038,7 +1039,7 @@ $id = $_GET['id'];
 														 var val = "<? echo $keyC22 ?>" + "&venNum=" + "<? echo $key2 ?>";
 														
 														
-														window.open("https://landscapearchitect.com/LandscapeProducts/uploader-master/demo/index-Cskp.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
+														window.open("<?php echo BASE_URL; ?>LandscapeProducts/uploader-master/demo/index-Cskp.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
 													}                                                                 
                                                         
 													function myFunction<? echo $childX . '449'; ?>() {
@@ -1046,7 +1047,7 @@ $id = $_GET['id'];
 														 var val = "<? echo $keyC22 ?>" + "&venNum=" + "<? echo $key2 ?>";
 														
 														
-														window.open("https://landscapearchitect.com/LandscapeProducts/uploader-master/demo/index-Cvwx.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
+														window.open("<?php echo BASE_URL; ?>LandscapeProducts/uploader-master/demo/index-Cvwx.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
 													}                                                             
                                                         
 													function myFunction<? echo $childX . '450'; ?>() {
@@ -1054,7 +1055,7 @@ $id = $_GET['id'];
 														 var val = "<? echo $keyC22 ?>" + "&venNum=" + "<? echo $key2 ?>";
 														
 														
-														window.open("https://landscapearchitect.com/LandscapeProducts/uploader-master/demo/index-Cmpdf.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
+														window.open("<?php echo BASE_URL; ?>LandscapeProducts/uploader-master/demo/index-Cmpdf.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
 													}  
                                                         
 													function myFunction<? echo $childX . '451'; ?>() {
@@ -1062,7 +1063,7 @@ $id = $_GET['id'];
 														 var val = "<? echo $keyC22 ?>" + "&venNum=" + "<? echo $key2 ?>";
 														
 														
-														window.open("https://landscapearchitect.com/LandscapeProducts/uploader-master/demo/index-deactive.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
+														window.open("<?php echo BASE_URL; ?>LandscapeProducts/uploader-master/demo/index-deactive.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
 													} 
                                                         
 													function myFunction<? echo $childX . '452'; ?>() {
@@ -1070,7 +1071,7 @@ $id = $_GET['id'];
 														 var val = "<? echo $keyC22 ?>" + "&venNum=" + "<? echo $key2 ?>";
 														
 														
-														window.open("https://landscapearchitect.com/LandscapeProducts/uploader-master/demo/index-active.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
+														window.open("<?php echo BASE_URL; ?>LandscapeProducts/uploader-master/demo/index-active.php?prodNum="+val, "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=700");
 													}                                                        
                                                         
                                                         
@@ -1125,7 +1126,7 @@ $id = $_GET['id'];
 
 <div style="position: relative; left: 20px; top: -150px">
 
-<a href="https://landscapearchitect.com/LandscapeProducts/index-vendor-detail-edit-add-model.php?number=<? echo $key2; ?>&prodNum=<? echo $_GET['prodNum']; ?>&xlistNum=<? echo $xlistNum; ?>" target="_blank"><img width="7%" src="https://landscapearchitect.com/vendor/images/add-model-button.png"></a>
+<a href="<?php echo BASE_URL; ?>LandscapeProducts/index-vendor-detail-edit-add-model.php?number=<? echo $key2; ?>&prodNum=<? echo $_GET['prodNum']; ?>&xlistNum=<? echo $xlistNum; ?>" target="_blank"><img width="7%" src="<?php echo BASE_URL; ?>vendor/images/add-model-button.png"></a>
 
 </div>
 
@@ -1143,12 +1144,12 @@ $id = $_GET['id'];
 
 // Top Section - Footer Section
 // include("lad_footer-main.inc");
-		include("../../includes/la-lad-bottom.inc"); 
+		include($rootInclude."la-lad-bottom.inc"); 
 
 ?>	
 
 <?
-    include("../../includes/lo_footer-main2-new.inc");
+    include($rootInclude."lo_footer-main2-new.inc");
 ?>
 	
 	

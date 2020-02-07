@@ -21,9 +21,9 @@ function connection(){
 	$password = "LZi7xHnm5)j5";
 	$dbname = "devlands_mab2019";
 	// $dbname = "devlands_live2019";
-	/*$username = "land_patchew";
-	$password = "59q2GB6k$3";
-	$dbname = "land_landscap_lollive";*/
+	//$username = "land_patchew";
+	//$password = "59q2GB6k$3";
+	//$dbname = "land_landscap_lollive";
 
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);

@@ -1,8 +1,9 @@
 <?php session_start() ?>
-
 <?php 
 	include 'modules/configuration.inc'; 
 	include 'modules/db.php';
+
+	$pageId = 'products';
 
 	include $rootInclude.'la-common-top-inner.php'; 
  	include $rootInclude.'la-common-header-inner.inc'; 
@@ -515,16 +516,16 @@
 												<div class="container-fluid">
 												  <center><h4>Available Downloads</h4></center><br>
 												  <div class="row">
-													<div class="col-sm-3">' . $cadPdf . '</div>
-													<div class="col-sm-3">' . $cadDwg . '</div>
-													<div class="col-sm-3">' . $cadDwf . '</div>
-													<div class="col-sm-3">' . $cadDxf . '</div>
+													<div class="col-sm-3">' . isset($cadPdf) ? $cadPdf : '' . '</div>
+													<div class="col-sm-3">' . isset($cadDwg) ? $cadDwg : '' . '</div>
+													<div class="col-sm-3">' . isset($cadDwf) ? $cadDwf : '' . '</div>
+													<div class="col-sm-3">' . isset($cadDxf) ? $cadDxf : '' . '</div>
 												  </div><br><br>
 												  <div class="row">
-													<div class="col-sm-3">' . $cadSkp . '</div>
-													<div class="col-sm-3">' . $cadVwx . '</div>
-													<div class="col-sm-3">' . $cadMedia . '</div>
-													<div class="col-sm-3">' . $cadZipp . '</div>
+													<div class="col-sm-3">' . isset($cadSkp) ? $cadSkp : '' . '</div>
+													<div class="col-sm-3">' . isset($cadVwx) ? $cadVwx : '' . '</div>
+													<div class="col-sm-3">' . isset($cadMedia) ? $cadMedia : '' . '</div>
+													<div class="col-sm-3">' . isset($cadZipp) ? $cadZipp : '' . '</div>
 												  </div>													  
 												</div>
 												

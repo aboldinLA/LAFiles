@@ -1,10 +1,10 @@
 <? 
 	
 	$pageId = 'resources';
-	
-	include '../../includes/la-common-top-inner.php';
+	include '../modules/configuration.inc';
+	include $rootInclude.'la-common-top-inner.php';
 
-	include '../../includes/la-common-header-inner.inc'; 
+	include $rootInclude.'la-common-header-inner.inc'; 
 	
 	
 ?>
@@ -71,10 +71,10 @@
 				foreach($LASNmagazines as $mag){
 					
 					echo '<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 for_small img_fit colme">
-										<a href="https://landscapearchitect.com/advertising/' . $mag[1] . '.pdf" target="_blank"><img src="https://landscapearchitect.com/advertising/' . $mag[1] . '.jpg" alt="img" width="100%" /></a>
+										<a href="'.BASE_URL.'advertising/' . $mag[1] . '.pdf" target="_blank"><img src="'.BASE_URL.'advertising/' . $mag[1] . '.jpg" alt="img" width="100%" /></a>
 										<div class="thumbTitleContainer">
 											<h3>' . $mag[0] . '</h3>
-											<h4><a href="https://landscapearchitect.com/advertising/' . $mag[1] . '.pdf" target="_blank">View PDF</a></h4>
+											<h4><a href="'.BASE_URL.'advertising/' . $mag[1] . '.pdf" target="_blank">View PDF</a></h4>
 										</div>
 								</div><!-- /.col-lg-3 -->';
 					
@@ -133,10 +133,10 @@
 				foreach($LASNmagazines as $mag){
 					
 					echo '<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 for_small img_fit colme">
-										<a href="https://landscapearchitect.com/mediakits/' . $mag[1] . '.pdf" target="_blank"><img src="https://landscapearchitect.com/mediakits/' . $mag[1] . '.jpg" alt="img" width="100%" /></a>
+										<a href="'.BASE_URL.'mediakits/' . $mag[1] . '.pdf" target="_blank"><img src="'.BASE_URL.'mediakits/' . $mag[1] . '.jpg" alt="img" width="100%" /></a>
 										<div class="thumbTitleContainer">
 											<h3>' . $mag[0] . '</h3>
-											<h4><a href="https://landscapearchitect.com/mediakits/' . $mag[1] . '.pdf" target="_blank">View PDF</a></h4>
+											<h4><a href="'.BASE_URL.'mediakits/' . $mag[1] . '.pdf" target="_blank">View PDF</a></h4>
 										</div>
 								</div><!-- /.col-lg-3 -->';
 					
@@ -190,10 +190,10 @@
 				foreach($LASNmagazines as $mag){
 					
 					echo '<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 for_small img_fit colme">
-										<a href="https://landscapearchitect.com/mediakits/' . $mag[1] . '.pdf" target="_blank"><img src="https://landscapearchitect.com/mediakits/' . $mag[1] . '.jpg" alt="img" width="100%" /></a>
+										<a href="'.BASE_URL.'mediakits/' . $mag[1] . '.pdf" target="_blank"><img src="'.BASE_URL.'mediakits/' . $mag[1] . '.jpg" alt="img" width="100%" /></a>
 										<div class="thumbTitleContainer">
 											<h3>' . $mag[0] . '</h3>
-											<h4><a href="https://landscapearchitect.com/mediakits/' . $mag[1] . '.pdf" target="_blank">View PDF</a></h4>
+											<h4><a href="'.BASE_URL.'mediakits/' . $mag[1] . '.pdf" target="_blank">View PDF</a></h4>
 										</div>
 								</div><!-- /.col-lg-3 -->';
 					
@@ -240,10 +240,10 @@
 				foreach($LASNmagazines as $mag){
 					
 					echo '<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 for_small img_fit colme">
-										<a href="https://landscapearchitect.com/advertising/' . $mag[1] . '.pdf" target="_blank"><img src="https://landscapearchitect.com/advertising/' . $mag[1] . '.jpg" alt="img" width="100%" /></a>
+										<a href="'.BASE_URL.'advertising/' . $mag[1] . '.pdf" target="_blank"><img src="'.BASE_URL.'advertising/' . $mag[1] . '.jpg" alt="img" width="100%" /></a>
 										<div class="thumbTitleContainer">
 											<h3>' . $mag[0] . '</h3>
-											<h4><a href="https://landscapearchitect.com/advertising/' . $mag[1] . '.pdf" target="_blank">View PDF</a></h4>
+											<h4><a href="'.BASE_URL.'advertising/' . $mag[1] . '.pdf" target="_blank">View PDF</a></h4>
 										</div>
 								</div><!-- /.col-lg-3 -->';
 					
@@ -300,10 +300,10 @@
 				foreach($LASNmagazines as $mag){
 					
 					echo '<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 for_small img_fit colme">
-										<a href="https://landscapearchitect.com/advertising/' . $mag[1] . '.pdf" target="_blank"><img src="https://landscapearchitect.com/advertising/' . $mag[1] . '.jpg" alt="img" width="100%" /></a>
+										<a href="'.BASE_URL.'advertising/' . $mag[1] . '.pdf" target="_blank"><img src="'.BASE_URL.'advertising/' . $mag[1] . '.jpg" alt="img" width="100%" /></a>
 										<div class="thumbTitleContainer">
 											<h3>' . $mag[0] . '</h3>
-											<h4><a href="https://landscapearchitect.com/advertising/' . $mag[1] . '.pdf" target="_blank">View PDF</a></h4>
+											<h4><a href="'.BASE_URL.'advertising/' . $mag[1] . '.pdf" target="_blank">View PDF</a></h4>
 										</div>
 								</div><!-- /.col-lg-3 -->';
 					
@@ -325,7 +325,7 @@
 
 
 
-			<? include '../../includes/la-common-footer-inner.inc'; ?>
+			<? include $rootInclude.'la-common-footer-inner.inc'; ?>
 
 
   </body>

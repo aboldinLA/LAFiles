@@ -1,11 +1,12 @@
-
 <? 
+  include '../modules/configuration.inc';
+  include '../modules/db.php';
 	
-	include '../../includes/la-common-top.php';
+	include $rootInclude.'la-common-top.php';
 
 	include $rootInclude . 'la-common-header.inc'; 
 
-	include $rootInclude . 'connect4.inc';
+	/*include $rootInclude . 'connect4.inc';*/
 
 ?>
 
@@ -22,7 +23,7 @@
 
 
 						<!-- sidebar accordian menu -->
-						<? include '../../includes/la-common-sidebar-menu.inc'; ?>
+						<? include $rootInclude.'la-common-sidebar-menu.inc'; ?>
 
 
 					 </div><!-- #mobslide --> 
@@ -50,7 +51,7 @@
                 ?>
                 
           <div style="position: absolute; right: 0px; top: 10; z-index: 200; border-top-right-radius: 5px; overflow: hidden;">
-            <a href='https://www.landscapearchitect.com/vendor/logoff.php'><input type='image' src='/imgz2/logoff-button.jpg' style="box-shadow: -5px 5px 5px #888888;" border='0' id="logOffBtn" /></a>
+            <a href='<?php echo BASE_URL; ?>vendor/logoff.php'><input type='image' src='/imgz2/logoff-button.jpg' style="box-shadow: -5px 5px 5px #888888;" border='0' id="logOffBtn" /></a>
           </div>
       
           
@@ -71,7 +72,7 @@
           
             <div class="row topNewsSectionArticles">
               <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                  <img style="width: 100%" src="http://landscapearchitect.com/products/images/<? echo $row['logo']; ?>">
+                  <img style="width: 100%" src="<?php echo BASE_URL; ?>products/images/<? echo $row['logo']; ?>">
                     <div class="txt full_width companyInfo">
                         <h5><? echo $row['company_name']; ?></h5>
                         <p style="margin-bottom: 2px; font-weight: 600;">Profile:</p>
@@ -210,7 +211,7 @@
 
                         <div class="wholesaleStatusBoxContainer">
                            <div class="wholesaleStatusBox" style="<? if ($tier==12){ echo "background-color: chartreuse";} ?>">
-                              <div class='tooltip5 tooltipAll text-center'>You Dominate<span class='tooltiptext'>You are active in the LandscapeOnline Local Wholesale and Plant Material Search Engine, with your Logo at the top of all related searches in your chosen state(s), links to an expanded Vendor Profile, lists and locations of your outlets, and the logos of the major brands each outlet offers. Also includes premiere listing in the relevant vendor listings in both the Landscape Architect and Landscape Contractor magazines  (Requires <a href="https://landscapearchitect.com/abante" target="_blank" style="color: #ffffff;"><u>Online purchase</u></a> or booth space in the upcoming <a href="https://landscapearchitect.com/TLE-LB/index-tle-2018.php" target="_blank" style="color: #ffffff;"><u>Landscape Expo</u></a>.)</span></div>
+                              <div class='tooltip5 tooltipAll text-center'>You Dominate<span class='tooltiptext'>You are active in the LandscapeOnline Local Wholesale and Plant Material Search Engine, with your Logo at the top of all related searches in your chosen state(s), links to an expanded Vendor Profile, lists and locations of your outlets, and the logos of the major brands each outlet offers. Also includes premiere listing in the relevant vendor listings in both the Landscape Architect and Landscape Contractor magazines  (Requires <a href="https://landscapearchitect.com/abante" target="_blank" style="color: #ffffff;"><u>Online purchase</u></a> or booth space in the upcoming <a href="<?php echo BASE_URL;?>TLE-LB/index-tle-2018.php" target="_blank" style="color: #ffffff;"><u>Landscape Expo</u></a>.)</span></div>
                           </div>
 
                           <div class="wholesaleStatusBox" style="<? if ($tier==2){ echo "background-color: chartreuse";} ?>">
@@ -218,7 +219,7 @@
                           </div>
                         </div>
                      	
-                         <p style=" color:#9B6A17; text-decoration: underline; font-size: 18px; margin-top: 10px;"><a href="https://landscapearchitect.com/abante/index.php?rt=product/product&product_id=137" target="_blank">Enhance My Profile!</a> </p>
+                         <p style=" color:#9B6A17; text-decoration: underline; font-size: 18px; margin-top: 10px;"><a href="<?php echo BASE_URL; ?>abante/index.php?rt=product/product&product_id=137" target="_blank">Enhance My Profile!</a> </p>
                         
                       </div>
 
@@ -483,7 +484,7 @@
 				<!-- Category Info Section Start -->
                                         
 				<div style="text-align: center">
-					<img src="https://landscapearchitect.com/lol-logos/LA-LC-Local-Wholesale-search-engines.jpg" width="100%" style="margin: 0 auto; max-width: 650px;"><br><br>
+					<img src="<?php echo BASE_URL; ?>lol-logos/LA-LC-Local-Wholesale-search-engines.jpg" width="100%" style="margin: 0 auto; max-width: 650px;"><br><br>
 					<p>These categories are used by the <strong>Keyword Search Engine</strong> to help our 65,000+ monthly users to find you company.
 							When editing, it is important to select only those categories which represent products that you currently sell.
 							LCI reserves the right to edit your categories.</p>
@@ -575,8 +576,8 @@
 
 							<select onchange="if (this.value) window.location.href=this.value" id="fixed" style="width: 40%" class="productsRefineSelect">
 
-								<option value="https://landscapearchitect.com/vendor/index-vendor.php?action=edit&tview=allp&id=<? echo $webVenId ?>" selected ><?  if (($sName == "allp") || ($sName == "")) { echo "Refine Category Search"; } elseif ($sName == "other") { echo $xChoice; } ?></option>
-								<option value="https://landscapearchitect.com/vendor/index-vendor.php?action=edit&tview=allp&id=<? echo $webVenId ?>#defpro" >All Products</option>  
+								<option value="<?php echo BASE_URL; ?>vendor/index-vendor.php?action=edit&tview=allp&id=<? echo $webVenId ?>" selected ><?  if (($sName == "allp") || ($sName == "")) { echo "Refine Category Search"; } elseif ($sName == "other") { echo $xChoice; } ?></option>
+								<option value="<?php echo BASE_URL; ?>vendor/index-vendor.php?action=edit&tview=allp&id=<? echo $webVenId ?>#defpro" >All Products</option>  
 
 								<?php
 
@@ -589,7 +590,7 @@
 
 												if ($xname != $row['name']) {
 
-															echo '<option value="https://landscapearchitect.com/vendor/index-vendor.php?action=edit&tview=other&xlist=' . $row['xlist'] . '&id=' . $webVenId . '#defpro" >' . $row['name'] . '</option>';
+															echo '<option value="'.BASE_URL.'vendor/index-vendor.php?action=edit&tview=other&xlist=' . $row['xlist'] . '&id=' . $webVenId . '#defpro" >' . $row['name'] . '</option>';
 
 															$xname = $row['name'];                                              
 
@@ -603,10 +604,10 @@
 							
 
                <a onclick="myFunction77()">
-                 <img width="100%" style="margin-left: 20px;" src="https://landscapearchitect.com/vendor/images/reorder-button.png" onmouseover="this.style.cursor='pointer'" class="viewBarAddProductsBtn">
+                 <img width="100%" style="margin-left: 20px;" src="<?php echo BASE_URL; ?>vendor/images/reorder-button.png" onmouseover="this.style.cursor='pointer'" class="viewBarAddProductsBtn">
               </a>
-              						  <a href="https://landscapearchitect.com/LandscapeProducts/index-vendor-detail-edit-add.php?number=<? echo $webVenId; ?>" target="_blank">
-                <img width="100%" src="https://landscapearchitect.com/vendor/images/add-button-new.png" class="viewBarAddProductsBtn">
+              						  <a href="<?php echo BASE_URL; ?>LandscapeProducts/index-vendor-detail-edit-add.php?number=<? echo $webVenId; ?>" target="_blank">
+                <img width="100%" src="<?php echo BASE_URL; ?>vendor/images/add-button-new.png" class="viewBarAddProductsBtn">
               </a>
 
 						</div><!-- /.tabVenProducts -->
@@ -733,7 +734,7 @@
                                 echo '<div class="col-md-4 col-sm-6 col-xs-12 for_small vendorEditProduct">
                                       <article style="background: white; margin-bottom:20px;">
                                           <div class="post-thumb">
-                                              <img src="https://landscapearchitect.com/products/images/' . $row['photo'] . '""  class="vendorEditProductImage" alt="">
+                                              <img src="'.BASE_URL.'products/images/' . $row['photo'] . '""  class="vendorEditProductImage" alt="">
                                           </div>
 
                                           <div class="" style="padding: 10px 10px 15px 10px;">
@@ -743,11 +744,11 @@
                                             <p><strong>Available Detail Files:</strong></p>' . $cadDetals . '
                                             <div class="row" style="height: 45px;">
                                               <div class="col-md-12" style="display: flex;">
-                                                <a href="https://landscapearchitect.com/LandscapeProducts/index-vendor-detail-edit-js.php?number=' . $row['vendor_id'] . '&prodNum=' . $row['id'] . '" target="_blank" class="editActiveBtnLink" style="display: block;">
-                                                  <img src="https://landscapearchitect.com/vendor/images/edit-button-new.png" style="width: 60%; display: block; margin: 0 auto;">
+                                                <a href="'.BASE_URL.'LandscapeProducts/index-vendor-detail-edit-js.php?number=' . $row['vendor_id'] . '&prodNum=' . $row['id'] . '" target="_blank" class="editActiveBtnLink" style="display: block;">
+                                                  <img src="'.BASE_URL.'vendor/images/edit-button-new.png" style="width: 60%; display: block; margin: 0 auto;">
                                                 </a>
-                                                <a href="https://landscapearchitect.com/vendor/add-edit-construction.php" target="_blank" class="editActiveBtnLink" style="display: block;">
-                                                  <img src="https://landscapearchitect.com/vendor/images/' . $actButton . '" style="width: 60%; display: block; margin: 0 auto;">
+                                                <a href="'.BASE_URL.'vendor/add-edit-construction.php" target="_blank" class="editActiveBtnLink" style="display: block;">
+                                                  <img src="'.BASE_URL.'vendor/images/' . $actButton . '" style="width: 60%; display: block; margin: 0 auto;">
                                                 </a>
                                               </div>
                                             </div>
@@ -872,12 +873,12 @@
                     echo '<div class="col-md-4 col-sm-6 col-xs-12 for_small vendorEditProduct">
                           <article style="background: white; margin-bottom:20px;">
                               <div class="post-thumb">
-                                  <img src="https://landscapearchitect.com/products/images/' . $row['photo'] . '""  class="vendorEditProductImage" alt="">
-                                  <a href="https://landscapearchitect.com/LandscapeProducts/index-vendor-detail-edit-js.php?number=' . $row['vendor_id'] . '&prodNum=' . $row['id'] . '" target="_blank" class="editBtnProductView">
-                                    <img width="40%" src="https://landscapearchitect.com/vendor/images/edit-button.png">
+                                  <img src="'.BASE_URL.'products/images/' . $row['photo'] . '""  class="vendorEditProductImage" alt="">
+                                  <a href="'.BASE_URL.'LandscapeProducts/index-vendor-detail-edit-js.php?number=' . $row['vendor_id'] . '&prodNum=' . $row['id'] . '" target="_blank" class="editBtnProductView">
+                                    <img width="40%" src="'.BASE_URL.'vendor/images/edit-button.png">
                                   </a>
-                                  <a href="https://landscapearchitect.com/vendor/add-edit-construction.php" target="_blank" class="actBtnProductView">
-                                    <img width="40%" src="https://landscapearchitect.com/vendor/images/' . $actButton . '">
+                                  <a href="'.BASE_URL.'vendor/add-edit-construction.php" target="_blank" class="actBtnProductView">
+                                    <img width="40%" src="'.BASE_URL.'vendor/images/' . $actButton . '">
                                   </a>
                               </div>
 
@@ -918,7 +919,7 @@
 </section><!-- /.tool_page -->
 
             
- <? include '../../includes/la-common-footer-inner.inc'; ?>
+ <? include $rootInclude.'la-common-footer-inner.inc'; ?>
 
 <?
 
@@ -1116,7 +1117,7 @@
 <script>
   
     function openProfileWindow(){
-      window.open('https://landscapearchitect.com/landscape-design-products/<? echo $string ?>/<? echo $webVenId ?>', "_blank", "location=no,menubar=no,width=1200, height=800");
+      window.open('<?php echo BASE_URL; ?>landscape-design-products/<? echo $string ?>/<? echo $webVenId ?>', "_blank", "location=no,menubar=no,width=1200, height=800");
     }
   
     function validateForm() {
@@ -1129,7 +1130,7 @@
   
     function myFunction77() {
       var valR = "<? echo $webVenId ?>";
-      window.open("https://landscapearchitect.com/LandscapeProducts/index-reorder.php?venNum="+valR, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=100,left=500,width=960,height=860");
+      window.open("<?php echo BASE_URL; ?>LandscapeProducts/index-reorder.php?venNum="+valR, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=100,left=500,width=960,height=860");
     }      
   
   

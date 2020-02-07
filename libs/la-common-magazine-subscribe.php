@@ -1,6 +1,3 @@
-<? ?>
-
-
 <div class="all_modals_ full_width">
 
 
@@ -264,7 +261,8 @@ input[name="newSubForm"] .subcategory_headers {
 
 
 
-include 'connect4.inc'; 	
+//include 'connect4.inc'; 	
+include '../modules/db.php';
 
 $DISPLAY = $_POST;
 
@@ -641,7 +639,8 @@ To skip this section or when you are Finished Picking Products, scroll to the bo
             
 						<? 
 						
-							include 'connect4.inc';   	
+							//include 'connect4.inc';   	
+              include '../modules/db.php';     
 																
 							$categorys = [
 								

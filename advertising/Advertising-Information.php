@@ -1,16 +1,7 @@
-
-
-
 <?
 $page = 'Advertising-Information';
-include '../../includes/la_top-common.php';
-
-
-
-
-
-
-
+include '../modules/configuration.inc';
+include $rootInclude.'la_top-common.php';
 ?>
 
 <!-- Menu Section -->  
@@ -19,7 +10,7 @@ include '../../includes/la_top-common.php';
 	<!-- Start - Div is here to move the header for the articles in correct position -->
 	<div style="position:relative; left:-10px; top:-30px; z-index: 80000">
 	    <?
-		include("../../includes/la_header-common.inc");
+		include($rootInclude."la_header-common.inc");
 	?>
  
 	</div>
@@ -40,7 +31,7 @@ include '../../includes/la_top-common.php';
 <div>
 	
 		<?
-			include("../../includes/la_banner-common.inc");
+			include($rootInclude."la_banner-common.inc");
 		?>
 
 
@@ -55,7 +46,7 @@ include '../../includes/la_top-common.php';
 			
 
 		<?
-		include("../../includes/la_left-side-common2.inc");
+		include($rootInclude."la_left-side-common2.inc");
 		?>	       
 	       
 	       
@@ -105,7 +96,7 @@ LOG;
 // Awkward but LOG must be flush left
     
             // open log file
-    		if($handle = fopen('https://landscapearchitect.com/advertising/hacklog.log', 'a')) {
+    		if($handle = fopen(BASE_URL.'advertising/hacklog.log', 'a')) {
     		
     			fputs($handle, $logging);  // write the Data to file
     			fclose($handle);           // close the file
@@ -280,7 +271,7 @@ LOG;
 				<td colspan="3">
 					<br /><br /><br />
 				 	<center><strong><font size="6" >Welcome to </font></center><br />
-					<center><img src="https://landscapearchitect.com/lol-logos/LASN-Media-Group-logo.jpg" width="280" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://landscapearchitect.com/lol-logos/TLE-Media-Group-logo.jpg" width="300" /></center>
+					<center><img src="<?php echo BASE_URL; ?>lol-logos/LASN-Media-Group-logo.jpg" width="280" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="<?php echo BASE_URL; ?>lol-logos/TLE-Media-Group-logo.jpg" width="300" /></center>
 					<br />
 
 				  <center><font size="5" >Advertising Information Request Center!</font></strong></center><center><br />
@@ -392,7 +383,7 @@ if ($request == Null){$request[] = ""; }
     <TD VALIGN="top">
       <br></br>
       <center>
-        <IMG SRC="https://landscapearchitect.com/lol-logos/la-details-logo.jpg" width="270" ALT="LA Details" BORDER="0">
+        <IMG SRC="<?php echo BASE_URL; ?>lol-logos/la-details-logo.jpg" width="270" ALT="LA Details" BORDER="0">
       </center><br>
 
       <center>
@@ -409,7 +400,7 @@ if ($request == Null){$request[] = ""; }
     <TD VALIGN="top">
       <br>
       <center>
-        <IMG SRC="https://landscapearchitect.com/lol-logos/LandscapeArchitect-Online-Dot_Com-1200.jpg" width="225" ALT="LandscapeArchitect.com" BORDER="0" />
+        <IMG SRC="<?php echo BASE_URL; ?>lol-logos/LandscapeArchitect-Online-Dot_Com-1200.jpg" width="225" ALT="LandscapeArchitect.com" BORDER="0" />
       </center><br />
       <center>
         <INPUT TYPE="CHECKBOX" style="width:16px;height:16px" name="request10" VALUE="LOL Media Kit/Rates Package">
@@ -420,7 +411,7 @@ if ($request == Null){$request[] = ""; }
 		<TD VALIGN="top">
 				<br>
 				<center>
-					<IMG SRC="https://landscapearchitect.com/lol-logos/Landscape-Architect-Weekly-logo.jpg" width="225" ALT="LA Weekly" BORDER="0" />
+					<IMG SRC="<?php echo BASE_URL; ?>lol-logos/Landscape-Architect-Weekly-logo.jpg" width="225" ALT="LA Weekly" BORDER="0" />
 				</center><br />
 				<center>
 					<INPUT TYPE="CHECKBOX" style="width:16px;height:16px" name="request11" VALUE="LOL Media Kit/Rates Package">
@@ -436,7 +427,7 @@ if ($request == Null){$request[] = ""; }
     <TD VALIGN="top">
       <br /><br />
       <center>
-        <a href="https://landscapearchitect.com/research/TLE/index-tle-2013.php" target="_blank">
+        <a href="<?php echo BASE_URL; ?>research/TLE/index-tle-2013.php" target="_blank">
           <IMG SRC="/lol-logos/TLE-Logo-BLANK.jpg" width="310" ALT="TLE" BORDER="0">
         </a>
       </center><br><br />
@@ -471,7 +462,7 @@ if ($request == Null){$request[] = ""; }
     <TD VALIGN="top">
       <br>
       <center>
-        <IMG SRC="https://landscapearchitect.com/lol-logos/TLE-Weekly-Header-20180108.jpg" width="225" ALT="LandscapeArchitect.com" BORDER="0" />
+        <IMG SRC="<?php echo BASE_URL; ?>lol-logos/TLE-Weekly-Header-20180108.jpg" width="225" ALT="LandscapeArchitect.com" BORDER="0" />
       </center><br />
       <center>
         <INPUT TYPE="CHECKBOX" style="width:16px;height:16px" name="request13" VALUE="LOL Media Kit/Rates Package">
@@ -593,7 +584,7 @@ if ($request == Null){$request[] = ""; }
 </table><br>
 	
 	<div style="position: relative; left: 0px">
-		<? include("../../includes/lo_top-main2-bottom.inc"); ?>
+		<? include($rootInclude."lo_top-main2-bottom.inc"); ?>
 	</div>
 	
 
@@ -621,7 +612,7 @@ if ($request == Null){$request[] = ""; }
 
 
 <?
-    include("../../includes/lo_footer-main2-new.inc");
+    include($rootInclude."lo_footer-main2-new.inc");
 ?>
 
 

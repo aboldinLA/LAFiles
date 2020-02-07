@@ -1,6 +1,6 @@
-
 <?
-include '../../includes/la_top-common.php';
+include '../modules/configuration.inc';  
+include $rootInclude.'la_top-common.php';
 ?>
 
 <!-- Menu Section -->  
@@ -9,7 +9,7 @@ include '../../includes/la_top-common.php';
 	<!-- Start - Div is here to move the header for the articles in correct position -->
 	<div style="position:relative; left:-10px; top:-30px; z-index: 80000">
 	    <?
-		include("../../includes/la_header-common.inc");
+		include($rootInclude."la_header-common.inc");
 	?>
  
 	</div>
@@ -30,7 +30,7 @@ include '../../includes/la_top-common.php';
 <div>
 	
 		<?
-			include("../../includes/la_banner-common.inc");
+			include($rootInclude."la_banner-common.inc");
 		?>
 
 
@@ -45,7 +45,7 @@ include '../../includes/la_top-common.php';
 			
 
 		<?
-		include("../../includes/la_left-side-common2.inc");
+		include($rootInclude."la_left-side-common2.inc");
 		?>	       
 	       
 	       
@@ -72,7 +72,7 @@ include '../../includes/la_top-common.php';
 
 				<div style="width: 500px; margin: 0 auto; text-align: center;">
 					<br><br>
-					<a href="https://landscapearchitect.com/contact/contact_us-js.php?pub=lasn">
+					<a href="<?php echo BASE_URL; ?>contact/contact_us-js.php?pub=lasn">
 					<img src="/lol-logos/LASN-Media-Group-logos.jpg" alt="contact LASN" width="500" border="0"><br><br>
 					Click here to contact Landscape Architect Media Group</a><br><br>
 				</div>
@@ -111,7 +111,7 @@ include '../../includes/la_top-common.php';
 	</table><br>
 	
 	<div style="position: relative; left: 269px;">
-		<? include("../../includes/lo_top-main2-bottom.inc"); ?>
+		<? include($rootInclude."lo_top-main2-bottom.inc"); ?>
 	</div>
 	
 
@@ -139,7 +139,7 @@ include '../../includes/la_top-common.php';
 
 
 <?
-    include("../../includes/lo_footer-main2-new.inc");
+    include($rootInclude."lo_footer-main2-new.inc");
 ?>
 
 

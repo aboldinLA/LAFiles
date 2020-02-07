@@ -1,24 +1,13 @@
-
 <? 
+	include '../modules/configuration.inc';
+	include '../modules/db.php';
+	include $rootInclude.'la-common-top-inner.php';
 
-	include '../../includes/la-common-top-inner.php';
-
-	include '../../includes/la-common-header-inner.inc'; 
+	include $rootInclude.'la-common-header-inner.inc'; 
 
 	$t = $_GET['t'];
 	
 ?>
-
-
-
-
-<style>
-	
-</style>
-
-
-
-
 
 <section class="tool_page full_width vendorPages">
 <div class="container">
@@ -33,12 +22,12 @@
 
 						<!-- sidebar accordian menu -->
 						<?
-							 include '../../includes/connect4.inc';
+							 //include '../../includes/connect4.inc';
 							 
 //							$companyNamesFeatured = array();
 //							$companyNames = array();
 						
-								include '../../includes/la-common-sidebar-menu.inc';
+								include $rootInclude.'la-common-sidebar-menu.inc';
 						?>
 
 
@@ -81,7 +70,7 @@
 							
 							
 
-          <img src="https://landscapearchitect.com/lol-logos/3-logo-search-engines.jpg" width="100%" style="margin-top: 15px; display: block;"/><br />
+          <img src="<?php echo BASE_URL; ?>lol-logos/3-logo-search-engines.jpg" width="100%" style="margin-top: 15px; display: block;"/><br />
 					<h2 class="text-center loginHeader">Welcome to the<br> Vendor Profile Management Center</h2>
           
           <div class="row">
@@ -103,7 +92,7 @@
                           <input type="text" name="email" MAXLENGTH="45" value="" placeholder="Email Address">
                         <? } ?>
                             <div class="col-sm-12 smallBtn_flexContainer">
-                              <input type="password" name="password" MAXLENGTH="10"  placeholder="Password" required>
+                              <input type="password" name="password" MAXLENGTH="10" id='password_field'  placeholder="Password" required>
                               <INPUT TYPE="submit" VALUE="Enter" class="smallBtn_style vendorLoginBtn">
                             </div>
 
@@ -189,7 +178,7 @@
 									if(!empty($ads[$i]['picture'])){
 										echo '<div class="add__ full_width"><a href="' .  $ads[$i]['web'] . '"><img src="../banner/'  . $ads[$i]['picture'] . '" class=" hidden-xs hidden-sm" style="width:100%;" /></a></div><!-- /.add__ -->'; 
 										
-										list($width, $height) = getimagesize('https://landscapearchitect.com/banner/' . $ads[$i]['picture'] . '');
+										list($width, $height) = getimagesize(BASE_URL.'banner/' . $ads[$i]['picture'] . '');
 										
 										if($height > 200){
 											$i++;
@@ -209,40 +198,8 @@
 </section><!-- /.tool_page -->
 
             
- <? include '../../includes/la-common-footer-inner.inc'; ?>
- 
-			<script>
-			
-				<? if ($t == "ad") { ?>
-				document.loginform.email.focus();
-				<? } else { ?>
-				document.loginform.password.focus();
-				<? } ?>
-			
-        
-        
-        $('.vendorLoginBtn').click(function(event){
-          event.preventDefault();
-          document.getElementById("incorrectPasswordText").innerHTML = " ";
-          $.post(
-            '/member/login_ven.php',
-            {password: $('input[name=password]').val()},
-             function(data){
-               data = JSON.parse(data);  
-               console.log(data);
-               if(data.login == true){
-                  window.location.href = "https://landscapearchitect.com/vendor/index-vendor.php?action=edit&id=" + data.vendorId;
-               } else {
-                 setTimeout(function(){
-                   document.getElementById("incorrectPasswordText").innerHTML = "Incorrect Password. Please try again."
-                }, 200);
-               }
-             }
-          )
-        });
-        
-        
-			</script>
+ <? include $rootInclude.'la-common-footer-inner.inc'; ?>
+
 			
     </body>
 </html>

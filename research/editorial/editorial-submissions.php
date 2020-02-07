@@ -1,13 +1,14 @@
 <?php session_start() ?>
-<? 
+<?php 
+	include '../../modules/configuration.inc'; 
+	include '../../modules/db.php'; 
 
 	$pageId = 'resources';
 
-	include '../../../includes/la-common-top.php';
+	include $rootInclude.'la-common-top.php';
 
-	include '../../../includes/la-common-header.inc'; 
+	include $rootInclude.'la-common-header.inc'; 
 
-  include $rootInclude . 'connect4.inc';
 
 ?>
 
@@ -38,7 +39,7 @@
 			  
 			<table width="650">
 						<tr>
-							<td><img src="https://landscapearchitect.com/lol-logos/LASN_BLUE_500.jpg" width="350"  alt="LASN"/></h2></td>
+							<td><img src="<?php echo BASE_URL; ?>lol-logos/LASN_BLUE_500.jpg" width="350"  alt="LASN"/></h2></td>
 						
 							<td> </td>
 							<td> </td>
@@ -46,11 +47,11 @@
 							<table>
 							<td valign="middle" width="75"><span style="font-family: 'Nunito', sans-serif; font-size:14px; font-weight:bold">Follow us: </span></td>
 							<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-							<td><a href="https://www.facebook.com/LASNMagazine/" target="_blank"><img src="https://landscapearchitect.com/lo-logo-s/facbook-logo.jpg" width="25" /></a></td>
+							<td><a href="https://www.facebook.com/LASNMagazine/" target="_blank"><img src="<?php echo BASE_URL; ?>lo-logo-s/facbook-logo.jpg" width="25" /></a></td>
 							<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-							<td><a href="https://twitter.com/LandscapeASN" target="_blank"><img src="https://landscapearchitect.com/lo-logo-s/Twitter_logo_blue.jpg" width="25" /></a></td>
+							<td><a href="https://twitter.com/LandscapeASN" target="_blank"><img src="<?php echo BASE_URL; ?>lo-logo-s/Twitter_logo_blue.jpg" width="25" /></a></td>
 							<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-							<td><a href="https://www.linkedin.com/showcase/landscape-architect-and-specifier-news" target="_blank"><img src="https://landscapearchitect.com/lo-logo-s/linkedinicon.jpg" width="25" /></a>
+							<td><a href="https://www.linkedin.com/showcase/landscape-architect-and-specifier-news" target="_blank"><img src="<?php echo BASE_URL; ?>lo-logo-s/linkedinicon.jpg" width="25" /></a>
 								</td>
 								</tr>	
 							</table>
@@ -73,9 +74,9 @@ LASN provides landscape architects timely information on sustainable design, par
 			
 
 				 <p style="font-size:16px; line-height:1.5em; color:#000">
-					&bull; <a href='https://landscapearchitect.com/editorial/features/LA-2020-Editorial-Calendar.pdf'>View and Download the LASN Editorial Calendar</a><br>
-					&bull; <a href='https://landscapearchitect.com/research/editorial/images/LASN-editorial-Submissions.pdf'>"Call for Projects" Guidelines</a><br>
-					&bull; <a href='https://landscapearchitect.com/research/editorial/submit-editorial.php'>Submit Material to LASN's Monthly Columns</a>
+					&bull; <a href='<?php echo BASE_URL; ?>editorial/features/LA-2020-Editorial-Calendar.pdf'>View and Download the LASN Editorial Calendar</a><br>
+					&bull; <a href='<?php echo BASE_URL; ?>research/editorial/images/LASN-editorial-Submissions.pdf'>"Call for Projects" Guidelines</a><br>
+					&bull; <a href='<?php echo BASE_URL; ?>research/editorial/submit-editorial.php'>Submit Material to LASN's Monthly Columns</a>
 				</p><br>
 
 				<table cellspacing="10" width="750">
@@ -104,7 +105,7 @@ LASN provides landscape architects timely information on sustainable design, par
 
 					<tr>
 						<td width="12%" valign="top" style="font-family:'Nunito', sans-serif; font-size:16px; font-weight:bold; color:#903">February</td>
-						<td width="52%" valign="top" style="font-family:'Nunito', sans-serif; font-size:16px; line-height: normal"><a href="https://landscapearchitect.com/editorial/features/custom_residential.pdf" target="_blank"><strong>Custom Residential</strong></a><br />
+						<td width="52%" valign="top" style="font-family:'Nunito', sans-serif; font-size:16px; line-height: normal"><a href="<?php echo BASE_URL; ?>editorial/features/custom_residential.pdf" target="_blank"><strong>Custom Residential</strong></a><br />
 							<span style="font-family:''Nunito', sans-serif;">Approximately 70 percent of landscape architects do residential design work. LASN will showcase how landscape architects enhance residential properties with landscape design and outdoor-living elements.<br /></span></td>
 						<td width="1%" valign="top" style="font-family:'Nunito', sans-serif; font-size:13px">&nbsp;</td>
 						<td width="18%" valign="top" style="font-family:'Nunito', sans-serif; font-size:13px">FenceTech</td>
@@ -117,7 +118,7 @@ LASN provides landscape architects timely information on sustainable design, par
 
 					<tr>
 						<td width="12%" valign="top" style="font-family:'Nunito', sans-serif; font-size:16px; font-weight:bold; color:#903">March</td>
-						<td width="52%" valign="top" style="font-family:'Nunito', sans-serif; font-size:16px; line-height: normal"><a href="https://landscapearchitect.com/editorial/features/parks.pdf" target="_blank"><strong>Parks</strong></a><br />
+						<td width="52%" valign="top" style="font-family:'Nunito', sans-serif; font-size:16px; line-height: normal"><a href="<?php echo BASE_URL; ?>editorial/features/parks.pdf" target="_blank"><strong>Parks</strong></a><br />
 							<span style="font-family:''Nunito', sans-serif;">By maximizing use of limited green space and providing play areas for children, landscape architects continue to foster Olmsted’s idea that “every community should have a park at its heart.”<br /></span></td>
 						<td width="1%" valign="top" style="font-family:'Nunito', sans-serif; font-size:13px">&nbsp;</td>
 						<td width="18%" valign="top" style="font-family:'Nunito', sans-serif; font-size:13px"></td>
@@ -130,7 +131,7 @@ LASN provides landscape architects timely information on sustainable design, par
 
 					<tr>
 						<td width="12%" valign="top" style="font-family:'Nunito', sans-serif; font-size:16px; font-weight:bold; color:#903">April</td>
-						<td width="52%" valign="top" style="font-family:'Nunito', sans-serif; font-size:16px; line-height: normal"><a href="https://landscapearchitect.com/editorial/features/lighting.pdf" target="_blank"><strong>Lighting</strong></a><br />
+						<td width="52%" valign="top" style="font-family:'Nunito', sans-serif; font-size:16px; line-height: normal"><a href="<?php echo BASE_URL; ?>editorial/features/lighting.pdf" target="_blank"><strong>Lighting</strong></a><br />
 							<span style="font-family:''Nunito', sans-serif;">How a landscape architecture design looks at night is not only about safety, but also aesthetics and energy savings. Use of decorative poles, shielded luminaries, uplighting, downlighting, spot, façade, path and step lighting fixtures and bollard lighting are just some of the options to enhance a site’s night environment.<br /></span></td>
 						<td width="1%" valign="top" style="font-family:'Nunito', sans-serif; font-size:13px">&nbsp;</td>
 						<td width="18%" valign="top" style="font-family:'Nunito', sans-serif; font-size:13px">LightFair<br>International</td>
@@ -156,7 +157,7 @@ LASN provides landscape architects timely information on sustainable design, par
 
 					<tr>
 						<td width="12%" valign="top" style="font-family:'Nunito', sans-serif; font-size:16px; font-weight:bold; color:#903">June</td>
-						<td width="52%" valign="top" style="font-family:'Nunito', sans-serif; font-size:16px; line-height: normal"><a href="https://landscapearchitect.com/editorial/features/SchoolCampus.pdf" target="_blank"><strong>School & Campus Design</strong></a><br />
+						<td width="52%" valign="top" style="font-family:'Nunito', sans-serif; font-size:16px; line-height: normal"><a href="<?php echo BASE_URL; ?>editorial/features/SchoolCampus.pdf" target="_blank"><strong>School & Campus Design</strong></a><br />
 							<span style="font-family:''Nunito', sans-serif;">LASN will feature school landscape designs at all levels of education—elementary, middle school, high school and college and university, plus engaging landscapes of corporate campuses.<br /></span></td>
 						<td width="1%" valign="top" style="font-family:'Nunito', sans-serif; font-size:13px">&nbsp;</td>
 						<td width="18%" valign="top" style="font-family:'Nunito', sans-serif; font-size:13px"></td>
@@ -280,11 +281,11 @@ LASN provides landscape architects timely information on sustainable design, par
 
 
 
-      <? include '../../../includes/la-common-footer-inner.inc'; ?>  
+      <? include $rootInclude.'la-common-footer-inner.inc'; ?>  
 
-      <? include '../../../includes/la-common-magazine-subscribe.php'; ?>
+      <? include $rootInclude.'la-common-magazine-subscribe.php'; ?>
 
-      <? include '../../../includes/la-common-log-in-modal.inc'; ?>
+      <? include $rootInclude.'la-common-log-in-modal.inc'; ?>
 
 
     </body>
