@@ -21,6 +21,16 @@ if($pageId == 'resources'){
 	$xpage = $_SERVER['REQUEST_URI'];
   $ucode = $_SESSION['user'];
 
+function get_cate_slug($conn, $cat_id){
+	$slug = '';
+	$sql = "select slug from xlist where id=$cat_id";
+	$result = $conn->query($sql);	
+	while($row = mysqli_fetch_array($result)) {
+		$slug = $row['slug'];
+	}
+
+	return $slug;
+}
 
 ?>
 
@@ -102,37 +112,37 @@ if($pageId == 'resources'){
 	                                            <li class="padding25">
 	                                                <div>
 	                                                    <p class="" style="font-size:14px; color:#2e2e2e; font-weight: 800; text-transform: capitalize;">All Categories</p>
-	                                                    <a href="<?php echo BASE_URL; ?>business-services-and-software">Business Services &amp; Software</a>
-	                                                    <a href="<?php echo BASE_URL; ?>erosion-control">Erosion Control</a>
-	                                                    <a href="<?php echo BASE_URL; ?>fence-gates">Fencing</a>
-	                                                    <a href="<?php echo BASE_URL; ?>irrigation">Irrigation</a>
-	                                                    <a href="<?php echo BASE_URL; ?>lighting-electrical">Lighting / Electrical</a>
-	                                                    <a href="<?php echo BASE_URL; ?>outdoor-living">Outdoor Living</a>
-	                                                    <a href="<?php echo BASE_URL; ?>park-and-recreation">Park &amp; Recreation</a>
-	                                                    <a href="<?php echo BASE_URL; ?>pavers-masonry-blocks-and-rocks">Paver, Masonry, Blocks, Rocks</a>
+	                                                    <a href="<?php echo BASE_URL.get_cate_slug($conn, 28); ?>">Business Services &amp; Software</a>
+	                                                    <a href="<?php echo BASE_URL.get_cate_slug($conn, 30); ?>">Erosion Control</a>
+	                                                    <a href="<?php echo BASE_URL.get_cate_slug($conn, 1300); ?>">Fencing</a>
+	                                                    <a href="<?php echo BASE_URL.get_cate_slug($conn, 1139); ?>">Irrigation</a>
+	                                                    <a href="<?php echo BASE_URL.get_cate_slug($conn, 32); ?>">Lighting / Electrical</a>
+	                                                    <a href="<?php echo BASE_URL.get_cate_slug($conn, 1214); ?>">Outdoor Living</a>
+	                                                    <a href="<?php echo BASE_URL.get_cate_slug($conn, 33); ?>">Park &amp; Recreation</a>
+	                                                    <a href="<?php echo BASE_URL.get_cate_slug($conn, 38); ?>">Paver, Masonry, Blocks, Rocks</a>
 	                                                </div>
 	                                            </li>
 	                                            <li class="padding25">
 	                                                <div> 
 														<p class=" hidden-xs" style="font-size:14px; color:#2e2e2e; font-weight: 800; text-transform: capitalize;"></p>
 														<br class="hidden-xs" />
-	                                                    <a href="<?php echo BASE_URL; ?>pest-wildlife-control">Pest / Wildlife</a>
-	                                                    <a href="<?php echo BASE_URL; ?>plant-accessories-and-amendments">Plant Accessories &amp; Amenments</a>
-	                                                    <a href="<?php echo BASE_URL; ?>pool-and-spa">Pool &amp; Spa</a>
-	                                                    <a href="<?php echo BASE_URL; ?>sculpture-garden-art">Scupture / Art / Garden Ornaments</a>
-	                                                    <a href="<?php echo BASE_URL; ?>site-amenities">Site Amenities</a>
-	                                                    <a href="<?php echo BASE_URL; ?>site-furnishings-and-receptacles">Site Furnishings &amp; Receptables</a>
-	                                                    <a href="<?php echo BASE_URL; ?>water-features">Water Features</a>
-	                                                    <a href="<?php echo BASE_URL; ?>water-management">Water Management</a>
+	                                                    <a href="<?php echo BASE_URL.get_cate_slug($conn, 1212); ?>">Pest / Wildlife</a>
+	                                                    <a href="<?php echo BASE_URL.get_cate_slug($conn, 1002); ?>">Plant Accessories &amp; Amenments</a>
+	                                                    <a href="<?php echo BASE_URL.get_cate_slug($conn, 1394) ?>">Pool &amp; Spa</a>
+	                                                    <a href="<?php echo BASE_URL.get_cate_slug($conn, 1301) ?>">Scupture / Art / Garden Ornaments</a>
+	                                                    <a href="<?php echo BASE_URL.get_cate_slug($conn, 29) ?>">Site Amenities</a>
+	                                                    <a href="<?php echo BASE_URL.get_cate_slug($conn, 1215) ?>">Site Furnishings &amp; Receptables</a>
+	                                                    <a href="<?php echo BASE_URL.get_cate_slug($conn, 41) ?>">Water Features</a>
+	                                                    <a href="<?php echo BASE_URL.get_cate_slug($conn, 1213) ?>">Water Management</a>
 	
 	                                                </div>
 	                                            </li>
 	                                            <li class="padding25">
 	                                                <div>
 	                                                    <p class="" style="font-size:14px; color:#2e2e2e; font-weight: 800; text-transform: capitalize;">Tools &amp; Equipment</p>
-	                                                    <a href="<?php echo BASE_URL; ?>equipment-installation">Installation Equipment</a>
-	                                                    <a href="<?php echo BASE_URL; ?>equipment-maintenance">Maintenance Equipment</a>
-	                                                    <a href="<?php echo BASE_URL; ?>tools-and-equipment">Tools &amp; Parts</a>
+	                                                    <a href="<?php echo BASE_URL.get_cate_slug($conn, 1209) ?>">Installation Equipment</a>
+	                                                    <a href="<?php echo BASE_URL.get_cate_slug($conn, 1210) ?>">Maintenance Equipment</a>
+	                                                    <a href="<?php echo BASE_URL.get_cate_slug($conn, 39) ?>39">Tools &amp; Parts</a>
 	                                                </div>
 	                                                <div class="padding20">
 	                                                    <p class="padding20" style="font-size:14px; color:#2e2e2e; font-weight: 800; text-transform: capitalize;">Local Wholesale &amp; Plant Materials</p>
