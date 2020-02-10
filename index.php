@@ -650,7 +650,9 @@
 
 													 $mainImage = $row["id"];
 
-													 $mainLink = BASE_URL."research/articles.php?number=" . $mainImage;
+													 $slug = $row['slug'];
+
+													 $mainLink = BASE_URL."articles/" . $slug;
 
 													 $titleStory = "<a href='".BASE_URL."research/articles.php?number=" . $mainImage . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($titleWords))) . "</a><br>";   
 
