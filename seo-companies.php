@@ -167,7 +167,7 @@
 												echo '<div class="col-md-7 col-sm-12 col-xs-12">
 												
 															<a href="#" class="vendr_l img_fit full_width">
-																<img src="'.BASE_URL.' products/images/' . $logoNum . '" style="width:80%;" />
+																<img src="'.BASE_URL.'products/images/' . $logoNum . '" style="width:80%;" />
 															</a>
 
 															<p class="vendor-profile">
