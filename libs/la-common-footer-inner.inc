@@ -84,10 +84,11 @@
                 '/member/login_ven.php',
                 {'password': password},
                  function(data){
-                   extracted_data = JSON.parse(data);  
+                    //console.log(data);
+                   //extracted_data = JSON.parse(data);  
                    //console.log(data);
-                   if(extracted_data.login == true){
-                      window.location.href = "<?php echo BASE_URL; ?>vendor/index-vendor.php?action=edit&id=" + extracted_data.vendorId;
+                   if(data.login == true){
+                      window.location.href = "<?php echo BASE_URL; ?>vendor/index-vendor.php?action=edit&id=" + data.vendorId;
                    } else {
                      setTimeout(function(){
                        document.getElementById("incorrectPasswordText").innerHTML = "Incorrect Password. Please try again."

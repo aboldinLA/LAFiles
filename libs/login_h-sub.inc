@@ -1,8 +1,8 @@
 <?php
 #error_reporting(-1);
-if($_POST):
+/*if($_POST):
     echo "asdsad";die;
-endif;    
+endif;    */
 include($rootInclude."class/user_class.inc");
 $U = new user_class($db);
 #if($REQUEST_METHOD=="POST") {
