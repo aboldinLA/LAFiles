@@ -417,7 +417,7 @@
 						});<br>
 						
 						</script>
-							  <script src="js/main.js"></script>
+						<script src="js/main.js"></script>
 						<script>
 
 
@@ -425,7 +425,7 @@
 					var processing;
 
 						 $(window).on("scroll", function() {
-
+						 	
 									var scrollHeight = $(document).height();
 									var scrollPosition = $(window).height() + $(window).scrollTop();
 
