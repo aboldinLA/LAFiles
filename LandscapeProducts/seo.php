@@ -209,7 +209,7 @@
 										}                */
 
 
-								$cat1 = $adId;
+							$cat1 = $adId;
 								
 								
 							$companyNamesFeatured = array();
@@ -283,20 +283,20 @@
 									<?php
                 
              
-                
-																		$cat2 = $_GET['number'];
-									
-									
-																			$sql533 = "SELECT * FROM new_vendor LEFT JOIN vendor_product ON new_vendor.id=vendor_product.vendor_id WHERE vendor_product.xlist='". $cat2 ."' AND (new_vendor.status='10' OR new_vendor.status='12' OR new_vendor.status='14' OR new_vendor.status='16' OR new_vendor.status='18')";
-																			$result533 = $conn->query($sql533);
 
-																			$rowcount533=mysqli_num_rows($result533);
+										$cat2 = $_GET['number'];
+
+
+										$sql533 = "SELECT * FROM new_vendor LEFT JOIN vendor_product ON new_vendor.id=vendor_product.vendor_id WHERE vendor_product.xlist='". $cat2 ."' AND (new_vendor.status='10' OR new_vendor.status='12' OR new_vendor.status='14' OR new_vendor.status='16' OR new_vendor.status='18')";
+										$result533 = $conn->query($sql533);
+
+										$rowcount533=mysqli_num_rows($result533);
                 
                 
                                         $ad = $adId;
                                         
                                         
-                                        if ($ad == '28') {
+                                        /*if ($ad == '28') {
                                            echo '<title>Business Services | Landscape Architect</title>';
                                             echo '<h1 class="center-section-header">Business Services</h1>';
                                         } elseif ($ad == '30') {
@@ -353,7 +353,10 @@
                                         } elseif ($ad == '1211') {
                                             echo '<title>Tools, Tires & Replacement Parts | Landscape Architect</title>';
                                             echo '<h1 class="center-section-header">Tools, Tires & Replacement Parts</h1>';
-                                        }
+                                        }*/
+
+                                        echo '<title>'.$metaTitle.'</title>';
+                                        echo '<h1 class="center-section-header">'.$name.'</h1>';
             
                 
 										$cat1 = $adId;
