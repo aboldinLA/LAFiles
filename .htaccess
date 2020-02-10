@@ -23,7 +23,7 @@ RewriteRule commercial-landscape-companies/(.*) seo-companies.php?companySlug=$1
 RewriteRule commercial-landscape-companies/(.*)/(.*) seo-companies.php?companySlug=$1
 
 #Article Pages
-RewriteRule articles/(.*) /research/seo-article-a.php?articleSlug=$1
+RewriteRule articles/(.*) /research/seo-article-a.php?articleSlug=$1 [NC,L]
 
 #Category Pages
 RewriteRule ^(([A-Za-z0-9]+[-]+[A-Za-z0-9]+)+)$  /LandscapeProducts/seo.php?catParma=$1    [NC,L]    # category Pages
@@ -65,7 +65,7 @@ RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/(?:\ Ballot169)?
 RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
 RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Sectigo\ DCV)?$
 
-RewriteRule articles/(.*)/(.*)/ research/articles.php?name=$1&number=$2
+#RewriteRule articles/(.*)/(.*)/ research/articles.php?name=$1&number=$2
 
 
 RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
@@ -73,7 +73,7 @@ RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/(?:\ Ballot169)?
 RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
 RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Sectigo\ DCV)?$
 
-RewriteRule articles/(.*)/(.*) research/articles.php?name=$1&number=$2
+#RewriteRule articles/(.*)/(.*) research/articles.php?name=$1&number=$2
 RewriteRule feature/(.*)/(.*) research/articles.php?type=1&name=$1&number=$2
 RewriteRule news/(.*)/(.*) research/articles.php?type=2&name=$1&number=$2
 RewriteRule department/(.*)/(.*) research/articles.php?type=3&name=$1&number=$2

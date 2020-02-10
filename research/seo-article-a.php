@@ -1,8 +1,16 @@
-<?php
-	include '../modules/configuration.inc';
+<?php 
+	
+	include '../modules/configuration.inc'; 
 	include '../modules/db.php';
-	include '../modules/baseUrl.php';
 	include '../modules/articleModel.php';
+	include $rootInclude. 'la-common-top.php';  
+	include $rootInclude.'la-common-header-inner.inc'; 
+
+
+/*	include '../modules/configuration.inc';
+	
+	include '../modules/baseUrl.php';
+	
 	include '../modules/urlData.php';
 
 
@@ -10,7 +18,7 @@
 	//	$pageId = 'news';
 	include $rootInclude. 'la-common-top.php'; 
 
-	include $rootInclude.'la-common-header-inner.inc'; 
+	include $rootInclude.'la-common-header-inner.inc'; */
 
 
 ?>
@@ -60,7 +68,7 @@
 										// start article from table
 							
 
-											$key2 = $_GET['articleSlug'];							
+											$key2 = $_GET['articleSlug'];
 											//$key2 = "28909";
 
 											// $sql = "select * from editorial where id='" . $key2 . "'";

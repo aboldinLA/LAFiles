@@ -1,4 +1,4 @@
-<?php session_start() ?>
+<?php session_start(); ?>
 <?php include '../modules/configuration.inc'; ?>
 <?php 
 	include '../modules/db.php'; 
@@ -2864,7 +2864,7 @@
                                 
 												foreach ($venNum as $value) {
 													
-													$value[number];
+													$value['number'];
 													
 															$sql55 = "SELECT * FROM new_vendor WHERE id='" .$value. "' AND status = '10' ORDER BY company_name ASC";
 															$result55 = $conn->query($sql55);
