@@ -1,12 +1,7 @@
 <?php
-
-
-
-include 'https://landscapearchitect.com/LandscapeProducts/uploader-master/demo/backend/source.php';
-
-
-
-
+include '../../../modules/configuration.inc';
+include '../../../modules/db.php';
+include BASE_URL.'LandscapeProducts/uploader-master/demo/backend/source.php';
 
 $prodNum2 = $prodNum;
 
@@ -78,7 +73,9 @@ try {
         $pString2 = substr($pString, 28);
 
 
-                                        $link = mysqli_connect("localhost", "land_patchew", "59q2GB6k$3", "land_landscap_lollive");
+        //$link = mysqli_connect("localhost", "land_patchew", "59q2GB6k$3", "land_landscap_lollive");
+
+        $link = $conn;
 
 		// Check connection
 		if($link === false){

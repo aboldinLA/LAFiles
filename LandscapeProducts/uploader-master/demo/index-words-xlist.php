@@ -1,7 +1,8 @@
-
 <?
-
 session_start();
+
+include '../../../modules/configuration.inc';
+include '../../../modules/db.php';
 
 $_SESSION['test'] = 42;
 $test = 43;
@@ -43,24 +44,24 @@ $xlistCat2 = $_POST['xlistCat'];
                                         echo $_POST['xlistCat'];
       
       
-                                        $link = mysqli_connect("localhost", "land_patchew", "59q2GB6k$3", "land_landscap_lollive");
+                                        //$link = mysqli_connect("localhost", "land_patchew", "59q2GB6k$3", "land_landscap_lollive");
 
                                         // Check connection
-                                        if($link === false){
+                                        if($conn === false){
                                             die("ERROR: Could not connect. " . mysqli_connect_error());
                                         }
 
                                         // Attempt insert query execution
                                         $sql = "UPDATE vendor_product SET xlist = '" . $xlistCat2 . "' WHERE id = '" . $prodNum3 . "';
                                 ";
-                                        if(mysqli_query($link, $sql)){
+                                        if(mysqli_query($conn, $sql)){
                                             echo "<br><center><h3>Category has been updated</h3><br></center>";
                                         } else{
-                                            echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+                                            echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
                                         }
 
                                         // Close connection
-                                        mysqli_close($link);
+                                        mysqli_close($conn);
 
 												
 												

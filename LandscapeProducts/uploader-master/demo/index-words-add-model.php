@@ -1,7 +1,7 @@
-
 <?
-
 session_start();
+include '../../../modules/configuration.inc';
+include '../../../modules/db.php';
 
 $_SESSION['test'] = 42;
 $test = 43;
@@ -51,10 +51,10 @@ $import = 1;
                                         echo $webAdd;
       
       
-                                        $link = mysqli_connect("localhost", "land_patchew", "59q2GB6k$3", "land_landscap_lollive");
+                                        //$link = mysqli_connect("localhost", "land_patchew", "59q2GB6k$3", "land_landscap_lollive");
 
                                         // Check connection
-                                        if($link === false){
+                                        if($conn === false){
                                             die("ERROR: Could not connect. " . mysqli_connect_error());
                                         }
 
@@ -62,16 +62,16 @@ $import = 1;
                                         $sql = "INSERT INTO vendor_product (vendor_id, product_name, imported, xlist, web_photo, company_name, cadd, cadd_2, cadd_3, pdff, skup, vwxx, mediap, zipp, series_product)
                                         VALUES ('" . $coId . "', '" . $prodName2 . "', '" . $import . "', '" . $xlistNum . "', '" . $webAdd . "', '" . $coName . "', 'none', 'none', 'none', 'none', 'none', 'none', 'none', 'none', '" . $seriesProd . "')";
       
-                                        if(mysqli_query($link, $sql)){
+                                        if(mysqli_query($conn, $sql)){
                                             echo "<br><center><h3>Your Product Is Being Created.</h3><br>This May Take a Moment</center>";
                                         } else{
-                                            echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+                                            echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
                                         }
       
       
 										// Vendor Start
 
-                                        $servername = "localhost";
+                                        /*$servername = "localhost";
                                         $username = "land_patchew";
                                         $password = "59q2GB6k$3";
                                         $dbname = "land_landscap_lollive";
@@ -81,7 +81,7 @@ $import = 1;
                                         // Check connection
                                             if ($conn->connect_error) {
                                                 die("Connection failed: " . $conn->connect_error);
-                                            } 
+                                            } */
       
       
                                         $sql2 = "SELECT * FROM vendor_product WHERE ID = (SELECT MAX(ID) FROM vendor_product)";
@@ -102,7 +102,7 @@ $import = 1;
       
 
                                         // Close connection
-                                        mysqli_close($link);
+                                        mysqli_close($conn);
 
 												
 												
