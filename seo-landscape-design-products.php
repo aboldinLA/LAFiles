@@ -390,7 +390,7 @@
 																	Fax: ' . $row['fax'] . '<br />
 																	' . $row['website'] . '</p>
 																	 <div style="padding:16px 0px; ">
-																			<button onclick="(function(){window.location.href =\''.BASE_URL.'commercial-landscape-companies/' . $$endor_slug . '\'})();return false;" class="prodVenBtn">View Vendor Micro Site</button>
+																			<button onclick="(function(){window.location.href =\''.BASE_URL.'commercial-landscape-companies/' . $companyName . '\'})();return false;" class="prodVenBtn">View Vendor Micro Site</button>
 
 																			<button id="contactCompanyBtn" class="prodVenBtn">Contact Company</button>
 
