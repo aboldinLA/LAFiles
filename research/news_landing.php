@@ -1,12 +1,13 @@
-<?php session_start() ?>
-
-
-<? 
+<?php session_start(); 
   //must come before header
-  $pageId = "news";
+  	$pageId = "news";
+
+  	include '../modules/configuration.inc';
+	include '../modules/db.php';
+
   
-  include '../../includes/la-common-top.php';  
-	include '../../includes/la-common-header.inc'; 
+	include $rootInclude.'la-common-top.php';  
+	include $rootInclude.'la-common-header.inc'; 
 
 	$dataOptionValue_newsLanding = isset($_GET['news']) ? $_GET['news'] : 'all'; 
 
@@ -142,7 +143,7 @@
 
 <section class="tool_page full_width">
 
-  <? include '../../includes/la-common-leaderboard-banner.inc'; ?>
+  <? include $rootInclude.'la-common-leaderboard-banner.inc'; ?>
   
 </section><!-- /.tool_page -->
 
@@ -156,7 +157,7 @@
     <div class="add_nn" style="margin-bottom: 15px;">
 						<?
 						
-							include '../../includes/connect4.inc'; 
+							//include '../../includes/connect4.inc'; 
 						
 							$sql = "SELECT * FROM banner_ups WHERE ROS='lad' ORDER BY RAND() LIMIT 1";
 							$result = $conn->query($sql);									
@@ -182,7 +183,7 @@
 
 								<?
 								
-										include '../../includes/connect4.inc';  
+										//include '../../includes/connect4.inc';  
 							
 										$newsCats = array('all' => 0, 'association' => 5, 'legislation' => 7, 'education' => 8, 'economic' => 4, 'industry' => 2, 'projects' => 1);
 														
@@ -216,13 +217,15 @@
 												$titleWords = $row['title'];
 												$subWords = $row['subtitle'];
 												$mainImage = $row["id"];
-												$Link = "https://landscapearchitect.com/research/articles.php?number=" . $mainImage;
+												$article_slug = $row["slug"];
+												//$Link = "https://landscapearchitect.com/research/articles.php?number=" . $mainImage;
+												$Link = BASE_URL."articles/" . $article_slug;
 
 												$active = $counter < 1 ? 'active' : '';
 
 												echo '<div class="swiper-slide">
 													<a href="' . $Link . '">
-													<img src="https://landscapearchitect.com/research/images/' . $mainImage . '.jpg" alt="img" />
+													<img src="'.BASE_URL.'research/images/' . $mainImage . '.jpg" alt="img" />
 														<div class="ns_txt" onclick="window.location.replace(\'' . $Link . '\')">
 															<h3>' . $titleWords . '</h3>
 																<p>' . $subWords . '</p>
@@ -291,7 +294,7 @@
 				<!-- news sections start -->
 						<?php
 							
-							include '../../includes/connect4.inc';  
+							//include '../../includes/connect4.inc';  
 							
 							$newsCats = array('all' => 0, 'association' => 5, 'legislation' => 7, 'education' => 8, 'economic' => 4, 'industry' => 2, 'projects' => 1);
 //            , 
@@ -331,7 +334,9 @@
 									$titleWords = $row['title'];
 									$subWords = $row['subtitle'];
 									$mainImage = $row["id"];
-									$Link = "https://landscapearchitect.com/research/articles.php?number=" . $mainImage;
+									$article_slug = $row["slug"];
+									//$Link = "https://landscapearchitect.com/research/articles.php?number=" . $mainImage;
+									$Link = BASE_URL."articles/" . $article_slug;
 									
 									$sub =  array_search($row['subject'], $newsCats);
 									$metaSubString = $sub == 'projects' ? ucfirst($sub) : ucfirst($sub) . ' News';
@@ -362,7 +367,7 @@
 															//section main news story start
 															 echo '<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
 																				<div class="lef full_width img_fit">
-																					<a href="' . $Link . '"><div style="min-height: 200px; background-size: cover; background-repeat: no-repeat; background-image: url(https://landscapearchitect.com/research/images/' . $mainImage . '.jpg"); "></div></a>
+																					<a href="' . $Link . '"><div style="min-height: 200px; background-size: cover; background-repeat: no-repeat; background-image: url('.BASE_URL.'research/images/' . $mainImage . '.jpg"); "></div></a>
 																						<div class="txt full_width">
 																										<h4 class="metaDataText">' . $metaData . '</h4>
 																										<h5>' . $titleWords . '</h5>
@@ -400,7 +405,7 @@
 												//section three side news story start
 											echo '<li>
 																<a href="'. $Link . '">
-																		<span class="img"><img src="https://landscapearchitect.com/research/images/' . $mainImage . '-a.jpg" alt="img" /></span><!-- /.img -->
+																		<span class="img"><img src="'.BASE_URL.'research/images/' . $mainImage . '-a.jpg" alt="img" /></span><!-- /.img -->
 																		<span class="txt-">
 																						<h6>' . strtoupper($subjectName) . '<span>' . $titleWords . '</span></h6>
 																						<p>' . $description . '</p>
@@ -454,17 +459,23 @@
 
 															 $mainImage = $row["id"];
 
-															 $Link = "https://landscapearchitect.com/research/articles.php?number=" . $mainImage;
+															 $article_slug = $row["slug"];
+															//$Link = "https://landscapearchitect.com/research/articles.php?number=" . $mainImage;
+															$Link = BASE_URL."articles/" . $article_slug;
 
-															 $titleStory = "<a href='https://landscapearchitect.com/research/articles.php?number=" . $mainImage . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($titleWords))) . "</a><br>"; 
+															 $titleStory = "<a href='".BASE_URL."research/articles.php?number=" . $mainImage . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($titleWords))) . "</a><br>"; 
 															 
 															 $keywordart = $row["keywords"];
                                                 
 															 $mainImage = $row["id"];																					
 
-															$mainLink = "https://landscapearchitect.com/research/articles.php?number=" . $mainImage;
+															$article_slug = $row["slug"];
+															//$Link = "https://landscapearchitect.com/research/articles.php?number=" . $mainImage;
+															$Link = BASE_URL."articles/" . $article_slug;
 
-															$titleStory = "<a href='https://landscapearchitect.com/research/articles.php?number=" . $mainImage . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($titleWords))) . "</a><br>"; 
+															$mainLink = $Link;
+
+															$titleStory = "<a href='" . $Link . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($titleWords))) . "</a><br>"; 
 															 
 															 
 																$sql5 = "select * from editorial where keywords RLIKE '" . $keywordart . "' ORDER BY id DESC LIMIT 0,3";
@@ -472,7 +483,10 @@
 
 																while($row = mysqli_fetch_array($result5)) {
 
-																	$newStory = "<a href='https://landscapearchitect.com/research/articles.php?number=" . $row["id"] . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a><br>";   
+																	$article_slug = $row["slug"];
+																	$Link = BASE_URL."articles/" . $article_slug;
+
+																	$newStory = "<a href='" . $Link . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a><br>";   
 
 																	// creates link with article name and article id in url
 																	// $newStory = "<a href='http://www.landscapearchitect.com/articles/" . $string . "/" . $row["id"] . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a><br>";    
@@ -483,9 +497,10 @@
 																$result55 = $conn->query($sql55);			                                                
 
 																while($row = mysqli_fetch_array($result55)) {
+																		$article_slug = $row["slug"];
+																		$Link = BASE_URL."articles/" . $article_slug;
 
-
-																		$newStory2 = "<a href='https://landscapearchitect.com/research/articles.php?number=" . $row["id"] . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a><br>";     
+																		$newStory2 = "<a href='" . $Link . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a><br>";     
 
 																		// creates link with article name and article id in url
 																		//$newStory2 = "<a href='http://www.landscapearchitect.com/articles/" . $string . "/" . $row["id"] . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a><br>";          
@@ -498,7 +513,10 @@
 
 																	while($row = mysqli_fetch_array($result555)) {
 
-																			 $newStory3 = "<a href='https://landscapearchitect.com/research/articles.php?number=" . $row["id"] . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a><br>";                                               
+																			$article_slug = $row["slug"];
+																			$Link = BASE_URL."articles/" . $article_slug;
+
+																			 $newStory3 = "<a href='" . $Link . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a><br>";                                               
 
 
 																				// creates link with article name and article id in url
@@ -575,15 +593,15 @@
 
 															 $mainImage = $row["id"];
 
-															 $Link = "https://landscapearchitect.com/research/articles.php?number=" . $mainImage;
+															$article_slug = $row["slug"];
+															$Link = BASE_URL."articles/" . $article_slug;
 
-															 $titleStory = "<a href='https://landscapearchitect.com/research/articles.php?number=" . $mainImage . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($titleWords))) . "</a><br>"; 
-															 
+															 														 
 															 $keywordart = $row["keywords"];
                                                 
 															 $mainImage = $row["id"];																					
 
-															$mainLink = "https://landscapearchitect.com/research/articles.php?number=" . $mainImage;
+															$mainLink = $Link;//"https://landscapearchitect.com/research/articles.php?number=" . $mainImage;
 
 															$titleStory = "<a href='https://landscapearchitect.com/research/articles.php?number=" . $mainImage . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($titleWords))) . "</a><br>"; 
 															 
@@ -593,7 +611,10 @@
 
 																while($row = mysqli_fetch_array($result5)) {
 
-																	$newStory = "<a href='https://landscapearchitect.com/research/articles.php?number=" . $row["id"] . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a><br>";   
+																	$article_slug = $row["slug"];
+																	$Link = BASE_URL."articles/" . $article_slug;
+
+																	$newStory = "<a href='" . $Link . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a><br>";   
 
 																	// creates link with article name and article id in url
 																	// $newStory = "<a href='http://www.landscapearchitect.com/articles/" . $string . "/" . $row["id"] . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a><br>";    
@@ -605,8 +626,10 @@
 
 																while($row = mysqli_fetch_array($result55)) {
 
+																		$article_slug = $row["slug"];
+																		$Link = BASE_URL."articles/" . $article_slug;
 
-																		$newStory2 = "<a href='https://landscapearchitect.com/research/articles.php?number=" . $row["id"] . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a><br>";     
+																		$newStory2 = "<a href='" . $Link . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a><br>";     
 
 																		// creates link with article name and article id in url
 																		//$newStory2 = "<a href='http://www.landscapearchitect.com/articles/" . $string . "/" . $row["id"] . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a><br>";          
@@ -619,7 +642,10 @@
 
 																	while($row = mysqli_fetch_array($result555)) {
 
-																			 $newStory3 = "<a href='https://landscapearchitect.com/research/articles.php?number=" . $row["id"] . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a><br>";                                               
+																			$article_slug = $row["slug"];
+																			$Link = BASE_URL."articles/" . $article_slug;
+
+																			 $newStory3 = "<a href='" . $Link . "'>" . iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($row["title"]))) . "</a><br>";                                               
 
 
 																				// creates link with article name and article id in url
@@ -641,7 +667,7 @@
 																				<article style="background: white; margin-bottom:20px;">
 																						<div class="post-thumb">
 																								<a href="' . $mainLink . '">
-																										<img src="https://landscapearchitect.com/research/images/' . $mainImage . '.jpg" class="img-responsive" alt="">
+																										<img src="'.BASE_URL.'research/images/' . $mainImage . '.jpg" class="img-responsive" alt="">
 																										<div class="overlay-rmore fa fa-link"></div>
 																								</a>
 																						</div>
@@ -748,14 +774,14 @@
                     <div class="row text-center">
                         <p style="margin-bottom: 5px;">
                           <a href="#" id="footerSubscribeBtn">Subscribe</a> | 
-                          <a href="https://landscapearchitect.com/contact-us/">Advertising</a> | 
-                          <a href="https://landscapearchitect.com/contact-us/">Become A Vendor</a> | <br class="mob-only" style="display:none;" />
-                          <a href="https://landscapearchitect.com/contact-us/">Contact Us</a> | 
-                          <a href="https://landscapearchitect.com/about-us/">About Us</a>
+                          <a href="<?php echo BASE_URL; ?>contact-us/">Advertising</a> | 
+                          <a href="<?php echo BASE_URL; ?>contact-us/">Become A Vendor</a> | <br class="mob-only" style="display:none;" />
+                          <a href="<?php echo BASE_URL; ?>contact-us/">Contact Us</a> | 
+                          <a href="<?php echo BASE_URL; ?>about-us/">About Us</a>
                       </p>
 						          <p style="margin-bottom: 0px;">
                         
-                        <a href="https://landscapearchitect.com/report-a-bug/">Website Problems, Report a Bug</a> |
+                        <a href="<?php echo BASE_URL; ?>report-a-bug/">Website Problems, Report a Bug</a> |
                         Landscape Communications Inc. © 2019
                       </p>
                     </div>
@@ -801,9 +827,9 @@
 					
 					
 					
-					<? include '../../includes/la-common-magazine-subscribe.php'; ?>
+					<? include $rootInclude.'la-common-magazine-subscribe.php'; ?>
 					
-          <? include '../../includes/la-common-log-in-modal.inc'; ?>
+          <? include $rootInclude.'la-common-log-in-modal.inc'; ?>
 					
 
 

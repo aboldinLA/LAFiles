@@ -128,21 +128,21 @@ function get_cate_slug($conn, $cat_id){
 														<br class="hidden-xs" />
 	                                                    <a href="<?php echo BASE_URL.get_cate_slug($conn, 1212); ?>">Pest / Wildlife</a>
 	                                                    <a href="<?php echo BASE_URL.get_cate_slug($conn, 1002); ?>">Plant Accessories &amp; Amenments</a>
-	                                                    <a href="<?php echo BASE_URL.get_cate_slug($conn, 1394) ?>">Pool &amp; Spa</a>
-	                                                    <a href="<?php echo BASE_URL.get_cate_slug($conn, 1301) ?>">Scupture / Art / Garden Ornaments</a>
-	                                                    <a href="<?php echo BASE_URL.get_cate_slug($conn, 29) ?>">Site Amenities</a>
-	                                                    <a href="<?php echo BASE_URL.get_cate_slug($conn, 1215) ?>">Site Furnishings &amp; Receptables</a>
-	                                                    <a href="<?php echo BASE_URL.get_cate_slug($conn, 41) ?>">Water Features</a>
-	                                                    <a href="<?php echo BASE_URL.get_cate_slug($conn, 1213) ?>">Water Management</a>
+	                                                    <a href="<?php echo BASE_URL.get_cate_slug($conn, 1394); ?>">Pool &amp; Spa</a>
+	                                                    <a href="<?php echo BASE_URL.get_cate_slug($conn, 1301); ?>">Scupture / Art / Garden Ornaments</a>
+	                                                    <a href="<?php echo BASE_URL.get_cate_slug($conn, 29); ?>">Site Amenities</a>
+	                                                    <a href="<?php echo BASE_URL.get_cate_slug($conn, 1215); ?>">Site Furnishings &amp; Receptables</a>
+	                                                    <a href="<?php echo BASE_URL.get_cate_slug($conn, 41); ?>">Water Features</a>
+	                                                    <a href="<?php echo BASE_URL.get_cate_slug($conn, 1213); ?>">Water Management</a>
 	
 	                                                </div>
 	                                            </li>
 	                                            <li class="padding25">
 	                                                <div>
 	                                                    <p class="" style="font-size:14px; color:#2e2e2e; font-weight: 800; text-transform: capitalize;">Tools &amp; Equipment</p>
-	                                                    <a href="<?php echo BASE_URL.get_cate_slug($conn, 1209) ?>">Installation Equipment</a>
-	                                                    <a href="<?php echo BASE_URL.get_cate_slug($conn, 1210) ?>">Maintenance Equipment</a>
-	                                                    <a href="<?php echo BASE_URL.get_cate_slug($conn, 39) ?>39">Tools &amp; Parts</a>
+	                                                    <a href="<?php echo BASE_URL.get_cate_slug($conn, 1209); ?>">Installation Equipment</a>
+	                                                    <a href="<?php echo BASE_URL.get_cate_slug($conn, 1210); ?>">Maintenance Equipment</a>
+	                                                    <a href="<?php echo BASE_URL.get_cate_slug($conn, 39); ?>">Tools &amp; Parts</a>
 	                                                </div>
 	                                                <div class="padding20">
 	                                                    <p class="padding20" style="font-size:14px; color:#2e2e2e; font-weight: 800; text-transform: capitalize;">Local Wholesale &amp; Plant Materials</p>
