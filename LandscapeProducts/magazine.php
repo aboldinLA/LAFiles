@@ -1,7 +1,7 @@
 <?php session_start() ?>
-<?php include '../../modules/configuration.inc'; ?>
+<?php include '../modules/configuration.inc'; ?>
+<?php include '../modules/db.php'; ?>
 <? 
-	
 	$pageId = 'resources';
 	
   
