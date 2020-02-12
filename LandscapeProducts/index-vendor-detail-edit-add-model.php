@@ -1,7 +1,8 @@
 <?
-
+include '../modules/configuration.inc';
+include '../modules/db.php';
 // Top Section - HTML
-include '../../includes/la-lad-top.inc';
+include $rootInclude.'la-lad-top.inc';
 
 ?>
 
@@ -11,7 +12,7 @@ include '../../includes/la-lad-top.inc';
 <?
 
 // Top Section - Nav Section
-		include("../../includes/la-lad-header.inc");
+		include($rootInclude."la-lad-header.inc");
 
 ?>
 
@@ -109,7 +110,7 @@ include '../../includes/la-lad-top.inc';
                     
                     <?
                     
-                                        $servername = "localhost";
+                                        /*$servername = "localhost";
                                         $username = "land_patchew";
                                         $password = "59q2GB6k$3";
                                         $dbname = "land_landscap_lollive";
@@ -120,7 +121,7 @@ include '../../includes/la-lad-top.inc';
                                             if ($conn->connect_error) {
                                                 die("Connection failed: " . $conn->connect_error);
                                             } 
-
+*/
 
 
 										// start article from table
@@ -245,11 +246,11 @@ include '../../includes/la-lad-top.inc';
 
 // Top Section - Footer Section
 // include("lad_footer-main.inc");
-		include("../../includes/la-lad-bottom.inc"); 
+		include($rootInclude."la-lad-bottom.inc"); 
 
 ?>	
 
 <?
-    include("../../includes/lo_footer-main2-new.inc");
+    include($rootInclude."lo_footer-main2-new.inc");
 ?>
 	
