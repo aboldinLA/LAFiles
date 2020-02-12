@@ -1,12 +1,8 @@
-<?php session_start() ?>
+<?php session_start() ;
 
-
-<? 
-
-  
-  include '../../includes/la-common-top.php';
-
-  include '../../includes/connect4.inc';
+  include '../modules/configuration.inc';
+  include '../modules/db.php';
+  include $rootInclude.'la-common-top.php';  
 
 ?>
 
@@ -16,7 +12,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <img src="http://landscapearchitect.com/images/basic/logo.jpg" width="100%" style="max-width: 450px; padding-top: 10px; padding-bottom: 15px;">
+          <img src="<?php echo BASE_URL; ?>images/basic/logo.jpg" width="100%" style="max-width: 450px; padding-top: 10px; padding-bottom: 15px;">
           <h2 style="font-size: 31px; text-align: center;">Welcome to the Subscription Request and Profile Management Center</h2>
         </div>
       </div>
@@ -256,7 +252,7 @@
         
         
   <?
-      include '../../includes/connect3.inc';
+      //include '../../includes/connect3.inc';
             
       $categorys = [
           ['Landscape Lighting', 'LL', 13731],
@@ -369,7 +365,7 @@
         
   <!-- Mag OptIn End -->						
 
-		<? include '../../includes/la-common-footer-inner.inc'; ?>
+		<? include $rootInclude.'la-common-footer-inner.inc'; ?>
 
 
 
@@ -389,7 +385,7 @@
             <div class="modal_cot full_width">
               <p style="font-size: 25px; text-align: center; margin-top: 10px;">Thank you <span id="firstNameThankYou"></span></p>
               <p style="font-size: 19px; text-align: center;">Your subscription has been updated</p>
-              <a class="button_style" href="https://landscapearchitect.com" style="padding-top: 10px">
+              <a class="button_style" href="<?php echo BASE_URL; ?>" style="padding-top: 10px">
                Return To Site
               </a>
             </div><!-- /.modal_cot -->
@@ -423,7 +419,7 @@ $(window).on('load',function(){
 
       //on form completion, return user to home page
       $('#id01.subThankYou').on('hide.bs.modal', function (e) {
-          window.location = "https://landscapearchitect.com";
+          window.location = "<?php echo BASE_URL; ?>";
         });
   
 //      $('[data-toggle=confirmation]').click(function(event){
