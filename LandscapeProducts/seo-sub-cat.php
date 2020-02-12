@@ -1,5 +1,7 @@
 <?php
 	session_start();
+
+	//echo "<pre>";print_r($_GET);die;
 	
 	include '../modules/configuration.inc'; 
 	include '../modules/db.php';
@@ -139,9 +141,9 @@
 						}
 						
 						
-						$limit = ( isset( $_POST['limit'] ) ) ? $_POST['limit'] : 24;
+						$limit = ( isset( $_GET['limit'] ) ) ? $_GET['limit'] : 24;
 						$limit = ($limit == 'all') ? $totalProdCount : $limit;
-						$page = ( isset( $_POST['page'] ) ) ? $_POST['page'] : 1; 
+						$page = ( isset( $_GET['page'] ) ) ? $_GET['page'] : 1; 
                 
                 
          ?>
@@ -397,10 +399,11 @@
 						
 						?>
 						<p class="sort_area"><? echo($companyString); ?> <span id="totalProdCount"><!-- filled with jquery script based on $totalProdCount --></span></p>
+							<?php $limited_url = BASE_URL.$parent_cate.'/'.$sub_cate.'?limit='; ?>
 							<p class="sort_area">Show 
-								<a href="<? echo $baseLink . '&limit=24&page=1' ?>" id="show24btn" class="<? if(!isset($limit) || $limit == 24){ echo 'bold'; }; ?>">24</a> | 
-								<a href="<? echo $baseLink . '&limit=48&page=1' ?>" id="show48btn" class="<? if($limit == 48){ echo 'bold'; }; ?>">48</a> | 
-								<a href="<? echo $baseLink . '&limit=all&page=1' ?>" id="showallbtn" class="<? if($limit == 50000){ echo 'bold'; }; ?>">View All</a>
+								<a href="<? echo $limited_url; ?>24&page=1" id="show24btn" class="<? if(!isset($limit) || $limit == 24){ echo 'bold'; }; ?>">24</a> | 
+								<a href="<? echo $limited_url; ?>48&page=1" id="show48btn" class="<? if($limit == 48){ echo 'bold'; }; ?>">48</a> | 
+								<a href="<? echo $limited_url; ?>all&page=1" id="showallbtn" class="<? if($limit == 50000){ echo 'bold'; }; ?>">View All</a>
 							</p>
 							
 
@@ -601,7 +604,7 @@
 									} else {
 										$link = current_url();
 									}
-
+									
 									$last  =  $maxPages;
 
 									$start = ( ( $page - $maxPages ) > 0 ) ? $page - $maxPages : 1;

@@ -373,7 +373,9 @@
 
 												$string = preg_replace("/[\s-]+/", " ", $string); // Clean multiple dashes or whitespaces
 
-												$string = preg_replace("/[\s_]/", "-", $string); //Convert whitespaces and underscore to dash																									
+												$string = preg_replace("/[\s_]/", "-", $string); //Convert whitespaces and underscore to dash		
+
+												$vendor_slug = $row['slug'];																							
     
 
 												echo '<div class="col-md-4 col-md-offset-1 col-sm-12 col-xs-12 prod-title" >
@@ -388,7 +390,7 @@
 																	Fax: ' . $row['fax'] . '<br />
 																	' . $row['website'] . '</p>
 																	 <div style="padding:16px 0px; ">
-																			<button onclick="(function(){window.location.href =\''.BASE_URL.'landscape-design-products/' . $string . '/' . $vendorNum_get . '\'})();return false;" class="prodVenBtn">View Vendor Micro Site</button>
+																			<button onclick="(function(){window.location.href =\''.BASE_URL.'commercial-landscape-companies/' . $$endor_slug . '\'})();return false;" class="prodVenBtn">View Vendor Micro Site</button>
 
 																			<button id="contactCompanyBtn" class="prodVenBtn">Contact Company</button>
 

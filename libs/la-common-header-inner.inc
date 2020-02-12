@@ -180,7 +180,7 @@ if($pageId == 'resources'){
 	                                                </div>
 	                                                <div class="padding20">
 	                                                    <p class="padding20" style="font-size:14px; color:#2e2e2e; font-weight: 800; text-transform: capitalize;">Local Wholesale &amp; Plant Materials</p>
-	                                                  	<form action="https://landscapearchitect.com/LandscapeProducts/local_wholesale.php" method="post" name="zipformHeader" id="zipFormHeader">
+	                                                  	<form action="<?php echo BASE_URL; ?>LandscapeProducts/local_wholesale.php" method="post" name="zipformHeader" id="zipFormHeader">
 																												<label>Search By Zip: <input type="text" name="zipcode" size="6" maxlength="5" autocomplete="off" /></label>
 																												<input type="hidden" name="distance" value="100"></input>
 																												<button type="submit" name="submit"><i class="fas fa-search-location"></i></button>
@@ -194,23 +194,23 @@ if($pageId == 'resources'){
 	                                    </li>
 																		
 	                                    <li class="<? echo $newsActive ?> dropdown mmenu" style="position: relative;">
-	                                        <a href="https://landscapearchitect.com/research/news_landing.php" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">News</a>
+	                                        <a href="<?php echo BASE_URL; ?>research/news_landing.php" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">News</a>
 																					<ul class="dropdown-menu non-mega-menu" role="menu">
-	                                          <li><a href="https://landscapearchitect.com/research/news_landing.php">Trending</a></li>
-																						<li><a href="https://landscapearchitect.com/research/news_landing.php?news=association">Association</a></li>
-																						<li><a href="https://landscapearchitect.com/research/news_landing.php?news=legislation">Legislation</a></li>
-																						<li><a href="https://landscapearchitect.com/research/news_landing.php?news=education">Education</a></li>
-																						<li><a href="https://landscapearchitect.com/research/news_landing.php?news=economic">Economic</a></li>
-																						<li><a href="https://landscapearchitect.com/research/news_landing.php?news=industry">Industry</a></li>		
-																						<li><a href="https://landscapearchitect.com/research/news_landing.php?news=projects">Projects</a></li>		
+	                                          <li><a href="<?php echo BASE_URL; ?>research/news_landing.php">Trending</a></li>
+																						<li><a href="<?php echo BASE_URL; ?>research/news_landing.php?news=association">Association</a></li>
+																						<li><a href="<?php echo BASE_URL; ?>research/news_landing.php?news=legislation">Legislation</a></li>
+																						<li><a href="<?php echo BASE_URL; ?>research/news_landing.php?news=education">Education</a></li>
+																						<li><a href="<?php echo BASE_URL; ?>research/news_landing.php?news=economic">Economic</a></li>
+																						<li><a href="<?php echo BASE_URL; ?>research/news_landing.php?news=industry">Industry</a></li>		
+																						<li><a href="<?php echo BASE_URL; ?>research/news_landing.php?news=projects">Projects</a></li>		
 	                                        </ul>
 	                                    </li>
 																			
 	                                    <li class="dropdown mmenu <? echo $resourcesActive ?>" style="position: relative;">
 	                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Resources</a>
 	                                        <ul class="dropdown-menu non-mega-menu" role="menu">
-	                                          <li><a href="https://landscapearchitect.com/LandscapeProducts/magazine.php">Digital Magazines</a></li>
-                                             <li><a href="https://landscapearchitect.com/research/editorial/editorial-submissions.php">Submit Editorial</a></li>
+	                                          <li><a href="<?php echo BASE_URL; ?>LandscapeProducts/magazine.php">Digital Magazines</a></li>
+                                             <li><a href="<?php echo BASE_URL; ?>research/editorial/editorial-submissions.php">Submit Editorial</a></li>
 	                                        </ul>
 	                                    </li>
 																			
@@ -228,8 +228,8 @@ if($pageId == 'resources'){
                                             <li><a href="#" class="logInModalPopUpBtn">User Login</a></li>
 	                                          <li><a href="#" id="menuSubscribeBtn">New Subscription Request</a></li>
                                             <li><hr></li>
-																						<li><a href="https://landscapearchitect.com/member/login2.php?t=v">Vendor Login</a></li>
-																						<li><a href="https://landscapearchitect.com/member/login2.php?t=v">Create New Vendor Account</a></li>
+																						<li><a href="<?php echo BASE_URL; ?>member/login2.php?t=v">Vendor Login</a></li>
+																						<li><a href="<?php echo BASE_URL; ?>member/login2.php?t=v">Create New Vendor Account</a></li>
                                              <li><hr></li>
                                             <li><a href="<?php echo BASE_URL; ?>logout.php">Log Out</a></li>
                                             
