@@ -451,7 +451,7 @@
 
 																$string2 = preg_replace("/[\s_]/", "-", $string2); //Convert whitespaces and underscore to dash			     				
 																//$detailsUrl = BASE_URL.''.$row['slug'];*/
-																$detailsUrl = BASE_URL.$cateArray['sub_cate_slug'].'/'.$vendor_slug.'/'.$row['slug'];
+																$detailsUrl = BASE_URL.'products/'.$cateArray['sub_cate_slug'].'/'.$vendor_slug.'/'.$row['slug'];
 											
 														 echo '<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 padding30">
 																		<a href="'.$detailsUrl.'">

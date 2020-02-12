@@ -425,7 +425,7 @@
 
 
 																	
-																			$xlistId = $row['xlist'];
+																		$xlistId = $row['xlist'];
 																	
 																		$sql2334 = "SELECT * FROM new_vendor WHERE id='" . $row['vendor_id'] . "'";
 																		$result2334 = $conn->query($sql2334);
@@ -440,97 +440,100 @@
 
 																		$string = preg_replace("/[\s-]+/", " ", $string); // Clean multiple dashes or whitespaces
 
-																		$string = preg_replace("/[\s_]/", "-", $string); //Convert whitespaces and underscore to dash																		
+																		$string = preg_replace("/[\s_]/", "-", $string); //Convert whitespaces and underscore to dash															
+
+																		$vendor_slug = $row2334['slug'];			
 																	
 																	
 																	
 																			$rowXlist = 1;
 																	
 																				
-																				$sql555 = "SELECT * FROM xlist WHERE id='" . $xlistId . "'";
-																				$result555 = $conn->query($sql555);
-																				$row555 = mysqli_fetch_assoc($result555);
+																			$sql555 = "SELECT * FROM xlist WHERE id='" . $xlistId . "'";
+																			$result555 = $conn->query($sql555);
+																			$row555 = mysqli_fetch_assoc($result555);
 																	
-																									$subCatName = $row555['name'];																	
+																			$subCatName = $row555['name'];
+																			$sub_cate_slug= $row555['slug'];																	
 																	
 																	
-																									if ($row555['idParent'] == 28) {
+																			if ($row555['idParent'] == 28) {
 
-																											$catNameProd = 'business-services-software';
+																					$catNameProd = 'business-services-software';
 
-																									} elseif ($row555['idParent'] == 30) {
+																			} elseif ($row555['idParent'] == 30) {
 
-																											$catNameProd = 'erosion-control-products';
+																					$catNameProd = 'erosion-control-products';
 
-																									} elseif ($row555['idParent'] == 1300) {
+																			} elseif ($row555['idParent'] == 1300) {
 
-																											$catNameProd = 'commercial-fencing';
+																					$catNameProd = 'commercial-fencing';
 
-																									} elseif ($row555['idParent'] == 1139) {
+																			} elseif ($row555['idParent'] == 1139) {
 
-																											$catNameProd = 'irrigation';
+																					$catNameProd = 'irrigation';
 
-																									} elseif ($row555['idParent'] == 32) {
+																			} elseif ($row555['idParent'] == 32) {
 
-																											$catNameProd = 'exterior-lighting-electrical';
+																					$catNameProd = 'exterior-lighting-electrical';
 
-																									} elseif ($row555['idParent'] == 1214) {
+																			} elseif ($row555['idParent'] == 1214) {
 
-																											$catNameProd = 'outdoor-living';
+																					$catNameProd = 'outdoor-living';
 
-																									} elseif ($row555['idParent'] == 33) {
+																			} elseif ($row555['idParent'] == 33) {
 
-																											$catNameProd = 'parks-and-recreation';
+																					$catNameProd = 'parks-and-recreation';
 
-																									} elseif ($row555['idParent'] == 38) {
+																			} elseif ($row555['idParent'] == 38) {
 
-																											$catNameProd = 'pavers-masonry-blocks-rocks';
+																					$catNameProd = 'pavers-masonry-blocks-rocks';
 
-																									} elseif ($row555['idParent'] == 1212) {
+																			} elseif ($row555['idParent'] == 1212) {
 
-																											$catNameProd = 'wildlife-pest-control';
+																					$catNameProd = 'wildlife-pest-control';
 
-																									} elseif ($row555['idParent'] == 1002) {
+																			} elseif ($row555['idParent'] == 1002) {
 
-																											$catNameProd = 'plant-accessories-and-soil-amendments';
+																					$catNameProd = 'plant-accessories-and-soil-amendments';
 
-																									} elseif ($row555['idParent'] == 1394) {
+																			} elseif ($row555['idParent'] == 1394) {
 
-																											$catNameProd = 'pools-and-spa';
+																					$catNameProd = 'pools-and-spa';
 
-																									} elseif ($row555['idParent'] == 1301) {
+																			} elseif ($row555['idParent'] == 1301) {
 
-																											$catNameProd = 'art-sculpture-metal-stone-garden-ornaments';
+																					$catNameProd = 'art-sculpture-metal-stone-garden-ornaments';
 
-																									} elseif ($row555['idParent'] == 29) {
+																			} elseif ($row555['idParent'] == 29) {
 
-																											$catNameProd = 'site-amenities';
+																					$catNameProd = 'site-amenities';
 
-																									} elseif ($row555['idParent'] == 1215) {
+																			} elseif ($row555['idParent'] == 1215) {
 
-																											$catNameProd = 'site-furnishings-and-receptacles';
+																					$catNameProd = 'site-furnishings-and-receptacles';
 
-																									} elseif ($row555['idParent'] == 41) {
+																			} elseif ($row555['idParent'] == 41) {
 
-																											$catNameProd = 'water-features-fountains-ponds-and-equipment';
+																					$catNameProd = 'water-features-fountains-ponds-and-equipment';
 
-																									} elseif ($row555['idParent'] == 1213) {
+																			} elseif ($row555['idParent'] == 1213) {
 
-																											$catNameProd = 'water-management';
+																					$catNameProd = 'water-management';
 
-																									} elseif ($row555['idParent'] == 1209) {
+																			} elseif ($row555['idParent'] == 1209) {
 
-																											$catNameProd = 'installation-equipment';
+																					$catNameProd = 'installation-equipment';
 
-																									} elseif ($row555['idParent'] == 1210) {
+																			} elseif ($row555['idParent'] == 1210) {
 
-																											$catNameProd = 'maintenance-equipment';
+																					$catNameProd = 'maintenance-equipment';
 
-																									} elseif ($row555['idParent'] == 1211) {
+																			} elseif ($row555['idParent'] == 1211) {
 
-																											$catNameProd = 'tools-tires-replacement-parts';
+																					$catNameProd = 'tools-tires-replacement-parts';
 
-																									} 
+																			} 
 																	
 																	
 																		$string555 =  $row555['name']; // Trim String
@@ -543,7 +546,7 @@
 
 																		$string555 = preg_replace("/[\s_]/", "-", $string555); //Convert whitespaces and underscore to dash																																			
 																	
-																	
+																	$product_url = BASE_URL.'products/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
 																	$rawText = $row['product_name'];
 																	
 																	$nameText = substr($rawText, 0, 35);
@@ -553,7 +556,7 @@
 																				<div class="elem">
 																					<a href="#">
 																						<div class="img-cover" style="">
-																							<a href="' .BASE_URL. $catNameProd . '/' . $string555 . '/' . $string . '/' . $string2 . '/' . $row['vendor_id'] . '/' . $row['id'] . '"><img src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive" alt=""/></a>
+																							<a href="' .$product_url . '"><img src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive" alt=""/></a>
 																						</div>
 																						<p class="padding12">' . $nameText . '</p>
 

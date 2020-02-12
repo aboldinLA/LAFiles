@@ -671,7 +671,7 @@
 											$secondSlug = ( ( isset( $explode[1] ) && !empty( $explode[1] ) ) ? $explode[1] : '' );
 
 											//$detailsPageUrl = BASE_URL.$firstSlug.'/'.$secondSlug.'/'.$product['slug'];
-											$detailsPageUrl = BASE_URL.$secondSlug.'/'.$vendor_slug.'/'.$product_slug;
+											$detailsPageUrl = BASE_URL.'products/'.$secondSlug.'/'.$vendor_slug.'/'.$product_slug;
 
 											echo '<a href="' . $detailsPageUrl . '" class="col-md-4 col-sm-6 col-xs-6 for_small">
 																						<div class="full_width brdr">
