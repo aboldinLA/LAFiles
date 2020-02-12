@@ -1,7 +1,9 @@
 <?php session_start() ?>
 
 
-<?  include '../../includes/la-common-top.php'; ?>
+<?  include '../modules/configuration.inc'; ?>
+<?  include '../modules/db.php'; ?>
+<?  include $rootInclude.'la-common-top.php'; ?>
 
 
 
@@ -10,7 +12,7 @@
       <div class="container">
         <div class="row">
         <div class="col-md-12">
-          <img src="http://landscapearchitect.com/images/basic/logo.jpg" width="100%" style="max-width: 450px; padding-top: 10px; padding-bottom: 15px;">
+          <img src="<?php echo BASE_URL; ?>images/basic/logo.jpg" width="100%" style="max-width: 450px; padding-top: 10px; padding-bottom: 15px;">
           <h2 style="font-size: 31px; text-align: center;">Welcome to the Subscription Request and Profile Management Center</h2>
         </div>
     
@@ -49,7 +51,7 @@
     $id = $_GET['id'];
                 
 				
-          include '../../includes/connect3.inc';
+          //include '../../includes/connect3.inc';
 
 
 				  // Edit Fill
@@ -190,7 +192,7 @@
             <div class="cell col-sm-12 flex-column" style="flex-grow: 1;">
              <div class="row">
                 <div class="col-sm-12">
-                  <img width="100%" src="https://landscapearchitect.com/lol-logos/LASN_BLUE_500.jpg" style="margin-top:20px; display: block; margin: 0 auto; max-width: 600px;">
+                  <img width="100%" src="<?php echo BASE_URL; ?>lol-logos/LASN_BLUE_500.jpg" style="margin-top:20px; display: block; margin: 0 auto; max-width: 600px;">
                    <h4 style="font-size: 20px; margin-top: 25px;" class="text-center">I would like to subscribe / opt-in to receive</h4>
                    
                 </div>
@@ -384,7 +386,7 @@
 	 
 						<?
               
-                include '../../includes/connect4.inc';
+                //include '../../includes/connect4.inc';
 
 								
 								$sql = "SELECT * FROM type_title ORDER by id ASC";
@@ -838,7 +840,7 @@
         
   <!-- Mag OptIn End -->						
 
-		<? include '../../includes/la-common-footer-inner.inc'; ?>
+		<? include $rootInclude.'la-common-footer-inner.inc'; ?>
 
 <script>
   
