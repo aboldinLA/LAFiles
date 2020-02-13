@@ -29,9 +29,11 @@ RewriteRule articles/(.*) /research/seo-article-a.php?articleSlug=$1 [NC,L]
 RewriteRule ^(([A-Za-z0-9]+[-]+[A-Za-z0-9]+)+)$  /LandscapeProducts/seo.php?catParma=$1    [NC,L]    # category Pages
 
 # Sub Category Pages rules
-RewriteRule ^(([A-Za-z0-9]+[-]+[A-Za-z0-9]+)+[/]+[A-Za-z0-9]+[-]+[A-Za-z0-9]+)$  /LandscapeProducts/seo-sub-cat.php?catParma=$1    [NC,L,QSA]    
+RewriteRule ^(([A-Za-z0-9]+[-]+[A-Za-z0-9]+)+[/]+([A-Za-z0-9]+(.*)+)+)$  /LandscapeProducts/seo-sub-cat.php?catParma=$1    [NC,L,QSA]
+
+#RewriteRule ^(([A-Za-z0-9]+[-]+[A-Za-z0-9]+)+[/]+[A-Za-z0-9]+[-]+[A-Za-z0-9]+)$  /LandscapeProducts/seo-sub-cat.php?catParma=$1    [NC,L,QSA]    
 #RewriteRule ^(([A-Za-z0-9]+[-]+[A-Za-z0-9]+)+[/]+[A-Za-z0-9]+[-]+[A-Za-z0-9]+[-]+[A-Za-z0-9]+)$  /LandscapeProducts/seo-sub-cat.php?catParma=$1    [NC,L]     
-#RewriteRule ^(([A-Za-z0-9]+[-]+[A-Za-z0-9]+)+[/]+[A-Za-z0-9]+[-]+[A-Za-z0-9]+[-]+[A-Za-z0-9]+[-]+[A-Za-z0-9]+[-]+[A-Za-z0-9]+)$  /LandscapeProducts/seo-sub-cat.php?catParma=$1    [NC,L]    
+
 
 # Product Page Rules
 RewriteCond %{REQUEST_URI} !\.(?:css|js|jpe?g|gif|png)$ [NC]
@@ -39,7 +41,6 @@ RewriteCond %{REQUEST_URI} !\.(?:css|js|jpe?g|gif|png)$ [NC]
 RewriteRule product/(.*)/(.*)/(.*) seo-landscape-design-products.php?subCat=$1&companyName=$2&productName=$3 
 #RewriteRule /(.*)/(.*)/(.*)/(.*)/(.*)/(.*) seo-landscape-design-products.php?name=$1&name2=$2&name3=$3&name4=$4&number=$5&prodNum=$6
 
-#RewriteRule ^(([A-Za-z0-9]+[-]+[A-Za-z0-9]+)+[/]+[A-Za-z0-9]+[-]+[A-Za-z0-9]+[/]+[A-Za-z0-9]+[-]+[A-Za-z0-9]+)$  /seo-landscape-design-products.php?subCat=$1&companyName=$2&productName=$3
 
 
 
