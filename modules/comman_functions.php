@@ -14,3 +14,14 @@ function trending_categories($conn,$parent_cate_id, $base_url){
 
     return $string;
 }
+
+function get_category_link($conn,$id){
+	$sql2333 = "SELECT slug FROM `xlist` WHERE `id` = $id";
+	$result2333 = $conn->query($sql2333);										
+	$cate_slug = '';
+    while($row = mysqli_fetch_array($result2333)) {
+		$cate_slug = $row['slug'];
+    }
+
+    return $cate_slug;
+}
