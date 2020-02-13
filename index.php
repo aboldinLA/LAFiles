@@ -547,7 +547,7 @@
 
 																		$string555 = preg_replace("/[\s_]/", "-", $string555); //Convert whitespaces and underscore to dash																																			
 																	
-																	$product_url = BASE_URL.'products/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
+																	$product_url = BASE_URL.'product/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
 																	$rawText = $row['product_name'];
 																	
 																	$nameText = substr($rawText, 0, 35);
@@ -1273,84 +1273,6 @@
 																									$subCatName = $row555['name'];																	
 																	
 																	
-																									/*if ($row555['idParent'] == 28) {
-
-																											$catNameProd = 'business-services-software';
-
-																									} elseif ($row555['idParent'] == 30) {
-
-																											$catNameProd = 'erosion-control-products';
-
-																									} elseif ($row555['idParent'] == 1300) {
-
-																											$catNameProd = 'commercial-fencing';
-
-																									} elseif ($row555['idParent'] == 1139) {
-
-																											$catNameProd = 'irrigation';
-
-																									} elseif ($row555['idParent'] == 32) {
-
-																											$catNameProd = 'exterior-lighting-electrical';
-
-																									} elseif ($row555['idParent'] == 1214) {
-
-																											$catNameProd = 'outdoor-living';
-
-																									} elseif ($row555['idParent'] == 33) {
-
-																											$catNameProd = 'parks-and-recreation';
-
-																									} elseif ($row555['idParent'] == 38) {
-
-																											$catNameProd = 'pavers-masonry-blocks-rocks';
-
-																									} elseif ($row555['idParent'] == 1212) {
-
-																											$catNameProd = 'wildlife-pest-control';
-
-																									} elseif ($row555['idParent'] == 1002) {
-
-																											$catNameProd = 'plant-accessories-and-soil-amendments';
-
-																									} elseif ($row555['idParent'] == 1394) {
-
-																											$catNameProd = 'pool-and-spa';
-
-																									} elseif ($row555['idParent'] == 1301) {
-
-																											$catNameProd = 'art-sculpture-metal-stone-garden-ornaments';
-
-																									} elseif ($row555['idParent'] == 29) {
-
-																											$catNameProd = 'site-amenities';
-
-																									} elseif ($row555['idParent'] == 1215) {
-
-																											$catNameProd = 'site-furnishings-and-receptacles';
-
-																									} elseif ($row555['idParent'] == 41) {
-
-																											$catNameProd = 'water-features-fountains-ponds-and-equipment';
-
-																									} elseif ($row555['idParent'] == 1213) {
-
-																											$catNameProd = 'water-management';
-
-																									} elseif ($row555['idParent'] == 1209) {
-
-																											$catNameProd = 'installation-equipment';
-
-																									} elseif ($row555['idParent'] == 1210) {
-
-																											$catNameProd = 'maintenance-equipment';
-
-																									} elseif ($row555['idParent'] == 1211) {
-
-																											$catNameProd = 'tools-tires-replacement-parts';
-
-																									} */
-																	
 																	
 																		$string555 =  $row555['name']; // Trim String
 
@@ -1364,22 +1286,18 @@
 																		$sub_cate_slug = $row555['slug'];
 
 																				
-																		$product_url = BASE_URL.'products/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];		
+																		$product_url = BASE_URL.'product/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];		
 
 																		echo '<div class="pc-wrap">
 																						<div class="product-item">
 																								<div class="elem" style="width:122px; float:left; padding-right:10px">
-																												<a href="'. $product_url . '">
-																														<div class="img-cover">
-																																<img src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive" alt=""/>
-																														</div>
-																														<p class="padding12">' . $row['product_name'] . '</p>
-																														 <img src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo" />
-
-																																												</a>
-																																								</div>	
-																																						</div>
-																																				</div>';
+																										<a href="'. $product_url . '">
+																												<div class="img-cover">
+																														<img src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'.$row['photo'].'" class="img-responsive" alt=""/>
+																												</div>
+																												<p class="padding12">' . $row['product_name'] . '</p>
+																												 <img src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'].'" class="productLogo" />
+																												 </div>';
 
 
 																																} 
@@ -1486,7 +1404,7 @@
 																		$sub_cate_slug = $row555['slug'];
 																		$vendor_slug = $row2334['slug'];
 																				
-																		$product_url = BASE_URL.'products/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];		
+																		$product_url = BASE_URL.'product/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];		
                                                                
 																		echo '<div class="pc-wrap">
 																						<div class="product-item">
@@ -1611,7 +1529,7 @@
 																		$sub_cate_slug = $row555['slug'];
 																		$vendor_slug = $row2334['slug'];
 																				
-																		$product_url = BASE_URL.'products/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
+																		$product_url = BASE_URL.'product/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
                                                                
 																		echo '<div class="pc-wrap">
 																						<div class="product-item">
@@ -1731,7 +1649,7 @@
 																		$sub_cate_slug = $row555['slug'];
 																		$vendor_slug = $row2334['slug'];
 																				
-																		$product_url = BASE_URL.'products/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
+																		$product_url = BASE_URL.'product/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
                                                                
 																		echo '<div class="pc-wrap">
 																						<div class="product-item">
@@ -1849,7 +1767,7 @@
 																		$sub_cate_slug = $row555['slug'];
 																		$vendor_slug = $row2334['slug'];
 																				
-																		$product_url = BASE_URL.'products/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
+																		$product_url = BASE_URL.'product/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
                                                                
 																		echo '<div class="pc-wrap">
 																						<div class="product-item">
@@ -1969,7 +1887,7 @@
                                                 						$sub_cate_slug = $row555['slug'];
 																		$vendor_slug = $row2334['slug'];
 																				
-																		$product_url = BASE_URL.'products/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
+																		$product_url = BASE_URL.'product/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
 																	
                                                                
 																		echo '<div class="pc-wrap">
@@ -2088,7 +2006,7 @@
                                                 						$sub_cate_slug = $row555['slug'];
 																		$vendor_slug = $row2334['slug'];
 																				
-																		$product_url = BASE_URL.'products/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
+																		$product_url = BASE_URL.'product/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
 																	
                                                                
 																		echo '<div class="pc-wrap">
@@ -2206,7 +2124,7 @@
 																		$sub_cate_slug = $row555['slug'];
 																		$vendor_slug = $row2334['slug'];
 																				
-																		$product_url = BASE_URL.'products/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
+																		$product_url = BASE_URL.'product/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
                                                                
 																		echo '<div class="pc-wrap">
 																						<div class="product-item">
@@ -2322,7 +2240,7 @@
                                                 						$sub_cate_slug = $row555['slug'];
 																		$vendor_slug = $row2334['slug'];
 																				
-																		$product_url = BASE_URL.'products/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
+																		$product_url = BASE_URL.'product/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
 																	
                                                                
 																		echo '<div class="pc-wrap">
@@ -2440,7 +2358,7 @@
 																		$sub_cate_slug = $row555['slug'];
 																		$vendor_slug = $row2334['slug'];
 																				
-																		$product_url = BASE_URL.'products/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
+																		$product_url = BASE_URL.'product/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
                                                                
 																		echo '<div class="pc-wrap">
 																						<div class="product-item">
@@ -2559,7 +2477,7 @@
 																		$sub_cate_slug = $row555['slug'];
 																		$vendor_slug = $row2334['slug'];
 																				
-																		$product_url = BASE_URL.'products/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
+																		$product_url = BASE_URL.'product/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
                                                                
 																		echo '<div class="pc-wrap">
 																						<div class="product-item">
@@ -2674,7 +2592,7 @@
                                                 						$sub_cate_slug = $row555['slug'];
 																		$vendor_slug = $row2334['slug'];
 																				
-																		$product_url = BASE_URL.'products/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
+																		$product_url = BASE_URL.'product/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
 																	
                                                                
 																		echo '<div class="pc-wrap">
@@ -2791,7 +2709,7 @@
                                                 						$sub_cate_slug = $row555['slug'];
 																		$vendor_slug = $row2334['slug'];
 																				
-																		$product_url = BASE_URL.'products/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
+																		$product_url = BASE_URL.'product/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
 																	
                                                                
 																		echo '<div class="pc-wrap">
@@ -2908,7 +2826,7 @@
                                                 						$sub_cate_slug = $row555['slug'];
 																		$vendor_slug = $row2334['slug'];
 																				
-																		$product_url = BASE_URL.'products/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
+																		$product_url = BASE_URL.'product/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
 																	
                                                                
 																		echo '<div class="pc-wrap">
@@ -3027,7 +2945,7 @@
 																		$sub_cate_slug = $row555['slug'];
 																		$vendor_slug = $row2334['slug'];
 																				
-																		$product_url = BASE_URL.'products/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
+																		$product_url = BASE_URL.'product/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
                                                                
 																		echo '<div class="pc-wrap">
 																						<div class="product-item">
@@ -3143,7 +3061,7 @@
                                                 						$sub_cate_slug = $row555['slug'];
 																		$vendor_slug = $row2334['slug'];
 																				
-																		$product_url = BASE_URL.'products/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
+																		$product_url = BASE_URL.'product/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
 																	
                                                                
 																		echo '<div class="pc-wrap">
@@ -3259,7 +3177,7 @@
                                                 						$sub_cate_slug = $row555['slug'];
 																		$vendor_slug = $row2334['slug'];
 																				
-																		$product_url = BASE_URL.'products/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
+																		$product_url = BASE_URL.'product/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
 																	
                                                                
 																		echo '<div class="pc-wrap">
