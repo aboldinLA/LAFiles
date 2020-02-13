@@ -1179,22 +1179,22 @@
 						
 										<ul class="filter sfilter" data-option-key="filter">
 											<li><a href="#" class="selected tprodListItem" data-option-value=".trending" style="padding-left: 0px;">Trending Products</a></li>
-											<li><a href="#" class="tprodListItem" data-option-value=".busserv">Business Services &amp; Software</a></li>
-											<li><a href="#" class="tprodListItem" data-option-value=".erosion">Erosion Control</a></li>
-											<li><a href="#" class="tprodListItem" data-option-value=".fencing">Fencing</a></li>
-											<li><a href="#" class="tprodListItem" data-option-value=".irrigation">Irrigation</a></li>
-											<li><a href="#" class="tprodListItem" data-option-value=".lighting">Lighting / Electrical</a></li>
-											<li><a href="#" class="tprodListItem" data-option-value=".outdoor">Outdoor Living</a></li>
-											<li><a href="#" class="tprodListItem" data-option-value=".recreation">Park &amp; Recreation</a></li>
-											<li><a href="#" class="tprodListItem" data-option-value=".masonry">Paver, Masonry, Blocks, Rocks</a></li>
-											<li><a href="#" class="tprodListItem" data-option-value=".pest">Pest / Wildlife</a></li>
-											<li><a href="#" class="tprodListItem" data-option-value=".plant">Plant Accessories</a></li>
-											<li><a href="#" class="tprodListItem" data-option-value=".pool">Pool &amp; Spa</a></li>
-											<li><a href="#" class="tprodListItem" data-option-value=".sculpture">Sculpture, Metal &amp; Stone Garden Ornaments</a></li>
-											<li><a href="#" class="tprodListItem" data-option-value=".siteA">Site Amenities</a></li>
-											<li><a href="#" class="tprodListItem" data-option-value=".siteF">Site Furnishings &amp; Receptacles</a></li>
-											<li><a href="#" class="tprodListItem" data-option-value=".wfeatures">Water Features</a></li>
-											<li><a href="#" class="tprodListItem" data-option-value=".wmanage">Water Management</a></li>
+											<li><a href="#" class="tprodListItem" data-option-value=".busserv" data-option-slug='<?php echo get_category_link($conn,28); ?>'>Business Services &amp; Software</a></li>
+											<li><a href="#" class="tprodListItem" data-option-value=".erosion" data-option-slug='<?php echo get_category_link($conn,30); ?>'>Erosion Control</a></li>
+											<li><a href="#" class="tprodListItem" data-option-value=".fencing" data-option-slug='<?php echo get_category_link($conn,1300); ?>'>Fencing</a></li>
+											<li><a href="#" class="tprodListItem" data-option-value=".irrigation" data-option-slug='<?php echo get_category_link($conn,1139); ?>'>Irrigation</a></li>
+											<li><a href="#" class="tprodListItem" data-option-value=".lighting" data-option-slug='<?php echo get_category_link($conn,32); ?>'>Lighting / Electrical</a></li>
+											<li><a href="#" class="tprodListItem" data-option-value=".outdoor" data-option-slug='<?php echo get_category_link($conn,1214); ?>'>Outdoor Living</a></li>
+											<li><a href="#" class="tprodListItem" data-option-value=".recreation" data-option-slug='<?php echo get_category_link($conn,33); ?>'>Park &amp; Recreation</a></li>
+											<li><a href="#" class="tprodListItem" data-option-value=".masonry" data-option-slug='<?php echo get_category_link($conn,38); ?>'>Paver, Masonry, Blocks, Rocks</a></li>
+											<li><a href="#" class="tprodListItem" data-option-value=".pest" data-option-slug='<?php echo get_category_link($conn,1212); ?>'>Pest / Wildlife</a></li>
+											<li><a href="#" class="tprodListItem" data-option-value=".plant" data-option-slug='<?php echo get_category_link($conn,1002); ?>'>Plant Accessories</a></li>
+											<li><a href="#" class="tprodListItem" data-option-value=".pool" data-option-slug='<?php echo get_category_link($conn,1394); ?>'>Pool &amp; Spa</a></li>
+											<li><a href="#" class="tprodListItem" data-option-value=".sculpture" data-option-slug='<?php echo get_category_link($conn,1301); ?>'>Sculpture, Metal &amp; Stone Garden Ornaments</a></li>
+											<li><a href="#" class="tprodListItem" data-option-value=".siteA" data-option-slug='<?php echo get_category_link($conn,29); ?>'>Site Amenities</a></li>
+											<li><a href="#" class="tprodListItem" data-option-value=".siteF" data-option-slug='<?php echo get_category_link($conn,1215); ?>'>Site Furnishings &amp; Receptacles</a></li>
+											<li><a href="#" class="tprodListItem" data-option-value=".wfeatures" data-option-slug='<?php echo get_category_link($conn,41); ?>'>Water Features</a></li>
+											<li><a href="#" class="tprodListItem" data-option-value=".wmanage" data-option-slug='<?php echo get_category_link($conn,1213); ?>'>Water Management</a></li>
 
 											<!-- <li><a onClick="window.location.href ='https://mab-development.com/landscapearchitect/'"><i class="fa fa-angle-right" style="font-size: 12px; cursor:pointer;" ></i></a></li> -->
 									</ul>
