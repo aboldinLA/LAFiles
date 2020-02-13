@@ -703,7 +703,7 @@
 
 											
 														 echo '<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 padding30">
-																		<a href="'.BASE_URL. $subCat . '/' . $companyName . '/' . $row['slug'] . '">
+																		<a href="'.BASE_URL. 'product/' .$subCat . '/' . $companyName . '/' . $row['slug'] . '">
 																			<div class="vendor-product-cell-image">
 																				' . $image . '
 																			</div>
