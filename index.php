@@ -1179,22 +1179,22 @@
 						
 										<ul class="filter sfilter" data-option-key="filter">
 											<li><a href="#" class="selected tprodListItem" data-option-value=".trending" style="padding-left: 0px;">Trending Products</a></li>
-											<li><a href="#" class="tprodListItem" data-option-value=".busserv" data-option-slug='<?php echo get_category_link($conn,28); ?>'>Business Services &amp; Software</a></li>
-											<li><a href="#" class="tprodListItem" data-option-value=".erosion" data-option-slug='<?php echo get_category_link($conn,30); ?>'>Erosion Control</a></li>
-											<li><a href="#" class="tprodListItem" data-option-value=".fencing" data-option-slug='<?php echo get_category_link($conn,1300); ?>'>Fencing</a></li>
-											<li><a href="#" class="tprodListItem" data-option-value=".irrigation" data-option-slug='<?php echo get_category_link($conn,1139); ?>'>Irrigation</a></li>
-											<li><a href="#" class="tprodListItem" data-option-value=".lighting" data-option-slug='<?php echo get_category_link($conn,32); ?>'>Lighting / Electrical</a></li>
-											<li><a href="#" class="tprodListItem" data-option-value=".outdoor" data-option-slug='<?php echo get_category_link($conn,1214); ?>'>Outdoor Living</a></li>
-											<li><a href="#" class="tprodListItem" data-option-value=".recreation" data-option-slug='<?php echo get_category_link($conn,33); ?>'>Park &amp; Recreation</a></li>
-											<li><a href="#" class="tprodListItem" data-option-value=".masonry" data-option-slug='<?php echo get_category_link($conn,38); ?>'>Paver, Masonry, Blocks, Rocks</a></li>
-											<li><a href="#" class="tprodListItem" data-option-value=".pest" data-option-slug='<?php echo get_category_link($conn,1212); ?>'>Pest / Wildlife</a></li>
-											<li><a href="#" class="tprodListItem" data-option-value=".plant" data-option-slug='<?php echo get_category_link($conn,1002); ?>'>Plant Accessories</a></li>
-											<li><a href="#" class="tprodListItem" data-option-value=".pool" data-option-slug='<?php echo get_category_link($conn,1394); ?>'>Pool &amp; Spa</a></li>
-											<li><a href="#" class="tprodListItem" data-option-value=".sculpture" data-option-slug='<?php echo get_category_link($conn,1301); ?>'>Sculpture, Metal &amp; Stone Garden Ornaments</a></li>
-											<li><a href="#" class="tprodListItem" data-option-value=".siteA" data-option-slug='<?php echo get_category_link($conn,29); ?>'>Site Amenities</a></li>
-											<li><a href="#" class="tprodListItem" data-option-value=".siteF" data-option-slug='<?php echo get_category_link($conn,1215); ?>'>Site Furnishings &amp; Receptacles</a></li>
-											<li><a href="#" class="tprodListItem" data-option-value=".wfeatures" data-option-slug='<?php echo get_category_link($conn,41); ?>'>Water Features</a></li>
-											<li><a href="#" class="tprodListItem" data-option-value=".wmanage" data-option-slug='<?php echo get_category_link($conn,1213); ?>'>Water Management</a></li>
+											<li><a href="#" class="tprodListItem" data-option-value=".busserv">Business Services &amp; Software</a></li>
+											<li><a href="#" class="tprodListItem" data-option-value=".erosion">Erosion Control</a></li>
+											<li><a href="#" class="tprodListItem" data-option-value=".fencing">Fencing</a></li>
+											<li><a href="#" class="tprodListItem" data-option-value=".irrigation">Irrigation</a></li>
+											<li><a href="#" class="tprodListItem" data-option-value=".lighting">Lighting / Electrical</a></li>
+											<li><a href="#" class="tprodListItem" data-option-value=".outdoor">Outdoor Living</a></li>
+											<li><a href="#" class="tprodListItem" data-option-value=".recreation">Park &amp; Recreation</a></li>
+											<li><a href="#" class="tprodListItem" data-option-value=".masonry">Paver, Masonry, Blocks, Rocks</a></li>
+											<li><a href="#" class="tprodListItem" data-option-value=".pest">Pest / Wildlife</a></li>
+											<li><a href="#" class="tprodListItem" data-option-value=".plant">Plant Accessories</a></li>
+											<li><a href="#" class="tprodListItem" data-option-value=".pool">Pool &amp; Spa</a></li>
+											<li><a href="#" class="tprodListItem" data-option-value=".sculpture">Sculpture, Metal &amp; Stone Garden Ornaments</a></li>
+											<li><a href="#" class="tprodListItem" data-option-value=".siteA">Site Amenities</a></li>
+											<li><a href="#" class="tprodListItem" data-option-value=".siteF">Site Furnishings &amp; Receptacles</a></li>
+											<li><a href="#" class="tprodListItem" data-option-value=".wfeatures">Water Features</a></li>
+											<li><a href="#" class="tprodListItem" data-option-value=".wmanage">Water Management</a></li>
 
 											<!-- <li><a onClick="window.location.href ='https://mab-development.com/landscapearchitect/'"><i class="fa fa-angle-right" style="font-size: 12px; cursor:pointer;" ></i></a></li> -->
 									</ul>
@@ -1273,6 +1273,84 @@
 																									$subCatName = $row555['name'];																	
 																	
 																	
+																									/*if ($row555['idParent'] == 28) {
+
+																											$catNameProd = 'business-services-software';
+
+																									} elseif ($row555['idParent'] == 30) {
+
+																											$catNameProd = 'erosion-control-products';
+
+																									} elseif ($row555['idParent'] == 1300) {
+
+																											$catNameProd = 'commercial-fencing';
+
+																									} elseif ($row555['idParent'] == 1139) {
+
+																											$catNameProd = 'irrigation';
+
+																									} elseif ($row555['idParent'] == 32) {
+
+																											$catNameProd = 'exterior-lighting-electrical';
+
+																									} elseif ($row555['idParent'] == 1214) {
+
+																											$catNameProd = 'outdoor-living';
+
+																									} elseif ($row555['idParent'] == 33) {
+
+																											$catNameProd = 'parks-and-recreation';
+
+																									} elseif ($row555['idParent'] == 38) {
+
+																											$catNameProd = 'pavers-masonry-blocks-rocks';
+
+																									} elseif ($row555['idParent'] == 1212) {
+
+																											$catNameProd = 'wildlife-pest-control';
+
+																									} elseif ($row555['idParent'] == 1002) {
+
+																											$catNameProd = 'plant-accessories-and-soil-amendments';
+
+																									} elseif ($row555['idParent'] == 1394) {
+
+																											$catNameProd = 'pool-and-spa';
+
+																									} elseif ($row555['idParent'] == 1301) {
+
+																											$catNameProd = 'art-sculpture-metal-stone-garden-ornaments';
+
+																									} elseif ($row555['idParent'] == 29) {
+
+																											$catNameProd = 'site-amenities';
+
+																									} elseif ($row555['idParent'] == 1215) {
+
+																											$catNameProd = 'site-furnishings-and-receptacles';
+
+																									} elseif ($row555['idParent'] == 41) {
+
+																											$catNameProd = 'water-features-fountains-ponds-and-equipment';
+
+																									} elseif ($row555['idParent'] == 1213) {
+
+																											$catNameProd = 'water-management';
+
+																									} elseif ($row555['idParent'] == 1209) {
+
+																											$catNameProd = 'installation-equipment';
+
+																									} elseif ($row555['idParent'] == 1210) {
+
+																											$catNameProd = 'maintenance-equipment';
+
+																									} elseif ($row555['idParent'] == 1211) {
+
+																											$catNameProd = 'tools-tires-replacement-parts';
+
+																									} */
+																	
 																	
 																		$string555 =  $row555['name']; // Trim String
 
@@ -1291,13 +1369,17 @@
 																		echo '<div class="pc-wrap">
 																						<div class="product-item">
 																								<div class="elem" style="width:122px; float:left; padding-right:10px">
-																										<a href="'. $product_url . '">
-																												<div class="img-cover">
-																														<img src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'.$row['photo'].'" class="img-responsive" alt=""/>
-																												</div>
-																												<p class="padding12">' . $row['product_name'] . '</p>
-																												 <img src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'].'" class="productLogo" />
-																												 </div>';
+																												<a href="'. $product_url . '">
+																														<div class="img-cover">
+																																<img src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive" alt=""/>
+																														</div>
+																														<p class="padding12">' . $row['product_name'] . '</p>
+																														 <img src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo" />
+
+																																												</a>
+																																								</div>	
+																																						</div>
+																																				</div>';
 
 
 																																} 
@@ -1324,6 +1406,8 @@
                                             //include '../includes/connect4.inc';                               
                                    			$trending_categories = trending_categories($conn,28, BASE_URL);
                                    			echo $trending_categories;
+											
+                                            
                                         
                                         
                             ?>
@@ -1378,17 +1462,16 @@
 																	
 																	
 																	
-																		$rowXlist = 1;
+																			$rowXlist = 1;
 																	
-																		
-																		$sql555 = "SELECT * FROM xlist WHERE id='" . $xlistId . "'";
-																		$result555 = $conn->query($sql555);
-																		$row555 = mysqli_fetch_assoc($result555);
-															
-																		$subCatName = $row555['name'];																	
+																				
+																				$sql555 = "SELECT * FROM xlist WHERE id='" . $xlistId . "'";
+																				$result555 = $conn->query($sql555);
+																				$row555 = mysqli_fetch_assoc($result555);
+																	
+																									$subCatName = $row555['name'];																	
 																	
 																	
-																									
 																	
 																	
 																		$string555 =  $row555['name']; // Trim String
@@ -1443,7 +1526,7 @@
                                             <div class="overflowbar">
                           <?
                                         
-                                            
+                                           
                                             $trending_categories = trending_categories($conn,30, BASE_URL);
                                    			echo $trending_categories;
                                         
@@ -1751,7 +1834,6 @@
 																									$subCatName = $row555['name'];																	
 																	
 																	
-																									
 																	
 																	
 																		$string555 =  $row555['name']; // Trim String
@@ -1923,7 +2005,7 @@
                                             <div class="overflowbar">
                           <?
                                         
-                                           
+                                            
                                             $trending_categories = trending_categories($conn,1214, BASE_URL);
                                    			echo $trending_categories;
                                         
@@ -1992,7 +2074,7 @@
 																									$subCatName = $row555['name'];																	
 																	
 																	
-																	
+																									
 																	
 																		$string555 =  $row555['name']; // Trim String
 
@@ -2102,14 +2184,18 @@
 																	
 																	
 																	
-																		$rowXlist = 1;
+																			$rowXlist = 1;
 																	
 																				
-																		$sql555 = "SELECT * FROM xlist WHERE id='" . $xlistId . "'";
-																		$result555 = $conn->query($sql555);
-																		$row555 = mysqli_fetch_assoc($result555);
-															
-																		$subCatName = $row555['name'];																
+																				$sql555 = "SELECT * FROM xlist WHERE id='" . $xlistId . "'";
+																				$result555 = $conn->query($sql555);
+																				$row555 = mysqli_fetch_assoc($result555);
+																	
+																									$subCatName = $row555['name'];																	
+																	
+																	
+																									
+																	
 																	
 																		$string555 =  $row555['name']; // Trim String
 
@@ -2160,7 +2246,6 @@
                                             <div class="overflowbar">
                           <?
                                         
-                                            
                                             $trending_categories = trending_categories($conn,38, BASE_URL);
                                    			echo $trending_categories;
                                         
@@ -2219,14 +2304,18 @@
 																	
 																	
 																	
-																		$rowXlist = 1;
-																
-																			
-																		$sql555 = "SELECT * FROM xlist WHERE id='" . $xlistId . "'";
-																		$result555 = $conn->query($sql555);
-																		$row555 = mysqli_fetch_assoc($result555);
-															
-																		$subCatName = $row555['name'];																
+																			$rowXlist = 1;
+																	
+																				
+																				$sql555 = "SELECT * FROM xlist WHERE id='" . $xlistId . "'";
+																				$result555 = $conn->query($sql555);
+																				$row555 = mysqli_fetch_assoc($result555);
+																	
+																									$subCatName = $row555['name'];																	
+																	
+																	
+																									
+																	
 																	
 																		$string555 =  $row555['name']; // Trim String
 
@@ -2277,6 +2366,7 @@
                                             <div class="overflowbar">
                           <?
                                         
+                                            
                                             $trending_categories = trending_categories($conn,1212, BASE_URL);
                                    			echo $trending_categories;
                                         
@@ -2335,14 +2425,17 @@
 																	
 																	
 																	
-																		$rowXlist = 1;
-																
-																			
-																		$sql555 = "SELECT * FROM xlist WHERE id='" . $xlistId . "'";
-																		$result555 = $conn->query($sql555);
-																		$row555 = mysqli_fetch_assoc($result555);
-															
-																		$subCatName = $row555['name'];																	
+																			$rowXlist = 1;
+																	
+																				
+																				$sql555 = "SELECT * FROM xlist WHERE id='" . $xlistId . "'";
+																				$result555 = $conn->query($sql555);
+																				$row555 = mysqli_fetch_assoc($result555);
+																	
+																									$subCatName = $row555['name'];																	
+																	
+																	
+																									
 																	
 																	
 																		$string555 =  $row555['name']; // Trim String
@@ -2394,6 +2487,7 @@
                                             <div class="overflowbar">
                           <?
                                         
+                                            
                                             $trending_categories = trending_categories($conn,1002, BASE_URL);
                                    			echo $trending_categories;
                                         
@@ -2452,16 +2546,17 @@
 																	
 																	
 																	
-																		$rowXlist = 1;
-																
-																			
-																		$sql555 = "SELECT * FROM xlist WHERE id='" . $xlistId . "'";
-																		$result555 = $conn->query($sql555);
-																		$row555 = mysqli_fetch_assoc($result555);
-															
-																		$subCatName = $row555['name'];																	
+																			$rowXlist = 1;
+																	
+																				
+																				$sql555 = "SELECT * FROM xlist WHERE id='" . $xlistId . "'";
+																				$result555 = $conn->query($sql555);
+																				$row555 = mysqli_fetch_assoc($result555);
+																	
+																									$subCatName = $row555['name'];																	
 																	
 																	
+																									
 																	
 																	
 																		$string555 =  $row555['name']; // Trim String
@@ -2512,6 +2607,7 @@
                                             <div class="overflowbar">
                           <?
                                         
+                                            
                                             $trending_categories = trending_categories($conn,1394, BASE_URL);
                                    			echo $trending_categories;
                                         
@@ -2570,14 +2666,15 @@
 																	
 																	
 																	
-																		$rowXlist = 1;
-																
-																			
-																		$sql555 = "SELECT * FROM xlist WHERE id='" . $xlistId . "'";
-																		$result555 = $conn->query($sql555);
-																		$row555 = mysqli_fetch_assoc($result555);
-															
-																		$subCatName = $row555['name'];																
+																			$rowXlist = 1;
+																	
+																				
+																				$sql555 = "SELECT * FROM xlist WHERE id='" . $xlistId . "'";
+																				$result555 = $conn->query($sql555);
+																				$row555 = mysqli_fetch_assoc($result555);
+																	
+																									$subCatName = $row555['name'];																	
+																	
 																	
 																	
 																		$string555 =  $row555['name']; // Trim String
@@ -2629,6 +2726,7 @@
                                             <div class="overflowbar">
                           <?
                                         
+                                            
                                             $trending_categories = trending_categories($conn,29, BASE_URL);
                                    			echo $trending_categories;
                                         
@@ -2694,8 +2792,10 @@
 																				$result555 = $conn->query($sql555);
 																				$row555 = mysqli_fetch_assoc($result555);
 																	
-																									$subCatName = $row555['name'];																
+																									$subCatName = $row555['name'];																	
 																	
+																	
+																									
 																	
 																		$string555 =  $row555['name']; // Trim String
 
@@ -2745,7 +2845,7 @@
                                             <div class="overflowbar">
                           <?
                                         
-                                          
+                                           
                                             $trending_categories = trending_categories($conn,1215, BASE_URL);
                                    			echo $trending_categories;
                                         
@@ -2811,7 +2911,10 @@
 																				$result555 = $conn->query($sql555);
 																				$row555 = mysqli_fetch_assoc($result555);
 																	
-																									$subCatName = $row555['name'];																
+																									$subCatName = $row555['name'];																	
+																	
+																	
+																									
 																	
 																	
 																		$string555 =  $row555['name']; // Trim String
@@ -2932,6 +3035,9 @@
 																									$subCatName = $row555['name'];																	
 																	
 																	
+																									
+																	
+																	
 																		$string555 =  $row555['name']; // Trim String
 
 																		$string555 = strtolower($string555); //Unwanted:  {UPPERCASE} ; / ? : @ & = + $ , . ! ~ * ' ( )
@@ -3047,7 +3153,11 @@
 																				$result555 = $conn->query($sql555);
 																				$row555 = mysqli_fetch_assoc($result555);
 																	
-																									$subCatName = $row555['name'];																
+																									$subCatName = $row555['name'];																	
+																	
+																	
+																									
+																	
 																	
 																		$string555 =  $row555['name']; // Trim String
 
@@ -3163,7 +3273,11 @@
 																				$result555 = $conn->query($sql555);
 																				$row555 = mysqli_fetch_assoc($result555);
 																	
-																									$subCatName = $row555['name'];																
+																									$subCatName = $row555['name'];																	
+																	
+																	
+																									
+																	
 																	
 																		$string555 =  $row555['name']; // Trim String
 
@@ -3372,7 +3486,8 @@
 												
                                                 
                       
-                                            $mainLink = BASE_URL. 'articles/'. $row['slug'];
+                                            //$mainLink = BASE_URL. $subName2 . "/" . $string3 . "/" . $mainImage;
+                                            $mainLink = BASE_URL.'articles/'.$row['slug'];
 																					                                                                
                                                 echo '<div class="col-md-4 col-sm-6 col-xs-12 padding10 morenews-wrap" style="padding-bottom:10px">
                                                     <a href="' . $mainLink . '">
