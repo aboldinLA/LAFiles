@@ -25,3 +25,40 @@ function get_category_link($conn,$id){
 
     return $cate_slug;
 }
+
+function get_vendor_details($conn,$id){
+	$sql2333 = "SELECT * FROM `new_vendor` WHERE `id` = $id";
+	$result2333 = $conn->query($sql2333);										
+	$vendor_slug = '';
+    while($row = mysqli_fetch_array($result2333)) {
+		$vendor_slug = $row['slug'];
+    }
+
+    return $vendor_slug;	
+}
+/*
+function getCategoryDetailsFromProductId($conn,$product_id){
+	$sql2333 = "SELECT slug FROM `xlist` 
+				LEFT JOIN vendor_product
+				ON vendor_product.xlist = xlist.id
+				WHERE vendor_product.`id` = $product_id";
+
+	$result2333 = $conn->query($sql2333);										
+
+	while($row = mysqli_fetch_array($result2333)) {
+		$cate_slug = $row['slug'];
+    }
+
+    return $cate_slug;					
+}*/
+
+function getCategoryDetails($conn,$id){
+	$sql2333 = "SELECT slug FROM `xlist` WHERE `id` = $id";
+	$result2333 = $conn->query($sql2333);										
+	$cate_slug = '';
+    while($row = mysqli_fetch_array($result2333)) {
+		$cate_slug = $row['slug'];
+    }
+
+    return $cate_slug;	
+}
