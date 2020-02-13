@@ -93,121 +93,6 @@
 	
 		
 				    <?
-		
-		
-						// Program to display URL of current page. 
-				    	/*
-						if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') 
-							$link = "https"; 
-						else
-							$link = "http"; 
-
-						// Here append the common URL characters. 
-						$link .= "://"; 
-
-						// Append the host(domain name, ip) to the URL. 
-						$link .= $_SERVER['HTTP_HOST']; 
-
-						// Append the requested resource location to the URL 
-						$link .= $_SERVER['REQUEST_URI']; 
-		
-		
-						$resultLink = substr($link, 31, 55);
-		
-		
-						if ($resultLink == 'business-services-and-software') {
-							
-							$_GET['ad'] = 28;
-							
-						} elseif ($resultLink == 'landscape-erosion-control-products') {
-							
-							$_GET['ad'] = 30;
-							
-						} elseif ($resultLink == 'commercial-wholesale-fencing') {
-							
-							$_GET['ad'] = 1300;
-							
-						} elseif ($resultLink == 'landscape-irrigation') {
-							
-							$_GET['ad'] = 1139;
-							
-						} elseif ($resultLink == 'commercial-exterior-lighting-electrical') {
-							
-							$_GET['ad'] = 32;
-							
-						} elseif ($resultLink == 'outdoor-living-residential-landscape') {
-							
-							$_GET['ad'] = 1214;
-							
-						} elseif ($resultLink == 'parks-playground-products') {
-							
-							$_GET['ad'] = 33;
-							
-						} elseif ($resultLink == 'commercial-pavers-masonry-blocks-rocks') {
-							
-							$_GET['ad'] = 38;
-							
-						} elseif ($resultLink == 'wildlife-commercial-landscape-pest-control') {
-							
-							$_GET['ad'] = 1212;
-							
-						} elseif ($resultLink == 'wholesale-plant-accessories-and-soil-amendments') {
-							
-							$_GET['ad'] = 1002;
-							
-						} elseif ($resultLink == 'pool-and-spa') {
-							
-							$_GET['ad'] = 1394;
-							
-						} elseif ($resultLink == 'landscape-art-sculpture-metal-stone-garden-ornaments') {
-							
-							$_GET['ad'] = 1301;
-							
-						} elseif ($resultLink == 'commercial-site-amenities') {
-							
-							$_GET['ad'] = 29;
-							
-						} elseif ($resultLink == 'site-furnishings-receptacles') {
-							
-							$_GET['ad'] = 1215;
-							
-						} elseif ($resultLink == 'water-features-fountains-ponds-equipment') {
-							
-							$_GET['ad'] = 41;
-							
-						} elseif ($resultLink == 'landscape-water-management') {
-							
-							$_GET['ad'] = 1213;
-							
-						} elseif ($resultLink == 'landscape-installation-equipment') {
-							
-							$_GET['ad'] = 1209;
-							
-						} elseif ($resultLink == 'landscape-maintenance-equipment') {
-							
-							$_GET['ad'] = 1210;
-							
-						} elseif ($resultLink == 'landscape-maintenance-equipment') {
-							
-							$_GET['ad'] = 1211;
-							
-						}*/
-
-						
-		
-
-								/*$servername = "localhost";
-								$username = "land_patchew";
-								$password = "59q2GB6k$3";
-								$dbname = "land_landscap_lollive";
-
-								// Create connection
-										$conn = new mysqli($servername, $username, $password, $dbname);
-								// Check connection
-										if ($conn->connect_error) {
-												die("Connection failed: " . $conn->connect_error);
-										}                */
-
 
 							$cat1 = $adId;
 								
@@ -221,7 +106,7 @@
 							$lazyCounter = 0;
 														
 
-        ?>
+        			?>
 				
 				<div class="white_side full_width">
 					<img src="<?php echo BASE_URL; ?>lol-logos/sidebar-search-engine/la-details-sidebar-logo.jpg" width="100%" alt="LADetails" id="sidebarLogo">
@@ -295,65 +180,6 @@
                 
                                         $ad = $adId;
                                         
-                                        
-                                        /*if ($ad == '28') {
-                                           echo '<title>Business Services | Landscape Architect</title>';
-                                            echo '<h1 class="center-section-header">Business Services</h1>';
-                                        } elseif ($ad == '30') {
-                                            echo '<title>Landscape Erosion Control Products | Landscape Architect</title>';
-                                            echo '<h1 class="center-section-header">Landscape Erosion Control Products</h1>';                                            
-                                        }elseif ($ad == '1300') {
-                                            echo '<title>Commercial / Wholesale Fencing | Landscape Architect</title>';
-                                            echo '<h1 class="center-section-header">Commercial / Wholesale Fencing</h1>';
-                                        } elseif ($ad == '1139') {
-                                            echo '<title>Landscape Irrigation | Landscape Architect</title>';
-                                            echo '<h1 class="center-section-header">Landscape Irrigation</h1>';    
-                                        } elseif ($ad == '32') {
-                                            echo '<title>Commercial Exterior Lighting / Electrical | Landscape Architect</title>';
-                                            echo '<h1 class="center-section-header">Commercial Exterior Lighting / Electrical</h1>';
-                                        } elseif ($ad == '1214') {
-                                            echo '<title>Outdoor Living / Residential Landscape | Landscape Architect</title>';
-                                            echo '<h1 class="center-section-header">Outdoor Living / Residential Landscape</h1>';
-                                        } elseif ($ad == '33') {
-                                            echo '<title>Parks / Playground Products | Landscape Architect</title>';
-                                            echo '<h1 class="center-section-header">Parks / Playground Products</h1>';
-                                        } elseif ($ad == '38') {
-                                            echo '<title>Commercial Pavers, Masonry, Blocks, Rocks | Landscape Architect</title>';
-                                            echo '<h1 class="center-section-header">Commercial Pavers, Masonry, Blocks, Rocks</h1>';
-                                        } elseif ($ad == '1212') {
-                                            echo '<title>Wildlife / Commercial Landscape Pest Control | Landscape Architect</title>';
-                                            echo '<h1 class="center-section-header">Wildlife / Commercial Landscape Pest Control</h1>';
-                                        } elseif ($ad == '1002') {
-                                            echo '<title>Wholesale Plant Accessories & Soil Amendments | Landscape Architect</title>';
-                                            echo '<h1 class="center-section-header">Wholesale Plant Accessories & Soil Amendments</h1>';
-                                        } elseif ($ad == '1394') {
-                                            echo '<title>Pool and Spa | Landscape Architect</title>';
-                                            echo '<h1 class="center-section-header">Pool and Spa</h1>';
-                                        } elseif ($ad == '29') {
-                                            echo '<title>Commercial Site Amenities | Landscape Architect</title>';
-                                            echo '<h1 class="center-section-header">Commercial Site Amenities</h1>';
-                                        } elseif ($ad == '1215') {
-                                            echo '<title>Site Furnishings / Receptacles | Landscape Architect</title>';
-                                            echo '<h1 class="center-section-header">Site Furnishings / Receptacles</h1>';
-                                        } elseif ($ad == '1301') {
-                                            echo '<title>Landscape Art, Sculpture, Metal / Stone Garden Ornaments | Landscape Architect</title>';
-                                            echo '<h1 class="center-section-header">Landscape Art, Sculpture, Metal / Stone Garden Ornaments</h1>';
-                                        } elseif ($ad == '41') {
-                                            echo '<title>Water Features, Fountains, Ponds / Equipment | Landscape Architect</title>';
-                                            echo '<h1 class="center-section-header">Water Features, Fountains, Ponds / Equipment</h1>';
-                                        } elseif ($ad == '1213') {
-                                            echo '<title>Landscape Water Management | Landscape Architect</title>';
-                                            echo '<h1 class="center-section-header">Landscape Water Management</h1>';
-                                        } elseif ($ad == '1209') {
-                                            echo '<title>Landscape Installation Equipment | Landscape Architect</title>';
-                                            echo '<h1 class="center-section-header">Landscape Installation Equipment</h1>';
-                                        } elseif ($ad == '1210') {
-                                            echo '<title>Landscape Maintenance Equipment | Landscape Architect</title>';
-                                            echo '<h1 class="center-section-header">Landscape Maintenance Equipment</h1>';
-                                        } elseif ($ad == '1211') {
-                                            echo '<title>Tools, Tires & Replacement Parts | Landscape Architect</title>';
-                                            echo '<h1 class="center-section-header">Tools, Tires & Replacement Parts</h1>';
-                                        }*/
 
                                         echo '<title>'.$metaTitle.'</title>';
                                         echo '<h1 class="center-section-header">'.$name.'</h1>';
@@ -370,7 +196,7 @@
 
 									// category section
 
-//																		echo '<option value="https://landscapearchitect.com/LandscapeProducts/index.php?ad='. $cat1 . '">Top Level</option>';
+//									echo '<option value="https://landscapearchitect.com/LandscapeProducts/index.php?ad='. $cat1 . '">Top Level</option>';
 
 										while($row = mysqli_fetch_array($result1)) {
 

@@ -176,7 +176,7 @@ if($pageId == 'resources'){
 	                                                    -->
 	                                                    <a href="<?php echo BASE_URL.get_cate_slug($conn, 1209) ?>">Installation Equipment</a>
 	                                                    <a href="<?php echo BASE_URL.get_cate_slug($conn, 1210) ?>">Maintenance Equipment</a>
-	                                                    <a href="<?php echo BASE_URL.get_cate_slug($conn, 39) ?>39">Tools &amp; Parts</a>
+	                                                    <a href="<?php echo BASE_URL.get_cate_slug($conn, 1211) ?>">Tools &amp; Parts</a>
 	                                                </div>
 	                                                <div class="padding20">
 	                                                    <p class="padding20" style="font-size:14px; color:#2e2e2e; font-weight: 800; text-transform: capitalize;">Local Wholesale &amp; Plant Materials</p>
