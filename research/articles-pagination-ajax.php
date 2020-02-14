@@ -102,22 +102,37 @@ if( isset( $_POST['art_id'] ) && !empty( $_POST['art_id'] ) ):
 
                                         echo '<span class="date_se">' . date("m-d-y", $row["issue"]) . ' | ' . $subName . '</span>';    
 
+                                        $ran = array("F22481ROS-H1911.jpg","Y2408ROS-H1911.jpg");
+                                        $randomElement = $ran[array_rand($ran, 1)];
+                                        $banIamge=$randomElement;                                               
+                                
+                            
                                         $ed_text = $row["ed_text"];
-                                        $string = substr($ed_text, strpos($ed_text, '<!-- begin wwww.htmlcommentbox.com -->'), strpos($ed_text, '<!-- end www.htmlcommentbox.com -->'));
+                                        
+                                        $pos1 = strpos($ed_text,"<br>");
+                                        $pos2 = strpos($ed_text,"<br>", $pos1 + strlen("<br>"));
+                                        
+                                        $string = '<div class="addd full_width img_fit"><img src="'.BASE_URL.'banner/' . $banIamge . '" alt="img" /></div><span style="font-size:16px; font-weight: 600">&nbsp;'; 
+                                        $position = $pos2;      
+                                        
+                                        $ed_text2 = substr_replace( $ed_text, $string, $position, 0 );
+                                        
+                                        
+                                        $string = substr($ed_text2, strpos($ed_text2, '<!-- begin wwww.htmlcommentbox.com -->'), strpos($ed_text2, '<!-- end www.htmlcommentbox.com -->'));
 
                                         $startStringArray = explode('<!-- begin wwww.htmlcommentbox.com -->', $string);
                                         $startString = $startStringArray[0];
-
+                                        
                                         $endStringArray = explode('<!-- end www.htmlcommentbox.com -->', $string);
                                         $endString = $endStringArray[0];
-
+                                        
                                         $finalStringLength = strlen($endString ) + strlen('<!-- end www.htmlcommentbox.com -->');
-
-
-                                        $finalString = substr_replace($ed_text, '', strpos($ed_text, '<!-- begin wwww.htmlcommentbox.com -->') , $finalStringLength);
+                                        
+                                        
+                                        $finalString = substr_replace($ed_text2, '', strpos($ed_text2, '<!-- begin wwww.htmlcommentbox.com -->') , $finalStringLength);
                                         //var_dump($finalString);
-
-
+                                
+                                
                                         echo  iconv('CP1252', 'ASCII//TRANSLIT', (stripslashes($finalString))); 
 
                                         
