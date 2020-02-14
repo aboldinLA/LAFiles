@@ -5,6 +5,7 @@
   $pageId = "other";
 
   include '../modules/configuration.inc';  
+  include '../modules/db.php'; 
 	include $rootInclude.'la-common-top.php';
 	include $rootInclude.'la-common-header.inc'; 
 
@@ -14,7 +15,7 @@
 if($_SESSION['loggedIn']){
   
   //include '../../includes/connect4.inc'; 
-  include '../modules/db.php'; 
+  
   
   $sql = "SELECT * FROM subscribe WHERE id ='" . $_SESSION['user'] . "'";
   $result = $conn->query($sql);
