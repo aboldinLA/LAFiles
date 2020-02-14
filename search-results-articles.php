@@ -1,10 +1,13 @@
 <? 
+	include 'modules/configuration.inc';
+	include 'modules/comman_functions.php';
+	include 'modules/db.php';
 
-	include '../includes/la-common-top.php'; 
+	include $rootInclude.'la-common-top.php'; 
 
-	include '../includes/la-common-header.inc';
+	include $rootInclude.'la-common-header.inc';
 
-	include '../includes/la_common2-inner.inc'; 
+	include $rootInclude.'la_common2-inner.inc'; 
 
 
 
@@ -44,7 +47,7 @@
 	<div class="col-lg-9 col-lg-offset-3 col-md-8 col-md-offset-4 col-sm-12 col-xs-12">
     	<div class="full_width relative">
 				
-				<? include '../includes/la_common-main-search-bar.inc'; ?>
+				<? include $rootInclude.'la_common-main-search-bar.inc'; ?>
 				
         </div><!-- /.relative -->
     </div><!-- /.col-lg-9 -->
@@ -57,16 +60,14 @@
 <div class="row">
 	<div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
     	<div class="white_side full_width">  
-        	<img src="https://landscapearchitect.com/lol-logos/sidebar-search-engine/la-details-sidebar-logo.jpg" width="100%" alt="LADetails" id="sidebarLogo">
+        	<img src="<?php echo BASE_URL; ?>lol-logos/sidebar-search-engine/la-details-sidebar-logo.jpg" width="100%" alt="LADetails" id="sidebarLogo">
             <div class="full_width" id="mobile_slide">
                 
                 
 							<?
 
-								include '../includes/connect4.inc'; 
-
 								// sidebar accordian menu 
-								include '../includes/la-common-sidebar-menu.inc';
+								include $rootInclude.'la-common-sidebar-menu.inc';
 
 							?>
                 
@@ -127,8 +128,9 @@
 											while($row = mysqli_fetch_array($result2)) {
 												
 												//image and href links
-											$imageLink = 'https://www.landscapearchitect.com/research/images/' . $row['id'] . '.jpg';
-											$link = 'https://landscapearchitect.com/research/articles.php?number=' . $row['id'] . '#article1';
+											$imageLink = BASE_URL.'research/images/' . $row['id'] . '.jpg';
+											//$link = 'https://landscapearchitect.com/research/articles.php?number=' . $row['id'] . '#article1';
+											$link = BASE_URL.'articles/' . $row['slug'];
 											
 											//work on code to pull images from files without images
 											
@@ -281,10 +283,10 @@
 			
 
 		
-			<? include '../includes/la-common-footer.inc'; ?>
+			<? include $rootInclude.'la-common-footer.inc'; ?>
 			
 			<!-- must go below footer to access jquery -->
-			<? include '../includes/la-common-magazine-subscribe.php'; ?>
+			<? include $rootInclude.'la-common-magazine-subscribe.php'; ?>
 			
 			
 			<script>

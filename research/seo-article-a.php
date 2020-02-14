@@ -153,7 +153,7 @@
 													$pos1 = strpos($ed_text,"<br>");
 													$pos2 = strpos($ed_text,"<br>", $pos1 + strlen("<br>"));
 													
-													$string = '<div class="addd full_width img_fit"><img src="https://landscapearchitect.com/banner/' . $banIamge . '" alt="img" /></div><span style="font-size:16px; font-weight: 600">&nbsp;'; 
+													$string = '<div class="addd full_width img_fit"><img src="'.BASE_URL.'banner/' . $banIamge . '" alt="img" /></div><span style="font-size:16px; font-weight: 600">&nbsp;'; 
 													$position = $pos2; 		
 													
 	                                        		$ed_text2 = substr_replace( $ed_text, $string, $position, 0 );

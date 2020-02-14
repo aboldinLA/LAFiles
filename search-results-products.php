@@ -1,12 +1,14 @@
 <? 	
-
 	session_start();
+	include 'modules/configuration.inc';
+	include 'modules/comman_functions.php';
+	include 'modules/db.php';
 
-	include '../includes/la-common-top.php'; 
+	include $rootInclude.'la-common-top.php'; 
 
-	include '../includes/la-common-header.inc';
+	include $rootInclude.'la-common-header.inc';
 
-	include '../includes/la_common2-inner.inc'; 
+	include $rootInclude.'la_common2-inner.inc'; 
 
 
 
@@ -45,7 +47,7 @@
 	<div class="col-lg-9 col-lg-offset-3 col-md-8 col-md-offset-4 col-sm-12 col-xs-12">
     	<div class="full_width relative">
 				
-					<? include '../includes/la_common-main-search-bar.inc'; ?>
+					<? include $rootInclude.'la_common-main-search-bar.inc'; ?>
         
 				</div><!-- /.relative -->
     </div><!-- /.col-lg-9 -->
@@ -58,16 +60,16 @@
 <div class="row">
 	<div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
     	<div class="white_side full_width">  
-						<img src="https://landscapearchitect.com/lol-logos/sidebar-search-engine/la-details-sidebar-logo.jpg" width="100%" alt="LADetails" id="sidebarLogo">
+						<img src="<?php echo BASE_URL; ?>lol-logos/sidebar-search-engine/la-details-sidebar-logo.jpg" width="100%" alt="LADetails" id="sidebarLogo">
             <div class="full_width" id="mobile_slide">
                 
                 
             <?
 
-							include '../includes/connect4.inc'; 
+							//include '../includes/connect4.inc'; 
 
 							// sidebar accordian menu 
-							include '../includes/la-common-sidebar-menu.inc';
+							include $rootInclude.'la-common-sidebar-menu.inc';
 
 
 
@@ -310,13 +312,17 @@
 									
 
 												//href link
-												$link = 'https://landscapearchitect.com/LandscapeProducts/product-details.php?number=' . $row['vendor_id']. '&prodNum=' . $row['id'];
+												$vendor_slug = get_vendor_details($conn,$row['vendor_id']);
+												$cate_slug = getCategoryDetails($conn,$row['xlist']);
+												$link = BASE_URL.'product/'.$cate_slug. '/'.$vendor_slug. '/' . $row['slug'];
+
+												//$link = 'https://landscapearchitect.com/LandscapeProducts/product-details.php?number=' . $row['vendor_id']. '&prodNum=' . $row['id'];
 
 												//image link
 												if(strpos($row['photo'], '.jpg') !== false || strpos($row['photo'], '.png') !== false || strpos($row['photo'], '.gif') !== false){
-													$image = '<img src="https://landscapearchitect.com/optimized-images/timthumb.php?src=https://www.landscapearchitect.com/products/images/' . $row['photo'] . '" class="contain prodImage" alt="' . $row['product_name'] . '">';
+													$image = '<img src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" class="contain prodImage" alt="' . $row['product_name'] . '">';
 												} else {
-													$image = '<img src="https://landscapearchitect.com/optimized-images/timthumb.php?src=https://www.landscapearchitect.com/products/images/' . $row['photo'] . '.jpg" class="contain prodImage" alt="' . $row['product_name'] . '">';
+													$image = '<img src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '.jpg" class="contain prodImage" alt="' . $row['product_name'] . '">';
 												}
 
 												echo '<div class="col-md-4 col-sm-6 col-xs-6 for_small" style="margin-top: 3px; margin-bottom: 15px;">
@@ -342,15 +348,17 @@
 										// while there are rows to be fetched...
 										while ($row = mysqli_fetch_assoc($result22)) {
 										
-
+												$vendor_slug = get_vendor_details($conn,$row['vendor_id']);
+												$cate_slug = getCategoryDetails($conn,$row['xlist']);
+												$link = BASE_URL.'product/'.$cate_slug. '/'.$vendor_slug. '/' . $row['slug'];
 												//href link
-												$link = 'https://landscapearchitect.com/LandscapeProducts/product-details.php?number=' . $row['vendor_id']. '&prodNum=' . $row['id'];
+												//$link = 'https://landscapearchitect.com/LandscapeProducts/product-details.php?number=' . $row['vendor_id']. '&prodNum=' . $row['id'];
 
 												//image link
 												if(strpos($row['photo'], '.jpg') !== false || strpos($row['photo'], '.png') !== false || strpos($row['photo'], '.gif') !== false){
-													$image = '<img src="https://landscapearchitect.com/optimized-images/timthumb.php?src=https://www.landscapearchitect.com/products/images/' . $row['photo'] . '" class="contain prodImage" alt="' . $row['product_name'] . '">';
+													$image = '<img src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" class="contain prodImage" alt="' . $row['product_name'] . '">';
 												} else {
-													$image = '<img src="https://landscapearchitect.com/optimized-images/timthumb.php?src=https://www.landscapearchitect.com/products/images/' . $row['photo'] . '.jpg" class="contain prodImage" alt="' . $row['product_name'] . '">';
+													$image = '<img src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '.jpg" class="contain prodImage" alt="' . $row['product_name'] . '">';
 												}
 
 
@@ -437,10 +445,10 @@
 			
 
 		
-			<? include '../includes/la-common-footer.inc'; ?>
+			<? include $rootInclude.'la-common-footer.inc'; ?>
 			
 			<!-- must go below footer to access jquery -->
-			<? include '../includes/la-common-magazine-subscribe.php'; ?>
+			<? include $rootInclude.'la-common-magazine-subscribe.php'; ?>
 			
 			
 			<script>
