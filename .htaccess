@@ -16,6 +16,7 @@ RewriteEngine on
 
 ############### RULES DEFINED BY MAB ###############
 RewriteCond %{REQUEST_URI} !\.(?:css|js|jpe?g|gif|png)$ [NC]
+RewriteRule contact-us/ contact-us/index.php [NC]
 
 #Vendor Page rules
 
@@ -26,6 +27,7 @@ RewriteRule commercial-landscape-companies/(.*)/(.*) seo-companies.php?companySl
 RewriteRule articles/(.*) /research/seo-article-a.php?articleSlug=$1 [NC,L]
 
 #Category Pages
+RewriteRule ^(([A-Za-z0-9]+)+)$  /LandscapeProducts/seo.php?catParma=$1    [NC,L]    # category Pages
 RewriteRule ^(([A-Za-z0-9]+[-]+[A-Za-z0-9]+)+)$  /LandscapeProducts/seo.php?catParma=$1    [NC,L]    # category Pages
 
 # Sub Category Pages rules
