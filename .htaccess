@@ -31,6 +31,7 @@ RewriteRule ^(([A-Za-z0-9]+)+)$  /LandscapeProducts/seo.php?catParma=$1    [NC,L
 RewriteRule ^(([A-Za-z0-9]+[-]+[A-Za-z0-9]+)+)$  /LandscapeProducts/seo.php?catParma=$1    [NC,L]    # category Pages
 
 # Sub Category Pages rules
+##########creating issues in loading images##############
 RewriteRule ^(([A-Za-z0-9]+[-]+[A-Za-z0-9]+)+[/]+([A-Za-z0-9]+(.*)+)+)$  /LandscapeProducts/seo-sub-cat.php?catParma=$1    [NC,L,QSA]
 
 #RewriteRule ^(([A-Za-z0-9]+[-]+[A-Za-z0-9]+)+[/]+[A-Za-z0-9]+[-]+[A-Za-z0-9]+)$  /LandscapeProducts/seo-sub-cat.php?catParma=$1    [NC,L,QSA]    

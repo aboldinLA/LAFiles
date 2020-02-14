@@ -1,6 +1,6 @@
 <?
 
-		function createPageLinksSearch($totalResultsAmount, $page, $limit, $keyword) {
+		function createPageLinksSearch($totalResultsAmount, $page, $limit, $keyword, $base_url='') {
 
 								if ( $limit == 'all' ) {
 									return '';
@@ -8,8 +8,8 @@
 								} else {
 										
 										$link = ($_GET['brand'] == 'y') 
-											? 'https://landscapearchitect.com' . htmlentities($_SERVER['PHP_SELF']) . '?key=' . $keyword . '&brand=y' 
-											: 'https://landscapearchitect.com' . htmlentities($_SERVER['PHP_SELF']) . '?key=' . $keyword;
+											? $base_url. htmlentities($_SERVER['PHP_SELF']) . '?key=' . $keyword . '&brand=y' 
+											: $base_url. htmlentities($_SERVER['PHP_SELF']) . '?key=' . $keyword;
 										
 								
 										$last = ceil( $totalResultsAmount / $limit );

@@ -61,7 +61,7 @@
                 
 							<?
 
-								//include '../includes/connect4.inc'; 
+								//include $rootInclude.'connect4.inc'; 
 
 								// sidebar accordian menu 
 								include $rootInclude.'la-common-sidebar-menu.inc';
@@ -335,11 +335,6 @@
 
 				
 						<?php
-	
-
-
-
-								
 								
 								
 							$sql1 = 	"(SELECT id, title, ed_text, source, FROM_UNIXTIME(issue) as 'date', 'edit' As type FROM editorial WHERE title LIKE '% " . $keywordSE . " %' OR ed_text LIKE '%" . $keywordSE ."%' AND title NOT LIKE '%weekly%' AND ed_text NOT LIKE '%onmouse%')
@@ -349,8 +344,8 @@
 								 (SELECT id, company_name, profile, logo, edit_date as 'date', 'vendor' As type FROM `new_vendor` WHERE `profile` LIKE '% " . $keywordSE . " %' OR `company_name` LIKE '% " . $keywordSE . " %' AND `status` != 2)
 							UNION
 								 (SELECT id, name, idParent, sub_number, idAccount as 'date', 'xlist' As type FROM `xlist` WHERE `name` LIKE '% " . $keywordSE . " %') ORDER BY date DESC";					   
-					   
-							$result1 = $conn->query($sql1);
+					   		
+					   		$result1 = $conn->query($sql1);
 							$totalResultsAmount = mysqli_num_rows($result1);	
 
 
@@ -362,16 +357,13 @@
 								 (SELECT id, company_name, profile, logo, edit_date as 'date', 'vendor' As type FROM `new_vendor` WHERE `profile` LIKE '% " . $keywordSE . " %' OR `company_name` LIKE '% " . $keywordSE . " %' AND `status` != 2)
 							UNION
 								 (SELECT id, name, idParent, sub_number, idAccount as 'date', 'xlist' As type FROM `xlist` WHERE `name` LIKE '% " . $keywordSE . " %') ORDER BY date DESC
-						  LIMIT " . $limit . " OFFSET " . $limit * ($page - 1);
-					   
-						 $result11 = $conn->query($sql11);
-						
-						
-							
-							while($list = mysqli_fetch_array($result11)){		
-							
-							
-									//start editorial section
+						 	LIMIT " . $limit . " OFFSET " . $limit * ($page - 1);
+					   	
+					   	//echo $sql11;die;
+					   	 $result11 = $conn->query($sql11);
+						 	while($list = mysqli_fetch_array($result11)){	
+
+						 			//start editorial section
 									if($list['type'] == 'edit'){
 
 										$sql22 = "SELECT * FROM editorial WHERE id = '" .  $list['id'] . "'";
@@ -384,19 +376,6 @@
 											$imageLink = BASE_URL.'research/images/' . $row['id'] . '.jpg';
 											$link = BASE_URL.$row['slug']. '#article1';
 											
-											//work on code to pull images from files without images
-											
-//											$imageFileHeaders = @get_headers($imageLink);
-//											if(!$imageFileHeaders || $imageFileHeaders[0] == 'HTTP/1.1 404 Not Found') {
-//											
-//													$imgLinkStart = strpos($row['ed_text'], '<img src="http:') + 10;
-//													$imgLinkEnd = strpos($row['ed_text'], '.jpg', $imgLinkStart) + 4;
-//													$imageLink = substr($row['ed_text'], $imgLinkStart, ($imgLinkEnd - $imgLinkStart));
-//												
-//													
-//											}
-
-
 											//author
 											if(strlen($row['author']) > 1){
 												$author = 'Author: ' . $row['author'];
@@ -468,6 +447,7 @@
 
 									//start product section
 									else if($list['type'] == 'product'){
+
 																
 										$sql22 =  "SELECT * FROM new_vendor LEFT JOIN vendor_product ON vendor_product.vendor_id = new_vendor.id WHERE vendor_product.id = '" .  $list['id'] . "' AND new_vendor.status > 2";
 //										$sql22 = "SELECT * FROM vendor_product WHERE id = '" .  $list['id'] . "'";
@@ -516,8 +496,10 @@
 										
 																									
 												//href and image link
-												$link = 'https://landscapearchitect.com/LandscapeProducts/vendor-details.php?number=' . $row['id'];
-												$image = '<img src="https://www.landscapearchitect.com/products/images/' . $row['logo'] . '" alt="" style="object-fit: contain;">';
+												//$link = 'https://landscapearchitect.com/LandscapeProducts/vendor-details.php?number=' . $row['id'];
+												$link = BASE_URL.'commercial-landscape-companies/' . $row['slug'];
+
+												$image = '<img src="'.BASE_URL.'products/images/' . $row['logo'] . '" alt="" style="object-fit: contain;">';
 												
 												//profile text adjustments
 												
@@ -540,7 +522,6 @@
 									
 									//start xlist section
 									else if($list['type'] == 'xlist'){
-									
 										$sql22 = "SELECT * FROM `new_vendor` WHERE `xlist` = '" .  $list['id'] . "' AND `status` != 2";
 										$result22 = $conn->query($sql22);
 										
@@ -548,7 +529,8 @@
 																									
 												//href and image link
 												$link = 'https://landscapearchitect.com/LandscapeProducts/vendor-details.php?number=' . $row['id'];
-												$image = '<img src="https://www.landscapearchitect.com/products/images/' . $row['logo'] . '" alt="" style="object-fit: contain;">';
+												//$link = BASE_URL.'commercial-landscape-companies/' . $row['slug'];
+												$image = '<img src="'.BASE_URL.'products/images/' . $row['logo'] . '" alt="" style="object-fit: contain;">';
 												
 												//profile text adjustments
 												
@@ -567,7 +549,6 @@
 										}										
 									}//end xlist section
 
-
 							}//end entire search while
 								
 					
@@ -579,7 +560,7 @@
             </div><!-- /.full_width -->
 			
            <div class="pagination_strip full_width">
-			    			<?php echo createPageLinksSearch($totalResultsAmount, $page, $limit, $keywordSE); ?> 
+			    			<?php echo createPageLinksSearch($totalResultsAmount, $page, $limit, $keywordSE,BASE_URL); ?> 
             </div>
 						<!-- /.pagination_strip -->
             

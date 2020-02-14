@@ -389,7 +389,7 @@
             </div><!-- /.full_width -->
 			
            <div class="pagination_strip full_width">
-			    			<?php echo createPageLinksSearch($totalProdAmount, $page, $limit, $keywordSE); ?>  
+			    			<?php echo createPageLinksSearch($totalProdAmount, $page, $limit, $keywordSE,BASE_URL); ?>  
             </div>
 						<!-- /.pagination_strip -->
             
