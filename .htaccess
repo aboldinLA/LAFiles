@@ -18,6 +18,7 @@ RewriteEngine on
 RewriteCond %{REQUEST_URI} !\.(?:css|js|jpe?g|gif|png)$ [NC]
 RewriteCond %{REQUEST_URI} !/index.php
 RewriteRule contact-us/ contact-us/index.php [NC,L]
+RewriteCond %{REQUEST_URI} !\.(?:css|js|jpe?g|gif|png)$ [NC]
 RewriteRule about-us/ about-us/index.php [NC,L]
 
 #Vendor Page rules
