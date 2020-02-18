@@ -47,7 +47,7 @@
 
                   <div class="item">
                       <a href="<? echo $articlesArr[0][2] ?>">
-                        <img src=<?php echo BASE_URL; ?>"optimized-images/timthumb.php?src=<?php echo BASE_URL; ?>research/images/<? echo $articlesArr[0][1] ?>.jpg" alt="img" />
+                        <img src="<?php echo BASE_URL; ?>optimized-images/timthumb.php?src=<?php echo BASE_URL; ?>research/images/<? echo $articlesArr[0][1] ?>.jpg" alt="img" />
                       </a>
                         <div class="ns_txt">
                           <a href="<? echo $articlesArr[0][2] ?>"><h3><? echo $articlesArr[0][0] ?></h3></a>

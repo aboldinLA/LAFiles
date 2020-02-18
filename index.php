@@ -1036,353 +1036,221 @@
                     				?>
                     			</div>
                     			<br>
-                    		</a>
                     	</div>
-                        
-                                    <!-- Sub-Sections Business Start -->
-									<div class="col-md-10 col-sm-12 col-xs-12 mob-nopad mob-wide">
-                            <? 
-                                          
-                                          //Business Products Start
-                        
-                                            //include '../includes/connect4.inc';                               
-                                   
-											$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '56' || xlist = '59' || xlist = '60' || xlist = '62' || xlist = '63' || xlist = '65' || xlist = '74' || xlist = '75' || xlist = '76' || xlist = '78' || xlist = '126' || xlist = '612' || xlist = '646' || xlist = '876' || xlist = '891' || xlist = '894' || xlist = '896' || xlist = '908' || xlist = '995' || xlist = '1041' || xlist = '1102' || xlist = '1150' || xlist = '1235' || xlist = '1244' || xlist = '1260' || xlist = '1338' || xlist = '1340' || xlist = '1357' || xlist = '1358' || xlist = '1383') ORDER BY Clicks DESC LIMIT 0,8";
-											$result2333 = $conn->query($sql2333);										
-									
-											while($row = mysqli_fetch_array($result2333)) {
-												
-										  								$string2 = $row['product_name'];
-										  
-																		$string2 = strtolower($string2); //Unwanted:  {UPPERCASE} ; / ? : @ & = + $ , . ! ~ * ' ( )
+                    	<!-- Sub-Sections Business Start -->
+                    	<div class="col-md-10 col-sm-12 col-xs-12 mob-nopad mob-wide">
+                    		<? 
 
-																		$string2 = preg_replace("/[^a-z0-9_\s-]/", "", $string2);  //Strip any unwanted characters
+                    		echo $sub_category_list = build_sub_category_list($conn,28,BASE_URL);
+                    		//Business Products Start
+                    		/*$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '56' || xlist = '59' || xlist = '60' || xlist = '62' || xlist = '63' || xlist = '65' || xlist = '74' || xlist = '75' || xlist = '76' || xlist = '78' || xlist = '126' || xlist = '612' || xlist = '646' || xlist = '876' || xlist = '891' || xlist = '894' || xlist = '896' || xlist = '908' || xlist = '995' || xlist = '1041' || xlist = '1102' || xlist = '1150' || xlist = '1235' || xlist = '1244' || xlist = '1260' || xlist = '1338' || xlist = '1340' || xlist = '1357' || xlist = '1358' || xlist = '1383') ORDER BY Clicks DESC LIMIT 0,8";
+                    		$result2333 = $conn->query($sql2333);
+                    		while($row = mysqli_fetch_array($result2333)) {
+                    			$string2 = $row['product_name'];
+                    			$string2 = strtolower($string2); //Unwanted:  {UPPERCASE} ; / ? : @ & = + $ , . ! ~ * ' ( )
+                    			$string2 = preg_replace("/[^a-z0-9_\s-]/", "", $string2);  //Strip any unwanted characters
+                    			$string2 = preg_replace("/[\s-]+/", " ", $string2); // Clean multiple dashes or whitespaces
+                    			$string2 = preg_replace("/[\s_]/", "-", $string2); //Convert whitespaces and underscore to dash		
+                    			$xlistId = $row['xlist'];
+                    			
+                    			$sql2334 = "SELECT * FROM new_vendor WHERE id='" . $row['vendor_id'] . "'";
+                    			$result2334 = $conn->query($sql2334);
+                    			$row2334 = mysqli_fetch_assoc($result2334);
 
-																		$string2 = preg_replace("/[\s-]+/", " ", $string2); // Clean multiple dashes or whitespaces
+                    			$string =  $row2334['company_name']; // Trim String
+                    			$string = strtolower($string); //Unwanted:  {UPPERCASE} ; / ? : @ & = + $ , . ! ~ * ' ( )
+                    			$string = preg_replace("/[^a-z0-9_\s-]/", "", $string);  //Strip any unwanted characters
+                    			$string = preg_replace("/[\s-]+/", " ", $string); // Clean multiple dashes or whitespaces
+                    			$string = preg_replace("/[\s_]/", "-", $string); //Convert whitespaces and underscore to dash		
 
-																		$string2 = preg_replace("/[\s_]/", "-", $string2); //Convert whitespaces and underscore to dash		
+                    			$rowXlist = 1;
+                    			$sql555 = "SELECT * FROM xlist WHERE id='" . $xlistId . "'";
+                    			$result555 = $conn->query($sql555);
+                    			$row555 = mysqli_fetch_assoc($result555);
+                    			$subCatName = $row555['name'];	
+                    			$string555 =  $row555['name']; // Trim String
+                    			$string555 = strtolower($string555); //Unwanted:  {UPPERCASE} ; / ? : @ & = + $ , . ! ~ * ' ( )
+                    			$string555 = preg_replace("/[^a-z0-9_\s-]/", "", $string555);  //Strip any unwanted characters
+                    			$string555 = preg_replace("/[\s-]+/", " ", $string555); // Clean multiple dashes or whitespaces
+                    			$string555 = preg_replace("/[\s_]/", "-", $string555); //Convert whitespaces and underscore to dash	
+                    			$sub_cate_slug = $row555['slug'];
+                    			$vendor_slug = $row2334['slug'];
+                    			$product_url = BASE_URL.'product/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
 
-
-																	
-																		$xlistId = $row['xlist'];
-																	
-																		$sql2334 = "SELECT * FROM new_vendor WHERE id='" . $row['vendor_id'] . "'";
-																		$result2334 = $conn->query($sql2334);
-																		$row2334 = mysqli_fetch_assoc($result2334);
-																	
-																	
-																		$string =  $row2334['company_name']; // Trim String
-
-																		$string = strtolower($string); //Unwanted:  {UPPERCASE} ; / ? : @ & = + $ , . ! ~ * ' ( )
-
-																		$string = preg_replace("/[^a-z0-9_\s-]/", "", $string);  //Strip any unwanted characters
-
-																		$string = preg_replace("/[\s-]+/", " ", $string); // Clean multiple dashes or whitespaces
-
-																		$string = preg_replace("/[\s_]/", "-", $string); //Convert whitespaces and underscore to dash																		
-																	
-																	
-																	
-																			$rowXlist = 1;
-																	
-																				
-																				$sql555 = "SELECT * FROM xlist WHERE id='" . $xlistId . "'";
-																				$result555 = $conn->query($sql555);
-																				$row555 = mysqli_fetch_assoc($result555);
-																	
-																									$subCatName = $row555['name'];																	
-																	
-																	
-																	
-																	
-																		$string555 =  $row555['name']; // Trim String
-
-																		$string555 = strtolower($string555); //Unwanted:  {UPPERCASE} ; / ? : @ & = + $ , . ! ~ * ' ( )
-
-																		$string555 = preg_replace("/[^a-z0-9_\s-]/", "", $string555);  //Strip any unwanted characters
-
-																		$string555 = preg_replace("/[\s-]+/", " ", $string555); // Clean multiple dashes or whitespaces
-
-																		$string555 = preg_replace("/[\s_]/", "-", $string555); //Convert whitespaces and underscore to dash																			
-                                                
-																		$sub_cate_slug = $row555['slug'];
-																		$vendor_slug = $row2334['slug'];
-																				
-																		$product_url = BASE_URL.'product/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];		
-                                                               
-																		echo '<div class="pc-wrap">
-																						<div class="product-item">
-																								 <div class="elem">
-																												<a href="' .$product_url. '">
-																														<div class="img-cover">
-																																<img src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive lazy" alt=""/>
-																														</div>
-																														<p class="padding12">' . $row['product_name'] . '</p>
-																														 <img src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
-
-																												</a>
-																								</div>	
-																						</div>
-																				</div>';
-                                                
-																								
-																								
-																									
-							
-											} 
+                    			echo '<div class="pc-wrap">
+                    					<div class="product-item">
+                    						<div class="elem">
+                    							<a href="' .$product_url. '">
+                    								<div class="img-cover">
+                    									<img src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive lazy" alt=""/>
+                    								</div>
+                    								<p class="padding12">' . $row['product_name'] . '</p>
+                    								<img src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
+                    							</a>
+                    						</div>
+                    					</div>
+                    				</div>';
+                    		}*/ 
                         
                             ?>                                                         
-			                       
-									</div>
-                                    <!-- Sub-Sections Business End -->
-	                            </div>
-                                <!-- Business End -->
-                    
-                    
-                                <!-- Erosion Start -->
-	                            <div class="isotope-item erosion">
-									<div class="col-md-2 hidden-sm hidden-xs rm-on-mob">
-                                        
-                          <!-- Category Section Start -->              
-                                            <div class="overflowbar">
-                          <?
-                                        
-                                           
-                                            $trending_categories = trending_categories($conn,30, BASE_URL);
-                                   			echo $trending_categories;
-                                        
-                                        
+                        </div>
+                        <!-- Sub-Sections Business End -->
+                    </div>
+                    <!-- Business End -->
+                    <!-- Erosion Start -->
+                    <div class="isotope-item erosion">
+                    	<div class="col-md-2 hidden-sm hidden-xs rm-on-mob">
+                    		<!-- Category Section Start -->
+                    		<div class="overflowbar">
+                    			<?
+                    				$trending_categories = trending_categories($conn,30, BASE_URL);
+                    				echo $trending_categories;
+                    			?>
+                    		</div>
+                    		<br>
+                    		<!-- Category Section End -->
+                    	</div>
+                    	<!-- Sub-Sections Erosion Start -->
+                    	<div class="col-md-10 col-sm-12 col-xs-12 mob-nopad mob-wide">
+                    		<? 
+                    		//Trending Erosion Start
+                    		echo $sub_category_list = build_sub_category_list($conn,30,BASE_URL);
+
+                    		/*$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '149' || xlist = '152' || xlist = '156' || xlist = '157' || xlist = '158' || xlist = '161' || xlist = '164' || xlist = '165' || xlist = '167' || xlist = '615' || xlist = '616' || xlist = '1087' || xlist = '1160' || xlist = '1164') ORDER BY Clicks DESC LIMIT 0,8";
+                    		$result2333 = $conn->query($sql2333);
+
+                    		while($row = mysqli_fetch_array($result2333)) {
+                    			$string2 = $row['product_name'];
+                    			$string2 = strtolower($string2); //Unwanted:  {UPPERCASE} ; / ? : @ & = + $ , . ! ~ * ' ( )
+                    			$string2 = preg_replace("/[^a-z0-9_\s-]/", "", $string2);  //Strip any unwanted characters
+                    			$string2 = preg_replace("/[\s-]+/", " ", $string2); // Clean multiple dashes or whitespaces
+                    			$string2 = preg_replace("/[\s_]/", "-", $string2); //Convert whitespaces and underscore to dash
+                    			$xlistId = $row['xlist'];
+
+                    			$sql2334 = "SELECT * FROM new_vendor WHERE id='" . $row['vendor_id'] . "'";
+                    			$result2334 = $conn->query($sql2334);
+                    			$row2334 = mysqli_fetch_assoc($result2334);
+
+                    			$string =  $row2334['company_name']; // Trim String
+                    			$string = strtolower($string); //Unwanted:  {UPPERCASE} ; / ? : @ & = + $ , . ! ~ * ' ( )
+                    			$string = preg_replace("/[^a-z0-9_\s-]/", "", $string);  //Strip any unwanted characters
+                    			$string = preg_replace("/[\s-]+/", " ", $string); // Clean multiple dashes or whitespaces
+                    			$string = preg_replace("/[\s_]/", "-", $string); //Convert whitespaces and underscore to dash		
+                    			$rowXlist = 1;
+
+                    			$sql555 = "SELECT * FROM xlist WHERE id='" . $xlistId . "'";
+                    			$result555 = $conn->query($sql555);
+                    			$row555 = mysqli_fetch_assoc($result555);
+                    			$subCatName = $row555['name'];
+                    			$string555 =  $row555['name']; // Trim String
+                    			$string555 = strtolower($string555); //Unwanted:  {UPPERCASE} ; / ? : @ & = + $ , . ! ~ * ' ( )
+                    			$string555 = preg_replace("/[^a-z0-9_\s-]/", "", $string555);  //Strip any unwanted characters
+                    			$string555 = preg_replace("/[\s-]+/", " ", $string555); // Clean multiple dashes or whitespaces
+                    			$string555 = preg_replace("/[\s_]/", "-", $string555); //Convert whitespaces and underscore to dash	
+
+                    			$sub_cate_slug = $row555['slug'];
+                    			$vendor_slug = $row2334['slug'];
+                    			$product_url = BASE_URL.'product/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
+                    			echo '<div class="pc-wrap">
+                    					<div class="product-item">
+                    						<div class="elem">
+                    							<a href="' .$product_url . '">
+	                    							<div class="img-cover">
+	                    								<img src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive lazy" alt=""/>
+	                    							</div>
+	                    							<p class="padding12">' . $row['product_name'] . '</p>
+	                    							<img src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
+                    							</a>
+                    						</div>	
+                    					</div>
+                    				</div>';
+                    		} */
+                        
                             ?>
-                                    </div>
-                                       <br>
-                          <!-- Category Section End -->              
-                                        
+                        </div>
+                        <!-- Sub-Sections Erosion End -->
+                    </div>
+                    <!-- Erosion End -->
+                    <!-- Fencing Start -->
+                    <div class="isotope-item fencing">
+                    	<div class="col-md-2 hidden-sm hidden-xs rm-on-mob">
+                    		<!-- Category Section Start -->              
+                    		<div class="overflowbar">
+                    			<?
+                    				$trending_categories = trending_categories($conn,1300, BASE_URL);
+                    				echo $trending_categories;
+                    			?>
+                    		</div>
+                    		<br>
+                    		<!-- Category Section End -->
+                    	</div>
+                    	<!-- Sub-Sections Fencing Start -->
+                    	<div class="col-md-10 col-sm-12 col-xs-12 mob-nopad mob-wide">
+                    	<? 
+                    	//Trending Fencing Start
+                    	echo $sub_category_list = build_sub_category_list($conn,1300,BASE_URL);
+                    	/*$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '101' || xlist = '106' || xlist = '556' || xlist = '797' || xlist = '871' || xlist = '874' || xlist = '875' || xlist = '890' || xlist = '1309' || xlist = '1310' || xlist = '1311' || xlist = '1312' || xlist = '1325' || xlist = '1350' || xlist = '1351') ORDER BY Clicks DESC LIMIT 0,8";
+                    	$result2333 = $conn->query($sql2333);										
+
+                    	while($row = mysqli_fetch_array($result2333)) {
+                    		$string2 = $row['product_name'];
+                			$string2 = strtolower($string2); //Unwanted:  {UPPERCASE} ; / ? : @ & = + $ , . ! ~ * ' ( )
+                			$string2 = preg_replace("/[^a-z0-9_\s-]/", "", $string2);  //Strip any unwanted characters
+                			$string2 = preg_replace("/[\s-]+/", " ", $string2); // Clean multiple dashes or whitespaces
+                			$string2 = preg_replace("/[\s_]/", "-", $string2); //Convert whitespaces and underscore to dash
+                			$xlistId = $row['xlist'];
 																	
-																	 
-																</a>
-									</div>
-                    
-                    
-                                    <!-- Sub-Sections Erosion Start -->
-									<div class="col-md-10 col-sm-12 col-xs-12 mob-nopad mob-wide">
-                            <? 
-                                          
-                                          //Trending Erosion Start
-                        
-                                            //include '../includes/connect4.inc';                               
-                                   
-											$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '149' || xlist = '152' || xlist = '156' || xlist = '157' || xlist = '158' || xlist = '161' || xlist = '164' || xlist = '165' || xlist = '167' || xlist = '615' || xlist = '616' || xlist = '1087' || xlist = '1160' || xlist = '1164') ORDER BY Clicks DESC LIMIT 0,8";
-											$result2333 = $conn->query($sql2333);										
-									
-											while($row = mysqli_fetch_array($result2333)) {
-												
-										  								$string2 = $row['product_name'];
-										  
-																		$string2 = strtolower($string2); //Unwanted:  {UPPERCASE} ; / ? : @ & = + $ , . ! ~ * ' ( )
+							$sql2334 = "SELECT * FROM new_vendor WHERE id='" . $row['vendor_id'] . "'";
+							$result2334 = $conn->query($sql2334);
+							$row2334 = mysqli_fetch_assoc($result2334);
+						
+						
+							$string =  $row2334['company_name']; // Trim String
+							$string = strtolower($string); //Unwanted:  {UPPERCASE} ; / ? : @ & = + $ , . ! ~ * ' ( )
+							$string = preg_replace("/[^a-z0-9_\s-]/", "", $string);  //Strip any unwanted characters
+							$string = preg_replace("/[\s-]+/", " ", $string); // Clean multiple dashes or whitespaces
+							$string = preg_replace("/[\s_]/", "-", $string); //Convert whitespaces and underscore to dash			
 
-																		$string2 = preg_replace("/[^a-z0-9_\s-]/", "", $string2);  //Strip any unwanted characters
-
-																		$string2 = preg_replace("/[\s-]+/", " ", $string2); // Clean multiple dashes or whitespaces
-
-																		$string2 = preg_replace("/[\s_]/", "-", $string2); //Convert whitespaces and underscore to dash		
-
-
-																	
-																			$xlistId = $row['xlist'];
-																	
-																		$sql2334 = "SELECT * FROM new_vendor WHERE id='" . $row['vendor_id'] . "'";
-																		$result2334 = $conn->query($sql2334);
-																		$row2334 = mysqli_fetch_assoc($result2334);
-																	
-																	
-																		$string =  $row2334['company_name']; // Trim String
-
-																		$string = strtolower($string); //Unwanted:  {UPPERCASE} ; / ? : @ & = + $ , . ! ~ * ' ( )
-
-																		$string = preg_replace("/[^a-z0-9_\s-]/", "", $string);  //Strip any unwanted characters
-
-																		$string = preg_replace("/[\s-]+/", " ", $string); // Clean multiple dashes or whitespaces
-
-																		$string = preg_replace("/[\s_]/", "-", $string); //Convert whitespaces and underscore to dash																		
-																	
-																	
-																	
-																			$rowXlist = 1;
+							$rowXlist = 1;
 																	
 																				
-																				$sql555 = "SELECT * FROM xlist WHERE id='" . $xlistId . "'";
-																				$result555 = $conn->query($sql555);
-																				$row555 = mysqli_fetch_assoc($result555);
-																	
-																									$subCatName = $row555['name'];																	
-																	
-																	
-																									
-																	
-																	
-																		$string555 =  $row555['name']; // Trim String
+							$sql555 = "SELECT * FROM xlist WHERE id='" . $xlistId . "'";
+							$result555 = $conn->query($sql555);
+							$row555 = mysqli_fetch_assoc($result555);
 
-																		$string555 = strtolower($string555); //Unwanted:  {UPPERCASE} ; / ? : @ & = + $ , . ! ~ * ' ( )
+							$subCatName = $row555['name'];		
+							$string555 =  $row555['name']; // Trim String
+							$string555 = strtolower($string555); //Unwanted:  {UPPERCASE} ; / ? : @ & = + $ , . ! ~ * ' ( )
+							$string555 = preg_replace("/[^a-z0-9_\s-]/", "", $string555);  //Strip any unwanted characters
+							$string555 = preg_replace("/[\s-]+/", " ", $string555); // Clean multiple dashes or whitespaces
+							$string555 = preg_replace("/[\s_]/", "-", $string555); //Convert whitespaces and underscore to dash		
+							$sub_cate_slug = $row555['slug'];
+							$vendor_slug = $row2334['slug'];
 
-																		$string555 = preg_replace("/[^a-z0-9_\s-]/", "", $string555);  //Strip any unwanted characters
-
-																		$string555 = preg_replace("/[\s-]+/", " ", $string555); // Clean multiple dashes or whitespaces
-
-																		$string555 = preg_replace("/[\s_]/", "-", $string555); //Convert whitespaces and underscore to dash																			
-                                                
-																		$sub_cate_slug = $row555['slug'];
-																		$vendor_slug = $row2334['slug'];
-																				
-																		$product_url = BASE_URL.'product/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
-                                                               
-																		echo '<div class="pc-wrap">
-																						<div class="product-item">
-																								 <div class="elem">
-																												<a href="' .$product_url . '">
-																														<div class="img-cover">
-																																<img src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive lazy" alt=""/>
-																														</div>
-																														<p class="padding12">' . $row['product_name'] . '</p>
-																														 <img src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
-
-																												</a>
-																								</div>	
-																						</div>
-																				</div>';
-											} 
-                        
-                            ?>                                                         
-			                       
+							$product_url = BASE_URL.'product/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
+							echo '<div class="pc-wrap">
+									<div class="product-item">
+										<div class="elem">
+											<a href="' .$product_url . '">
+												<div class="img-cover">
+													<img src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive lazy" alt=""/>
+												</div>
+												<p class="padding12">' . $row['product_name'] . '</p>
+												<img src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
+											</a>
+										</div>	
 									</div>
-                                    <!-- Sub-Sections Erosion End -->
-                    
-                    
-										
-	                            </div>
-                                <!-- Erosion End -->
-                
-                                <!-- Fencing Start -->
-	                            <div class="isotope-item fencing">
-									<div class="col-md-2 hidden-sm hidden-xs rm-on-mob">
-                          <!-- Category Section Start -->              
-                                            <div class="overflowbar">
-                          <?
-                                        
-                                            
-                                            $trending_categories = trending_categories($conn,1300, BASE_URL);
-                                   			echo $trending_categories;
-                                        
-                                        
-                            ?>
-                                    </div>
-                                       <br>
-                          <!-- Category Section End -->             
-																	
-																	 
-																</a>
-									</div>
-                
-                
-                                    <!-- Sub-Sections Fencing Start -->
-									<div class="col-md-10 col-sm-12 col-xs-12 mob-nopad mob-wide">
-                            <? 
-                                          
-                                          //Trending Fencing Start
-                        
-                                            //include '../includes/connect4.inc';                               
-                                   
-											$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '101' || xlist = '106' || xlist = '556' || xlist = '797' || xlist = '871' || xlist = '874' || xlist = '875' || xlist = '890' || xlist = '1309' || xlist = '1310' || xlist = '1311' || xlist = '1312' || xlist = '1325' || xlist = '1350' || xlist = '1351') ORDER BY Clicks DESC LIMIT 0,8";
-											$result2333 = $conn->query($sql2333);										
-									
-											while($row = mysqli_fetch_array($result2333)) {
-												
-										  								$string2 = $row['product_name'];
-										  
-																		$string2 = strtolower($string2); //Unwanted:  {UPPERCASE} ; / ? : @ & = + $ , . ! ~ * ' ( )
-
-																		$string2 = preg_replace("/[^a-z0-9_\s-]/", "", $string2);  //Strip any unwanted characters
-
-																		$string2 = preg_replace("/[\s-]+/", " ", $string2); // Clean multiple dashes or whitespaces
-
-																		$string2 = preg_replace("/[\s_]/", "-", $string2); //Convert whitespaces and underscore to dash		
-
-
-																	
-																			$xlistId = $row['xlist'];
-																	
-																		$sql2334 = "SELECT * FROM new_vendor WHERE id='" . $row['vendor_id'] . "'";
-																		$result2334 = $conn->query($sql2334);
-																		$row2334 = mysqli_fetch_assoc($result2334);
-																	
-																	
-																		$string =  $row2334['company_name']; // Trim String
-
-																		$string = strtolower($string); //Unwanted:  {UPPERCASE} ; / ? : @ & = + $ , . ! ~ * ' ( )
-
-																		$string = preg_replace("/[^a-z0-9_\s-]/", "", $string);  //Strip any unwanted characters
-
-																		$string = preg_replace("/[\s-]+/", " ", $string); // Clean multiple dashes or whitespaces
-
-																		$string = preg_replace("/[\s_]/", "-", $string); //Convert whitespaces and underscore to dash																		
-																	
-																	
-																	
-																			$rowXlist = 1;
-																	
-																				
-																				$sql555 = "SELECT * FROM xlist WHERE id='" . $xlistId . "'";
-																				$result555 = $conn->query($sql555);
-																				$row555 = mysqli_fetch_assoc($result555);
-																	
-																									$subCatName = $row555['name'];																	
-																	
-																	
-																									
-																	
-																	
-																		$string555 =  $row555['name']; // Trim String
-
-																		$string555 = strtolower($string555); //Unwanted:  {UPPERCASE} ; / ? : @ & = + $ , . ! ~ * ' ( )
-
-																		$string555 = preg_replace("/[^a-z0-9_\s-]/", "", $string555);  //Strip any unwanted characters
-
-																		$string555 = preg_replace("/[\s-]+/", " ", $string555); // Clean multiple dashes or whitespaces
-
-																		$string555 = preg_replace("/[\s_]/", "-", $string555); //Convert whitespaces and underscore to dash																			
-                                                
-																		$sub_cate_slug = $row555['slug'];
-																		$vendor_slug = $row2334['slug'];
-																				
-																		$product_url = BASE_URL.'product/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
-                                                               
-																		echo '<div class="pc-wrap">
-																						<div class="product-item">
-																								 <div class="elem">
-																												<a href="' .$product_url . '">
-																														<div class="img-cover">
-																																<img src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive lazy" alt=""/>
-																														</div>
-																														<p class="padding12">' . $row['product_name'] . '</p>
-																														 <img src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
-
-																												</a>
-																								</div>	
-																						</div>
-																				</div>';
-											} 
-                        
-                            ?>                                                         
-			                       
-									</div>
-                                    <!-- Sub-Sections Fencing End -->
-	                            </div>
-                                <!-- Fencing end -->
-                
-
-                                <!-- Irrigation Start -->
-	                            <div class="isotope-item irrigation">
-									<div class="col-md-2 hidden-sm hidden-xs rm-on-mob">
-                          <!-- Category Section Start -->              
+								</div>';
+						}*/
+						?>                                                         
+					</div>
+					<!-- Sub-Sections Fencing End -->
+				</div>
+				<!-- Fencing end -->
+				<!-- Irrigation Start -->
+				<div class="isotope-item irrigation">
+					<div class="col-md-2 hidden-sm hidden-xs rm-on-mob">
+						<!-- Category Section Start -->              
                                             <div class="overflowbar">
                           <?
                                         
@@ -1408,8 +1276,8 @@
                                           //Trending Irrigation Start
                         
                                             //include '../includes/connect4.inc';                               
-                                   
-											$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '170' || xlist = '171' || xlist = '172' || xlist = '177' || xlist = '178' || xlist = '180' || xlist = '183' || xlist = '186' || xlist = '187' || xlist = '188' || xlist = '191' || xlist = '194' || xlist = '195' || xlist = '197' || xlist = '198' || xlist = '199' || xlist = '598' || xlist = '606' || xlist = '725' || xlist = '734' || xlist = '779' || xlist = '1343' || xlist = '1345' || xlist = '1346') ORDER BY Clicks DESC LIMIT 0,8";
+                                   		echo $sub_category_list = build_sub_category_list($conn,1139,BASE_URL);
+											/*$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '170' || xlist = '171' || xlist = '172' || xlist = '177' || xlist = '178' || xlist = '180' || xlist = '183' || xlist = '186' || xlist = '187' || xlist = '188' || xlist = '191' || xlist = '194' || xlist = '195' || xlist = '197' || xlist = '198' || xlist = '199' || xlist = '598' || xlist = '606' || xlist = '725' || xlist = '734' || xlist = '779' || xlist = '1343' || xlist = '1345' || xlist = '1346') ORDER BY Clicks DESC LIMIT 0,8";
 											$result2333 = $conn->query($sql2333);										
 									
 											while($row = mysqli_fetch_array($result2333)) {
@@ -1486,7 +1354,7 @@
 																								</div>	
 																						</div>
 																				</div>';
-											} 
+											} */
                         
                             ?>                                                         
 			                       
@@ -1526,10 +1394,10 @@
                             <? 
                                           
                                           //Trending Lighting Start
-                        
+                        				echo $sub_category_list = build_sub_category_list($conn,32,BASE_URL);
                                             //include '../includes/connect4.inc';                               
                                    
-											$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '203' || xlist = '204' || xlist = '205' || xlist = '208' || xlist = '209' || xlist = '212' || xlist = '212' || xlist = '216' || xlist = '218' || xlist = '219' || xlist = '221' || xlist = '222' || xlist = '223' || xlist = '224' || xlist = '225' || xlist = '226' || xlist = '227' || xlist = '617' || xlist = '650' || xlist = '667' || xlist = '680' || xlist = '720' || xlist = '763' || xlist = '766' || xlist = '821' || xlist = '823' || xlist = '935' || xlist = '948' || xlist = '953' || xlist = '989' || xlist = '1179' || xlist = '1194' || xlist = '1304' || xlist = '1337') ORDER BY Clicks DESC LIMIT 0,8";
+											/*$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '203' || xlist = '204' || xlist = '205' || xlist = '208' || xlist = '209' || xlist = '212' || xlist = '212' || xlist = '216' || xlist = '218' || xlist = '219' || xlist = '221' || xlist = '222' || xlist = '223' || xlist = '224' || xlist = '225' || xlist = '226' || xlist = '227' || xlist = '617' || xlist = '650' || xlist = '667' || xlist = '680' || xlist = '720' || xlist = '763' || xlist = '766' || xlist = '821' || xlist = '823' || xlist = '935' || xlist = '948' || xlist = '953' || xlist = '989' || xlist = '1179' || xlist = '1194' || xlist = '1304' || xlist = '1337') ORDER BY Clicks DESC LIMIT 0,8";
 											$result2333 = $conn->query($sql2333);										
 									
 											while($row = mysqli_fetch_array($result2333)) {
@@ -1607,7 +1475,7 @@
 																								</div>	
 																						</div>
 																				</div>';
-											} 
+											} */
                         
                             ?>                                                         
 			                       
@@ -1648,8 +1516,8 @@
                                           //Trending Outdoor Start
                         
                                             //include '../includes/connect4.inc';                               
-                                   
-											$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '85' || xlist = '91' || xlist = '110' || xlist = '113' || xlist = '134' || xlist = '139' || xlist = '244' || xlist = '758' || xlist = '818' || xlist = '853' || xlist = '907' || xlist = '1025' || xlist = '1032' || xlist = '1186' || xlist = '1187' || xlist = '1188' || xlist = '1207' || xlist = '1224' || xlist = '1239' || xlist = '667' || xlist = '680' || xlist = '720' || xlist = '763' || xlist = '766' || xlist = '821' || xlist = '823' || xlist = '935' || xlist = '948' || xlist = '953' || xlist = '989' || xlist = '1179' || xlist = '1313' || xlist = '1388') ORDER BY Clicks DESC LIMIT 0,8";
+                                   			echo $sub_category_list = build_sub_category_list($conn,1214,BASE_URL);
+											/*$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '85' || xlist = '91' || xlist = '110' || xlist = '113' || xlist = '134' || xlist = '139' || xlist = '244' || xlist = '758' || xlist = '818' || xlist = '853' || xlist = '907' || xlist = '1025' || xlist = '1032' || xlist = '1186' || xlist = '1187' || xlist = '1188' || xlist = '1207' || xlist = '1224' || xlist = '1239' || xlist = '667' || xlist = '680' || xlist = '720' || xlist = '763' || xlist = '766' || xlist = '821' || xlist = '823' || xlist = '935' || xlist = '948' || xlist = '953' || xlist = '989' || xlist = '1179' || xlist = '1313' || xlist = '1388') ORDER BY Clicks DESC LIMIT 0,8";
 											$result2333 = $conn->query($sql2333);										
 									
 											while($row = mysqli_fetch_array($result2333)) {
@@ -1728,7 +1596,7 @@
 																				</div>';
                                                 
                                                 
-											} 
+											} */
                         
                             ?>                                                         
 			                       
@@ -1768,8 +1636,8 @@
                                           //Trending Recreation Start
                         
                                             //include '../includes/connect4.inc';                               
-                                   
-											$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '229' || xlist = '230' || xlist = '231' || xlist = '235' || xlist = '237' || xlist = '240' || xlist = '242' || xlist = '246' || xlist = '248' || xlist = '250' || xlist = '253' || xlist = '256' || xlist = '257' || xlist = '258' || xlist = '259' || xlist = '260' || xlist = '261' || xlist = '262' || xlist = '264' || xlist = '265' || xlist = '611' || xlist = '619' || xlist = '620' || xlist = '621' || xlist = '622' || xlist = '659' || xlist = '702' || xlist = '745' || xlist = '810' || xlist = '820' || xlist = '879' || xlist = '902' || xlist = '1097' || xlist = '1184' || xlist = '1240' || xlist = '1261' || xlist = '1320' || xlist = '1332' || xlist = '1333' || xlist = '1354' || xlist = '1355' || xlist = '1362') ORDER BY Clicks DESC LIMIT 0,8";
+                                   			echo $sub_category_list = build_sub_category_list($conn,33,BASE_URL);
+											/*$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '229' || xlist = '230' || xlist = '231' || xlist = '235' || xlist = '237' || xlist = '240' || xlist = '242' || xlist = '246' || xlist = '248' || xlist = '250' || xlist = '253' || xlist = '256' || xlist = '257' || xlist = '258' || xlist = '259' || xlist = '260' || xlist = '261' || xlist = '262' || xlist = '264' || xlist = '265' || xlist = '611' || xlist = '619' || xlist = '620' || xlist = '621' || xlist = '622' || xlist = '659' || xlist = '702' || xlist = '745' || xlist = '810' || xlist = '820' || xlist = '879' || xlist = '902' || xlist = '1097' || xlist = '1184' || xlist = '1240' || xlist = '1261' || xlist = '1320' || xlist = '1332' || xlist = '1333' || xlist = '1354' || xlist = '1355' || xlist = '1362') ORDER BY Clicks DESC LIMIT 0,8";
 											$result2333 = $conn->query($sql2333);										
 									
 											while($row = mysqli_fetch_array($result2333)) {
@@ -1848,7 +1716,7 @@
 																						</div>
 																				</div>';
                                                 
-											} 
+											} */
                         
                             ?>                                                         
 			                       
@@ -1888,8 +1756,8 @@
                                           //Trending PMBR Start
                         
                                             //include '../includes/connect4.inc';                               
-                                   
-											$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '329' || xlist = '330' || xlist = '331' || xlist = '334' || xlist = '335' || xlist = '336' || xlist = '338' || xlist = '339' || xlist = '340' || xlist = '341' || xlist = '343' || xlist = '344' || xlist = '347' || xlist = '348' || xlist = '353' || xlist = '565' || xlist = '575' || xlist = '640' || xlist = '657' || xlist = '660' || xlist = '685' || xlist = '743' || xlist = '756' || xlist = '827' || xlist = '832' || xlist = '833' || xlist = '851' || xlist = '944' || xlist = '950' || xlist = '961' || xlist = '974' || xlist = '1040' || xlist = '1226' || xlist = '1305' || xlist = '1318' || xlist = '1353' || xlist = '1363' || xlist = '1368' || xlist = '1386') ORDER BY Clicks DESC LIMIT 0,8";
+                                   		echo $sub_category_list = build_sub_category_list($conn,38,BASE_URL);
+											/*$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '329' || xlist = '330' || xlist = '331' || xlist = '334' || xlist = '335' || xlist = '336' || xlist = '338' || xlist = '339' || xlist = '340' || xlist = '341' || xlist = '343' || xlist = '344' || xlist = '347' || xlist = '348' || xlist = '353' || xlist = '565' || xlist = '575' || xlist = '640' || xlist = '657' || xlist = '660' || xlist = '685' || xlist = '743' || xlist = '756' || xlist = '827' || xlist = '832' || xlist = '833' || xlist = '851' || xlist = '944' || xlist = '950' || xlist = '961' || xlist = '974' || xlist = '1040' || xlist = '1226' || xlist = '1305' || xlist = '1318' || xlist = '1353' || xlist = '1363' || xlist = '1368' || xlist = '1386') ORDER BY Clicks DESC LIMIT 0,8";
 											$result2333 = $conn->query($sql2333);										
 									
 											while($row = mysqli_fetch_array($result2333)) {
@@ -1969,7 +1837,7 @@
 																				</div>';
                                                 
                                                 
-											} 
+											}*/ 
                         
                             ?>                                                         
 			                       
@@ -2007,10 +1875,10 @@
                             <? 
                                           
                                           //Trending Pest Start
-                        
+                        				echo $sub_category_list = build_sub_category_list($conn,1212,BASE_URL);
                                             //include '../includes/connect4.inc';                               
                                    
-											$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '322' || xlist = '323' || xlist = '324' || xlist = '325' || xlist = '783' || xlist = '916' || xlist = '933' || xlist = '972') ORDER BY Clicks DESC LIMIT 0,8";
+											/*$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '322' || xlist = '323' || xlist = '324' || xlist = '325' || xlist = '783' || xlist = '916' || xlist = '933' || xlist = '972') ORDER BY Clicks DESC LIMIT 0,8";
 											$result2333 = $conn->query($sql2333);										
 									
 											while($row = mysqli_fetch_array($result2333)) {
@@ -2089,7 +1957,7 @@
 																						</div>
 																				</div>';
                                                 
-											} 
+											}*/ 
                         
                             ?>                                                         
 			                       
@@ -2128,10 +1996,10 @@
                             <? 
                                           
                                           //Trending Plant Start
-                        
+                        				echo $sub_category_list = build_sub_category_list($conn,1002,BASE_URL);
                                             //include '../includes/connect4.inc';                               
                                    
-											$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '288' || xlist = '289' || xlist = '297' || xlist = '300' || xlist = '308' || xlist = '311' || xlist = '312' || xlist = '313' || xlist = '314' || xlist = '317' || xlist = '318' || xlist = '319' || xlist = '420' || xlist = '562' || xlist = '652' || xlist = '661' || xlist = '665' || xlist = '802' || xlist = '805' || xlist = '806' || xlist = '813' || xlist = '852' || xlist = '1015' || xlist = '1029' || xlist = '1171' || xlist = '1229' || xlist = '1308' || xlist = '1348' || xlist = '1369' || xlist = '1370' || xlist = '1393') ORDER BY Clicks DESC LIMIT 0,8";
+											/*$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '288' || xlist = '289' || xlist = '297' || xlist = '300' || xlist = '308' || xlist = '311' || xlist = '312' || xlist = '313' || xlist = '314' || xlist = '317' || xlist = '318' || xlist = '319' || xlist = '420' || xlist = '562' || xlist = '652' || xlist = '661' || xlist = '665' || xlist = '802' || xlist = '805' || xlist = '806' || xlist = '813' || xlist = '852' || xlist = '1015' || xlist = '1029' || xlist = '1171' || xlist = '1229' || xlist = '1308' || xlist = '1348' || xlist = '1369' || xlist = '1370' || xlist = '1393') ORDER BY Clicks DESC LIMIT 0,8";
 											$result2333 = $conn->query($sql2333);										
 									
 											while($row = mysqli_fetch_array($result2333)) {
@@ -2210,7 +2078,7 @@
 																						</div>
 																				</div>';
                                                 
-											} 
+											}*/ 
                         
                             ?>                                                         
 			                       
@@ -2250,8 +2118,8 @@
                                           //Trending Pool Start
                         
                                             //include '../includes/connect4.inc';                               
-                                   
-											$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '457' || xlist = '638' || xlist = '647' || xlist = '1253' || xlist = '1326' || xlist = '1328') ORDER BY Clicks DESC LIMIT 0,8";
+                                   		echo $sub_category_list = build_sub_category_list($conn,1394,BASE_URL);
+											/*$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '457' || xlist = '638' || xlist = '647' || xlist = '1253' || xlist = '1326' || xlist = '1328') ORDER BY Clicks DESC LIMIT 0,8";
 											$result2333 = $conn->query($sql2333);										
 									
 											while($row = mysqli_fetch_array($result2333)) {
@@ -2329,7 +2197,7 @@
 																				</div>';
                                                 
                                                 
-											} 
+											} */
                         
                             ?>                                                         
 			                       
@@ -2369,8 +2237,8 @@
                                           //Trending Site Start
                         
                                             //include '../includes/connect4.inc';                               
-                                   
-											$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '87' || xlist = '90' || xlist = '93' || xlist = '95' || xlist = '97' || xlist = '98' || xlist = '104' || xlist = '107' || xlist = '109' || xlist = '111' || xlist = '117' || xlist = '119' || xlist = '120' || xlist = '121' || xlist = '123' || xlist = '131' || xlist = '132' || xlist = '135' || xlist = '137' || xlist = '145' || xlist = '581' || xlist = '595' || xlist = '689' || xlist = '719' || xlist = '789' || xlist = '838' || xlist = '1034' || xlist = '1230' || xlist = '1231' || xlist = '1238' || xlist = '1356' || xlist = '1366') ORDER BY Clicks DESC LIMIT 0,8";
+                                   	echo $sub_category_list = build_sub_category_list($conn,29,BASE_URL);
+											/*$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '87' || xlist = '90' || xlist = '93' || xlist = '95' || xlist = '97' || xlist = '98' || xlist = '104' || xlist = '107' || xlist = '109' || xlist = '111' || xlist = '117' || xlist = '119' || xlist = '120' || xlist = '121' || xlist = '123' || xlist = '131' || xlist = '132' || xlist = '135' || xlist = '137' || xlist = '145' || xlist = '581' || xlist = '595' || xlist = '689' || xlist = '719' || xlist = '789' || xlist = '838' || xlist = '1034' || xlist = '1230' || xlist = '1231' || xlist = '1238' || xlist = '1356' || xlist = '1366') ORDER BY Clicks DESC LIMIT 0,8";
 											$result2333 = $conn->query($sql2333);										
 									
 											while($row = mysqli_fetch_array($result2333)) {
@@ -2449,7 +2317,7 @@
 																				</div>';
                                                 
                                                 
-											} 
+											} */
                         
                             ?>                                                         
 			                       
@@ -2488,8 +2356,8 @@
                                           //Trending Site Furn Start
                         
                                             //include '../includes/connect4.inc';                               
-                                   
-											$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '114' || xlist = '127' || xlist = '128' || xlist = '129' || xlist = '130' || xlist = '141' || xlist = '618' || xlist = '697' || xlist = '740' || xlist = '1243' || xlist = '1329') ORDER BY Clicks DESC LIMIT 0,8";
+                                   		echo $sub_category_list = build_sub_category_list($conn,1215,BASE_URL);
+											/*$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '114' || xlist = '127' || xlist = '128' || xlist = '129' || xlist = '130' || xlist = '141' || xlist = '618' || xlist = '697' || xlist = '740' || xlist = '1243' || xlist = '1329') ORDER BY Clicks DESC LIMIT 0,8";
 											$result2333 = $conn->query($sql2333);										
 									
 											while($row = mysqli_fetch_array($result2333)) {
@@ -2569,7 +2437,7 @@
 																				</div>';
                                                 
                                                 
-											} 
+											} */
                         
                             ?>                                                         
 			                       
@@ -2607,10 +2475,10 @@
                             <? 
                                           
                                           //Trending Sculpture Start
-                        
+                        				echo $sub_category_list = build_sub_category_list($conn,1301,BASE_URL);
                                             //include '../includes/connect4.inc';                               
                                    
-											$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '144' || xlist = '784' || xlist = '839' || xlist = '901' || xlist = '1330' || xlist = '1331') ORDER BY Clicks DESC LIMIT 0,8";
+											/*$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '144' || xlist = '784' || xlist = '839' || xlist = '901' || xlist = '1330' || xlist = '1331') ORDER BY Clicks DESC LIMIT 0,8";
 											$result2333 = $conn->query($sql2333);										
 									
 											while($row = mysqli_fetch_array($result2333)) {
@@ -2690,7 +2558,7 @@
 																				</div>';
                                                 
                                                 
-											} 
+											} */
                         
                             ?>                                                         
 			                       
@@ -2728,10 +2596,11 @@
                             <? 
                                           
                                           //Trending Water Features Start
+                            		echo $sub_category_list = build_sub_category_list($conn,41,BASE_URL);
                         
                                             //include '../includes/connect4.inc';                               
                                    
-											$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '427' || xlist = '428' || xlist = '453' || xlist = '459' || xlist = '687' || xlist = '848' || xlist = '1100' || xlist = '1196' || xlist = '1263' || xlist = '1315' || xlist = '1316' || xlist = '1317') ORDER BY Clicks DESC LIMIT 0,8";
+											/*$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '427' || xlist = '428' || xlist = '453' || xlist = '459' || xlist = '687' || xlist = '848' || xlist = '1100' || xlist = '1196' || xlist = '1263' || xlist = '1315' || xlist = '1316' || xlist = '1317') ORDER BY Clicks DESC LIMIT 0,8";
 											$result2333 = $conn->query($sql2333);										
 									
 											while($row = mysqli_fetch_array($result2333)) {
@@ -2811,7 +2680,7 @@
 																				</div>';
                                                 
                                                 
-											} 
+											} */
                         
                             ?>                                                         
 			                       
@@ -2850,8 +2719,10 @@
                                           //Trending Water Management Start
                         
                                             //include '../includes/connect4.inc';                               
+
+                            				echo $sub_category_list = build_sub_category_list($conn,1213,BASE_URL);
                                    
-											$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '175' || xlist = '179' || xlist = '181' || xlist = '424' || xlist = '425' || xlist = '435' || xlist = '440' || xlist = '442' || xlist = '443' || xlist = '449' || xlist = '971' || xlist = '978' || xlist = '979' || xlist = '994' || xlist = '1201' || xlist = '1372') ORDER BY Clicks DESC LIMIT 0,8";
+											/*$sql2333 = "SELECT * FROM vendor_product WHERE Clicks > '0' AND (xlist = '175' || xlist = '179' || xlist = '181' || xlist = '424' || xlist = '425' || xlist = '435' || xlist = '440' || xlist = '442' || xlist = '443' || xlist = '449' || xlist = '971' || xlist = '978' || xlist = '979' || xlist = '994' || xlist = '1201' || xlist = '1372') ORDER BY Clicks DESC LIMIT 0,8";
 											$result2333 = $conn->query($sql2333);										
 									
 											while($row = mysqli_fetch_array($result2333)) {
@@ -2931,7 +2802,7 @@
 																				</div>';
                                                 
                                                 
-											} 
+											} */
                         
                             ?>                                                         
 			                       
