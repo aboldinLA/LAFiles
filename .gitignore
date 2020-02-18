@@ -125,3 +125,4 @@ error_log
 /.well-known
 /http
 products/images/
+/private

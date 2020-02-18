@@ -35,7 +35,7 @@ RewriteRule ^(([A-Za-z0-9]+[-]+[A-Za-z0-9]+)+)$  /LandscapeProducts/seo.php?catP
 
 # Sub Category Pages rules
 ##########creating issues in loading images##############
-RewriteCond %{REQUEST_URI} !\.(?:css|js|jpe?g|gif|png)$ [NC]
+RewriteCond %{REQUEST_URI} !\.(?:css|js|jpe?g|gif|png|html)$ [NC]
 RewriteCond %{REQUEST_URI} !/timthumb.php
 RewriteCond %{REQUEST_URI} !/index.php
 RewriteRule ^(([A-Za-z0-9]+[-]+[A-Za-z0-9]+)+[/]+([A-Za-z0-9]+(.*)+)+)$  /LandscapeProducts/seo-sub-cat.php?catParma=$1    [NC,L,QSA]
