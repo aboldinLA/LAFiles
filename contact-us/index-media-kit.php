@@ -1,19 +1,19 @@
 <?php session_start() ?>
 
 <? 
+  include 'modules/configuration.inc';
+  include 'modules/db.php';
  
-	include '../../includes/la-common-top.php';
+	include $rootInclude.'la-common-top.php';
 
   $pageId = "other";
 
-	include '../../includes/la-common-header.inc'; 
+	include $rootInclude.'la-common-header.inc'; 
 
  
 
 
 if($_SESSION['loggedIn']){
-  
-  include '../../includes/connect4.inc'; 
   
   $sql = "SELECT * FROM subscribe WHERE id ='" . $_SESSION['user'] . "'";
   $result = $conn->query($sql);
@@ -128,7 +128,7 @@ Just in the last month the product search engine has received over 50k page view
               
               <div class="col-md-6 col-md-offset-1 col-sm-12 col-xs-12 contact-col">
                 
-                <img style="border:1px solid black;"  src="https://landscapearchitect.com/advertising/LA-2020-Media-Group-DIgital-Media-Kit-EMAIL.jpg" width="400" alt=""/>
+                <img style="border:1px solid black;"  src="<?php echo BASE_URL; ?>advertising/LA-2020-Media-Group-DIgital-Media-Kit-EMAIL.jpg" width="400" alt=""/>
 <div class="row">
             
 
@@ -177,7 +177,7 @@ Just in the last month the product search engine has received over 50k page view
 	</section>		
            
 			
- <? include '../../includes/la-common-footer-inner.inc'; ?>
+ <? include $rootInclude.'la-common-footer-inner.inc'; ?>
 
 
 <script>
