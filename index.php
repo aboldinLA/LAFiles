@@ -985,41 +985,21 @@
                                                         <article class="home-post " style="background: white; margin-bottom:20px;">
                                                             <div class="post-thumb">
                                                                 <a href="' . $mainLink . '">
-                                                                    <img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'research/images/' . $mainImage . '.jpg" class="img-responsive lazy" alt="">
+                                                                    <img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'research/images/' . $mainImage . '.jpg" src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'research/images/' . $mainImage . '.jpg" class="img-responsive lazy" alt="">
                                                                     <div class="overlay-rmore fa fa-link"></div>
                                                                 </a>
-                                                            </div>
-
-																																		<div class="post-excerpt" style="padding: 10px 10px 15px 10px;">
+                                                            </div>">
                                                                     <!-- <h4 class="padding10">META DATA</h4> -->
                                                                     <h3 class="elipsed-line-cut">' . $titleStory . '</h3>
-                                                                    <p class="relatedStoriesTitle">Related Stories:</p>
-																																			<ul>
-																																				<li>' . $newStory . '</li>
-																																				<li>' . $newStory2 . '</li>
-																																				<li>' . $newStory3 . '</li>
-																																			<ul>
-																																		
+                                                                    <p class="relatedStoriesTitle">Related Stories:</p>														
                                                             </div>
                                                         </article>
                                                     </div>';
                                                 
                                                 
 											} 
-											
-								
-                        
-                        
-  
                         
                             ?>                                         
-                                    
-                                    
-                                    
-										
-                                    
-                                    
-                                    
                                     
 									
 								</div>
@@ -1413,20 +1393,20 @@
 																				
 																		$product_url = BASE_URL.'product/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];		
                                                                
-																		echo '<div class="pc-wrap">
-																						<div class="product-item">
-																								 <div class="elem">
-																												<a href="' .$product_url. '">
-																														<div class="img-cover">
-																																<img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive lazy" alt=""/>
-																														</div>
-																														<p class="padding12">' . $row['product_name'] . '</p>
-																														 <img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
-
-																												</a>
-																								</div>	
+										echo '<div class="pc-wrap">
+														<div class="product-item">
+																 <div class="elem">
+																				<a href="' .$product_url. '">
+																						<div class="img-cover">
+																								<img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive lazy" alt="" src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '"  />
 																						</div>
-																				</div>';
+																						<p class="padding12">' . $row['product_name'] . '</p>
+																						 <img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
+
+																				</a>
+																</div>	
+														</div>
+												</div>';
                                                 
 																								
 																								
@@ -1538,20 +1518,20 @@
 																				
 																		$product_url = BASE_URL.'product/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
                                                                
-																		echo '<div class="pc-wrap">
-																						<div class="product-item">
-																								 <div class="elem">
-																												<a href="' .$product_url . '">
-																														<div class="img-cover">
-																																<img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive lazy" alt=""/>
-																														</div>
-																														<p class="padding12">' . $row['product_name'] . '</p>
-																														 <img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
+											echo '<div class="pc-wrap">
+															<div class="product-item">
+																	 <div class="elem">
+																					<a href="' .$product_url . '">
+																							<div class="img-cover">
+																									<img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive lazy" alt="" src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" />
+																							</div>
+																							<p class="padding12">' . $row['product_name'] . '</p>
+																							 <img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
 
-																												</a>
-																								</div>	
-																						</div>
-																				</div>';
+																					</a>
+																	</div>	
+															</div>
+													</div>';
 											} 
                         
                             ?>                                                         
@@ -1658,20 +1638,20 @@
 																				
 																		$product_url = BASE_URL.'product/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
                                                                
-																		echo '<div class="pc-wrap">
-																						<div class="product-item">
-																								 <div class="elem">
-																												<a href="' .$product_url . '">
-																														<div class="img-cover">
-																																<img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive lazy" alt=""/>
-																														</div>
-																														<p class="padding12">' . $row['product_name'] . '</p>
-																														 <img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
+									echo '<div class="pc-wrap">
+													<div class="product-item">
+															 <div class="elem">
+																			<a href="' .$product_url . '">
+																					<div class="img-cover">
+																							<img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive lazy" alt="" src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" />
+																					</div>
+																					<p class="padding12">' . $row['product_name'] . '</p>
+																					 <img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
 
-																												</a>
-																								</div>	
-																						</div>
-																				</div>';
+																			</a>
+															</div>	
+													</div>
+											</div>';
 											} 
                         
                             ?>                                                         
@@ -1775,20 +1755,20 @@
 																				
 																		$product_url = BASE_URL.'product/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
                                                                
-																		echo '<div class="pc-wrap">
-																						<div class="product-item">
-																								 <div class="elem">
-																												<a href="' . $product_url . '">
-																														<div class="img-cover">
-																																<img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive lazy" alt=""/>
-																														</div>
-																														<p class="padding12">' . $row['product_name'] . '</p>
-																														 <img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
+									echo '<div class="pc-wrap">
+													<div class="product-item">
+															 <div class="elem">
+																			<a href="' . $product_url . '">
+																					<div class="img-cover">
+																							<img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive lazy" alt="" src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" />
+																					</div>
+																					<p class="padding12">' . $row['product_name'] . '</p>
+																					 <img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
 
-																												</a>
-																								</div>	
-																						</div>
-																				</div>';
+																			</a>
+															</div>	
+													</div>
+											</div>';
 											} 
                         
                             ?>                                                         
@@ -1896,20 +1876,20 @@
 																		$product_url = BASE_URL.'product/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
 																	
                                                                
-																		echo '<div class="pc-wrap">
-																						<div class="product-item">
-																								 <div class="elem">
-																												<a href="' .$product_url. '">
-																														<div class="img-cover">
-																																<img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive lazy" alt=""/>
-																														</div>
-																														<p class="padding12">' . $row['product_name'] . '</p>
-																														 <img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
+											echo '<div class="pc-wrap">
+															<div class="product-item">
+																	 <div class="elem">
+																					<a href="' .$product_url. '">
+																							<div class="img-cover">
+																									<img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive lazy" alt="" src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" />
+																							</div>
+																							<p class="padding12">' . $row['product_name'] . '</p>
+																							 <img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
 
-																												</a>
-																								</div>	
-																						</div>
-																				</div>';
+																					</a>
+																	</div>	
+															</div>
+													</div>';
 											} 
                         
                             ?>                                                         
@@ -2015,20 +1995,20 @@
 																		$product_url = BASE_URL.'product/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
 																	
                                                                
-																		echo '<div class="pc-wrap">
-																						<div class="product-item">
-																								 <div class="elem">
-																												<a href="' . $product_url . '">
-																														<div class="img-cover">
-																																<img data-src="'.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive lazy" alt=""/>
-																														</div>
-																														<p class="padding12">' . $row['product_name'] . '</p>
-																														 <img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
-
-																												</a>
-																								</div>	
+										echo '<div class="pc-wrap">
+														<div class="product-item">
+																 <div class="elem">
+																				<a href="' . $product_url . '">
+																						<div class="img-cover">
+																								<img data-src="'.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive lazy" alt="" src="'.BASE_URL.'products/images/' . $row['photo'] . '" />
 																						</div>
-																				</div>';
+																						<p class="padding12">' . $row['product_name'] . '</p>
+																						 <img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
+
+																				</a>
+																</div>	
+														</div>
+												</div>';
                                                 
                                                 
 											} 
@@ -2136,20 +2116,20 @@
 																				
 																		$product_url = BASE_URL.'product/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
                                                                
-																		echo '<div class="pc-wrap">
-																						<div class="product-item">
-																								 <div class="elem">
-																												<a href="' .$product_url. '">
-																														<div class="img-cover">
-																																<img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive lazy" alt=""/>
-																														</div>
-																														<p class="padding12">' . $row['product_name'] . '</p>
-																														 <img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
+								echo '<div class="pc-wrap">
+												<div class="product-item">
+														 <div class="elem">
+																		<a href="' .$product_url. '">
+																				<div class="img-cover">
+																						<img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive lazy" alt="" src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '"  />
+																				</div>
+																				<p class="padding12">' . $row['product_name'] . '</p>
+																				 <img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
 
-																												</a>
-																								</div>	
-																						</div>
-																				</div>';
+																		</a>
+														</div>	
+												</div>
+										</div>';
                                                 
 											} 
                         
@@ -2256,21 +2236,21 @@
 																		$product_url = BASE_URL.'product/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
 																	
                                                                
-																		echo '<div class="pc-wrap">
-																						<div class="product-item">
-																								 <div class="elem">
-																												<a href="' .$product_url. '">
-																														<div class="img-cover">
-																																<img data-src="'.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive lazy" alt=""/>
-																														</div>
-																														<p class="padding12">' . $row['product_name'] . '</p>
-																														 <img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
+													echo '<div class="pc-wrap">
+																	<div class="product-item">
+																			 <div class="elem">
+																							<a href="' .$product_url. '">
+																									<div class="img-cover">
+																											<img data-src="'.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive lazy" alt="" src="'.BASE_URL.'products/images/' . $row['photo'] . '" />
+																									</div>
+																									<p class="padding12">' . $row['product_name'] . '</p>
+																									 <img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
 
-																												</a>
-																								</div>	
-																						</div>
-																				</div>';
-                                                
+																							</a>
+																			</div>	
+																	</div>
+															</div>';
+                            
                                                 
 											} 
                         
@@ -2377,20 +2357,20 @@
 																				
 																		$product_url = BASE_URL.'product/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
                                                                
-																		echo '<div class="pc-wrap">
-																						<div class="product-item">
-																								 <div class="elem">
-																												<a href="' .$product_url. '">
-																														<div class="img-cover">
-																																<img data-src="'.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive lazy" alt=""/>
-																														</div>
-																														<p class="padding12">' . $row['product_name'] . '</p>
-																														 <img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
+											echo '<div class="pc-wrap">
+															<div class="product-item">
+																	 <div class="elem">
+																					<a href="' .$product_url. '">
+																							<div class="img-cover">
+																									<img data-src="'.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive lazy" alt="" src="'.BASE_URL.'products/images/' . $row['photo'] . '" />
+																							</div>
+																							<p class="padding12">' . $row['product_name'] . '</p>
+																							 <img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
 
-																												</a>
-																								</div>	
-																						</div>
-																				</div>';
+																					</a>
+																	</div>	
+															</div>
+													</div>';
                                                 
 											} 
                         
@@ -2498,20 +2478,20 @@
 																				
 																		$product_url = BASE_URL.'product/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
                                                                
-																		echo '<div class="pc-wrap">
-																						<div class="product-item">
-																								 <div class="elem">
-																												<a href="' .$product_url. '">
-																														<div class="img-cover">
-																																<img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive lazy" alt=""/>
-																														</div>
-																														<p class="padding12">' . $row['product_name'] . '</p>
-																														 <img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
-
-																												</a>
-																								</div>	
+										echo '<div class="pc-wrap">
+														<div class="product-item">
+																 <div class="elem">
+																				<a href="' .$product_url. '">
+																						<div class="img-cover">
+																								<img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive lazy" alt="" src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '"/>
 																						</div>
-																				</div>';
+																						<p class="padding12">' . $row['product_name'] . '</p>
+																						 <img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
+
+																				</a>
+																</div>	
+														</div>
+												</div>';
                                                 
 											} 
                         
@@ -2616,20 +2596,20 @@
 																		$product_url = BASE_URL.'product/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
 																	
                                                                
-																		echo '<div class="pc-wrap">
-																						<div class="product-item">
-																								 <div class="elem">
-																												<a href="' .$product_url. '">
-																														<div class="img-cover">
-																																<img src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive data-lazy" alt=""/>
-																														</div>
-																														<p class="padding12">' . $row['product_name'] . '</p>
-																														 <img src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo data-lazy" />
+												echo '<div class="pc-wrap">
+																<div class="product-item">
+																		 <div class="elem">
+																						<a href="' .$product_url. '">
+																								<div class="img-cover">
+																										<img src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive data-lazy" alt=""/>
+																								</div>
+																								<p class="padding12">' . $row['product_name'] . '</p>
+																								 <img src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo data-lazy" />
 
-																												</a>
-																								</div>	
-																						</div>
-																				</div>';
+																						</a>
+																		</div>	
+																</div>
+														</div>';
                                                 
                                                 
 											} 
@@ -2736,21 +2716,21 @@
 																		$product_url = BASE_URL.'product/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
 																	
                                                                
-																		echo '<div class="pc-wrap">
-																						<div class="product-item">
-																								 <div class="elem">
-																												<a href="' .$product_url. '">
-																														<div class="img-cover">
-																																<img src="'.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive data-lazy" alt=""/>
-																														</div>
-																														<p class="padding12">' . $row['product_name'] . '</p>
-																														 <img src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo data-lazy" />
+											echo '<div class="pc-wrap">
+															<div class="product-item">
+																	 <div class="elem">
+																					<a href="' .$product_url. '">
+																							<div class="img-cover">
+																									<img src="'.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive data-lazy" alt=""/>
+																							</div>
+																							<p class="padding12">' . $row['product_name'] . '</p>
+																							 <img src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo data-lazy" />
 
-																												</a>
-																								</div>	
-																						</div>
-																				</div>';
-                                                
+																					</a>
+																	</div>	
+															</div>
+													</div>';
+                    
                                                 
 											} 
                         
@@ -2856,21 +2836,21 @@
 																		$product_url = BASE_URL.'product/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
 																	
                                                                
-																		echo '<div class="pc-wrap">
-																						<div class="product-item">
-																								 <div class="elem">
-																												<a href="' .$product_url. '">
-																														<div class="img-cover">
-																																<img src="'.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive data-lazy" alt=""/>
-																														</div>
-																														<p class="padding12">' . $row['product_name'] . '</p>
-																														 <img src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo data-lazy" />
+						echo '<div class="pc-wrap">
+										<div class="product-item">
+												 <div class="elem">
+																<a href="' .$product_url. '">
+																		<div class="img-cover">
+																				<img src="'.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive data-lazy" alt=""/>
+																		</div>
+																		<p class="padding12">' . $row['product_name'] . '</p>
+																		 <img src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo data-lazy" />
 
-																												</a>
-																								</div>	
-																						</div>
-																				</div>';
-                                                
+																</a>
+												</div>	
+										</div>
+								</div>';
+
                                                 
 											} 
                         
@@ -2977,21 +2957,21 @@
 																				
 																		$product_url = BASE_URL.'product/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
                                                                
-																		echo '<div class="pc-wrap">
-																						<div class="product-item">
-																								 <div class="elem">
-																												<a href="' .$product_url. '">
-																														<div class="img-cover">
-																																<img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive lazy" alt=""/>
-																														</div>
-																														<p class="padding12">' . $row['product_name'] . '</p>
-																														 <img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
+							echo '<div class="pc-wrap">
+											<div class="product-item">
+													 <div class="elem">
+																	<a href="' .$product_url. '">
+																			<div class="img-cover">
+																					<img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive lazy" alt="" src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '"/>
+																			</div>
+																			<p class="padding12">' . $row['product_name'] . '</p>
+																			 <img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
 
-																												</a>
-																								</div>	
-																						</div>
-																				</div>';
-                                                
+																	</a>
+													</div>	
+											</div>
+									</div>';
+    
                                                 
 											} 
                         
@@ -3098,20 +3078,20 @@
 																		$product_url = BASE_URL.'product/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
 																	
                                                                
-																		echo '<div class="pc-wrap">
-																						<div class="product-item">
-																								 <div class="elem">
-																												<a href="' .$product_url. '">
-																														<div class="img-cover">
-																																<img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive lazy" alt=""/>
-																														</div>
-																														<p class="padding12">' . $row['product_name'] . '</p>
-																														 <img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
+											echo '<div class="pc-wrap">
+															<div class="product-item">
+																	 <div class="elem">
+																					<a href="' .$product_url. '">
+																							<div class="img-cover">
+																									<img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive lazy" alt="" src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" />
+																							</div>
+																							<p class="padding12">' . $row['product_name'] . '</p>
+																							 <img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
 
-																												</a>
-																								</div>	
-																						</div>
-																				</div>';
+																					</a>
+																	</div>	
+															</div>
+													</div>';
                                                 
                                                 
 											} 
@@ -3218,20 +3198,20 @@
 																		$product_url = BASE_URL.'product/'.$sub_cate_slug.'/'.$vendor_slug.'/'.$row['slug'];
 																	
                                                                
-																		echo '<div class="pc-wrap">
-																						<div class="product-item">
-																								 <div class="elem">
-																												<a href="' .$product_url. '">
-																														<div class="img-cover">
-																																<img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive lazy" alt=""/>
-																														</div>
-																														<p class="padding12">' . $row['product_name'] . '</p>
-																														 <img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
+									echo '<div class="pc-wrap">
+													<div class="product-item">
+															 <div class="elem">
+																			<a href="' .$product_url. '">
+																					<div class="img-cover">
+																							<img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" class="img-responsive lazy" alt="" src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/' . $row['photo'] . '" />
+																					</div>
+																					<p class="padding12">' . $row['product_name'] . '</p>
+																					 <img data-src="'.BASE_URL.'optimized-images/timthumb.php?src='.BASE_URL.'products/images/'. $row2334['logo'] . '" class="productLogo lazy" />
 
-																												</a>
-																								</div>	
-																						</div>
-																				</div>';
+																			</a>
+															</div>	
+													</div>
+											</div>';
                                                 
                                                 
 											} 
