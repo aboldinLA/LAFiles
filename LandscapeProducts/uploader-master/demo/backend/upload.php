@@ -1,6 +1,6 @@
 <?php
-include '../../../modules/configuration.inc';
-include '../../../modules/db.php';
+include '../../../../modules/configuration.inc';
+include '../../../../modules/db.php';
 include BASE_URL.'LandscapeProducts/uploader-master/demo/backend/source.php';
 
 $prodNum2 = $prodNum;
