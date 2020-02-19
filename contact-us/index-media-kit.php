@@ -2,8 +2,8 @@
 
 
 <? 
-  include 'modules/configuration.inc';
-  include 'modules/db.php';
+  include '../modules/configuration.inc';
+  include '../modules/db.php';
  
 	include $rootInclude.'la-common-top.php';
 
