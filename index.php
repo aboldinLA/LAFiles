@@ -1,7 +1,7 @@
 <?php session_start(); ?>
 <? 
-	error_reporting(E_ALL & ~E_NOTICE);
-	ini_set('display_errors',true);
+	//error_reporting(E_ALL & ~E_NOTICE);
+	//ini_set('display_errors',true);
 
 	include 'modules/configuration.inc';
 	include 'modules/db.php';
