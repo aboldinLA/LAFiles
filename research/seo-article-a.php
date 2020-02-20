@@ -55,7 +55,8 @@
 <div class="row">
 	<div class="widthmaker">
 	<div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
-    <div class="width_adjust full_width">	
+    <div class="width_adjust full_width">
+
     	
                   <!-- Story Start -->
         
@@ -86,10 +87,10 @@
 										$number_id = 0;			
 									
 										// Article Section
-							
+											$article_title = '';
 											while($row = mysqli_fetch_array($result)) {
 											    //echo "<pre>";print_r($row);die;
-												
+													$article_title = $row['title'];
 													// Click-Through Section Start
 													$viewsNew = $row['Clicks'] + 1;
 
@@ -180,7 +181,7 @@
                                             
 													} ?>	
         
-       
+       <input type="hidden" name="current_title" value="<?php echo $article_title; ?>" id="current_title">
     </div><!-- /.width_adjust -->    
 	</div><!-- ./col-lg-8 -->
     
@@ -302,7 +303,8 @@
 
 <input type="hidden" name="allarticlesid" class="hidden-input-field" value="<?php echo $number_id; ?>,<?php echo $send_responce_id; ?>">
 <input type="hidden" name="nextarticleid" class="hidden-input-field" value="<?php echo $send_responce_id; ?>">    
-<input type="hidden" name="articleidnumber" class="hidden-input-field" value="3">    
+<input type="hidden" name="articleidnumber" class="hidden-input-field" value="3">   
+
 
 
 
@@ -399,6 +401,9 @@
        
 						$(document).ready(function() {
 
+							var current_title = $("#current_title").val();
+							$(document).prop('title', current_title+" | Landscape Architect");
+
 							$(function () {
 								var currentHash = "#initial_hash"
 								$(document).scroll(function () {
@@ -428,7 +433,7 @@
 								}
 							});
 
-						});<br>
+						});
 						
 						</script>
 						<script src="js/main.js"></script>
@@ -466,12 +471,20 @@
 															// show the response
 															$(".loading-text").html('');
 															if( data != '' ){ 
+																	var num = '';
+																	num = $("input[name='articleidnumber']").val();
+																	num = parseInt(num)+1;
 																	$("input[name='nextarticleid']").remove();
 																	$("input[name='articleidnumber']").remove();
 																	$("input[name='allarticlesid']").remove();
 																	$(".hidden-input-field").remove();
 																	$('#articles-pagination-ajax').append(data);
-																	 processing = false;
+																	var new_slug = $("#active-"+num).val();
+																	var new_title = $("#active-title-"+num).val();
+																	var url = "<?php echo BASE_URL; ?>articles/"+new_slug;
+																	window.history.pushState("", new_title, url);
+																	$(document).prop('title', new_title+" | Landscape Architect");
+																	processing = false;
 															}
 
 													})

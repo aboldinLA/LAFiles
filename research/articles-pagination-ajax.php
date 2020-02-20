@@ -61,10 +61,14 @@ if( isset( $_POST['art_id'] ) && !empty( $_POST['art_id'] ) ):
                                     $result = $conn->query($sql);
 
                                     
-
+                                        $article_slug = '';
+                                        $article_title = '';
                                 // banner rotating section
 
                                     while($row = mysqli_fetch_array($result)) {
+                                        $article_slug = $row['slug'];
+                                        $article_title = $row['title'];
+
                                         //echo "<pre>";print_r($row);die;
                                         $keywordart = $row["keywords"];
                                         
@@ -138,7 +142,7 @@ if( isset( $_POST['art_id'] ) && !empty( $_POST['art_id'] ) ):
                                         
                                     
                                     } ?>    
-                        
+                                    
                        
                             </div><!-- /.width_adjust -->    
                         </div><!-- ./col-lg-8 -->
@@ -222,7 +226,7 @@ if( isset( $_POST['art_id'] ) && !empty( $_POST['art_id'] ) ):
                                     
                                 }
 
-                                $link = BASE_URL.'articles/'.$row['slug'];
+                                $link = BASE_URL.'articles/'.$row['slug'];                                
                                 
                 				echo '<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 for_small">
                                     <a href="'.$link.'" class="reelbox img_fit">
@@ -249,6 +253,8 @@ if( isset( $_POST['art_id'] ) && !empty( $_POST['art_id'] ) ):
         <input type="hidden" name="allarticlesid" class="hidden-input-field" value="<?php echo $allarticlesid; ?>,<?php echo $send_responce_id; ?>">
         <input type="hidden" name="nextarticleid" class="hidden-input-field" value="<?php echo $send_responce_id; ?>">    
         <input type="hidden" name="articleidnumber" class="hidden-input-field" value="<?php echo $data_id_new; ?>">    
+        <input type="hidden" name="article_slug" id="active-<?php echo $data_id_2; ?>" class="hidden-input-field" value="<?php echo $article_slug; ?>">    
+        <input type="hidden" name="article_title" id="active-title-<?php echo $data_id_2; ?>" class="hidden-input-field" value="<?php echo $article_title; ?>">    
 <?php
         $return_data = ob_get_contents();
         ob_get_clean();
