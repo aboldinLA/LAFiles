@@ -40,6 +40,11 @@
 	$vendorNum_get = $rowM['id'];
 	
 	function getProductCategoryDetails($cate_id, $conn){
+		if(strpos($cate_id, ',') > 0){
+			$cate_id_arr = explode(',', $cate_id);
+			$cate_id_rand = array_rand($cate_id_arr,1);
+			$cate_id = $cate_id_arr[$cate_id_rand];
+		}
 		$sqlM = "SELECT c1.id, c1.slug, c2.slug as `parent_slug` FROM xlist c1 left outer join xlist c2 on c1.idParent = c2.id WHERE c1.id = $cate_id";
 		$resultM = $conn->query($sqlM);  
 		$rowM = mysqli_fetch_array($resultM);
@@ -304,7 +309,7 @@
 												$sql = "select * from vendor_product where vendor_id='" . $vendorNum_get . "' AND series_product = '0' LIMIT " . $limit . " OFFSET " . $limit * ($page - 1);
 												$sqlTotalProds = "select * from vendor_product where vendor_id='" . $vendorNum_get . "' AND series_product = '0'";
 											}      
-                                
+                                		
 											$result = $conn->query($sql);	
 											$totalProdResults = $conn->query($sqlTotalProds);
 											$totalProductCount = mysqli_num_rows($totalProdResults);	
@@ -326,7 +331,7 @@
 												$cateArray = getProductCategoryDetails($xlist,$conn);
 												$vendor_slug = getProductVendorDetails($vendor_id,$conn);
 
-												//echo "<pre>"; print_r($cateArray);die;
+												//echo "<pre>".$prodCount. "---"; print_r($cateArray);die;
 
 
 												$productName = $row['product_name'];
