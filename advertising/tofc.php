@@ -2,7 +2,9 @@
 	
 	$pageId = 'resources';
 	
-	include '../modules/configuration.inc';  
+	include '../modules/configuration.inc'; 
+	include '../modules/db.php'; 
+
 	include $rootInclude.'la-common-top-inner.php';
 
 	include $rootInclude.'la-common-header-inner.inc'; 
