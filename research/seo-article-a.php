@@ -401,8 +401,8 @@
        
 						$(document).ready(function() {
 
-							var current_title = $("#current_title").val();
-							$(document).prop('title', current_title+" | Landscape Architect");
+							/*var current_title = $("#current_title").val();
+							$(document).prop('title', current_title+" | Landscape Architect");*/
 
 							$(function () {
 								var currentHash = "#initial_hash"
@@ -479,11 +479,13 @@
 																	$("input[name='allarticlesid']").remove();
 																	$(".hidden-input-field").remove();
 																	$('#articles-pagination-ajax').append(data);
-																	var new_slug = $("#active-"+num).val();
+																	
+																	/*var new_slug = $("#active-"+num).val();
 																	var new_title = $("#active-title-"+num).val();
-																	var url = "<?php echo BASE_URL; ?>articles/"+new_slug;
+																	var url = "<?php //echo BASE_URL; ?>articles/"+new_slug;
 																	window.history.pushState("", new_title, url);
 																	$(document).prop('title', new_title+" | Landscape Architect");
+																	*/
 																	processing = false;
 															}
 
