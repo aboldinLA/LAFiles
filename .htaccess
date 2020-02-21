@@ -360,7 +360,7 @@ RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ 
 </IfModule>
 
 <filesMatch ".(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf)$">
-#    Header set Cache-Control "max-age=0, nochache"
+    Header set Cache-Control "max-age=0, nochache"
 </filesMatch>
 
 # php -- BEGIN cPanel-generated handler, do not edit
