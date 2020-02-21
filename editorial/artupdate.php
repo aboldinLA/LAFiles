@@ -26,45 +26,39 @@
 	}*/
 		// Check connection
 	
+	$string =  trim($title); // 
 
+	$string = strtolower($string); //Unwanted:  {UPPERCASE} ; / ? : @ & = + $ , . ! ~ * ' ( )
+
+	$string = preg_replace("/[^a-z0-9_\s-]/", "", $string);  //Strip any unwanted characters
+
+	$string = preg_replace("/[\s-]+/", " ", $string); // Clean multiple dashes or whitespaces
+
+	$string = preg_replace("/[\s_]/", "-", $string);
+
+
+	$check = "SELECT id,slug FROM editorial WHERE slug = '".$string."'";
+	$resultCheck = $conn->query($check);
+	$checkCount = mysqli_num_rows($resultCheck);		
+	
+	if($checkCount > 0){
+		$resultCheck -> free_result();
+		$last_id_sql = "SELECT id from editorial ORDER BY id DESC LIMIT 1";
+		$last_id_res = $conn->query($last_id_sql);
+		while($row = mysqli_fetch_array($last_id_res)){
+			$next_id = $row['id'] + 1;
+		}
+		$slug = $string.'-'.$next_id;
+	}else{
+		$slug = $string;
+	}		
 	// Attempt insert query execution
 	$sql = "INSERT INTO editorial (title, subtitle, ed_text, author, issue, source, keywords, subject, slug)
-			VALUES ('" . $title . "', '" . $subtitle . "', '" . $transString2. "', '" . $author . "', '" . $date . "', 'other', '" . $keywords . "', '" . $subject . "', '')";
+			VALUES ('" . $title . "', '" . $subtitle . "', '" . $transString2. "', '" . $author . "', '" . $date . "', 'other', '" . $keywords . "', '" . $subject . "', '".$slug."')";
 	
 	if ($conn->query($sql) === TRUE) {
-	    $last_id = $conn->insert_id;
-
-	    $title =  trim($title); // 
-
-		$title = strtolower($title); //Unwanted:  {UPPERCASE} ; / ? : @ & = + $ , . ! ~ * ' ( )
-
-		$title = preg_replace("/[^a-z0-9_\s-]/", "", $title);  //Strip any unwanted characters
-
-		$title = preg_replace("/[\s-]+/", " ", $title); // Clean multiple dashes or whitespaces
-
-		$title = preg_replace("/[\s_]/", "-", $title);
-
-
-		$check = "SELECT id,slug FROM editorial WHERE slug = '".$title."'";
-		$resultCheck = $conn->query($check);
-		$checkCount = mysqli_num_rows($resultCheck);		
-		
-		if($checkCount > 0){
-			
-			$resultCheck -> free_result();
-			$title = $title.'-'.$last_id;
-			$duplicateCount++;
-		}		
-
-		$sql = "UPDATE editorial SET slug='".preg_replace('/\s+/', ' ', $title)."' WHERE id=" . $last_id . "";
-		if ($conn->query($sql) === TRUE) {
-            echo $string."</br>";
-            echo "Story Uploaded";
-        } else {
-            echo "Error updating record: " . $conn->error;
-        } 
-		
-
+	    
+	    echo "Story Uploaded";
 	} else {
 	    echo "Error: " . $sql . "<br>" . $conn->error;
 	}
@@ -76,9 +70,6 @@
 <html>
 
 <body>
-	
 	<h3>story entered.</h3>
-
-
 </body>
 </html>
