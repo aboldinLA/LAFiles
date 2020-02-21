@@ -126,3 +126,4 @@ error_log
 /http
 products/images/
 /private
+/.idea
