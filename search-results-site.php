@@ -374,7 +374,7 @@
 
 											//image and href links
 											$imageLink = BASE_URL.'research/images/' . $row['id'] . '.jpg';
-											$link = BASE_URL.$row['slug']. '#article1';
+											$link = BASE_URL.'articles/'.$row['slug']. '#article1';
 											
 											//author
 											if(strlen($row['author']) > 1){
