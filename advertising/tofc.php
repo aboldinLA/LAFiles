@@ -46,7 +46,7 @@
       <div class="container">
       <div class="row">
 				 <div class="landingPageHeader col-lg-12">
-           <h3>Advertising Table of Contentss</h3>
+           <h3>Advertising Table of Contentsss</h3>
      	 	</div> 
 		  
 		  	<div class="landingPageHeader col-lg-12">
