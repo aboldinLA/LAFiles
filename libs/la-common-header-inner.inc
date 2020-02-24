@@ -40,7 +40,7 @@ if($pageId == 'resources'){
 
 
         <!-- PRELOADER -->
-        <div id="loader"></div>
+        <!-- <div id="loader"></div> -->
 
         <div class="body">
             <!-- HEADER -->
